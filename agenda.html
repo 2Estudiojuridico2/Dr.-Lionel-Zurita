@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - Estudio Jurídico Dr. Zurita</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <a class="navbar-brand" href="index.html">Inicio</a>
+    </nav>
+
+    <div class="container" style="padding-top: 100px;">
+        <h1 class="text-center mb-4">Agenda de Turnos</h1>
+        <form action="https://formsubmit.co/Dr.Zuritalionel@gmail.com" method="POST" class="bg-light p-4 rounded shadow">
+            <div class="form-group">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" name="Nombre" class="form-control" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono / WhatsApp</label>
+                <input type="tel" name="Teléfono" class="form-control" id="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha deseada</label>
+                <input type="date" name="Fecha" class="form-control" id="fecha" required>
+            </div>
+            <div class="form-group">
+                <label for="comentario">Motivo de la consulta</label>
+                <textarea name="Consulta" class="form-control" id="comentario" rows="4" required></textarea>
+            </div>
+            <input type="hidden" name="_next" value="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/gracias.html">
+            <input type="hidden" name="_captcha" value="false">
+            <button type="submit" class="btn btn-primary btn-block">Solicitar Turno</button>
+        </form>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-4 mt-5">
+        <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light">Dr.Zuritalionel@gmail.com</a> |
+        WhatsApp: <a href="https://wa.me/541137722140" class="text-light">+54 11 3772 2140</a></p>
+    </footer>
+</body>
+</html>
