@@ -17,7 +17,12 @@ body {
     margin-bottom: 20px;
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
-
+h1, h3 {
+    font-family: 'Playfair Display', serif;
+}
+ul img {
+    flex-shrink: 0;
+}
 section#areas a.btn {
     margin-bottom: 1rem;
     padding: 1rem;
