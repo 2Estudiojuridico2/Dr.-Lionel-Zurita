@@ -4,23 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Derecho Laboral - Estudio Jurídico Dr. Lionel Nicolás Zurita</title>
+  <!-- SEO -->
+  <meta name="description" content="Especialistas en Derecho Laboral: contratos, condiciones de trabajo, despidos, protección de derechos y negociación colectiva. Consultá al Dr. Zurita.">
+  <meta name="keywords" content="Derecho Laboral, abogado laboralista, contrato de trabajo, despido, derechos laborales, sindicato, indemnización">
+  <meta name="author" content="Dr. Lionel Nicolás Zurita">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/justicia.png" type="image/png">
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- AOS Animaciones -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
   <link href="../css/estilos.css" rel="stylesheet">
+  <style>
+    main {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 2.5rem 2rem 2rem 2rem;
+    }
+    .laboral-img {
+      width: 90px;
+      margin-bottom: 18px;
+      filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.35));
+    }
+    @media (max-width: 600px) {
+      main { padding: 1rem; }
+    }
+  </style>
 </head>
-<body>
+<body style="background:#f5f7fa">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-red bg-primary fixed-top">
-    <a class="navbar-brand" href="../index.html">Estudio Jurídico Zurita</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+<!-- Navbar accesible -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" role="navigation" aria-label="Barra de navegación principal">
+    <a class="navbar-brand" href="../index.html" aria-label="Inicio - Estudio Jurídico Zurita">Estudio Jurídico Zurita</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="familia.html">Familia</a></li>
-            <li class="nav-item"><a class="nav-link" href="laboral.html">Laboral</a></li>
+            <li class="nav-item active"><a class="nav-link" href="laboral.html" aria-current="page">Laboral</a></li>
             <li class="nav-item"><a class="nav-link" href="sucesiones.html">Sucesiones</a></li>
             <li class="nav-item"><a class="nav-link" href="../agenda.html">Turnos</a></li>
         </ul>
@@ -28,50 +55,51 @@
 </nav>
 
 <!-- Sección principal -->
-<section class="container my-5 pt-5">
+<main class="my-5 pt-5" tabindex="0">
+  <div class="text-center mb-4">
+    <img src="../images/laboral.png" alt="Ilustración derecho laboral" class="laboral-img" loading="lazy">
+  </div>
   <h1 class="text-primary mb-4" data-aos="fade-right">Derecho Laboral</h1>
   <p data-aos="fade-up" data-aos-delay="100">
     El derecho laboral, también conocido como derecho del trabajo, es un conjunto de normas jurídicas que regulan las relaciones entre empleadores y trabajadores. Su objetivo principal es proteger al trabajador y garantizar un equilibrio en la relación laboral.
   </p>
 
-  <h3 class="text-secondary mt-4" data-aos="fade-up" data-aos-delay="200">¿Qué abarca el derecho laboral?</h3>
-
+  <h2 class="text-secondary mt-4" data-aos="fade-up" data-aos-delay="200">¿Qué abarca el derecho laboral?</h2>
   <ul class="list-unstyled row">
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="fade-right" data-aos-delay="300">
-      <img src="../icons/contrato.svg" alt="Contrato" width="30" class="mt-2 mr-2">
+      <img src="../icons/contrato.svg" alt="Contrato de trabajo" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Contrato de trabajo:</strong> Condiciones laborales, remuneración, jornada y vacaciones.</div>
     </li>
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="fade-left" data-aos-delay="400">
-      <img src="../icons/condiciones.svg" alt="Condiciones" width="30" class="mt-2 mr-2">
+      <img src="../icons/condiciones.svg" alt="Condiciones laborales" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Condiciones de trabajo:</strong> Seguridad, higiene, salario mínimo, beneficios.</div>
     </li>
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="fade-right" data-aos-delay="500">
-      <img src="../icons/final.svg" alt="Fin" width="30" class="mt-2 mr-2">
+      <img src="../icons/final.svg" alt="Fin de la relación laboral" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Terminación:</strong> Causas de despido, procedimientos e indemnizaciones.</div>
     </li>
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="fade-left" data-aos-delay="600">
-      <img src="../icons/proteccion.svg" alt="Protección" width="30" class="mt-2 mr-2">
+      <img src="../icons/proteccion.svg" alt="Protección de derechos" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Protección de derechos:</strong> Contra discriminación, acoso y ambientes nocivos.</div>
     </li>
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="fade-right" data-aos-delay="700">
-      <img src="../icons/negociacion.svg" alt="Negociación" width="30" class="mt-2 mr-2">
+      <img src="../icons/negociacion.svg" alt="Negociación colectiva" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Negociación colectiva:</strong> Acuerdos entre sindicatos y empleadores.</div>
     </li>
   </ul>
 
-  <h3 class="text-secondary mt-5" data-aos="fade-up" data-aos-delay="800">Principios fundamentales del derecho laboral:</h3>
-
+  <h2 class="text-secondary mt-5" data-aos="fade-up" data-aos-delay="800">Principios fundamentales del derecho laboral</h2>
   <ul class="list-unstyled row">
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="zoom-in" data-aos-delay="900">
-      <img src="../icons/proteccion.svg" alt="Protección trabajador" width="30" class="mt-2 mr-2">
+      <img src="../icons/proteccion.svg" alt="Protección trabajador" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Protección al trabajador:</strong> Defensa de la parte más vulnerable.</div>
     </li>
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="zoom-in" data-aos-delay="1000">
-      <img src="../icons/ley.svg" alt="Irrenunciabilidad" width="30" class="mt-2 mr-2">
+      <img src="../icons/ley.svg" alt="Irrenunciabilidad" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Irrenunciabilidad:</strong> Los derechos laborales no pueden ser cedidos.</div>
     </li>
     <li class="col-md-6 d-flex align-items-start mb-3" data-aos="zoom-in" data-aos-delay="1100">
-      <img src="../icons/favor.svg" alt="Favorabilidad" width="30" class="mt-2 mr-2">
+      <img src="../icons/favor.svg" alt="Principio de favorabilidad" width="30" class="mt-2 mr-2" loading="lazy">
       <div><strong>Principio de favorabilidad:</strong> Siempre se aplica la norma más favorable al trabajador.</div>
     </li>
   </ul>
@@ -79,18 +107,56 @@
   <p class="mt-4">
     En resumen, el derecho laboral es una rama fundamental del derecho que busca equilibrar la relación entre empleadores y trabajadores, garantizando condiciones de trabajo justas, equitativas y respetuosas de la dignidad humana.
   </p>
-</section>
+
+  <!-- Preguntas frecuentes -->
+  <section class="mt-5">
+    <h2 class="text-secondary mb-3">Preguntas frecuentes</h2>
+    <div>
+      <strong>¿Puedo reclamar si me despiden sin causa?</strong>
+      <p>Sí, la ley garantiza una indemnización y defensa ante despidos sin justa causa.</p>
+    </div>
+    <div>
+      <strong>¿Qué hago ante trabajo en negro?</strong>
+      <p>Podés reclamar la regularización y tus derechos laborales a través de la vía judicial.</p>
+    </div>
+  </section>
+
+  <!-- Links útiles -->
+  <section class="mt-5">
+    <h2 class="text-secondary mb-3">Links útiles</h2>
+    <ul>
+      <li><a href="https://www.argentina.gob.ar/trabajo" target="_blank" rel="noopener">Ministerio de Trabajo, Empleo y Seguridad Social</a></li>
+      <li><a href="https://www.afip.gob.ar/empleados/" target="_blank" rel="noopener">AFIP - Información para trabajadores</a></li>
+      <li><a href="https://www.srt.gob.ar/" target="_blank" rel="noopener">Superintendencia de Riesgos del Trabajo</a></li>
+      <li><a href="https://www.bna.com.ar/Personas/ConveniosColectivos" target="_blank" rel="noopener">Convenios Colectivos de Trabajo (BNA)</a></li>
+      <li><a href="https://www.argentina.gob.ar/justicia/derechofacil/leysimple/ley-de-contrato-de-trabajo-n-20744" target="_blank" rel="noopener">Ley de Contrato de Trabajo (Ley 20.744)</a></li>
+    </ul>
+  </section>
+
+  <!-- Llamada a la acción -->
+  <div class="mt-5 text-center">
+    <a href="../agenda.html" class="btn btn-primary btn-lg" aria-label="Solicitar turno para consulta de Derecho Laboral">Solicitar Turno</a>
+  </div>
+</main>
 
 <!-- Footer -->
 <footer class="bg-dark text-light text-center py-4 mt-5">
-    <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light">Dr.Zuritalionel@gmail.com</a> |
-    WhatsApp: <a href="https://wa.me/541137722140" class="text-light">+54 11 3772 2140</a></p>
+    <p>
+      Contacto: 
+      <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
+      WhatsApp: 
+      <a href="https://wa.me/541137722140" class="text-light" aria-label="Enviar mensaje por WhatsApp">+54 11 3772 2140</a>
+    </p>
 </footer>
 
 <!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init();
+  // Accesibilidad: foco en main al cargar
+  document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('main').focus();
+  });
 </script>
 <script src="../js/frases.js"></script>
 </body>
