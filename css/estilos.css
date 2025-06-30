@@ -9,7 +9,7 @@ body {
 
 /* HERO PRINCIPAL */
 .hero {
-    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/oficina.jpg.jfif') center/cover no-repeat;
     height: 100vh;
     color: white;
     padding: 80px 20px 20px;
