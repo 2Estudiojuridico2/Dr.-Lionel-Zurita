@@ -1,4 +1,6 @@
-/* Reset y fuentes base */
+/* ===============================
+   RESET Y FUENTES BASE
+================================= */
 body {
     font-family: 'Roboto', Arial, sans-serif;
     background-color: #f4f9fc;
@@ -7,36 +9,50 @@ body {
     color: #222;
 }
 
-/* HERO PRINCIPAL */
-.hero {
-    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/oficina.jpg.jfif') center/cover no-repeat;
-    height: 100vh;
-    color: white;
-    padding: 80px 20px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.balanza-hero {
-    width: 100px;
-    margin-bottom: 20px;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-}
-
+/* ===============================
+   TIPOGRAFÍA GENERAL
+================================= */
 h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
 
+/* ===============================
+   HERO PRINCIPAL
+================================= */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/oficina.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 2px 2px 8px #222;
+    position: relative;
+    padding: 80px 20px 20px;
+    text-align: center;
+}
+
+/* Icono balanza en hero */
+.balanza-hero {
+    width: 100px;
+    margin-bottom: 20px;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+
+/* ===============================
+   TITULOS Y TEXTOS
+================================= */
 h2 {
     color: #0d47a1;
     font-size: 2.2rem;
 }
 
-/* Áreas de práctica */
+/* ===============================
+   ÁREAS DE PRÁCTICA
+================================= */
 #areas .row {
     margin-top: 2rem;
 }
@@ -60,6 +76,7 @@ h2 {
     border-color: #0d47a1;
     outline: none;
 }
+
 .area-icon {
     display: inline-flex;
     align-items: center;
@@ -67,12 +84,14 @@ h2 {
     margin-bottom: 18px;
     /* Ajusta el tamaño si lo necesitas */
 }
+
 .area-icon svg {
     width: 90px;
     height: 90px;
     display: block;
     margin: auto;
 }
+
 /* ICONOS EN LISTAS O SECCIONES */
 ul img, .area-icon {
     width: 32px;
@@ -83,13 +102,17 @@ ul img, .area-icon {
     vertical-align: middle;
 }
 
-/* SOBRE NOSOTROS */
+/* ===============================
+   SOBRE NOSOTROS
+================================= */
 #sobre-nosotros p {
     font-size: 1.13rem;
     line-height: 1.7;
 }
 
-/* FOOTER */
+/* ===============================
+   FOOTER
+================================= */
 footer {
     margin-top: 3rem;
     background: #222;
@@ -108,7 +131,9 @@ footer a:hover, footer a:focus {
     text-decoration: none;
 }
 
-/* BOTÓN IR ARRIBA */
+/* ===============================
+   BOTÓN IR ARRIBA
+================================= */
 .scroll-top {
     display: none;
     position: fixed;
@@ -130,10 +155,25 @@ footer a:hover, footer a:focus {
     background-color: #0d47a1;
 }
 
-/* RESPONSIVE */
+/* ===============================
+   MAIN (CONTENEDOR PRINCIPAL)
+================================= */
+main {
+    max-width: 900px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    padding: 2.5rem 2rem 2rem 2rem;
+    background: transparent;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
 @media (max-width: 768px) {
     .hero {
         padding: 60px 10px 10px;
+        min-height: 60vh;
         height: 60vh;
     }
     .balanza-hero {
@@ -145,4 +185,8 @@ footer a:hover, footer a:focus {
     #areas .row > div {
         margin-bottom: 1rem;
     }
+}
+
+@media (max-width: 600px) {
+    main { padding: 1rem; }
 }
