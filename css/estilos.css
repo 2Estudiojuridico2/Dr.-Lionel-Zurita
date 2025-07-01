@@ -1,276 +1,52 @@
-body.inicio {
-  color: #fff !important;
-  text-shadow: 1px 1px 8px #000;
-  background-color: #151d2c; /* oscuro, si quieres reforzar el fondo */
+/* ===============================
+   VARIABLES CSS (Colores y Fuentes)
+================================= */
+:root {
+  --color-bg-oscuro: #151d2c;
+  --color-bg-claro: #f4f9fc;
+  --color-primary: #0d47a1;
+  --color-primary-oscuro: #1348a2;
+  --color-acento: #ffd700;
+  --color-navbar: #222;
+  --color-footer: #222;
+  --color-texto: #222;
+  --color-blanco: #fff;
+  --color-azul-btn: #1976d2;
+  --color-azul-footer-link: #90caf9;
+  --fuente-base: 'Roboto', Arial, sans-serif;
+  --fuente-titulos: 'Playfair Display', serif;
 }
 
-/* Si usas otros fondos o imágenes, la sombra ayuda al contraste */
-h1, h2, h3, h4, h5, h6, p, .lead, .navbar, .btn, a, .list-group-item {
-  color: #fff !important;
-  text-shadow: 1px 1px 8px #000;
-}
-
-/* Para botones de Bootstrap que sean outline-primary */
-.btn-outline-primary {
-  color: #fff !important;
-  border-color: #fff !important;
-}
-.btn-outline-primary:hover, .btn-outline-primary:focus {
-  background: #fff !important;
-  color: #1348a2 !important;
-}
-
-/* Navbar mejora para fondo oscuro */
-.navbar,
-.navbar-nav .nav-link,
-.navbar-brand {
-  color: #fff !important;
-  text-shadow: 1px 1px 8px #000;
-}
-
-/* Footer y enlaces */
-footer, footer a {
-  color: #fff !important;
-  text-shadow: 1px 1px 8px #000;
-}
-/* fondo transparante */
-.fondo-transparente {
-  background: rgba(0,0,0,0.55);
-  border-radius: 12px;
-  padding: 24px 18px;
-  display: inline-block;
-  margin: 0 auto 24px auto;
-}
 /* ===============================
    RESET Y FUENTES BASE
+   (Agrega en tu HTML los links a Google Fonts para Roboto y Playfair Display)
 ================================= */
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    background-color: #f4f9fc;
-    margin: 0;
-    padding: 0;
-    color: #222;
+  font-family: var(--fuente-base);
+  background-color: var(--color-bg-claro);
+  margin: 0;
+  padding: 0;
+  color: var(--color-texto);
 }
 
 /* ===============================
-   TIPOGRAFÍA GENERAL
-================================= */
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-/* ===============================
-   HERO PRINCIPAL
-================================= */
-.hero {
-    min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/oficina.jpg') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    text-shadow: 2px 2px 8px #222;
-    position: relative;
-    padding: 80px 20px 20px;
-    text-align: center;
-}
-
-/* Icono balanza en hero */
-.balanza-hero {
-    width: 100px;
-    margin-bottom: 20px;
-    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-}
-
-/* Imágenes de fondo personalizadas por área */
-.hero-familia {
-  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/codigo.jpg') center/cover no-repeat;
-}
-.hero-laboral {
-  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/laboral.png') center/cover no-repeat;
-}
-.hero-sucesiones {
-  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
-}
-/* ===============================
-   BOTONES Y CONTACTOS
-================================= */
-a, a:visited, a:active {
-  color: #fff;
-  text-decoration: underline;
-}
-a:hover {
-  color: #ffd700;
-}
-/* ===============================
-   TITULOS Y TEXTOS
-================================= */
-h2 {
-    color: #0d47a1;
-    font-size: 2.2rem;
-}
-
-/* ===============================
-   ÁREAS DE PRÁCTICA
-================================= */
-#areas .row {
-    margin-top: 2rem;
-}
-
-#areas a.btn {
-    margin-bottom: 1rem;
-    padding: 1rem 0;
-    font-weight: bold;
-    font-size: 1.15rem;
-    border-radius: 8px;
-    transition: all 0.2s;
-    box-shadow: 0 2px 8px rgba(13,71,161,0.07);
-    letter-spacing: .5px;
-}
-
-#areas a.btn:hover,
-#areas a.btn:focus {
-    transform: scale(1.06);
-    background-color: #0d47a1;
-    color: #fff;
-    border-color: #0d47a1;
-    outline: none;
-}
-
-.area-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-    /* Ajusta el tamaño si lo necesitas */
-}
-
-.area-icon svg {
-    width: 90px;
-    height: 90px;
-    display: block;
-    margin: auto;
-}
-
-/* ICONOS EN LISTAS O SECCIONES */
-ul img, .area-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    margin-right: 10px;
-    flex-shrink: 0;
-    vertical-align: middle;
-}
-
-/* ===============================
-   SOBRE NOSOTROS
-================================= */
-#sobre-nosotros p {
-    font-size: 1.13rem;
-    line-height: 1.7;
-}
-
-/* ===============================
-   FOOTER
-================================= */
-footer {
-    margin-top: 3rem;
-    background: #222;
-    color: #f4f9fc;
-    padding: 2rem 0 1rem 0;
-    font-size: 1rem;
-}
-
-footer a {
-    color: #90caf9;
-    text-decoration: underline;
-}
-
-footer a:hover, footer a:focus {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* ===============================
-   BOTÓN IR ARRIBA
-================================= */
-.scroll-top {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 99;
-    border: none;
-    outline: none;
-    background-color: #1976d2;
-    color: white;
-    cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 50%;
-    font-size: 24px;
-    box-shadow: 0 2px 6px rgba(13,71,161,0.2);
-    transition: background 0.2s;
-}
-.scroll-top:hover {
-    background-color: #0d47a1;
-}
-
-/* ===============================
-   MAIN (CONTENEDOR PRINCIPAL)
-================================= */
-main {
-    max-width: 900px;
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 2.5rem 2rem 2rem 2rem;
-    background: transparent;
-}
-
-/* ===============================
-   RESPONSIVE
-================================= */
-@media (max-width: 768px) {
-    .hero {
-        padding: 60px 10px 10px;
-        min-height: 60vh;
-        height: 60vh;
-    }
-    .balanza-hero {
-        width: 70px;
-    }
-    h2 {
-        font-size: 1.4rem;
-    }
-    #areas .row > div {
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 600px) {
-    main { padding: 1rem; }
-}
-
-/* ===============================
-   FONDO DE PAGINAS
+   FONDOS DE PAGINAS
 ================================= */
 body.inicio {
+  color: var(--color-blanco);
+  text-shadow: 1px 1px 8px #000;
+  background-color: var(--color-bg-oscuro);
   background-image: url('../images/oficina.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 body.familia {
   background-image: url('../images/familia.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-
 body.laboral {
   background-image: url('../images/laboral1.jpg');
   background-size: cover;
@@ -282,4 +58,247 @@ body.sucesiones {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* ===============================
+   TIPOGRAFÍA GENERAL
+================================= */
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+h2 {
+  color: var(--color-primary);
+  font-size: 2.2rem;
+}
+
+/* ===============================
+   CONTRASTE Y TEXTO SOBRE FONDOS OSCUROS
+================================= */
+body.inicio h1, 
+body.inicio h2, 
+body.inicio h3, 
+body.inicio h4, 
+body.inicio h5, 
+body.inicio h6, 
+body.inicio p, 
+body.inicio .lead, 
+body.inicio .navbar, 
+body.inicio .btn, 
+body.inicio a, 
+body.inicio .list-group-item {
+  color: var(--color-blanco) !important;
+  text-shadow: 1px 1px 8px #000;
+}
+
+/* ===============================
+   NAVBAR
+================================= */
+.navbar,
+.navbar-nav .nav-link,
+.navbar-brand {
+  color: var(--color-blanco) !important;
+  text-shadow: 1px 1px 8px #000;
+  background: var(--color-navbar);
+}
+
+/* ===============================
+   BOTONES
+================================= */
+.btn-outline-primary {
+  color: var(--color-blanco) !important;
+  border-color: var(--color-blanco) !important;
+  background: transparent;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+  background: var(--color-blanco) !important;
+  color: var(--color-primary-oscuro) !important;
+}
+
+/* ===============================
+   ENLACES
+================================= */
+a, a:visited, a:active {
+  color: var(--color-blanco);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+a:hover, a:focus {
+  color: var(--color-acento);
+}
+
+footer, footer a {
+  color: var(--color-blanco) !important;
+  text-shadow: 1px 1px 8px #000;
+}
+footer {
+  margin-top: 3rem;
+  background: var(--color-footer);
+  color: var(--color-bg-claro);
+  padding: 2rem 0 1rem 0;
+  font-size: 1rem;
+}
+footer a {
+  color: var(--color-azul-footer-link);
+  text-decoration: underline;
+}
+footer a:hover, footer a:focus {
+  color: var(--color-blanco);
+  text-decoration: none;
+}
+
+/* ===============================
+   HERO PRINCIPAL
+================================= */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/oficina.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-blanco);
+  text-shadow: 2px 2px 8px #222;
+  position: relative;
+  padding: 80px 20px 20px;
+  text-align: center;
+}
+.hero-familia {
+  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/codigo.jpg') center/cover no-repeat;
+}
+.hero-laboral {
+  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/laboral.png') center/cover no-repeat;
+}
+.hero-sucesiones {
+  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
+}
+.balanza-hero {
+  width: 100px;
+  margin-bottom: 20px;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+}
+
+/* ===============================
+   FONDO TRANSPARENTE
+================================= */
+.fondo-transparente {
+  background: rgba(0,0,0,0.55);
+  border-radius: 12px;
+  padding: 24px 18px;
+  display: block;
+  margin: 0 auto 24px auto;
+  max-width: 95%;
+}
+
+/* ===============================
+   ÁREAS DE PRÁCTICA
+================================= */
+#areas .row {
+  margin-top: 2rem;
+}
+#areas a.btn {
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+  font-weight: bold;
+  font-size: 1.15rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(13,71,161,0.07);
+  letter-spacing: .5px;
+}
+#areas a.btn:hover,
+#areas a.btn:focus {
+  transform: scale(1.06);
+  background-color: var(--color-primary);
+  color: var(--color-blanco);
+  border-color: var(--color-primary);
+  outline: none;
+}
+.area-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.area-icon svg {
+  width: 90px;
+  height: 90px;
+  display: block;
+  margin: auto;
+}
+ul img, .area-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-right: 10px;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* ===============================
+   SOBRE NOSOTROS
+================================= */
+#sobre-nosotros p {
+  font-size: 1.13rem;
+  line-height: 1.7;
+}
+
+/* ===============================
+   BOTÓN IR ARRIBA
+================================= */
+.scroll-top {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: var(--color-azul-btn);
+  color: var(--color-blanco);
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 2px 6px rgba(13,71,161,0.2);
+  transition: background 0.2s;
+}
+.scroll-top:hover {
+  background-color: var(--color-primary);
+}
+
+/* ===============================
+   MAIN (CONTENEDOR PRINCIPAL)
+================================= */
+main {
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: transparent;
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 10px 10px;
+    min-height: 60vh;
+    height: 60vh;
+  }
+  .balanza-hero {
+    width: 70px;
+  }
+  h2 {
+    font-size: 1.4rem;
+  }
+  #areas .row > div {
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  main { padding: 1rem; }
 }
