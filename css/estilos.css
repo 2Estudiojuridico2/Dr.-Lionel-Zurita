@@ -33,6 +33,14 @@ footer, footer a {
   color: #fff !important;
   text-shadow: 1px 1px 8px #000;
 }
+/* fondo transparante */
+.fondo-transparente {
+  background: rgba(0,0,0,0.55);
+  border-radius: 12px;
+  padding: 24px 18px;
+  display: inline-block;
+  margin: 0 auto 24px auto;
+}
 /* ===============================
    RESET Y FUENTES BASE
 ================================= */
@@ -86,6 +94,16 @@ h1, h2, h3 {
 }
 .hero-sucesiones {
   background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
+}
+/* ===============================
+   BOTONES Y CONTACTOS
+================================= */
+a, a:visited, a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+a:hover {
+  color: #ffd700;
 }
 /* ===============================
    TITULOS Y TEXTOS
