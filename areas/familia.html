@@ -1,82 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Derecho de Familia - Estudio Jurídico Dr. Lionel Nicolás Zurita</title>
-    <link rel="stylesheet" href="../css/estilos.css">
-    <style>
-      .area-banner {
-        width: 100%;
-        height: 280px;
-        background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url('../images/librero.jpg.jfif') center/cover no-repeat;
-        display: flex;
-        align-items: flex-end;
-      }
-      .area-banner h2 {
-        color: #fff;
-        margin: 2rem;
-        font-size: 2.5rem;
-        text-shadow: 2px 2px 10px #222;
-      }
-      .accesos-dinamicos {
-        margin-top: 2.5rem;
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .acceso-area {
-        background: rgba(255,255,255,0.88);
-        color: #0d47a1;
-        border-radius: 1rem;
-        padding: 1.2rem 1.5rem;
-        min-width: 160px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transition: transform 0.2s;
-        box-shadow: 0 2px 12px rgba(13,71,161,0.10);
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .acceso-area:hover {
-        transform: scale(1.08);
-        background: #1565c0;
-        color: #fff;
-        text-shadow: none;
-      }
-      .acceso-area img { width: 40px; height: 40px; margin-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derecho de Familia - Estudio Jurídico Dr. Lionel Nicolás Zurita</title>
+  <meta name="description" content="Especialistas en Derecho de Familia: Matrimonio, filiación, adopción, patria potestad, tutela y crisis familiares. Consultá al Dr. Zurita.">
+  <meta name="keywords" content="Derecho de Familia, abogado, familia, filiación, adopción, matrimonio, divorcio, tutela, patria potestad, crisis familiar">
+  <meta name="author" content="Dr. Lionel Nicolás Zurita">
+  <link rel="icon" href="../images/justicia.png" type="image/png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
-  <nav>
-    <span class="nav-brand">Estudio Jurídico Zurita</span>
-    <a href="../index.html">Inicio</a>
-    <a href="familia.html" aria-current="page">Familia</a>
-    <a href="laboral.html">Laboral</a>
-    <a href="sucesiones.html">Sucesiones</a>
-    <a href="../agenda.html">Turnos</a>
+<body class="area-familia">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" aria-label="Barra de navegación principal">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Estudio Jurídico Dr. Lionel Zurita</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="familia.html" aria-current="page">Familia</a></li>
+          <li class="nav-item"><a class="nav-link" href="laboral.html">Laboral</a></li>
+          <li class="nav-item"><a class="nav-link" href="sucesiones.html">Sucesiones</a></li>
+          <li class="nav-item"><a class="nav-link" href="../agenda.html">Agenda</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
-  <div class="area-banner">
-    <h2>Derecho de Familia</h2>
-  </div>
-  <main style="max-width: 900px; margin: auto; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); padding: 2.5rem 2rem;">
-    <p>Nos especializamos en temas de familia: matrimonio, divorcio, filiación, adopción, guarda, tutela, régimen de visitas, alimentos y más. Atendemos con sensibilidad y confidencialidad cada caso.</p>
+  <main class="my-5 pt-5" tabindex="0" data-aos="fade-up">
+    <div class="text-center mb-4">
+      <!-- Puedes reemplazar el SVG por una imagen si prefieres -->
+      <svg width="90" height="90" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="14" cy="16" r="6" fill="#1976d2"/>
+        <circle cx="34" cy="16" r="6" fill="#1976d2"/>
+        <ellipse cx="24" cy="34" rx="13" ry="8" fill="#90caf9"/>
+        <ellipse cx="14" cy="35" rx="6" ry="4" fill="#1976d2"/>
+        <ellipse cx="34" cy="35" rx="6" ry="4" fill="#1976d2"/>
+        <ellipse cx="24" cy="20" rx="7" ry="7" fill="#1976d2"/>
+        <ellipse cx="24" cy="34" rx="7" ry="5" fill="#1565c0"/>
+      </svg>
+    </div>
+    <h1 class="text-primary mb-4">Derecho de Familia</h1>
+    <p>
+      El derecho de familia regula las relaciones personales y patrimoniales dentro del grupo familiar, así como los vínculos con terceros. Incluye aspectos como el matrimonio, la filiación, la adopción, la patria potestad, la tutela y las situaciones de crisis familiar como el divorcio o la separación.
+    </p>
+    <h2 class="text-secondary mt-4">¿Qué abarca el Derecho de Familia?</h2>
+    <ul>
+      <li><strong>Matrimonio:</strong> Regulación de la celebración y efectos legales, incluyendo el régimen económico.</li>
+      <li><strong>Filiación:</strong> Relaciones legales entre padres e hijos, derechos y deberes parentales, y protección de los hijos.</li>
+      <li><strong>Adopción:</strong> Proceso y requisitos para la adopción de menores.</li>
+      <li><strong>Patria potestad:</strong> Facultades y deberes de los padres sobre los hijos menores.</li>
+      <li><strong>Tutela:</strong> Protección de personas menores o con discapacidad a través de la figura del tutor.</li>
+      <li><strong>Crisis familiar:</strong> Nulidad, separación, divorcio y consecuencias legales.</li>
+      <li><strong>Uniones convivenciales:</strong> Derechos derivados de parejas no casadas.</li>
+    </ul>
+    <p class="mt-4">
+      El derecho de familia protege los vínculos familiares y garantiza los derechos de sus miembros en situaciones normales o de crisis. Es un derecho de orden público, social, ético y patrimonial.
+    </p>
+    <section class="mt-5">
+      <h2 class="text-secondary mb-3">Preguntas frecuentes</h2>
+      <div>
+        <strong>¿Qué documentos necesito para iniciar un divorcio?</strong>
+        <p>Generalmente, DNI de ambos cónyuges, libreta de matrimonio, partidas de nacimiento de los hijos, y acuerdo sobre bienes o custodia si corresponde.</p>
+      </div>
+      <div>
+        <strong>¿Puedo reclamar alimentos para mis hijos?</strong>
+        <p>Sí, la ley protege el derecho alimentario de los hijos menores y puede reclamarse judicialmente.</p>
+      </div>
+    </section>
+    <div class="mt-5 text-center">
+      <a href="../agenda.html" class="btn btn-primary btn-lg" aria-label="Solicitar turno para consulta de Derecho de Familia">Solicitar Turno</a>
+    </div>
   </main>
-  <div class="accesos-dinamicos">
-    <a href="laboral.html" class="acceso-area" aria-label="Laboral">
-      <img src="../icons/contrato.svg" alt="Laboral" /> Laboral
-    </a>
-    <a href="sucesiones.html" class="acceso-area" aria-label="Sucesiones">
-      <img src="../icons/ley.svg" alt="Sucesiones" /> Sucesiones
-    </a>
-    <a href="../index.html" class="acceso-area" aria-label="Inicio">
-      <img src="../icons/favor.svg" alt="Inicio" /> Inicio
-    </a>
-  </div>
-  <footer class="footer">
-    &copy; 2025 Estudio Jurídico Dr. Lionel Zurita
+  <footer class="bg-dark text-light text-center py-4 mt-5">
+    <p>
+      Contacto: 
+      <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
+      WhatsApp: 
+      <a href="https://wa.me/541131976852" class="text-light" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a>
+    </p>
   </footer>
+  <button onclick="scrollToTop()" class="scroll-top" id="btn-scroll-top" aria-label="Ir arriba">↑</button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const btnScrollTop = document.getElementById("btn-scroll-top");
+    window.onscroll = function() {
+      btnScrollTop.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('main').focus();
+    });
+  </script>
 </body>
 </html>
