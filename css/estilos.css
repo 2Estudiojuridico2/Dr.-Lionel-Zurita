@@ -1,3 +1,38 @@
+body.inicio {
+  color: #fff !important;
+  text-shadow: 1px 1px 8px #000;
+  background-color: #151d2c; /* oscuro, si quieres reforzar el fondo */
+}
+
+/* Si usas otros fondos o imágenes, la sombra ayuda al contraste */
+h1, h2, h3, h4, h5, h6, p, .lead, .navbar, .btn, a, .list-group-item {
+  color: #fff !important;
+  text-shadow: 1px 1px 8px #000;
+}
+
+/* Para botones de Bootstrap que sean outline-primary */
+.btn-outline-primary {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+  background: #fff !important;
+  color: #1348a2 !important;
+}
+
+/* Navbar mejora para fondo oscuro */
+.navbar,
+.navbar-nav .nav-link,
+.navbar-brand {
+  color: #fff !important;
+  text-shadow: 1px 1px 8px #000;
+}
+
+/* Footer y enlaces */
+footer, footer a {
+  color: #fff !important;
+  text-shadow: 1px 1px 8px #000;
+}
 /* ===============================
    RESET Y FUENTES BASE
 ================================= */
