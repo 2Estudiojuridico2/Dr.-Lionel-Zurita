@@ -42,6 +42,16 @@ h1, h2, h3 {
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
 
+/* Imágenes de fondo personalizadas por área */
+.hero-familia {
+  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/codigo.jpg') center/cover no-repeat;
+}
+.hero-laboral {
+  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/laboral.png') center/cover no-repeat;
+}
+.hero-sucesiones {
+  background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
+}
 /* ===============================
    TITULOS Y TEXTOS
 ================================= */
