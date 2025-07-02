@@ -302,3 +302,29 @@ main {
 @media (max-width: 600px) {
   main { padding: 1rem; }
 }
+body.inicio, body.familia, body.laboral, body.sucesiones {
+  color: #fff;
+  text-shadow: 1px 1px 8px #000;
+}
+
+.hero, .fondo-transparente, .content-box {
+  color: #fff !important;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  text-shadow: 1px 1px 8px #000;
+}
+
+h1, h2, h3, h4, h5, h6, .lead, .navbar, .btn, a, .list-group-item {
+  color: #fff !important;
+  text-shadow: 1px 1px 8px #000;
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.8rem; }
+p, .lead { font-size: 1.15rem; }
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.7rem; }
+  h2 { font-size: 1.2rem; }
+  p, .lead { font-size: 1rem; }
+}
