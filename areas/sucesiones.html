@@ -8,12 +8,18 @@
   <meta name="keywords" content="Derecho Sucesorio, sucesiones, herencia, testamento, abogado, bienes, partición, Argentina, juzgado civil">
   <meta name="author" content="Dr. Lionel Nicolás Zurita">
   <link rel="icon" href="../images/justicia.png" type="image/png">
+  <!-- Bootstrap 5.3.0 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/estilos.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <!-- AOS animaciones -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body class="sucesiones">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" aria-label="Barra de navegación principal">
+  <!-- NAVBAR GLOBAL -->
+  <nav class="navbar navbar-expand-lg fixed-top fondo-transparente" aria-label="Barra de navegación principal">
     <div class="container">
       <a class="navbar-brand" href="../index.html">Estudio Jurídico Dr. Lionel Zurita</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
@@ -30,15 +36,20 @@
       </div>
     </div>
   </nav>
-  <main class="my-5 pt-5" tabindex="0" data-aos="fade-up">
-    <div class="text-center mb-4">
-      <img src="../images/sucesiones.jpg" alt="Ilustración derecho sucesorio" style="width:90px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.35));" loading="lazy">
+
+  <!-- HERO -->
+  <header id="inicio" class="hero hero-sucesiones text-center">
+    <div data-aos="fade-down">
+      <img src="../images/sucesiones.jpg" alt="Ilustración derecho sucesorio" class="balanza-hero mb-4" loading="lazy">
+      <h1 class="display-4">Derecho Sucesorio</h1>
     </div>
-    <h1 class="text-primary mb-4 text-center">Derecho Sucesorio</h1>
+  </header>
+
+  <main class="my-5 pt-5" tabindex="0" data-aos="fade-up" role="main">
     <p class="lead text-center">
       El Derecho Sucesorio regula cómo se distribuye el patrimonio de una persona al fallecer, protegiendo los derechos de los herederos y brindando seguridad jurídica.
     </p>
-    <h2 class="text-secondary mt-5">¿Cómo es el procedimiento sucesorio?</h2>
+    <h2 class="mt-5">¿Cómo es el procedimiento sucesorio?</h2>
     <ul>
       <li><strong>Inicio del trámite:</strong> Se inicia por vía judicial mediante la presentación de un escrito ante el juzgado civil competente.</li>
       <li><strong>Acreditación del vínculo:</strong> Se deben presentar partidas que acrediten la relación con el fallecido (nacimiento, matrimonio, defunción, etc.).</li>
@@ -50,7 +61,7 @@
       Contar con asesoramiento profesional permite agilizar el proceso, proteger derechos y evitar conflictos entre herederos.
     </p>
     <section class="mt-5">
-      <h2 class="text-secondary mb-3">Preguntas frecuentes</h2>
+      <h2 class="mb-3">Preguntas frecuentes</h2>
       <div>
         <strong>¿Quiénes pueden iniciar una sucesión?</strong>
         <p>Los herederos forzosos, testamentarios o cualquier interesado con derecho sobre la herencia.</p>
@@ -69,23 +80,23 @@
       </div>
     </section>
     <section class="mt-5">
-      <h2 class="text-secondary mb-3">Links útiles</h2>
+      <h2 class="mb-3">Links útiles</h2>
       <ul>
-        <li><a href="https://www.argentina.gob.ar/justicia/derechofacil/leysimple/codigo-civil-y-comercial" target="_blank" rel="noopener">Código Civil y Comercial de la Nación</a></li>
-        <li><a href="https://www.argentina.gob.ar/justicia/derechofacil/leysimple/sucesiones" target="_blank" rel="noopener">Guía de sucesiones (Argentina.gob.ar)</a></li>
-        <li><a href="https://www2.jus.gov.ar/InicioTramiteSucesorio/" target="_blank" rel="noopener">Iniciar trámite sucesorio online (Ministerio de Justicia)</a></li>
+        <li><a href="https://www.argentina.gob.ar/justicia/derechofacil/leysimple/codigo-civil-y-comercial" target="_blank" rel="noopener noreferrer">Código Civil y Comercial de la Nación</a></li>
+        <li><a href="https://www.argentina.gob.ar/justicia/derechofacil/leysimple/sucesiones" target="_blank" rel="noopener noreferrer">Guía de sucesiones (Argentina.gob.ar)</a></li>
+        <li><a href="https://www2.jus.gov.ar/InicioTramiteSucesorio/" target="_blank" rel="noopener noreferrer">Iniciar trámite sucesorio online (Ministerio de Justicia)</a></li>
       </ul>
     </section>
     <div class="mt-5 text-center">
       <a href="../agenda.html" class="btn btn-primary btn-lg" aria-label="Solicitar turno para consulta de Derecho Sucesorio">Solicitar Turno</a>
     </div>
   </main>
-  <footer class="bg-dark text-light text-center py-4 mt-5">
+  <footer>
     <p>
       Contacto:
-      <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
+      <a href="mailto:Dr.Zuritalionel@gmail.com" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
       WhatsApp:
-      <a href="https://wa.me/541131976852" class="text-light" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a>
+      <a href="https://wa.me/541131976852" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a>
     </p>
   </footer>
   <button onclick="scrollToTop()" class="scroll-top" id="btn-scroll-top" aria-label="Ir arriba">↑</button>
