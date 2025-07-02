@@ -8,18 +8,18 @@
   <meta name="keywords" content="Derecho de Familia, abogado, familia, filiación, adopción, matrimonio, divorcio, tutela, patria potestad, crisis familiar">
   <meta name="author" content="Dr. Lionel Nicolás Zurita">
   <link rel="icon" href="../images/justicia.png" type="image/png">
+  <!-- Bootstrap 5.3.0 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/estilos.css">
+  <!-- Google Fonts (ya están en el CSS, pero por si se accede directo) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <!-- AOS animaciones -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body class="familia">
-  <header id="inicio" class="hero hero-familia text-center">
-  <div data-aos="fade-down">
-    <img src="../images/familia.jpg" alt="Balanza símbolo de la justicia" class="mb-4" style="width:120px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));">
-    <h1 class="display-4 text-light">Derecho de Familia</h1>
-  </div>
-</header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" aria-label="Barra de navegación principal">
+  <!-- NAVBAR GLOBAL -->
+  <nav class="navbar navbar-expand-lg fixed-top fondo-transparente" aria-label="Barra de navegación principal">
     <div class="container">
       <a class="navbar-brand" href="../index.html">Estudio Jurídico Dr. Lionel Zurita</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
@@ -36,10 +36,19 @@
       </div>
     </div>
   </nav>
-  <main class="my-5 pt-5" tabindex="0" data-aos="fade-up">
+
+  <!-- HERO -->
+  <header id="inicio" class="hero hero-familia text-center">
+    <div data-aos="fade-down">
+      <img src="../images/familia.jpg" alt="Familia - Derecho de familia" class="balanza-hero mb-4">
+      <h1 class="display-4">Derecho de Familia</h1>
+    </div>
+  </header>
+
+  <main class="my-5 pt-5" tabindex="0" data-aos="fade-up" role="main">
     <div class="text-center mb-4">
-      <!-- Puedes reemplazar el SVG por una imagen si prefieres -->
-      <svg width="90" height="90" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <svg width="90" height="90" viewBox="0 0 48 48" fill="none" aria-hidden="true" role="img">
+        <title>Ícono de familia</title>
         <circle cx="14" cy="16" r="6" fill="#1976d2"/>
         <circle cx="34" cy="16" r="6" fill="#1976d2"/>
         <ellipse cx="24" cy="34" rx="13" ry="8" fill="#90caf9"/>
@@ -49,11 +58,11 @@
         <ellipse cx="24" cy="34" rx="7" ry="5" fill="#1565c0"/>
       </svg>
     </div>
-    <h1 class="text-primary mb-4">Derecho de Familia</h1>
+    <h1 class="mb-4">Derecho de Familia</h1>
     <p>
       El derecho de familia regula las relaciones personales y patrimoniales dentro del grupo familiar, así como los vínculos con terceros. Incluye aspectos como el matrimonio, la filiación, la adopción, la patria potestad, la tutela y las situaciones de crisis familiar como el divorcio o la separación.
     </p>
-    <h2 class="text-secondary mt-4">¿Qué abarca el Derecho de Familia?</h2>
+    <h2 class="mt-4">¿Qué abarca el Derecho de Familia?</h2>
     <ul>
       <li><strong>Matrimonio:</strong> Regulación de la celebración y efectos legales, incluyendo el régimen económico.</li>
       <li><strong>Filiación:</strong> Relaciones legales entre padres e hijos, derechos y deberes parentales, y protección de los hijos.</li>
@@ -67,7 +76,7 @@
       El derecho de familia protege los vínculos familiares y garantiza los derechos de sus miembros en situaciones normales o de crisis. Es un derecho de orden público, social, ético y patrimonial.
     </p>
     <section class="mt-5">
-      <h2 class="text-secondary mb-3">Preguntas frecuentes</h2>
+      <h2 class="mb-3">Preguntas frecuentes</h2>
       <div>
         <strong>¿Qué documentos necesito para iniciar un divorcio?</strong>
         <p>Generalmente, DNI de ambos cónyuges, libreta de matrimonio, partidas de nacimiento de los hijos, y acuerdo sobre bienes o custodia si corresponde.</p>
@@ -81,15 +90,19 @@
       <a href="../agenda.html" class="btn btn-primary btn-lg" aria-label="Solicitar turno para consulta de Derecho de Familia">Solicitar Turno</a>
     </div>
   </main>
-  <footer class="bg-dark text-light text-center py-4 mt-5">
+
+  <footer>
     <p>
       Contacto: 
-      <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
+      <a href="mailto:Dr.Zuritalionel@gmail.com" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
       WhatsApp: 
-      <a href="https://wa.me/541131976852" class="text-light" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a>
+      <a href="https://wa.me/541131976852" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a>
     </p>
   </footer>
+
   <button onclick="scrollToTop()" class="scroll-top" id="btn-scroll-top" aria-label="Ir arriba">↑</button>
+
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
