@@ -1,0 +1,208 @@
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  background: #f4f7fb;
+  color: #222;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  background: #22365f;
+  padding: 14px 30px;
+  color: white;
+}
+.logo {
+  height: 48px;
+  margin-right: 22px;
+}
+.titulo {
+  flex: 1;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.btn-nav {
+  background: #1e5b9e;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.header-main {
+  background: #e9ecf2;
+  text-align: center;
+  padding: 44px 10px 30px;
+}
+.header-main h1 {
+  color: #22365f;
+}
+.botones-destacados {
+  margin-top: 26px;
+}
+.boton {
+  background: #22365f;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.13);
+  margin: 0 10px;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.boton:hover {
+  background: #1e5b9e;
+}
+.servicios {
+  max-width: 960px;
+  margin: 36px auto;
+  background: #fff;
+  padding: 30px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.grid-servicios {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.servicio {
+  flex: 1 1 200px;
+  text-align: center;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f7fafd;
+  transition: box-shadow 0.2s;
+}
+.servicio:hover {
+  box-shadow: 0 4px 16px rgba(30,91,158,0.11);
+}
+.servicio img {
+  height: 68px;
+  margin-bottom: 14px;
+}
+.calendario {
+  max-width: 900px;
+  margin: 36px auto;
+  background: #fff;
+  padding: 30px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+.tabla-container {
+  overflow-x: auto;
+}
+.tabla-fechas {
+  width: 100%;
+  min-width: 500px;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+.tabla-fechas th, .tabla-fechas td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+.tabla-fechas th {
+  background: #22365f;
+  color: white;
+}
+.tabla-fechas tr:nth-child(even) {
+  background: #f7fafd;
+}
+.equipo {
+  max-width: 900px;
+  margin: 36px auto;
+  background: #fff;
+  padding: 30px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  text-align: center;
+}
+.img-equipo {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin: 16px auto;
+}
+.contacto {
+  max-width: 600px;
+  margin: 36px auto;
+  background: #fff;
+  padding: 30px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+.contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contacto input, .contacto textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+footer {
+  background: #22365f;
+  color: white;
+  text-align: center;
+  padding: 28px 10px 10px;
+  font-size: 0.95rem;
+}
+.footer-col {
+  margin-bottom: 10px;
+}
+.modal-img {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding: 60px 20px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.80);
+  text-align: center;
+}
+.modal-img-content {
+  margin: 20px auto 10px auto;
+  display: block;
+  max-width: 90%;
+  max-height: 50vh;
+  border-radius: 8px;
+}
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal-text {
+  background: #fff;
+  color: #22365f;
+  max-width: 420px;
+  margin: 10px auto;
+  border-radius: 8px;
+  padding: 16px 22px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+@media (max-width: 800px) {
+  .grid-servicios {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .tabla-fechas {
+    font-size: 0.9rem;
+  }
+}
