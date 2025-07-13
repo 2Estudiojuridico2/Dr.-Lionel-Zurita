@@ -7,21 +7,24 @@ Sitio web profesional y moderno para el Estudio Jurídico Dr. Lionel Nicolás Zu
 ## 📁 Estructura del proyecto
 
 ```
-📦 Dr.-Zurita-Lionel/
-├── index.html
-├── agenda.html
-├── gracias.html
-├── areas/
-│   ├── familia.html
-│   ├── laboral.html
-│   └── sucesiones.html
-├── css/
-│   └── estilos.css
-├── js/
-│   └── frases.js
-```
+/
+├── public/
+│   ├── img/
+│   │   ├── logo_estudio.png
+│   │   ├── equipo.jpg
+│   │   ├── servicio_civil.png
+│   │   ├── servicio_penal.png
+│   │   └── ... (otras imágenes)
+│   ├── favicon.ico
+│   └── index.html
+├── src/
+│   ├── css/
+│   │   └── styles.css
+│   ├── js/
+│   │   └── main.js
+└── README.md
 
----
+```
 
 ## 🚀 Cómo subir a GitHub Pages
 
