@@ -1,14 +1,4 @@
-/* styles.css - Estudio Jurídico Dr. Lionel Zurita */
-
-:root {
-  --azul: #06457c;
-  --azul-claro: #1976d2;
-  --gris-claro: #f5f5f5;
-  --blanco: #ffffff;
-  --sombra: rgba(0, 0, 0, 0.1);
-  --fuente: 'Roboto', sans-serif;
-}
-
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -16,229 +6,175 @@
 }
 
 body {
-  font-family: var(--fuente);
-  background-color: var(--gris-claro);
-  color: #333;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #212529;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #0d6efd;
+  color: #fff;
 }
 
 .navbar {
+  max-width: 1100px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--azul);
-  padding: 1rem 2rem;
-  color: var(--blanco);
-  box-shadow: 0 4px 6px var(--sombra);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 1rem;
+  flex-wrap: wrap;
 }
 
-.navbar .logo {
-  height: 48px;
-}
-
-.navbar .titulo {
-  font-size: 1.4rem;
+.logo {
+  font-family: 'Merriweather', serif;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
-.btn-nav {
-  background-color: var(--azul-claro);
-  padding: 0.5rem 1rem;
-  color: var(--blanco);
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: #fff;
   text-decoration: none;
-  border-radius: 10px;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.btn-nav:hover {
-  background-color: #1259a7;
+.nav-links li a:hover {
+  color: #ffc107;
 }
 
-.header-main {
-  background: linear-gradient(to right, var(--azul), var(--azul-claro));
-  color: var(--blanco);
-  padding: 4rem 2rem;
+.btn-acceso {
+  background-color: #ffc107;
+  color: #212529 !important;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  background: url('../images/justice-scale.jpg') no-repeat center center/cover;
+  color: #fff;
   text-align: center;
+  padding: 5rem 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.header-main h1 {
+.hero h1 {
+  font-family: 'Merriweather', serif;
   font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
-.botones-destacados .boton {
-  background-color: var(--blanco);
-  color: var(--azul);
-  padding: 0.75rem 1.5rem;
-  margin: 0.5rem;
-  border-radius: 12px;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  background-color: #ffc107;
+  color: #212529;
+  padding: 0.8rem 2rem;
   border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
   text-decoration: none;
-  font-weight: bold;
-  box-shadow: 0 4px 8px var(--sombra);
-  transition: transform 0.2s ease;
+  align-self: center;
+  transition: background-color 0.3s ease;
 }
 
-.botones-destacados .boton:hover {
-  transform: scale(1.05);
+.btn-primary:hover {
+  background-color: #e0a800;
 }
 
-.servicios {
-  padding: 4rem 2rem;
-  background-color: var(--blanco);
-  text-align: center;
+/* Sections */
+section {
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1rem;
 }
 
-.grid-servicios {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.servicio {
-  background-color: var(--gris-claro);
-  border-radius: 14px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px var(--sombra);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.servicio:hover {
-  transform: scale(1.05);
-}
-
-.servicio img {
-  width: 64px;
-  margin-bottom: 1rem;
-}
-
-.modal-img {
-  display: none;
-  position: fixed;
-  z-index: 200;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-img-content {
-  max-width: 90%;
-  margin: 2rem auto;
-  display: block;
-}
-
-.modal-close {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+h2 {
+  font-family: 'Merriweather', serif;
   font-size: 2rem;
-  color: white;
-  cursor: pointer;
-}
-
-.modal-text {
-  text-align: center;
-  background-color: var(--blanco);
-  padding: 2rem;
-  border-radius: 14px;
-  margin-top: 1rem;
-}
-
-.calendario {
-  padding: 3rem 2rem;
-  background-color: var(--gris-claro);
-  text-align: center;
-}
-
-.tabla-fechas {
-  margin: 0 auto;
-  width: 90%;
-  border-collapse: collapse;
-  box-shadow: 0 4px 8px var(--sombra);
-}
-
-.tabla-fechas th,
-.tabla-fechas td {
-  padding: 1rem;
-  border: 1px solid #ccc;
-}
-
-.tabla-fechas th {
-  background-color: var(--azul);
-  color: var(--blanco);
-}
-
-.equipo, .contacto {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.img-equipo {
-  max-width: 300px;
-  border-radius: 18px;
-  box-shadow: 0 4px 8px var(--sombra);
   margin-bottom: 1rem;
+  color: #0d6efd;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
+ul {
+  list-style: disc inside;
+  font-size: 1.1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 input, textarea {
-  padding: 0.8rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
   font-size: 1rem;
+  font-family: inherit;
 }
 
-button.boton {
-  background-color: var(--azul);
-  color: var(--blanco);
-  font-weight: bold;
-  padding: 0.8rem;
+button {
+  background-color: #0d6efd;
+  color: #fff;
   border: none;
-  border-radius: 10px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
-button.boton:hover {
-  background-color: #1259a7;
+button:hover {
+  background-color: #084298;
 }
 
 footer {
-  background-color: var(--azul);
-  color: var(--blanco);
-  padding: 2rem;
+  background-color: #212529;
+  color: #fff;
   text-align: center;
+  padding: 1rem 0;
   font-size: 0.9rem;
 }
 
-.footer-col a {
-  color: var(--blanco);
-  text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  .grid-servicios {
-    grid-template-columns: 1fr;
-  }
-  .navbar {
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
     flex-direction: column;
-    gap: 1rem;
+    width: 100%;
+    display: none;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
   }
 }
