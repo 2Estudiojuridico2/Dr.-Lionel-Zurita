@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="es-ar">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estudio Jurídico Dr. Lionel Zurita</title>
   <meta name="description" content="Asesoría legal integral para particulares y empresas.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../src/css/styles.css" />
-  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <script defer src="../src/js/main.js"></script>
+  <script defer src="./js/main.js"></script>
 </head>
+
 <body>
   <nav class="navbar">
-    <img src="img/logo_estudio.png" alt="Logo Estudio Jurídico" class="logo">
+    <img src="./img/logo_estudio.png" alt="Logo Estudio Jurídico" class="logo">
     <span class="titulo">Estudio Jurídico Dr. Lionel Zurita</span>
     <a href="#contacto" class="btn-nav">Contacto</a>
   </nav>
@@ -31,25 +33,24 @@
       <h2>Servicios Legales</h2>
       <div class="grid-servicios">
         <div class="servicio" onclick="openModal('civil.png', 'Derecho Civil', 'Soluciones en contratos, sucesiones, daños y perjuicios.')">
-          <img src="img/civil.png" alt="Derecho Civil">
+          <img src="./img/civil.png" alt="Derecho Civil">
           <h3>Derecho Civil</h3>
         </div>
         <div class="servicio" onclick="openModal('penal.png', 'Derecho Penal', 'Asesoría y defensa penal integral.')">
-          <img src="img/penal.png" alt="Derecho Penal">
+          <img src="./img/penal.png" alt="Derecho Penal">
           <h3>Derecho Penal</h3>
         </div>
         <div class="servicio" onclick="openModal('laboral.png', 'Derecho Laboral', 'Reclamos, despidos, accidentes de trabajo.')">
-          <img src="img/laboral.png" alt="Derecho Laboral">
+          <img src="./img/laboral.png" alt="Derecho Laboral">
           <h3>Derecho Laboral</h3>
         </div>
         <div class="servicio" onclick="openModal('familia.png', 'Derecho de Familia', 'Divorcios, alimentos, régimen de visitas.')">
-          <img src="img/familia.png" alt="Derecho de Familia">
+          <img src="./img/familia.png" alt="Derecho de Familia">
           <h3>Derecho de Familia</h3>
         </div>
       </div>
     </section>
 
-    <!-- Modal de información de servicio -->
     <div id="imgModal" class="modal-img">
       <span class="modal-close" onclick="closeModal()">&times;</span>
       <img class="modal-img-content" id="modalImage">
@@ -59,51 +60,31 @@
       </div>
     </div>
 
-    <!-- Tabla de Fechas Importantes -->
     <section class="calendario">
       <h2>Fechas Importantes</h2>
-      <div class="tabla-container">
-        <table class="tabla-fechas">
-          <thead>
-            <tr>
-              <th>Evento</th>
-              <th>Fecha</th>
-              <th>Notas</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Vencimiento de tasas judiciales</td>
-              <td>15/07/2025</td>
-              <td>Consultar si aplica prórroga</td>
-            </tr>
-            <tr>
-              <td>Charla gratuita: Derecho de Familia</td>
-              <td>22/07/2025</td>
-              <td>Requiere inscripción previa</td>
-            </tr>
-            <tr>
-              <td>Feriado Judicial</td>
-              <td>19/08/2025</td>
-              <td>No se atenderá en el estudio</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table class="tabla-fechas">
+        <thead>
+          <tr><th>Evento</th><th>Fecha</th><th>Notas</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Vencimiento de tasas</td><td>15/07/2025</td><td>Consultar si aplica prórroga</td></tr>
+          <tr><td>Charla: Derecho de Familia</td><td>22/07/2025</td><td>Requiere inscripción</td></tr>
+        </tbody>
+      </table>
     </section>
 
     <section id="equipo" class="equipo">
       <h2>El Equipo</h2>
-      <img src="img/equipo.jpg" alt="Equipo del estudio" class="img-equipo">
+      <img src="./img/equipo.jpg" alt="Equipo del estudio" class="img-equipo">
       <p>Profesionales con experiencia y ética al servicio de tus derechos.</p>
     </section>
 
     <section id="contacto" class="contacto">
       <h2>Contacto</h2>
-      <form>
-        <input type="text" placeholder="Nombre y apellido" required>
-        <input type="email" placeholder="Correo electrónico" required>
-        <textarea placeholder="Consulta" required></textarea>
+      <form action="https://formsubmit.co/Dr.Zuritalionel@gmail.com" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre y apellido" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <textarea name="mensaje" placeholder="Consulta" required></textarea>
         <button type="submit" class="boton">Enviar Consulta</button>
       </form>
     </section>
@@ -115,14 +96,12 @@
       <p>Dirección: Av. Justicia 1234, Buenos Aires</p>
     </div>
     <div class="footer-col">
-      <p>Síguenos en 
-        <a href="#">Facebook</a> | 
-        <a href="#">LinkedIn</a>
-      </p>
+      <p>Síguenos en <a href="#">Facebook</a> | <a href="#">LinkedIn</a></p>
     </div>
     <div class="copyright">
       <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita. Todos los derechos reservados.</p>
     </div>
   </footer>
 </body>
+
 </html>
