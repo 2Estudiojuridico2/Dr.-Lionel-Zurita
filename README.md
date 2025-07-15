@@ -7,22 +7,19 @@ Sitio web profesional y moderno para el Estudio Jurídico Dr. Lionel Nicolás Zu
 ## 📁 Estructura del proyecto
 
 ```
-/
-├── public/
-│   ├── img/
-│   │   ├── logo_estudio.png
-│   │   ├── equipo.jpg
-│   │   ├── servicio_civil.png
-│   │   ├── servicio_penal.png
-│   │   └── ... (otras imágenes)
-│   ├── favicon.ico
-│   └── index.html
-├── src/
-│   ├── css/
-│   │   └── styles.css
-│   ├── js/
-│   │   └── main.js
-└── README.md
+/estudio-juridico/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+├── img/
+│   ├── logo_estudio.png
+│   ├── equipo.jpg
+│   ├── civil.png
+│   ├── penal.png
+│   ├── laboral.png
+│   └── familia.png
 
 ```
 
