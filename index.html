@@ -1,107 +1,80 @@
 <!DOCTYPE html>
-<html lang="es-ar">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Estudio Jurídico Dr. Lionel Zurita - Derecho de Familia, Laboral y Sucesiones. Asesoría legal confiable y cercana." />
   <title>Estudio Jurídico Dr. Lionel Zurita</title>
-  <meta name="description" content="Asesoría legal integral para particulares y empresas.">
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <script defer src="../js/main.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Fuente elegante y profesional -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <nav class="navbar">
-    <img src="../img/logo_estudio.png" alt="Logo Estudio Jurídico" class="logo">
-    <span class="titulo">Estudio Jurídico Dr. Lionel Zurita</span>
-    <a href="#contacto" class="btn-nav">Contacto</a>
-  </nav>
-
-  <header class="header-main">
-    <h1>Asesoría Jurídica de Confianza</h1>
-    <p>Soluciones legales en derecho civil, penal, laboral, familia y más.</p>
-    <div class="botones-destacados">
-      <a class="boton" href="#servicios">Nuestros Servicios</a>
-      <a class="boton" href="#equipo">El Equipo</a>
-    </div>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Dr. Lionel Zurita</div>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="https://example.com/acceso-clientes" target="_blank" rel="noopener noreferrer" class="btn-acceso">Acceso Clientes</a></li>
+      </ul>
+      <div class="hamburger">&#9776;</div>
+    </nav>
   </header>
 
   <main>
-    <section id="servicios" class="servicios">
-      <h2>Servicios Legales</h2>
-      <div class="grid-servicios">
-        <div class="servicio" onclick="openModal('civil.png', 'Derecho Civil', 'Soluciones en contratos, sucesiones, daños y perjuicios.')">
-          <img src="../img/civil.png" alt="Derecho Civil">
-          <h3>Derecho Civil</h3>
-        </div>
-        <div class="servicio" onclick="openModal('penal.png', 'Derecho Penal', 'Asesoría y defensa penal integral.')">
-          <img src="../img/penal.png" alt="Derecho Penal">
-          <h3>Derecho Penal</h3>
-        </div>
-        <div class="servicio" onclick="openModal('laboral.png', 'Derecho Laboral', 'Reclamos, despidos, accidentes de trabajo.')">
-          <img src="../img/laboral.png" alt="Derecho Laboral">
-          <h3>Derecho Laboral</h3>
-        </div>
-        <div class="servicio" onclick="openModal('familia.png', 'Derecho de Familia', 'Divorcios, alimentos, régimen de visitas.')">
-          <img src="../img/familia.png" alt="Derecho de Familia">
-          <h3>Derecho de Familia</h3>
-        </div>
-      </div>
+    <section class="hero">
+      <h1>Defendiendo tus derechos con compromiso y excelencia</h1>
+      <p>Soluciones legales efectivas para los desafíos de hoy.</p>
+      <a href="#contacto" class="btn-primary">Contactanos</a>
     </section>
 
-    <div id="imgModal" class="modal-img">
-      <span class="modal-close" onclick="closeModal()">&times;</span>
-      <img class="modal-img-content" id="modalImage">
-      <div class="modal-text">
-        <h4 id="modalTitle"></h4>
-        <p id="modalDesc"></p>
-      </div>
-    </div>
-
-    <section class="calendario">
-      <h2>Fechas Importantes</h2>
-      <table class="tabla-fechas">
-        <thead>
-          <tr><th>Evento</th><th>Fecha</th><th>Notas</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Vencimiento de tasas</td><td>15/07/2025</td><td>Consultar si aplica prórroga</td></tr>
-          <tr><td>Charla: Derecho de Familia</td><td>22/07/2025</td><td>Requiere inscripción</td></tr>
-        </tbody>
-      </table>
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <ul>
+        <li>Derecho de Familia</li>
+        <li>Derecho Laboral</li>
+        <li>Sucesiones y Testamentos</li>
+        <li>Asesoría Jurídica Personalizada</li>
+      </ul>
     </section>
 
-    <section id="equipo" class="equipo">
-      <h2>El Equipo</h2>
-      <img src="../img/equipo.jpg" alt="Equipo del estudio" class="img-equipo">
-      <p>Profesionales con experiencia y ética al servicio de tus derechos.</p>
+    <section id="equipo">
+      <h2>Equipo</h2>
+      <p>Conoce al equipo profesional detrás del Estudio.</p>
+      <!-- Aquí puedes agregar fotos o perfiles -->
     </section>
 
-    <section id="contacto" class="contacto">
+    <section id="clientes">
+      <h2>Acceso Remoto para Clientes</h2>
+      <p>Accede de forma segura a tus carpetas y documentos legales.</p>
+      <a href="https://example.com/acceso-clientes" target="_blank" rel="noopener noreferrer" class="btn-secondary">Entrar</a>
+    </section>
+
+    <section id="contacto">
       <h2>Contacto</h2>
-      <form action="https://formsubmit.co/Dr.Zuritalionel@gmail.com" method="POST">
-        <input type="text" name="nombre" placeholder="Nombre y apellido" required>
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <textarea name="mensaje" placeholder="Consulta" required></textarea>
-        <button type="submit" class="boton">Enviar Consulta</button>
+      <form id="contactForm" action="mailto:Drzuritalionel@gmail.com" method="POST" enctype="text/plain">
+        <label for="nombre">Nombre completo *</label>
+        <input type="text" id="nombre" name="nombre" required />
+        
+        <label for="email">Correo electrónico *</label>
+        <input type="email" id="email" name="email" required />
+        
+        <label for="mensaje">Mensaje *</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        
+        <button type="submit">Enviar</button>
       </form>
+      <p>O contactanos directamente vía <a href="https://wa.me/541137722140" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</p>
     </section>
   </main>
 
   <footer>
-    <div class="footer-col">
-      <p>Email: contacto@estudiozurita.com.ar | Tel: (011) 1234-5678</p>
-      <p>Dirección: Av. Justicia 1234, Buenos Aires</p>
-    </div>
-    <div class="footer-col">
-      <p>Síguenos en <a href="#">Facebook</a> | <a href="#">LinkedIn</a></p>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita. Todos los derechos reservados.</p>
-    </div>
+    <p>© 2025 Estudio Jurídico Dr. Lionel Zurita | <a href="https://www.argentina.gob.ar/justicia" target="_blank" rel="noopener noreferrer">Sitios Oficiales</a></p>
   </footer>
-</body>
 
+  <script src="js/main.js"></script>
+</body>
 </html>
