@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Expedientes | Estudio Jurídico</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <span class="titulo">Gestor de Expedientes</span>
+    <a href="dashboard.html" class="btn-nav">Volver al Panel</a>
+  </nav>
+
+  <section class="servicios">
+    <h2>Nuevo expediente</h2>
+    <form id="form-expediente">
+      <input type="text" id="numero" placeholder="Nº de expediente" required />
+      <input type="text" id="caratula" placeholder="Carátula" required />
+      <input type="text" id="juzgado" placeholder="Juzgado" required />
+      <input type="date" id="fecha" required />
+      <input type="file" id="archivo" accept="application/pdf" />
+      <button type="submit" class="boton">Guardar</button>
+    </form>
+  </section>
+
+  <section class="servicios">
+    <h2>Expedientes cargados</h2>
+    <table class="tabla-fechas">
+      <thead>
+        <tr>
+          <th>Nº</th>
+          <th>Carátula</th>
+          <th>Juzgado</th>
+          <th>Fecha</th>
+          <th>Archivo</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-expedientes"></tbody>
+    </table>
+  </section>
+
+  <footer>
+    Estudio Jurídico Dr. Lionel Zurita — Módulo de Expedientes © 2025
+  </footer>
+
+  <script src="./js/expedientes.js"></script>
+</body>
+</html>
