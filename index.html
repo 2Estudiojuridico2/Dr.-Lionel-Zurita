@@ -1,88 +1,160 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Estudio Jurídico Dr. Lionel Zurita - Derecho de Familia, Laboral y Sucesiones. Asesoría legal confiable y cercana." />
-  <title>Estudio Jurídico Dr. Lionel Zurita</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Fuente elegante y profesional -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estudio Jurídico Dr. Lionel Nicolás Zurita</title>
+  <meta name="description" content="Estudio Jurídico Dr. Lionel Nicolás Zurita. Especialistas en derecho de familia, laboral y sucesorio en Argentina.">
+  <meta name="keywords" content="abogado, derecho, estudio jurídico, Lionel Zurita, familia, laboral, sucesorio, Argentina">
+  <meta name="author" content="Dr. Lionel Nicolás Zurita">
+  <link rel="icon" href="images/justicia.png" type="image/png">
+  <!-- Bootstrap 5.3.0 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- AOS animaciones -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    /* Puedes mover esto a estilos.css */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/oficina.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 2px 2px 8px #222;
+      position: relative;
+    }
+    .scroll-top {
+      display: none;
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 50%;
+      font-size: 24px;
+    }
+    .scroll-top:hover { background-color: #0056b3; }
+    main {
+      max-width: 900px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 2.5rem 2rem 2rem 2rem;
+      background: transparent;
+    }
+    @media (max-width: 600px) {
+      main { padding: 1rem; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav class="navbar" ms-auto">
-      <div class="logo">Dr. Lionel Zurita</div>
-      <ul class="nav-links">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#equipo">Equipo</a></li>
-        <li><a href="#clientes">Clientes</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="https://example.com/acceso-clientes" target="_blank" rel="noopener noreferrer" class="btn-acceso">Acceso Clientes</a></li>
-      </ul>
-      <div class="hamburger">&#9776;</div>
-    </nav>
+  <!-- NAVBAR GLOBAL -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" aria-label="Barra de navegación principal">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Estudio Jurídico Dr. Lionel Zurita</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#areas">Áreas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item"><a class="nav-link" href="agenda.html">Agenda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="inicio" class="hero text-center">
+    <div data-aos="fade-down">
+      <img src="images/justicia.png" alt="Balanza símbolo de la justicia" class="mb-4" style="width:120px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));">
+      <h1 class="display-4 text-light">Estudio Jurídico Dr. Lionel Nicolás Zurita</h1>
+      <p id="frase-juridica" class="lead text-light mt-4"></p>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Defendiendo tus derechos con compromiso y excelencia</h1>
-      <p>Soluciones legales efectivas para los desafíos de hoy.</p>
-      <a href="#contacto" class="btn-primary">Contactanos</a>
+    <!-- ÁREAS DE PRÁCTICA -->
+    <section id="areas" class="container mt-5 pt-5">
+      <h2 class="text-center mb-4" data-aos="fade-up">Áreas de Práctica</h2>
+      <div class="row text-center">
+        <div class="col-md-4 mb-3" data-aos="fade-right">
+          <a href="areas/familia.html" class="btn btn-outline-primary btn-block" aria-label="Derecho de Familia">Derecho de Familia</a>
+        </div>
+        <div class="col-md-4 mb-3" data-aos="fade-up">
+          <a href="areas/laboral.html" class="btn btn-outline-primary btn-block" aria-label="Derecho Laboral">Derecho Laboral</a>
+        </div>
+        <div class="col-md-4 mb-3" data-aos="fade-left">
+          <a href="areas/sucesiones.html" class="btn btn-outline-primary btn-block" aria-label="Derecho Sucesorio">Derecho Sucesorio</a>
+        </div>
+      </div>
     </section>
 
-    <section id="servicios">
-      <h2>Servicios</h2>
-      <ul>
-        <li><a href="Derecho de Familia"</li>
-        <li>Derecho Laboral</li>
-        <li>Sucesiones y Testamentos</li>
-        <li>Asesoría Jurídica Personalizada</li>
-      </ul>
-    </section>
-
-    <section id="equipo">
-      <h2>Equipo</h2>
-      <p>Conoce al equipo profesional detrás del Estudio.</p>
-      <!-- Aquí puedes agregar fotos o perfiles -->
-    </section>
-
-    <section id="clientes">
-      <h2>Acceso Remoto para Clientes</h2>
-      <p>Accede de forma segura a tus carpetas y documentos legales.</p>
-      <a href="https://example.com/acceso-clientes" target="_blank" rel="noopener noreferrer" class="btn-secondary">Entrar</a>
-    </section>
-
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <form id="contactForm" action="mailto:Drzuritalionel@gmail.com" method="POST" enctype="text/plain">
-        <label for="nombre">Nombre completo *</label>
-        <input type="text" id="nombre" name="nombre" required />
-        
-        <label for="email">Correo electrónico *</label>
-        <input type="email" id="email" name="email" required />
-        
-        <label for="mensaje">Mensaje *</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        
-        <button type="submit">Enviar</button>
-      </form>
-      <p>O contactanos directamente vía <a href="https://wa.me/541137722140" target="_blank" rel="noopener noreferrer">WhatsApp</a>.</p>
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre-nosotros" class="container mt-5 pt-5">
+      <h2 class="text-center mb-4" data-aos="fade-up">Sobre Nosotros</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8" data-aos="zoom-in">
+          <p>
+            Somos un equipo de profesionales dedicados al ejercicio del derecho, comprometidos con la ética, el profesionalismo y la defensa de los derechos de nuestros clientes. El Dr. Lionel Nicolás Zurita cuenta con una amplia trayectoria en derecho de familia, laboral y sucesorio, brindando asesoramiento personalizado y soluciones efectivas.
+          </p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <footer id="contacto" class="text-center py-3 bg-light">
-  <p>
-    Contacto: 
-    <a href="mailto:Dr.Zuritalionel@gmail.com" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
-    WhatsApp: 
-    <a href="https://wa.me/541131976852" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a> |
-    <a href="https://www.argentina.gob.ar/justicia" target="_blank" rel="noopener noreferrer" aria-label="Sitio oficial de justicia argentina">Sitio Oficial de Justicia</a>
-  </p>
-    <p>© 2025 Estudio Jurídico Dr. Lionel Zurita | <a href="https://www.argentina.gob.ar/justicia" target="_blank" rel="noopener noreferrer">Sitios Oficiales</a></p>
+  <!-- FOOTER -->
+  <footer id="contacto" class="bg-dark text-light text-center py-4 mt-5">
+    <p>
+      Contacto: 
+      <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> |
+      WhatsApp: 
+      <a href="https://wa.me/541131976852" class="text-light" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a>
+    </p>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- BOTÓN IR ARRIBA -->
+  <button onclick="scrollToTop()" class="scroll-top" id="btn-scroll-top" aria-label="Ir arriba">↑</button>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // AOS
+    AOS.init();
+    // Ir arriba
+    const btnScrollTop = document.getElementById("btn-scroll-top");
+    window.onscroll = function() {
+      btnScrollTop.style.display = (document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    // Scroll suave menú
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior: 'smooth'});
+        }
+      });
+    });
+  </script>
+  <script src="js/frases.js"></script>
 </body>
 </html>
