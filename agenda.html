@@ -1,138 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
-    <title>Agenda - Estudio Jurídico Dr. Zurita</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Estilos personalizados para el formulario */
-        .custom-form {
-            max-width: 480px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 22px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.20);
-            padding: 30px 30px 20px 30px;
-            margin-top: 32px;
-        }
-        .custom-form label {
-            font-weight: 500;
-            color: #2c3e50;
-        }
-        .custom-form .form-control:focus {
-            border-color: #0069d9;
-            box-shadow: 0 0 8px rgba(0,105,217,0.15);
-            transition: box-shadow 0.2s;
-        }
-        .custom-form textarea.form-control {
-            resize: vertical;
-            min-height: 80px;
-        }
-        .custom-btns {
-            margin-top: 32px;
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-        .btn-whatsapp, .btn-telegram {
-            display: flex;
-            align-items: center;
-            font-size: 1.1rem;
-            padding: 10px 22px;
-            border-radius: 30px;
-            box-shadow: 0 4px 18px rgba(44, 62, 80, 0.10);
-            font-weight: 500;
-            transition: transform 0.12s;
-        }
-        .btn-whatsapp:hover, .btn-telegram:hover {
-            transform: scale(1.045);
-            text-decoration: none;
-        }
-        .btn-whatsapp {
-            background: #25d366;
-            color: #fff;
-        }
-        .btn-telegram {
-            background: #229ED9;
-            color: #fff;
-        }
-        .btn-whatsapp svg, .btn-telegram svg {
-            margin-right: 10px;
-        }
-        .agenda-title {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            font-size: 2.1rem;
-            color: #06457c;
-            margin-bottom: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        @media (max-width: 576px) {
-            .custom-form {
-                padding: 16px;
-            }
-            .custom-btns {
-                flex-direction: column;
-                gap: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agenda Jurídica - Dr. Zurita</title>
+  <link rel="stylesheet" href="css/agenda.css" />
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" href="index.html">Inicio</a>
-    </nav>
+  <div class="container">
+    <h1>Agenda Jurídica</h1>
+    <form id="agendaForm">
+      <input type="text" id="nombre" placeholder="Nombre completo" required />
+      <input type="tel" id="telefono" placeholder="Teléfono / WhatsApp" required />
+      <input type="datetime-local" id="fecha" required />
+      <textarea id="comentario" placeholder="Motivo de la consulta" required></textarea>
+      <button type="submit">Guardar Turno</button>
+    </form>
 
-    <div class="container" style="padding-top: 100px;">
-        <h1 class="text-center agenda-title">Agenda de Turnos</h1>
-        <form action="https://formsubmit.co/Dr.Zuritalionel@gmail.com" method="POST" class="custom-form">
-            <div class="form-group">
-                <label for="nombre">Nombre completo</label>
-                <input type="text" name="Nombre" class="form-control" id="nombre" required autocomplete="name">
-            </div>
-            <div class="form-group">
-                <label for="telefono">Teléfono / WhatsApp</label>
-                <input type="tel" name="Teléfono" class="form-control" id="telefono" required autocomplete="tel">
-            </div>
-            <div class="form-group">
-                <label for="fecha">Fecha deseada</label>
-                <input type="date" name="Fecha" class="form-control" id="fecha" required>
-            </div>
-            <div class="form-group">
-                <label for="comentario">Motivo de la consulta</label>
-                <textarea name="Consulta" class="form-control" id="comentario" rows="4" required></textarea>
-            </div>
-            <input type="hidden" name="_next" value="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/gracias.html">
-            <input type="hidden" name="_captcha" value="false">
-            <button type="submit" class="btn btn-primary btn-block" style="border-radius: 30px;">Solicitar Turno</button>
-        </form>
-
-        <div class="custom-btns">
-            <!-- Botón de WhatsApp -->
-            <a href="https://wa.me/541131976852?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank"
-                class="btn-whatsapp">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.501-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.651-1.03-5.138-2.901-7.01-1.871-1.872-4.356-2.904-7.008-2.905-5.451 0-9.887 4.434-9.889 9.883-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.67-.957zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.767.967-.941 1.166-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.151-.174.2-.298.299-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.358.709.306 1.262.488 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
-                WhatsApp
-            </a>
-            <!-- Botón de Telegram -->
-            <a href="https://t.me/drzuritalionel" target="_blank"
-                class="btn-telegram">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm4.425 6.343c-.143-.087-2.906-1.146-3.542-1.392-.637-.246-1.467-.261-1.893.144-.426.405-5.464 5.32-5.674 5.565-.21.245-.421.485-.421.815s.136.577.228.664c.092.087 3.062 2.049 3.271 2.181.21.132.438.342.74.264.303-.078 1.253-1.15 1.602-1.513.349-.363 1.638-1.623 1.86-1.829.222-.206.492-.093.56-.071.068.022.173.087.173.263s-.105 2.324-.173 2.746c-.068.422-.072.479-.173.678-.101.199-.267.294-.449.294s-.523-.032-.765-.06c-.242-.028-.776-.13-.873-.174-.097-.044-.2-.05-.268.077-.068.127-.226.407-.26.469-.034.062-.092.181.022.302.114.121 1.687 1.068 1.855 1.169.168.101.316.153.54.029.224-.124 2.451-1.632 2.792-1.858.341-.226.267-.424.267-.424s-.062-.543-.093-.85c-.031-.307-.109-.604-.14-.743-.031-.139-.055-.215.01-.227.065-.012.23-.033.357-.049.127-.016.222-.045.255-.13.033-.085.077-.252.11-.336.033-.084.015-.146-.085-.17zm-6.425 9.657c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"/>
-                </svg>
-                Telegram
-            </a>
-        </div>
-    </div>
-
-    <footer class="bg-dark text-light text-center py-4 mt-5">
-        <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-light">Dr.Zuritalionel@gmail.com</a> |
-        WhatsApp: <a href="https://wa.me/541131976852" class="text-light">+54 11 3197 6852</a></p>
-    </footer>
+    <h2>Próximos Turnos</h2>
+    <table id="agendaTable">
+      <thead>
+        <tr><th>Nombre</th><th>Fecha</th><th>Motivo</th><th>Calendario</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="js/agenda.js"></script>
 </body>
 </html>
