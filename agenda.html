@@ -1,1 +1,27 @@
-<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><title>Agenda</title></head><body><h1>Formulario Agenda</h1></body></html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda de Turnos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <h1>Agenda de Turnos</h1>
+  <form id="formAgenda">
+    <label for="nombre">Nombre completo:</label><br>
+    <input type="text" id="nombre" required><br>
+    <label for="telefono">Teléfono:</label><br>
+    <input type="tel" id="telefono" required><br>
+    <label for="fecha">Fecha deseada:</label><br>
+    <input type="date" id="fecha" required><br>
+    <label for="comentario">Motivo:</label><br>
+    <textarea id="comentario" required></textarea><br>
+    <button type="submit">Guardar Turno</button>
+    <p id="mensajeExito"></p>
+  </form>
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/agenda.js"></script>
+</body>
+</html>
