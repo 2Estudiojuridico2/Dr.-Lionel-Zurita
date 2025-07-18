@@ -1,37 +1,61 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("expForm");
-  const tbody = document.querySelector("#tablaExp tbody");
+  const form = document.getElementById("formExpediente");
+  const tabla = document.querySelector("#tablaExpedientes tbody");
 
-  function render() {
-    const datos = JSON.parse(localStorage.getItem("expedientes") || "[]");
-    tbody.innerHTML = "";
-    datos.forEach(e => {
+  function cargarExpedientes() {
+    const lista = JSON.parse(localStorage.getItem("expedientes")) || [];
+    tabla.innerHTML = "";
+    lista.forEach((exp, index) => {
       const fila = document.createElement("tr");
       fila.innerHTML = `
-        <td>${e.cliente}</td>
-        <td>${e.caratula}</td>
-        <td>${e.fecha}</td>
-        <td>${e.detalle}</td>
+        <td>${exp.numero}</td>
+        <td>${exp.caratula}</td>
+        <td>${exp.juzgado}</td>
+        <td>${exp.fecha}</td>
+        <td>${exp.archivo ? `<a href="${exp.archivo}" target="_blank">Ver</a>` : "-"}</td>
+        <td><button onclick="eliminar(${index})">Eliminar</button></td>
       `;
-      tbody.appendChild(fila);
+      tabla.appendChild(fila);
     });
   }
 
   form.addEventListener("submit", e => {
     e.preventDefault();
-    const nuevo = {
-      cliente: document.getElementById("cliente").value,
+    const expediente = {
+      numero: document.getElementById("numero").value,
       caratula: document.getElementById("caratula").value,
+      juzgado: document.getElementById("juzgado").value,
       fecha: document.getElementById("fecha").value,
-      detalle: document.getElementById("detalle").value
+      archivo: "" // El archivo no se puede guardar en localStorage
     };
-    const lista = JSON.parse(localStorage.getItem("expedientes") || "[]");
-    lista.push(nuevo);
-    localStorage.setItem("expedientes", JSON.stringify(lista));
-    form.reset();
-    render();
+
+    const file = document.getElementById("archivo").files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        expediente.archivo = e.target.result;
+        guardar(expediente);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      guardar(expediente);
+    }
   });
 
-  render();
+  function guardar(exp) {
+    const lista = JSON.parse(localStorage.getItem("expedientes")) || [];
+    lista.push(exp);
+    localStorage.setItem("expedientes", JSON.stringify(lista));
+    form.reset();
+    cargarExpedientes();
+  }
+
+  window.eliminar = function (i) {
+    const lista = JSON.parse(localStorage.getItem("expedientes")) || [];
+    lista.splice(i, 1);
+    localStorage.setItem("expedientes", JSON.stringify(lista));
+    cargarExpedientes();
+  };
+
+  cargarExpedientes();
 });
