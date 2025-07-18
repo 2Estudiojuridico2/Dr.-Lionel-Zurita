@@ -174,7 +174,7 @@ footer a:hover, footer a:focus {
   background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
 }
 .balanza-hero {
-  width: 30px;
+  width: 100px;
   margin-bottom: 20px;
   filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
 }
