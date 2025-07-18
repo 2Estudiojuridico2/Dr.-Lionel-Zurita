@@ -39,9 +39,12 @@ este es el index actual, que opinas, el anterior no tenia funcionalidad, se podr
   <a href="expedientes.html" class="btn-nav">Ver expedientes</a>
 </div>
 </div>
-  </nav>
+    <nav class="navbar">
+  <span class="titulo">Panel Privado</span>
+  <a href="#" class="btn-nav" onclick="logout()">Cerrar sesión</a>
+</nav>
 
-  <!-- HERO -->
+    <!-- HERO -->
   <header id="inicio" class="hero text-center">
     <div data-aos="fade-down">
       <img src="images/justicia.png" alt="Balanza símbolo de la justicia" class="balanza-hero mb-4">
@@ -115,14 +118,27 @@ este es el index actual, que opinas, el anterior no tenia funcionalidad, se podr
         if(target){
           e.preventDefault();
           target.scrollIntoView({behavior: 'smooth'});
-           window.addEventListener('DOMContentLoaded', () => {
+         
+<script>
+  function logout() {
+    localStorage.removeItem("auth");
+    window.location.href = "login.html";
+  }
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem("auth") === "true") {
       const nav = document.querySelector("#navbarNav ul");
-      const li = document.createElement("li");
-      li.className = "nav-item";
-      li.innerHTML = `<a class="nav-link" href="dashboard.html">Panel</a>`;
-      nav.appendChild(li);
-        }
+      if (nav) {
+        const li = document.createElement("li");
+        li.className = "nav-item";
+        li.innerHTML = `<a class="nav-link" href="dashboard.html">Panel</a>`;
+        nav.appendChild(li);
+      }
+    }
+  });
+</script>        }
       });
     });
   </script>
