@@ -1,34 +1,233 @@
+/* estilos.css */
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f8;
-  color: #222;
-  margin: 0;
-  padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    /* Asegúrate de que el body no tenga un margin por defecto de Bootstrap si no quieres */
+    margin: 0;
 }
-header {
-  background-color: #002147;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+
+/* Fondos de las páginas específicas (mantener) */
+.familia {
+    background-image: url('../images/fondo-familia.jpg'); /* Asegúrate de tener esta imagen */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
-nav ul {
-  list-style: none;
-  padding: 0;
+
+.laboral {
+    background-image: url('../images/fondo-laboral.jpg'); /* Asegúrate de tener esta imagen */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
-nav ul li {
-  display: inline;
-  margin: 0 10px;
+
+.sucesiones {
+    background-image: url('../images/fondo-sucesiones.jpg'); /* Asegúrate de tener esta imagen */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
-nav ul li a {
-  color: #f0d27a;
-  text-decoration: none;
+
+/* Estilos de la NAVBAR GLOBAL (general y para index) */
+.custom-navbar { /* Usé custom-navbar para diferenciarla de 'navbar' de bootstrap */
+    background: rgba(13,71,161,0.92); /* Fondo más oscuro y con transparencia */
+    padding: 0.5rem 2rem;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050; /* Z-index alto para que esté por encima de todo */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-footer {
-  background-color: #002147;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: #fff !important; /* Para asegurar el color blanco */
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+    text-decoration: underline !important;
+    /* Puedes añadir un color de hover si quieres, por ejemplo: */
+    /* color: #90caf9 !important; */
+}
+
+.nav-brand {
+    font-size: 1.3rem;
+    font-family: 'Playfair Display', serif; /* Mantener la fuente para el logo */
+}
+
+/* Estilos de los héroes (cabeceras de página) - Mantener los existentes */
+.hero {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    padding-top: 80px; /* Espacio para la navbar fija */
+}
+
+.hero-familia {
+    background-color: #007bff; /* Color de fallback si no carga la imagen */
+}
+
+.hero-laboral {
+    background-color: #28a745; /* Color de fallback */
+}
+
+.hero-sucesiones {
+    background-color: #dc3545; /* Color de fallback */
+}
+
+.balanza-hero {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Estilos del INDEX (Home) */
+.inicio-oficina {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/oficina.jpg') center/cover no-repeat; /* Ajuste la ruta de la imagen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 2px 2px 8px #222;
+    position: relative;
+    /* Asegurarse que el padding-top de la sección no choque con la navbar fija */
+    padding-top: 90px; /* Un poco más de lo que tenías para asegurar */
+}
+
+.inicio-oficina h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 3rem; /* Ajustar tamaño para mejor legibilidad */
+}
+
+.inicio-oficina p#frase-juridica {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 1.6rem; /* Ajustar tamaño */
+}
+
+.accesos-dinamicos {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.acceso-area {
+    background: rgba(255,255,255,0.88);
+    color: #0d47a1;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s, background 0.2s, color 0.2s; /* Añadir transiciones para un efecto suave */
+    box-shadow: 0 2px 12px rgba(13,71,161,0.12);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.acceso-area:hover {
+    transform: scale(1.08);
+    background: #1565c0;
+    color: #fff;
+    text-shadow: none;
+}
+
+.acceso-area img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+}
+
+
+/* Estilos del contenido principal (main) para otras páginas */
+main {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    margin-top: 6rem !important; /* Ajuste para la navbar fija */
+    margin-bottom: 3rem !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: #0056b3;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+li strong {
+    color: #0056b3;
+}
+
+/* Estilos de los botones (mantener) */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Estilos del footer */
+.footer { /* Cambié a .footer para diferenciarlo del footer global si tienes uno */
+    background: #222;
+    color: #f4f9fc;
+    text-align: center;
+    padding: 2rem 0 1rem 0;
+    font-size: 1rem;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de scroll-to-top (mantener) */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    display: none; /* Se oculta por JS hasta hacer scroll */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-top:hover {
+    background-color: #0056b3;
 }
