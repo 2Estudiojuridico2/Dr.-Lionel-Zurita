@@ -9,21 +9,21 @@ body {
 
 /* Fondos de las páginas específicas (mantener) */
 .familia {
-    background-image: url('../images/familia.jpg'); /* Asegúrate de tener esta imagen */
+    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/familia.jpg') center/cover no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
 
 .laboral {
-    background-image: url('../images/laboral.png'); /* Asegúrate de tener esta imagen */
+    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/laboral1.jpg') center/cover no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
 
 .sucesiones {
-    background-image: url('../images/sucesiones.jpg'); /* Asegúrate de tener esta imagen */
+    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
