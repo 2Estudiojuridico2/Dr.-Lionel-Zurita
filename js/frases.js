@@ -1,20 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
+// js/frases.js
+document.addEventListener('DOMContentLoaded', () => {
     const frases = [
-        "El derecho protege lo justo.",
-        "Justicia no es solo ley, es equidad.",
-        "La ley es el arte de lo bueno y de lo justo.",
-        "Donde hay derecho, hay esperanza.",
-        "El respeto a los derechos ajenos es la paz."
+        "La justicia es la constante y perpetua voluntad de dar a cada uno lo suyo.",
+        "Donde hay hombres, hay sociedad; donde hay sociedad, hay derecho.",
+        "El derecho no se crea ni se destruye, solo se transforma.",
+        "Sin derecho no hay orden, sin orden no hay justicia.",
+        "La ley es la razón libre de pasión."
     ];
 
-    let index = 0;
-    const fraseElement = document.getElementById("frase-juridica");
-
-    function cambiarFrase() {
-        fraseElement.textContent = frases[index];
-        index = (index + 1) % frases.length;
+    const fraseElement = document.getElementById('frase-juridica');
+    if (fraseElement) { // Asegúrate de que el elemento exista
+        const randomIndex = Math.floor(Math.random() * frases.length);
+        fraseElement.textContent = `"${frases[randomIndex]}"`;
     }
-
-    cambiarFrase();
-    setInterval(cambiarFrase, 5000);
 });
