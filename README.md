@@ -9,17 +9,27 @@ Sitio web profesional y moderno para el Estudio Jurídico Dr. Lionel Nicolás Zu
 ```
 /estudio-juridico/
 ├── index.html
+├── agenda.html
 ├── css/
-│   └── styles.css
-├── js/
-│   └── main.js
-├── img/
-│   ├── logo_estudio.png
-│   ├── equipo.jpg
-│   ├── civil.png
-│   ├── penal.png
-│   ├── laboral.png
-│   └── familia.png
+│   └── estilos.css
+├── images/
+│   ├── oficina.jpg       <-- ¡Cambia .jfif por .jpg!
+│   ├── familia.jpg
+│   ├── laboral1.jpg
+│   ├── sucesiones.jpg
+│   ├── justicia.png
+│   ├── fondo-familia.jpg   (si los usas)
+│   ├── fondo-laboral.jpg
+│   └── fondo-sucesiones.jpg
+├── icons/                 <-- ¡Nueva carpeta para los íconos!
+│   ├── favor.svg
+│   ├── contrato.svg
+│   ├── ley.svg
+│   └── final.svg
+└── area/                 <-- O 'areas/', ¡pero elige uno!
+    ├── familia.html
+    ├── laboral.html
+    └── sucesiones.html
 
 ```
 
