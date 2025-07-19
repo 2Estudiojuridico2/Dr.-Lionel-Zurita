@@ -52,6 +52,7 @@ body {
 .custom-navbar .nav-link:hover,
 .custom-navbar .nav-link.active {
     text-decoration: underline !important;
+    color: #90caf9 !important;
     /* Puedes añadir un color de hover si quieres, por ejemplo: */
     /* color: #90caf9 !important; */
 }
@@ -125,7 +126,7 @@ body {
 }
 
 .acceso-area {
-    background: rgba(255,255,255,0.88);
+    background: transparent (255,255,255,0.88);
     color: #0d47a1;
     border-radius: 1rem;
     padding: 1.5rem 2rem;
@@ -155,7 +156,7 @@ body {
 
 /* Estilos del contenido principal (main) para otras páginas */
 main {
-    background-color: white;
+    background-color: transparent;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
