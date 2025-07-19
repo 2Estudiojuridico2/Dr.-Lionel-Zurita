@@ -263,3 +263,140 @@ li strong {
     color: #ffffff;
     text-decoration: underline;
 }
+/* --- Estilos específicos para agenda.html --- */
+
+.agenda-title {
+    font-family: 'Playfair Display', serif; /* Usar la misma fuente de los títulos */
+    font-size: 2.5rem; /* Ajustar tamaño para que coincida con otros títulos */
+    color: #0056b3; /* Usar el color azul de los encabezados */
+    margin-bottom: 30px; /* Espacio debajo del título */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.custom-form {
+    max-width: 550px; /* Un poco más ancho para mejor distribución */
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 1rem; /* Redondeado más suave */
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.15); /* Sombra más sutil */
+    padding: 30px;
+    margin-top: 2rem; /* Espacio desde el título */
+}
+
+.custom-form label {
+    font-weight: 600; /* Un poco más de peso */
+    color: #34495e; /* Un gris azulado oscuro */
+}
+
+.custom-form .form-control {
+    border-radius: 0.5rem; /* Bordes redondeados */
+    border: 1px solid #ced4da;
+    padding: 0.75rem 1rem;
+}
+
+.custom-form .form-control:focus {
+    border-color: #007bff; /* Color de foco de Bootstrap */
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Sombra de foco de Bootstrap */
+    transition: all 0.2s ease-in-out; /* Transición suave */
+}
+
+.custom-form textarea.form-control {
+    resize: vertical;
+    min-height: 100px; /* Un poco más de altura mínima */
+}
+
+.custom-btns {
+    margin-top: 3rem; /* Más espacio */
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Espacio entre botones */
+    flex-wrap: wrap;
+}
+
+.btn-whatsapp, .btn-telegram {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar contenido dentro del botón */
+    font-size: 1.15rem; /* Tamaño de fuente ligeramente más grande */
+    padding: 12px 25px; /* Más padding */
+    border-radius: 50px; /* Más redondeado, tipo pastilla */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra mejorada */
+    font-weight: 600;
+    transition: all 0.2s ease-in-out; /* Transición para todas las propiedades */
+    text-decoration: none; /* Asegura que no haya subrayado */
+}
+
+.btn-whatsapp:hover, .btn-telegram:hover {
+    transform: translateY(-3px); /* Pequeño efecto de elevación al pasar el mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada al hover */
+    text-decoration: none; /* Mantener sin subrayado */
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: #fff;
+    border: 1px solid #25d366; /* Borde del mismo color */
+}
+
+.btn-whatsapp:hover {
+    background: #1da851; /* Color más oscuro al hover */
+    border-color: #1da851;
+}
+
+.btn-telegram {
+    background: #229ED9;
+    color: #fff;
+    border: 1px solid #229ED9;
+}
+
+.btn-telegram:hover {
+    background: #1a7bbd; /* Color más oscuro al hover */
+    border-color: #1a7bbd;
+}
+
+.btn-whatsapp svg, .btn-telegram svg {
+    margin-right: 10px;
+}
+
+/* Estilos de la tabla de turnos */
+#agendaTable thead {
+    background-color: #007bff; /* Color de cabecera de tabla */
+}
+
+#agendaTable th {
+    color: #fff;
+}
+
+#agendaTable tbody tr:hover {
+    background-color: #e2f2ff; /* Color al pasar el mouse sobre la fila */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .agenda-title {
+        font-size: 2rem;
+    }
+    .custom-form {
+        margin-top: 1.5rem;
+        padding: 20px;
+    }
+    .btn-whatsapp, .btn-telegram {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-form {
+        padding: 15px;
+        margin-top: 1rem;
+    }
+    .custom-btns {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .btn-whatsapp, .btn-telegram {
+        width: 100%; /* Ocupan todo el ancho en móviles */
+    }
+}
