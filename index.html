@@ -3,66 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estudio Jurídico Dr. Lionel Nicolás Zurita</title>
-  <meta name="description" content="Estudio Jurídico especializado en Derecho de Familia, Laboral y Sucesorio. Atención personalizada, compromiso y excelencia profesional.">
+  <title>Estudio Jurídico Dr. Lionel Zurita</title>
   <link rel="stylesheet" href="css/estilos.css">
-  <link rel="icon" type="image/png" href="img/balanza.png">
+  <!-- Agrega Bootstrap si usas las clases container, row, col-md-8, etc. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .inicio-oficina {
+      min-height: 100vh;
+      background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('images/oficina.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-shadow: 2px 2px 8px #222;
+      position: relative;
+    }
+    .accesos-dinamicos {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .acceso-area {
+      background: rgba(255,255,255,0.88);
+      color: #0d47a1;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s;
+      box-shadow: 0 2px 12px rgba(13,71,161,0.12);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .acceso-area:hover {
+      transform: scale(1.08);
+      background: #1565c0;
+      color: #fff;
+      text-shadow: none;
+    }
+    .acceso-area img { width: 48px; height: 48px; margin-bottom: 12px; }
+    nav {
+      background: rgba(13,71,161,0.92);
+      padding: 0.5rem 2rem;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 99;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 14px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    nav a:hover { text-decoration: underline; }
+    .nav-brand { font-size: 1.3rem; }
+    .footer {
+      background: #222;
+      color: #f4f9fc;
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      font-size: 1rem;
+      margin-top: 3rem;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="img/pluma.png" alt="Logo Pluma">
-      <h1>Estudio Jurídico<br>Dr. Lionel Nicolás Zurita</h1>
+  <nav>
+    <span class="nav-brand">Estudio Jurídico Zurita</span>
+    <a href="index.html">Inicio</a>
+    <a href="areas/familia.html">Familia</a>
+    <a href="areas/laboral.html">Laboral</a>
+    <a href="areas/sucesiones.html">Sucesiones</a>
+    <a href="agenda.html">Turnos</a>
+  </nav>
+  <section class="inicio-oficina" style="padding-top:70px;">
+    <h1>Bienvenido al Estudio Jurídico del Dr. Lionel Zurita</h1>
+    <p id="frase-juridica" style="font-size:1.5rem; margin-bottom:2rem;"></p>
+    <div class="accesos-dinamicos">
+      <a href="areas/familia.html" class="acceso-area" aria-label="Familia">
+        <img src="icons/favor.svg" alt="Familia" />
+        Familia
+      </a>
+      <a href="areas/laboral.html" class="acceso-area" aria-label="Laboral">
+        <img src="icons/contrato.svg" alt="Laboral" />
+        Laboral
+      </a>
+      <a href="areas/sucesiones.html" class="acceso-area" aria-label="Sucesiones">
+        <img src="icons/ley.svg" alt="Sucesiones" />
+        Sucesiones
+      </a>
+      <a href="agenda.html" class="acceso-area" aria-label="Turnos">
+        <img src="icons/final.svg" alt="Turnos" />
+        Turnos
+      </a>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="agenda.html">Agenda</a></li>
-        <li><a href="expedientes.html">Expedientes</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="login.html">Acceso Clientes</a></li>
-      </ul>
-    </nav>
-  </header>
+  </section>
 
-  <main>
-    <section class="bienvenida">
-      <h2>Bienvenido al Estudio Jurídico</h2>
-      <p>
-        Defendiendo tus derechos con compromiso y excelencia.<br>
-        Soluciones legales efectivas para los desafíos de hoy.
-      </p>
-    </section>
+  <!-- Sección Sobre Nosotros -->
+  <section id="sobre-nosotros" class="container mt-5 pt-5">
+    <h2 class="text-center mb-4">Sobre Nosotros</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <p>
+          Somos un equipo de profesionales dedicados al ejercicio del derecho, comprometidos con la ética, el profesionalismo y la defensa de los derechos de nuestros clientes. El Dr. [...]
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <section class="presentacion">
-      <h3>Especialidades</h3>
-      <ul>
-        <li>Derecho de Familia</li>
-        <li>Derecho Laboral</li>
-        <li>Derecho Sucesorio</li>
-      </ul>
-    </section>
-
-    <section class="servicios">
-      <h3>¿Por qué elegirnos?</h3>
-      <p>
-        Porque cada caso importa. Porque el trato humano, la claridad y el profesionalismo son pilares de nuestra práctica. 
-        Consultas personalizadas, atención continua, y un enfoque integral a tu problema legal.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Estudio Jurídico Dr. Lionel Nicolás Zurita</p>
-    <p>Contacto: Drzuritalionel@gmail.com | Tel: 1131976852</p>
+  <footer class="footer">
+    &copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados
   </footer>
-</body>
-</html>
-
-  <footer>
-    <p>&copy; 2025 Dr. Lionel Nicolás Zurita. Todos los derechos reservados.</p>
-    <p>Contacto: drzuritalionel@gmail.com | Tel: 1131976852</p>
-  </footer>
-  <script src="main.js"></script>
+  <script src="js/frases.js"></script>
 </body>
 </html>
