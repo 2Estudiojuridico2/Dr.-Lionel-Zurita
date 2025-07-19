@@ -232,3 +232,34 @@ li strong {
 .scroll-top:hover {
     background-color: #0056b3;
 }
+
+/* Estilos específicos para la página de Sucesiones */
+.sucesiones main {
+    background-color: rgba(255, 255, 255, 0.15); /* Haz el fondo del main un poco transparente si quieres */
+    color: #f8f9fa; /* Color blanco casi puro para el texto general del main */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Agrega sombra para mejorar legibilidad */
+}
+
+.sucesiones main h1,
+.sucesiones main h2,
+.sucesiones main h3,
+.sucesiones main h4,
+.sucesiones main h5,
+.sucesiones main h6 {
+    color: #ffffff; /* Color blanco puro para todos los encabezados dentro del main */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Sombra para mejor contraste */
+}
+
+.sucesiones main li strong {
+    color: #90caf9; /* Un azul claro para los textos fuertes en las listas, para contraste */
+}
+
+/* Asegúrate de que los enlaces dentro del main también sean visibles */
+.sucesiones main a {
+    color: #90caf9; /* Un color claro para los enlaces, o blanco puro si prefieres */
+}
+
+.sucesiones main a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
