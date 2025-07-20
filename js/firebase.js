@@ -7,6 +7,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase
 
 
 // ** TU NUEVA CONFIGURACIÓN DE FIREBASE **
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDjq9AxKQDyG-pw455YYP7F2p85lBl3lbA",
   authDomain: "estudiozuritaagenda-ae2bb.firebaseapp.com",
