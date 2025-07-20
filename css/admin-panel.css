@@ -1,0 +1,179 @@
+/* admin-panel.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Fondo suave */
+    margin: 0;
+    padding-top: 60px; /* Para dejar espacio a la navbar */
+}
+
+/* Navbar del Panel Privado */
+.navbar {
+    background-color: #0d47a1; /* Azul más oscuro */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.navbar .titulo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar .btn-nav {
+    background-color: #dc3545; /* Botón de cerrar sesión rojo */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .btn-nav:hover {
+    background-color: #c82333;
+}
+
+/* Contenido Principal (Header y Secciones) */
+.header-main {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #e3f2fd; /* Fondo suave para el encabezado */
+    border-bottom: 1px solid #cce5ff;
+}
+
+.header-main h1 {
+    color: #0d47a1;
+    margin-bottom: 10px;
+}
+
+.header-main p {
+    color: #555;
+    font-size: 1.1em;
+}
+
+.servicios {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.servicios h2 {
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.servicio {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.servicio h3 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.servicio p {
+    color: #666;
+    font-size: 0.95em;
+}
+
+/* Estilos de la tabla de turnos para agenda-admin.html */
+.admin-table-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.admin-table-container h2 {
+    color: #0d47a1;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #f0f8ff; /* Fondo más claro para encabezados de tabla */
+    color: #0d47a1;
+    font-weight: bold;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.admin-table tr:hover {
+    background-color: #eaf6ff;
+}
+
+.admin-table .btn-sm {
+    padding: 5px 10px;
+    font-size: 0.85em;
+    border-radius: 4px;
+}
+
+/* Footer del Panel */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .grid-servicios {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+    .header-main, .servicios, .admin-table-container {
+        padding: 25px 15px;
+    }
+    .navbar {
+        padding: 10px 15px;
+    }
+    .admin-table th, .admin-table td {
+        padding: 8px; /* Menor padding en celdas para móviles */
+        font-size: 0.9em;
+    }
+}
