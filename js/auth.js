@@ -1,40 +1,41 @@
 // js/auth.js
+
+// Lógica de autenticación simple con localStorage
+const USERNAME = 'admin';
+const PASSWORD = 'password123'; // ¡Cambia esta contraseña por una más segura!
+
 document.addEventListener('DOMContentLoaded', () => {
-    const protectedPages = ['panel.html', 'agenda-admin.html', /* agrega otras páginas privadas aquí */];
-    const currentPage = window.location.pathname.split('/').pop();
+    const loginForm = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('errorMessage');
 
-    // Redirigir a login si no hay token y la página es protegida
-    if (protectedPages.includes(currentPage) && !localStorage.getItem('auth')) {
-        window.location.href = 'login.html';
-    }
+    if (loginForm) {
+        // Estamos en la página de login
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
 
-    // Lógica para la página de login
-    if (currentPage === 'login.html') {
-        const loginForm = document.getElementById('loginForm');
-        const errorMessage = document.getElementById('errorMessage');
-
-        if (loginForm) {
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const username = loginForm.username.value;
-                const password = loginForm.password.value;
-
-                // **IMPORTANTE: En un entorno real, las credenciales no deben estar en el frontend.**
-                // Esto es solo para un prototipo simple.
-                // Para producción, se usaría un backend para validar.
-                if (username === '2leoneo2' && password === 'speeD@34') { // ¡Cambia esto por credenciales seguras!
-                    localStorage.setItem('auth', 'loggedIn'); // Guarda un token simple
-                    window.location.href = 'panel.html'; // Redirige al panel privado
-                } else {
-                    errorMessage.textContent = 'Usuario o contraseña incorrectos.';
-                }
-            });
-        }
+            if (usernameInput === USERNAME && passwordInput === PASSWORD) {
+                localStorage.setItem('isAuthenticated', 'true');
+                window.location.href = 'panel.html'; // Redirigir al panel
+            } else {
+                errorMessage.textContent = 'Usuario o contraseña incorrectos.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    } else {
+        // Estamos en una página protegida (panel.html o agenda-admin.html)
+        checkAuth();
     }
 });
 
-// Función para cerrar sesión (la tienes en panel.html, pero puede estar aquí si quieres)
+function checkAuth() {
+    if (localStorage.getItem('isAuthenticated') !== 'true') {
+        window.location.href = 'login.html'; // Si no está autenticado, redirigir al login
+    }
+}
+
 function logout() {
-    localStorage.removeItem("auth");
-    window.location.href = "login.html";
+    localStorage.removeItem('isAuthenticated');
+    window.location.href = 'login.html'; // Redirigir al login al cerrar sesión
 }
