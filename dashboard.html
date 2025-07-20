@@ -1,46 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Privado | Estudio Jurídico</title>
-  <link rel="stylesheet" href="./css/styles.css">
-  <script src="./js/auth.js" defer></script>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Privado | Estudio Jurídico Dr. Zurita</title>
+    <link rel="stylesheet" href="css/admin-panel.css"> <script src="js/auth.js" defer></script> </head>
 <body>
-  <nav class="navbar">
-    <span class="titulo">Panel Privado</span>
-    <a href="#" class="btn-nav" onclick="logout()">Cerrar sesión</a>
-  </nav>
-  <main class="header-main">
-    <h1>Bienvenido, Dr. Zurita</h1>
-    <p>Desde aquí podrá gestionar expedientes, turnos y documentación.</p>
-  </main>
-  <section class="servicios">
-    <h2>Áreas en desarrollo</h2>
-    <div class="grid-servicios">
-      <div class="servicio">
-        <h3>Gestor de expedientes</h3>
-        <p>Suba, edite y consulte casos legales.</p>
-      </div>
-      <div class="servicio">
-        <h3>Documentos digitales</h3>
-        <p>Visualice y cargue escritos.</p>
-      </div>
-      <div class="servicio">
-        <h3>Agenda jurídica</h3>
-        <p>Turnos, audiencias y vencimientos.</p>
-      </div>
-    </div>
-  </section>
-  <footer>
-    Estudio Jurídico Dr. Lionel Zurita — Sistema privado © 2025
-  </footer>
-  <script>
-    function logout() {
-      localStorage.removeItem("auth");
-      window.location.href = "login.html";
-    }
-  </script>
-</body>
+    <nav class="navbar">
+        <span class="titulo">Panel Privado</span>
+        <a href="#" class="btn-nav" onclick="logout()">Cerrar sesión</a>
+    </nav>
+    <main class="header-main">
+        <h1>Bienvenido, Dr. Zurita</h1>
+        <p>Desde aquí podrá gestionar expedientes, turnos y documentación.</p>
+    </main>
+    <section class="servicios">
+        <h2>Áreas de Gestión</h2>
+        <div class="grid-servicios">
+            <div class="servicio">
+                <h3>Gestor de expedientes</h3>
+                <p>Suba, edite y consulte casos legales.</p>
+                <a href="#" class="btn btn-primary btn-sm mt-3">Ir a Expedientes</a>
+            </div>
+            <div class="servicio">
+                <h3>Documentos digitales</h3>
+                <p>Visualice y cargue escritos.</p>
+                <a href="#" class="btn btn-primary btn-sm mt-3">Ver Documentos</a>
+            </div>
+            <div class="servicio">
+                <h3>Agenda jurídica</h3>
+                <p>Ver y gestionar turnos, audiencias y vencimientos.</p>
+                <a href="agenda-admin.html" class="btn btn-primary btn-sm mt-3">Ir a la Agenda</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        Estudio Jurídico Dr. Lionel Zurita — Sistema privado © 2025
+    </footer>
+    </body>
 </html>
