@@ -62,18 +62,46 @@
                     El Dr. Lionel Nicolás Zurita lidera el estudio con una vasta experiencia en diversas ramas del derecho, brindando soluciones integrales y personalizadas para cada caso.
                     Nuestra misión es ofrecer asesoramiento legal de excelencia, con un enfoque humano y cercano.
                 </p>
-            </div>
+           </div>
+    </section>
+
+    <section id="contacto" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Contacto</h2>
+            <form id="contactForm">
+                <div class="mb-3">
+                    <label for="contactName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="contactName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="contactEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactSubject" class="form-label">Asunto</label>
+                    <input type="text" class="form-control" id="contactSubject" required>
+                </div>
+                <div class="mb-3">
+                    <label for="contactMessageText" class="form-label">Mensaje</label>
+                    <textarea class="form-control" id="contactMessageText" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                <div id="contactMessage" style="display: none;"></div>
+            </form>
         </div>
     </section>
     <footer class="footer">
         <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
         <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/541131976852" class="text-white" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a></p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init(); // Inicializar AOS si lo vas a usar
+        AOS.init(); // Este es un script en línea, va dentro de <script>
     </script>
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/contacto.js"></script>
     <script src="js/frases.js"></script>
 </body>
 </html>
