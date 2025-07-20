@@ -1,106 +1,59 @@
-// js/agenda-admin.js
-document.addEventListener("DOMContentLoaded", () => {
-    const tableBody = document.querySelector("#agendaTable tbody");
-    const mensajeFeedback = document.getElementById("mensajeFeedback"); // Para mensajes en el admin
+// js/cliente-agenda.js
 
-    // Función para mostrar mensajes al usuario (admin)
-    const mostrarMensaje = (mensaje, tipo = "success") => {
-        if (mensajeFeedback) {
-            mensajeFeedback.textContent = mensaje;
-            mensajeFeedback.className = `alert alert-${tipo} mt-3`;
-            mensajeFeedback.style.display = "block";
-            setTimeout(() => {
-                mensajeFeedback.style.display = "none";
-            }, 5000);
-        }
-    };
+document.addEventListener('DOMContentLoaded', () => {
+    const agendaForm = document.getElementById('agendaForm');
+    const mensajeFeedback = document.getElementById('mensajeFeedback');
 
-    const cargarTurnos = () => {
-        let turnos = JSON.parse(localStorage.getItem("turnos") || "[]");
-        const ahora = new Date();
+    if (agendaForm) {
+        agendaForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío por defecto del formulario
 
-        // Filtrar turnos pasados (opcional, pero útil para mantener la agenda limpia)
-        // Puedes comentar esta línea si quieres ver turnos pasados también.
-        // turnos = turnos.filter(t => new Date(t.fecha) >= ahora);
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const fecha = document.getElementById('fecha').value;
+            const comentario = document.getElementById('comentario').value;
 
-        // Ordenar por fecha (los próximos primero)
-        turnos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+            // Validar que los campos requeridos no estén vacíos
+            if (!nombre || !telefono || !fecha) {
+                mostrarMensaje("Por favor, completa todos los campos obligatorios (*).", "danger");
+                return;
+            }
 
-        tableBody.innerHTML = ""; // Limpiar tabla antes de recargar
+            // Crear un objeto con los datos del turno
+            const turno = {
+                id: Date.now(), // ID único basado en la marca de tiempo
+                nombre: nombre,
+                telefono: telefono,
+                fecha: fecha,
+                comentario: comentario,
+                estado: 'Pendiente' // Estado inicial del turno
+            };
 
-        if (turnos.length === 0) {
-            tableBody.innerHTML = '<tr><td colspan="5" class="text-center py-3">No hay turnos agendados.</td></tr>';
-        } else {
-            turnos.forEach((t, i) => {
-                const fila = document.createElement("tr");
-                const fechaTurno = new Date(t.fecha);
-                const diffHoras = (fechaTurno - ahora) / 3600000;
-                const alerta = diffHoras < 48 && diffHoras > 0 ? "🔔 " : ""; // Alerta para turnos futuros cercanos
+            // Obtener los turnos existentes del localStorage o inicializar un array vacío
+            let turnos = JSON.parse(localStorage.getItem('turnos')) || [];
 
-                fila.innerHTML = `
-                    <td>${t.nombre}</td>
-                    <td>${t.telefono}</td>
-                    <td>${alerta}${fechaTurno.toLocaleString()}</td>
-                    <td>${t.comentario}</td>
-                    <td>
-                        <a href="${generarLinkGCal(t)}" target="_blank" class="btn btn-sm btn-info me-1">📅 GCal</a>
-                        <button class="btn btn-sm btn-danger eliminar-turno" data-index="${i}" aria-label="Eliminar turno de ${t.nombre}">X</button>
-                    </td>
-                `;
-                tableBody.appendChild(fila);
-            });
+            // Añadir el nuevo turno
+            turnos.push(turno);
 
-            // Añadir Event Listeners para los botones de eliminar después de crear las filas
-            tableBody.querySelectorAll('.eliminar-turno').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    if (confirm('¿Estás seguro de que quieres eliminar este turno?')) {
-                        const indexAEliminar = parseInt(e.target.dataset.index); // Obtener el índice del turno en la lista actual
+            // Guardar los turnos actualizados en localStorage
+            localStorage.setItem('turnos', JSON.stringify(turnos));
 
-                        // Recuperar la lista original del localStorage (sin filtrar/ordenar aún)
-                        let todosLosTurnos = JSON.parse(localStorage.getItem("turnos") || "[]");
-                        
-                        // Para eliminar correctamente, necesitamos identificar el turno en la lista original antes de cualquier ordenamiento o filtrado.
-                        // La forma más segura si no tienes un ID único es volver a aplicar el ordenamiento/filtrado temporalmente
-                        // para obtener el objeto exacto, y luego buscarlo en la lista no ordenada.
-                        
-                        // Alternativa más simple para tu caso (asumiendo que los turnos son únicos por fecha/nombre):
-                        // Encuentra el turno en la lista original por sus valores, no por su índice de la tabla mostrada.
-                        
-                        // Obtener el turno que se va a eliminar de la lista *actualmente mostrada*
-                        const turnoEnTabla = turnos[indexAEliminar]; 
+            // Mostrar mensaje de éxito
+            mostrarMensaje("Tu solicitud de turno ha sido enviada. Nos pondremos en contacto pronto.", "success");
 
-                        // Encontrar el índice de este turno en la lista COMPLETA de localStorage
-                        const indiceRealEnLocalStorage = todosLosTurnos.findIndex(t => 
-                            t.nombre === turnoEnTabla.nombre && 
-                            t.telefono === turnoEnTabla.telefono && // Usar más campos para una mejor coincidencia
-                            t.fecha === turnoEnTabla.fecha
-                        );
+            // Limpiar el formulario
+            agendaForm.reset();
+        });
+    }
 
-                        if (indiceRealEnLocalStorage > -1) {
-                            todosLosTurnos.splice(indiceRealEnLocalStorage, 1); // Elimina el turno
-                            localStorage.setItem("turnos", JSON.stringify(todosLosTurnos));
-                            mostrarMensaje("Turno eliminado correctamente.", "success");
-                            cargarTurnos(); // Recarga la tabla
-                        } else {
-                            mostrarMensaje("Error: No se pudo encontrar el turno para eliminar.", "danger");
-                            console.error("Turno no encontrado para eliminar:", turnoEnTabla);
-                        }
-                    }
-                });
-            });
-        }
-    };
+    function mostrarMensaje(mensaje, tipo) {
+        mensajeFeedback.textContent = mensaje;
+        mensajeFeedback.className = `mt-3 alert alert-${tipo}`; // alert-success o alert-danger
+        mensajeFeedback.style.display = 'block';
 
-    const generarLinkGCal = (turno) => {
-        const inicio = new Date(turno.fecha).toISOString().replace(/-|:|\.\d\d\d/g, "");
-        const fin = new Date(new Date(turno.fecha).getTime() + 30 * 60 * 1000).toISOString().replace(/-|:|\.\d\d\d/g, "");
-        const texto = encodeURIComponent(`Consulta Jurídica - ${turno.nombre}`);
-        const detalle = encodeURIComponent(turno.comentario || 'Sin comentarios adicionales');
-        const location = encodeURIComponent('Estudio Jurídico Dr. Lionel Zurita, [Tu Dirección Aquí]');
-        
-        return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${texto}&dates=${inicio}/${fin}&details=${detalle}&location=${location}`;
-    };
-
-    // Cargar turnos al iniciar la página
-    cargarTurnos();
+        // Ocultar el mensaje después de unos segundos
+        setTimeout(() => {
+            mensajeFeedback.style.display = 'none';
+        }, 5000);
+    }
 });
