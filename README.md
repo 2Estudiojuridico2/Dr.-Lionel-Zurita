@@ -7,31 +7,28 @@ Sitio web profesional y moderno para el Estudio Jurídico Dr. Lionel Nicolás Zu
 ## 📁 Estructura del proyecto
 
 ```
-/estudio-juridico/
 ├── index.html
-├── agenda.html
+├── login.html
+├── panel.html          <-- Tu panel privado
+├── agenda.html         <-- Formulario de agenda PARA CLIENTES (sin tabla)
+├── agenda-admin.html   <-- Agenda CON TABLA para ti
+├── gracias.html        <-- Página de agradecimiento (si la usas con FormSubmit)
 ├── css/
-│   └── estilos.css
+│   ├── estilos.css     <-- Estilos generales (navbar, footer, formularios, etc.)
+│   ├── login.css       <-- Estilos para login.html (ya los tienes)
+│   └── admin-panel.css <-- Nuevos estilos para panel.html y agenda-admin.html
+├── js/
+│   ├── auth.js         <-- Autenticación (ya lo tienes)
+│   ├── cliente-agenda.js <-- Nuevo script para la agenda del cliente (solo guardar)
+│   └── agenda-admin.js   <-- Script para la agenda del admin (cargar/eliminar)
 ├── images/
-│   ├── oficina.jpg       <-- ¡Cambia .jfif por .jpg!
-│   ├── familia.jpg
-│   ├── laboral1.jpg
-│   ├── sucesiones.jpg
+│   ├── oficina.jpg
 │   ├── justicia.png
-│   ├── fondo-familia.jpg   (si los usas)
-│   ├── fondo-laboral.jpg
-│   └── fondo-sucesiones.jpg
-├── icons/                 <-- ¡Nueva carpeta para los íconos!
-│   ├── favor.svg
-│   ├── contrato.svg
-│   ├── ley.svg
-│   └── final.svg
-└── area/                 <-- O 'areas/', ¡pero elige uno!
+│   ├── ... (otras imágenes)
+└── areas/
     ├── familia.html
     ├── laboral.html
-    └── sucesiones.html
-
-```
+    └── sucesiones.html```
 
 ## 🚀 Cómo subir a GitHub Pages
 
