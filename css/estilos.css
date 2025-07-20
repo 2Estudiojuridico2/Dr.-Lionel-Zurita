@@ -1,27 +1,25 @@
-/* estilos.css */
+/* css/estilos.css */
 
+/* --- Estilos Generales (Body, Fondos de Áreas, Navbar, Footer, etc.) --- */
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    /* Asegúrate de que el body no tenga un margin por defecto de Bootstrap si no quieres */
     margin: 0;
 }
 
-/* Fondos de las páginas específicas (mantener) */
+/* Fondos de las páginas específicas de áreas (mantener) */
 .familia {
     background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/familia.jpg') center/cover no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
-
 .laboral {
     background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/laboral1.jpg') center/cover no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
 }
-
 .sucesiones {
     background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
     background-size: cover;
@@ -30,7 +28,7 @@ body {
 }
 
 /* Estilos de la NAVBAR GLOBAL (general y para index) */
-.custom-navbar { /* Usé custom-navbar para diferenciarla de 'navbar' de bootstrap */
+.custom-navbar {
     background: rgba(13,71,161,0.92); /* Fondo más oscuro y con transparencia */
     padding: 0.5rem 2rem;
     width: 100%;
@@ -40,7 +38,6 @@ body {
     z-index: 1050; /* Z-index alto para que esté por encima de todo */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
     color: #fff !important; /* Para asegurar el color blanco */
@@ -48,21 +45,17 @@ body {
     font-weight: bold;
     letter-spacing: 0.5px;
 }
-
 .custom-navbar .nav-link:hover,
 .custom-navbar .nav-link.active {
     text-decoration: underline !important;
     color: #90caf9 !important;
-    /* Puedes añadir un color de hover si quieres, por ejemplo: */
-    /* color: #90caf9 !important; */
 }
-
 .nav-brand {
     font-size: 1.3rem;
     font-family: 'Playfair Display', serif; /* Mantener la fuente para el logo */
 }
 
-/* Estilos de los héroes (cabeceras de página) - Mantener los existentes */
+/* Estilos de los héroes (cabeceras de página de áreas) */
 .hero {
     min-height: 400px;
     display: flex;
@@ -72,19 +65,9 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     padding-top: 80px; /* Espacio para la navbar fija */
 }
-
-.hero-familia {
-    background-color: #007bff; /* Color de fallback si no carga la imagen */
-}
-
-.hero-laboral {
-    background-color: #28a745; /* Color de fallback */
-}
-
-.hero-sucesiones {
-    background-color: #dc3545; /* Color de fallback */
-}
-
+.hero-familia { background-color: #007bff; }
+.hero-laboral { background-color: #28a745; }
+.hero-sucesiones { background-color: #dc3545; }
 .balanza-hero {
     max-width: 150px;
     height: auto;
@@ -93,7 +76,8 @@ body {
 /* Estilos del INDEX (Home) */
 .inicio-oficina {
     min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/oficina.jpg') center/cover no-repeat; /* Ajuste la ruta de la imagen */
+    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/oficina.jpg') center/cover no-repeat;
+    background-size: cover; /* Asegura que la imagen de fondo cubra el área */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,22 +85,18 @@ body {
     color: #fff;
     text-shadow: 2px 2px 8px #222;
     position: relative;
-    /* Asegurarse que el padding-top de la sección no choque con la navbar fija */
-    padding-top: 90px; /* Un poco más de lo que tenías para asegurar */
+    padding-top: 90px;
 }
-
 .inicio-oficina h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    font-size: 3rem; /* Ajustar tamaño para mejor legibilidad */
+    font-size: 3rem;
 }
-
 .inicio-oficina p#frase-juridica {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    font-size: 1.6rem; /* Ajustar tamaño */
+    font-size: 1.6rem;
 }
-
 .accesos-dinamicos {
     margin-top: 2.5rem;
     display: flex;
@@ -124,9 +104,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
-
 .acceso-area {
-    background: transparent (255,255,255,0.88);
+    background: rgba(255,255,255,0.88); /* Fondo con un poco de transparencia */
     color: #0d47a1;
     border-radius: 1rem;
     padding: 1.5rem 2rem;
@@ -134,46 +113,40 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s, background 0.2s, color 0.2s; /* Añadir transiciones para un efecto suave */
+    transition: transform 0.2s, background 0.2s, color 0.2s;
     box-shadow: 0 2px 12px rgba(13,71,161,0.12);
     text-decoration: none;
     font-weight: bold;
 }
-
 .acceso-area:hover {
     transform: scale(1.08);
     background: #1565c0;
     color: #fff;
     text-shadow: none;
 }
-
 .acceso-area img {
     width: 48px;
     height: 48px;
     margin-bottom: 12px;
 }
 
-
 /* Estilos del contenido principal (main) para otras páginas */
 main {
-    background-color: transparent;
+    background-color: transparent; /* Se puede ajustar para un color de fondo si la imagen no está presente */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0,0,0,0.05);
     margin-top: 6rem !important; /* Ajuste para la navbar fija */
     margin-bottom: 3rem !important;
 }
-
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     color: #0056b3;
 }
-
 ul {
     list-style-type: disc;
     padding-left: 20px;
 }
-
 li strong {
     color: #0056b3;
 }
@@ -184,14 +157,13 @@ li strong {
     border-color: #007bff;
     transition: background-color 0.3s ease;
 }
-
 .btn-primary:hover {
     background-color: #0056b3;
     border-color: #0056b3;
 }
 
 /* Estilos del footer */
-.footer { /* Cambié a .footer para diferenciarlo del footer global si tienes uno */
+.footer {
     background: #222;
     color: #f4f9fc;
     text-align: center;
@@ -200,12 +172,10 @@ li strong {
     margin-top: 3rem;
     width: 100%;
 }
-
 .footer a {
     color: #fff;
     text-decoration: none;
 }
-
 .footer a:hover {
     text-decoration: underline;
 }
@@ -228,42 +198,33 @@ li strong {
     transition: background-color 0.3s ease;
     z-index: 1000;
 }
-
 .scroll-top:hover {
     background-color: #0056b3;
 }
 
-/* Estilos específicos para la página de Sucesiones */
+/* Estilos específicos para la página de Sucesiones (si aplica, para contraste sobre imagen de fondo) */
 .sucesiones main {
-    background-color: rgba(255, 255, 255, 0.15); /* Haz el fondo del main un poco transparente si quieres */
+    background-color: rgba(255, 255, 255, 0.15); /* Fondo del main un poco transparente */
     color: #f8f9fa; /* Color blanco casi puro para el texto general del main */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Agrega sombra para mejorar legibilidad */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Sombra para mejorar legibilidad */
 }
-
-.sucesiones main h1,
-.sucesiones main h2,
-.sucesiones main h3,
-.sucesiones main h4,
-.sucesiones main h5,
-.sucesiones main h6 {
+.sucesiones main h1, .sucesiones main h2, .sucesiones main h3,
+.sucesiones main h4, .sucesiones main h5, .sucesiones main h6 {
     color: #ffffff; /* Color blanco puro para todos los encabezados dentro del main */
     text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Sombra para mejor contraste */
 }
-
 .sucesiones main li strong {
     color: #90caf9; /* Un azul claro para los textos fuertes en las listas, para contraste */
 }
-
-/* Asegúrate de que los enlaces dentro del main también sean visibles */
 .sucesiones main a {
-    color: #90caf9; /* Un color claro para los enlaces, o blanco puro si prefieres */
+    color: #90caf9; /* Un color claro para los enlaces */
 }
-
 .sucesiones main a:hover {
     color: #ffffff;
     text-decoration: underline;
 }
-/* --- Estilos específicos para agenda.html --- */
+
+/* --- Estilos específicos para agenda.html (el formulario de solicitud de turnos para clientes) --- */
 
 .agenda-title {
     font-family: 'Playfair Display', serif; /* Usar la misma fuente de los títulos */
@@ -275,72 +236,72 @@ li strong {
 }
 
 .custom-form {
-    max-width: 550px; /* Un poco más ancho para mejor distribución */
+    max-width: 550px;
     margin: 0 auto;
     background: #fff;
-    border-radius: 1rem; /* Redondeado más suave */
-    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.15); /* Sombra más sutil */
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.15);
     padding: 30px;
-    margin-top: 2rem; /* Espacio desde el título */
+    margin-top: 2rem;
 }
 
 .custom-form label {
-    font-weight: 600; /* Un poco más de peso */
-    color: #34495e; /* Un gris azulado oscuro */
+    font-weight: 600;
+    color: #34495e;
 }
 
 .custom-form .form-control {
-    border-radius: 0.5rem; /* Bordes redondeados */
+    border-radius: 0.5rem;
     border: 1px solid #ced4da;
     padding: 0.75rem 1rem;
 }
 
 .custom-form .form-control:focus {
-    border-color: #007bff; /* Color de foco de Bootstrap */
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Sombra de foco de Bootstrap */
-    transition: all 0.2s ease-in-out; /* Transición suave */
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    transition: all 0.2s ease-in-out;
 }
 
 .custom-form textarea.form-control {
     resize: vertical;
-    min-height: 100px; /* Un poco más de altura mínima */
+    min-height: 100px;
 }
 
 .custom-btns {
-    margin-top: 3rem; /* Más espacio */
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
-    gap: 1.5rem; /* Espacio entre botones */
+    gap: 1.5rem;
     flex-wrap: wrap;
 }
 
 .btn-whatsapp, .btn-telegram {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrar contenido dentro del botón */
-    font-size: 1.15rem; /* Tamaño de fuente ligeramente más grande */
-    padding: 12px 25px; /* Más padding */
-    border-radius: 50px; /* Más redondeado, tipo pastilla */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra mejorada */
+    justify-content: center;
+    font-size: 1.15rem;
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     font-weight: 600;
-    transition: all 0.2s ease-in-out; /* Transición para todas las propiedades */
-    text-decoration: none; /* Asegura que no haya subrayado */
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
 }
 
 .btn-whatsapp:hover, .btn-telegram:hover {
-    transform: translateY(-3px); /* Pequeño efecto de elevación al pasar el mouse */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada al hover */
-    text-decoration: none; /* Mantener sin subrayado */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
 }
 
 .btn-whatsapp {
     background: #25d366;
     color: #fff;
-    border: 1px solid #25d366; /* Borde del mismo color */
+    border: 1px solid #25d366;
 }
 
 .btn-whatsapp:hover {
-    background: #1da851; /* Color más oscuro al hover */
+    background: #1da851;
     border-color: #1da851;
 }
 
@@ -351,7 +312,7 @@ li strong {
 }
 
 .btn-telegram:hover {
-    background: #1a7bbd; /* Color más oscuro al hover */
+    background: #1a7bbd;
     border-color: #1a7bbd;
 }
 
@@ -359,21 +320,52 @@ li strong {
     margin-right: 10px;
 }
 
-/* Estilos de la tabla de turnos */
-#agendaTable thead {
-    background-color: #007bff; /* Color de cabecera de tabla */
-}
-
-#agendaTable th {
-    color: #fff;
-}
-
-#agendaTable tbody tr:hover {
-    background-color: #e2f2ff; /* Color al pasar el mouse sobre la fila */
-}
+/* Estilos de la tabla de turnos (aunque esta tabla está en agenda-admin.html, tus estilos originales la incluían aquí, la he movido a admin-panel.css) */
+/*
+#agendaTable thead { background-color: #007bff; }
+#agendaTable th { color: #fff; }
+#agendaTable tbody tr:hover { background-color: #e2f2ff; }
+*/
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    /* Navbar ajustes */
+    .custom-navbar .navbar-brand {
+        font-size: 1.2rem;
+    }
+    .custom-navbar .nav-link {
+        font-size: 0.95rem;
+    }
+
+    /* Inicio Oficina ajustes */
+    .inicio-oficina h1 {
+        font-size: 2.5rem;
+    }
+    .inicio-oficina p#frase-juridica {
+        font-size: 1.4rem;
+    }
+    .accesos-dinamicos {
+        gap: 1.5rem;
+    }
+    .acceso-area {
+        padding: 1.2rem 1.5rem;
+        min-width: 150px;
+    }
+    .acceso-area img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Contenido principal (main) ajustes */
+    main {
+        padding: 20px;
+        margin-top: 5rem !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.8rem;
+    }
+
+    /* Agenda.html ajustes */
     .agenda-title {
         font-size: 2rem;
     }
@@ -388,6 +380,31 @@ li strong {
 }
 
 @media (max-width: 576px) {
+    /* Navbar ajustes */
+    .custom-navbar {
+        padding: 0.5rem 1rem;
+    }
+    .nav-brand {
+        font-size: 1.1rem;
+    }
+
+    /* Inicio Oficina ajustes */
+    .inicio-oficina h1 {
+        font-size: 2rem;
+    }
+    .inicio-oficina p#frase-juridica {
+        font-size: 1.2rem;
+    }
+    .accesos-dinamicos {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .acceso-area {
+        width: 80%; /* Para que los accesos ocupen más ancho */
+        max-width: 250px; /* Limitar ancho máximo */
+    }
+
+    /* Agenda.html ajustes */
     .custom-form {
         padding: 15px;
         margin-top: 1rem;
@@ -397,6 +414,6 @@ li strong {
         gap: 1rem;
     }
     .btn-whatsapp, .btn-telegram {
-        width: 100%; /* Ocupan todo el ancho en móviles */
+        width: 100%;
     }
 }
