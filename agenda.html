@@ -2,17 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Agenda de Turnos - Estudio Jurídico Dr. Lionel Zurita</title>
-    <meta name="description" content="Agenda tu consulta legal con el Dr. Lionel Zurita. Formulario de contacto y turnos online.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Turno - Estudio Jurídico Dr. Lionel Zurita</title>
+    <meta name="description" content="Solicita tu consulta legal con el Dr. Lionel Zurita. Formulario de contacto y turnos online.">
     <meta name="keywords" content="turnos, agenda, consulta legal, abogado, contacto, WhatsApp, Telegram, estudio jurídico">
     <meta name="author" content="Dr. Lionel Nicolás Zurita">
     <link rel="icon" href="images/justicia.png" type="image/png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
+    <link rel="stylesheet" href="css/estilos.css"> </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top custom-navbar" aria-label="Barra de navegación principal">
         <div class="container">
@@ -33,52 +32,38 @@
     </nav>
 
     <div class="container" style="padding-top: 100px;">
-        <h1 class="text-center agenda-title">Agenda de Turnos</h1>
+        <h1 class="text-center agenda-title">Solicitar Turno de Consulta</h1>
 
-        <form id="agendaForm" class="custom-form" autocomplete="on"> <div class="form-group mb-3">
-                <label for="nombre">Nombre completo</label>
+        <form id="agendaForm" class="custom-form" autocomplete="on">
+            <div class="form-group mb-3">
+                <label for="nombre">Nombre completo <span class="text-danger">*</span></label>
                 <input type="text" name="Nombre" class="form-control" id="nombre" required autocomplete="name" placeholder="Tu nombre y apellido">
             </div>
             <div class="form-group mb-3">
-                <label for="telefono">Teléfono / WhatsApp</label>
+                <label for="telefono">Teléfono / WhatsApp <span class="text-danger">*</span></label>
                 <input type="tel" name="Teléfono" class="form-control" id="telefono" required autocomplete="tel" placeholder="+54 9 11 1234 5678">
             </div>
             <div class="form-group mb-3">
-                <label for="fecha">Fecha y hora deseada</label> <input type="datetime-local" name="Fecha" class="form-control" id="fecha" required>
+                <label for="fecha">Fecha y hora deseada <span class="text-danger">*</span></label>
+                <input type="datetime-local" name="Fecha" class="form-control" id="fecha" required>
             </div>
             <div class="form-group mb-4">
                 <label for="comentario">Motivo de la consulta</label>
-                <textarea name="Consulta" class="form-control" id="comentario" rows="4" placeholder="Ej: Consulta por divorcio, despido, testamento, etc."></textarea> </div>
+                <textarea name="Consulta" class="form-control" id="comentario" rows="4" placeholder="Ej: Consulta por divorcio, despido, testamento, etc."></textarea>
+            </div>
             <div id="mensajeFeedback" class="mt-3" style="display: none;" role="alert" aria-live="polite">
                 </div>
-            <button type="submit" class="btn btn-primary btn-block" style="border-radius: 30px;">Solicitar Turno</button>
+            <button type="submit" class="btn btn-primary btn-block" style="border-radius: 30px;">Enviar Solicitud de Turno</button>
         </form>
 
-        <h2 class="text-center mt-5 mb-3 display-6">Próximos Turnos Agendados</h2>
-        <div class="table-responsive">
-            <table class="table table-striped table-hover mt-3" id="agendaTable">
-                <thead class="bg-primary text-white">
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Fecha y Hora</th>
-                        <th scope="col">Comentario</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    </tbody>
-            </table>
-        </div>
-
-        <div class="custom-btns my-5"> <a href="https://wa.me/541131976852?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank"
-                class="btn-whatsapp">
+        <div class="custom-btns my-5">
+            <a href="https://wa.me/541131976852?text=Hola,%20quiero%20hacer%20una%20consulta" target="_blank" class="btn-whatsapp">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.501-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.651-1.03-5.138-2.901-7.01-1.871-1.872-4.356-2.904-7.008-2.905-5.451 0-9.887 4.434-9.889 9.883-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.67-.957zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.767.967-.941 1.166-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.151-.174.2-.298.299-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.358.709.306 1.262.488 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                 </svg>
                 WhatsApp
             </a>
-            <a href="https://t.me/drzuritalionel" target="_blank"
-                class="btn-telegram">
+            <a href="https://t.me/drzuritalionel" target="_blank" class="btn-telegram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm4.425 6.343c-.143-.087-2.906-1.146-3.542-1.392-.637-.246-1.467-.261-1.893.144-.426.405-5.464 5.32-5.674 5.565-.21.245-.421.485-.421.815s.136.577.228.664c.092.087 3.062 2.049 3.271 2.181.21.132.438.342.74.264.303-.078 1.253-1.15 1.602-1.513.349-.363 1.638-1.623 1.86-1.829.222-.206.492-.093.56-.071.068.022.173.087.173.263s-.105 2.324-.173 2.746c-.068.422-.072.479-.173.678-.101.199-.267.294-.449.294s-.523-.032-.765-.06c-.242-.028-.776-.13-.873-.174-.097-.044-.2-.05-.268.077-.068.127-.226.407-.26.469-.034.062-.092.181.022.302.114.121 1.687 1.068 1.855 1.169.168.101.316.153.54.029.224-.124 2.451-1.632 2.792-1.858.341-.226.267-.424.267-.424s-.062-.543-.093-.85c-.031-.307-.109-.604-.14-.743-.031-.139-.055-.215.01-.227.065-.012.23-.033.357-.049.127-.016.222-.045.255-.13.033-.085.077-.252.11-.336.033-.084.015-.146-.085-.17zm-6.425 9.657c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"/>
                 </svg>
@@ -95,7 +80,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init(); // Inicializar AOS si lo vas a usar
+        AOS.init();
     </script>
-    <script src="js/agenda.js"></script> </body>
+    <script src="js/cliente-agenda.js"></script> </body>
 </html>
