@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Panel Privado</title>
-    <link rel="stylesheet" href="css/login.css">
+    <title>Acceso Administrador - Estudio Jurídico Dr. Lionel Zurita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>Acceso al Panel Privado</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Usuario" required>
-            <input type="password" id="password" placeholder="Contraseña" required>
-            <p id="errorMessage" class="error"></p>
-            <button type="submit">Ingresar</button>
-        </form>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card p-4 shadow" style="max-width: 400px; width: 100%;">
+            <h2 class="card-title text-center mb-4">Acceso Administrador</h2>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;"></div>
+                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="index.html">Volver a la página principal</a>
+            </div>
+        </div>
     </div>
-    <script src="js/auth.js"></script>
-</body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script> </body>
 </html>
