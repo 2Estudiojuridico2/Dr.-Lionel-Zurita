@@ -1,7 +1,7 @@
 // js/agenda-admin.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    const agendaTableBody = document.querySelector('#agendaTable tbody');
+    const agendaTableBody = document.getElementById('agendaTableBody'); // <-- ¡CORRECCIÓN!
     const mensajeFeedback = document.getElementById('mensajeFeedback');
 
     const cargarTurnos = () => {
