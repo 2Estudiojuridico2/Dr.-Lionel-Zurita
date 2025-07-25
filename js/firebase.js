@@ -7,16 +7,17 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase
 
 
 // ** TU NUEVA CONFIGURACIÓN DE FIREBASE **
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDjq9AxKQDyG-pw455YYP7F2p85lBl3lbA",
-  authDomain: "estudiozuritaagenda-ae2bb.firebaseapp.com",
-  projectId: "estudiozuritaagenda-ae2bb",
-  storageBucket: "estudiozuritaagenda-ae2bb.firebasestorage.app",
-  messagingSenderId: "1012425886579",
-  appId: "1:1012425886579:web:83d43f9270290ebb239306",
-  measurementId: "G-GKSM6JJ2LR"
-};
+ // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBl0_3ObNFjDV39epPSE0ldAQaLA4HEPvs",
+    authDomain: "estudio-juridico-f0733.firebaseapp.com",
+    projectId: "estudio-juridico-f0733",
+    storageBucket: "estudio-juridico-f0733.firebasestorage.app",
+    messagingSenderId: "488460649562",
+    appId: "1:488460649562:web:196d32365bea40c3748463",
+    measurementId: "G-DWY680S3KD"
+  };
 
 // Inicializa Firebase
 export const app = initializeApp(firebaseConfig); // Exportamos la app
