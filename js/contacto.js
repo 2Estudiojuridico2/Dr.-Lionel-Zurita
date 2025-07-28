@@ -3,6 +3,7 @@ import { db } from "./firebase.js"; // Importa la instancia de Firestore
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("El script contacto.js se está ejecutando.");
     const contactForm = document.getElementById('contactForm'); // Asegúrate de que tu formulario de contacto en index.html tenga id="contactForm"
     const contactMessage = document.getElementById('contactMessage'); // Añade un div con id="contactMessage" para feedback
 
