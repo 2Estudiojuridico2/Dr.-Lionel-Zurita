@@ -64,8 +64,7 @@
                     Nuestra misión es ofrecer asesoramiento legal de excelencia, con un enfoque humano y cercano.
                 </p>
            </div>
-    </section>
-<section id="contacto" class="py-5 bg-light">
+    </section><section id="contacto" class="py-5 bg-light">
     <div class="container">
         <h2 class="text-center mb-4 display-5 fw-bold" data-aos="fade-up">Contacto</h2>
         <p class="lead text-center mb-5" data-aos="fade-up" data-aos-delay="100">Contáctanos para resolver tus dudas o agendar una consulta.</p>
@@ -75,19 +74,19 @@
                 <form id="contactForm" method="POST" data-netlify="true">
                     <div class="mb-3">
                         <label for="contactName" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="contactName" required>
-                    </div>
+                        <input type="text" class="form-control" id="contactName" name="nombre" required>
+                        </div>
                     <div class="mb-3">
                         <label for="contactEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="contactEmail" required>
-                    </div>
+                        <input type="email" class="form-control" id="contactEmail" name="email" required>
+                        </div>
                     <div class="mb-3">
                         <label for="contactSubject" class="form-label">Asunto</label>
-                        <input type="text" class="form-control" id="contactSubject" required>
-                    </div>
+                        <input type="text" class="form-control" id="contactSubject" name="asunto" required>
+                        </div>
                     <div class="mb-3">
                         <label for="contactMessageText" class="form-label">Mensaje</label>
-                        <textarea class="form-control" id="contactMessageText" rows="5" required></textarea>
+                        <textarea class="form-control" id="contactMessageText" name="mensaje" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
                     <div id="contactMessage" class="mt-3" style="display: none;"></div>
