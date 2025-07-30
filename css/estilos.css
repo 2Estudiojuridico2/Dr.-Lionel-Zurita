@@ -1,381 +1,407 @@
-/* css/estilos.css */
+/* --- Paleta de Colores Formal (Sugerida) --- */
+:root {
+    --color-primary: #0D47A1;   /* Azul oscuro institucional */
+    --color-secondary: #1976D2; /* Azul medio, para contrastes sutiles */
+    --color-dark: #212121;      /* Negro muy oscuro / Carbón para textos */
+    --color-light: #ECEFF1;     /* Gris muy claro / Blanco roto para fondos */
+    --color-accent: #FFC107;    /* Amarillo/Oro para pequeños detalles (opcional) */
+    --color-text-dark: #333333; /* Texto principal oscuro */
+    --color-text-light: #ffffff; /* Texto claro */
+}
 
 /* --- Estilos Generales (Body, Fondos de Áreas, Navbar, Footer, etc.) --- */
 body {
     font-family: 'Roboto', sans-serif;
-    color: #333;
+    color: var(--color-text-dark); /* Color de texto general */
     margin: 0;
+    line-height: 1.6; /* Mejorar legibilidad */
+    background-color: var(--color-light); /* Fondo general muy claro */
 }
 
-/* Fondos de las páginas específicas de áreas (mantener) */
-.familia {
-    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/familia.jpg') center/cover no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-}
-.laboral {
-    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/laboral1.jpg') center/cover no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-}
-.sucesiones {
-    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/sucesiones.jpg') center/cover no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+/* Encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary); /* Color principal para títulos */
+    font-weight: 700; /* Más peso para títulos */
+    margin-bottom: 1rem;
 }
 
-/* Estilos de la NAVBAR GLOBAL (general y para index) */
-.custom-navbar {
-    background: rgba(13,71,161,0.92); /* Fondo más oscuro y con transparencia */
-    padding: 0.5rem 2rem;
-    width: 100%;
-    position: fixed;
+p {
+    margin-bottom: 1rem;
+}
+
+/* Fondos de las páginas específicas de áreas (mantener y ajustar opacidad de overlay) */
+.familia, .laboral, .sucesiones {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative; /* Para el overlay */
+    min-height: 100vh; /* Para que el fondo cubra toda la altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Espacio para la navbar fija */
+    color: var(--color-text-light);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.familia::before, .laboral::before, .sucesiones::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1050; /* Z-index alto para que esté por encima de todo */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* Overlay más oscuro para mejor contraste */
+    z-index: 1;
+}
+.familia > *, .laboral > *, .sucesiones > * {
+    z-index: 2; /* Asegurar que el contenido esté sobre el overlay */
+}
+
+.familia { background-image: url('../images/familia.jpg'); }
+.laboral { background-image: url('../images/laboral1.jpg'); }
+.sucesiones { background-image: url('../images/sucesiones.jpg'); }
+
+
+/* Estilos de la NAVBAR GLOBAL */
+.custom-navbar {
+    background: var(--color-primary); /* Fondo azul oscuro principal */
+    padding: 0.8rem 2rem; /* Más padding para un aspecto más robusto */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra más definida */
+    transition: background 0.3s ease;
 }
 .custom-navbar .navbar-brand,
 .custom-navbar .nav-link {
-    color: #fff !important; /* Para asegurar el color blanco */
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 0.5px;
+    color: var(--color-text-light) !important; /* Blanco para texto de nav */
+    font-weight: 500; /* Ligeramente menos bold, más formal */
+    font-size: 1.05rem; /* Tamaño de fuente ligeramente mayor */
+    transition: color 0.3s ease;
 }
 .custom-navbar .nav-link:hover,
 .custom-navbar .nav-link.active {
-    text-decoration: underline !important;
-    color: #90caf9 !important;
+    color: var(--color-light) !important; /* Blanco más brillante al hover/activo */
+    text-decoration: none !important; /* Remover subrayado por defecto */
+    border-bottom: 2px solid var(--color-light); /* Línea inferior sutil */
+    padding-bottom: 0.2rem;
 }
 .nav-brand {
-    font-size: 1.3rem;
-    font-family: 'Playfair Display', serif; /* Mantener la fuente para el logo */
+    font-size: 1.6rem; /* Tamaño del logo */
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Estilos de los héroes (cabeceras de página de áreas) */
 .hero {
     min-height: 400px;
     display: flex;
+    flex-direction: column; /* Para centrar texto y balanza verticalmente */
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-text-light);
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    padding-top: 80px; /* Espacio para la navbar fija */
+    padding-top: 80px;
+    position: relative;
+    z-index: 0; /* Para que el overlay se superponga correctamente */
 }
-.hero-familia { background-color: #007bff; }
-.hero-laboral { background-color: #28a745; }
-.hero-sucesiones { background-color: #dc3545; }
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--color-text-light); /* Blanco para el título del héroe */
+}
 .balanza-hero {
-    max-width: 150px;
+    max-width: 120px; /* Tamaño ligeramente reducido */
     height: auto;
+    margin-bottom: 20px; /* Espacio entre balanza y título */
 }
 
 /* Estilos del INDEX (Home) */
 .inicio-oficina {
     min-height: 100vh;
-    background: linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url('../images/oficina.jpg') center/cover no-repeat;
-    background-size: cover; /* Asegura que la imagen de fondo cubra el área */
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('../images/oficina.jpg') center/cover no-repeat; /* Overlay más oscuro */
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    text-shadow: 2px 2px 8px #222;
+    color: var(--color-text-light);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* Sombra de texto más pronunciada */
     position: relative;
     padding-top: 90px;
 }
 .inicio-oficina h1 {
     font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    font-size: 3rem;
+    font-weight: 700; /* Más peso para un título más impactante */
+    font-size: 3.8rem; /* Tamaño de fuente ligeramente más grande */
+    letter-spacing: 1px;
 }
 .inicio-oficina p#frase-juridica {
     font-family: 'Roboto', sans-serif;
     font-style: italic;
-    font-size: 1.6rem;
+    font-size: 1.8rem; /* Tamaño de fuente ligeramente más grande */
+    color: rgba(255,255,255,0.9); /* Blanco un poco translúcido */
+    margin-bottom: 3.5rem; /* Más espacio */
 }
 .accesos-dinamicos {
-    margin-top: 2.5rem;
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 3.5rem; /* Más espacio superior */
+    gap: 2.5rem; /* Más separación entre botones */
 }
 .acceso-area {
-    background: transparent; /* Fondo con un poco de transparencia */
-    color: #0d47a1;
-    border-radius: 1rem;
-    padding: 1.5rem 2rem;
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s, background 0.2s, color 0.2s;
-    box-shadow: 0 2px 12px rgba(13,71,161,0.12);
-    text-decoration: none;
-    font-weight: bold;
+    background: rgba(255,255,255,0.1); /* Fondo muy sutil, semi-transparente */
+    color: var(--color-text-light); /* Texto blanco */
+    border: 1px solid rgba(255,255,255,0.3); /* Borde sutil */
+    border-radius: 0.8rem; /* Bordes ligeramente más suaves */
+    padding: 1.8rem 2.5rem; /* Más padding */
+    min-width: 200px; /* Un poco más de ancho */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25); /* Sombra más pronunciada */
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 .acceso-area:hover {
-    transform: scale(1.08);
-    background: #1565c0;
-    color: #fff;
-    text-shadow: none;
+    transform: translateY(-5px); /* Efecto de elevación sutil */
+    background: rgba(255,255,255,0.2); /* Más opaco al hover */
+    color: var(--color-accent); /* Color acento al hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
 }
 .acceso-area img {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 12px;
+    filter: invert(100%); /* Invierte el color de los SVG a blanco */
+    width: 55px; /* Iconos un poco más grandes */
+    height: 55px;
+    margin-bottom: 15px;
 }
 
 /* Estilos del contenido principal (main) para otras páginas */
 main {
-    background-color: transparent; /* Se puede ajustar para un color de fondo si la imagen no está presente */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    margin-top: 6rem !important; /* Ajuste para la navbar fija */
-    margin-bottom: 3rem !important;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    color: #0056b3;
+    background-color: var(--color-light); /* Fondo principal de la sección */
+    padding: 40px; /* Más padding */
+    border-radius: 1rem; /* Bordes más redondeados */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra más suave */
+    margin-top: 7rem !important; /* Ajuste para la navbar fija */
+    margin-bottom: 4rem !important;
 }
 ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style-type: square; /* Un estilo de lista más formal que el disco */
+    padding-left: 25px;
+    margin-bottom: 1.5rem;
+}
+li {
+    margin-bottom: 0.5rem;
 }
 li strong {
-    color: #0056b3;
+    color: var(--color-secondary); /* Un azul medio para resaltar */
 }
 
-/* Estilos de los botones (mantener) */
+/* Estilos de los botones generales (no de contacto directo) */
 .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    transition: background-color 0.3s ease;
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    padding: 0.8rem 1.8rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+/* Estilos de la sección de Contacto (simplificada) */
+#contacto {
+    background-color: var(--color-light); /* Fondo claro */
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+#contacto h2 {
+    color: var(--color-primary);
+}
+#contacto p.lead {
+    color: var(--color-text-dark);
+    font-weight: 400;
+}
+#contacto h3 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Estilos de los botones de WhatsApp y Telegram */
+.btn-whatsapp, .btn-telegram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 15px 30px; /* Más padding */
+    border-radius: 50px; /* Mantener bordes redondeados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más profunda */
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-whatsapp:hover, .btn-telegram:hover {
+    transform: translateY(-5px); /* Efecto de elevación más pronunciado */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+.btn-whatsapp {
+    background: #25D366; /* Verde WhatsApp */
+    color: #fff;
+    border: none; /* Sin borde */
+}
+
+.btn-whatsapp:hover {
+    background: #1DA851; /* Verde más oscuro al hover */
+}
+
+.btn-telegram {
+    background: #0088CC; /* Azul Telegram */
+    color: #fff;
+    border: none; /* Sin borde */
+}
+
+.btn-telegram:hover {
+    background: #006AA7; /* Azul más oscuro al hover */
+}
+
+.btn-whatsapp i, .btn-telegram i {
+    margin-right: 12px; /* Más espacio para el ícono */
+    font-size: 1.4rem; /* Icono un poco más grande */
 }
 
 /* Estilos del footer */
 .footer {
-    background: #222;
-    color: #f4f9fc;
+    background: var(--color-dark); /* Fondo oscuro carbón */
+    color: var(--color-light); /* Texto blanco roto */
     text-align: center;
-    padding: 2rem 0 1rem 0;
-    font-size: 1rem;
-    margin-top: 3rem;
+    padding: 2.5rem 0 1.5rem 0; /* Más padding */
+    font-size: 0.9rem;
+    margin-top: 4rem; /* Más margen superior */
     width: 100%;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2); /* Sombra superior sutil */
 }
 .footer a {
-    color: #fff;
+    color: var(--color-light);
     text-decoration: none;
+    font-weight: 500;
 }
 .footer a:hover {
     text-decoration: underline;
+    color: var(--color-accent); /* Color acento al hover */
 }
 
 /* Botón de scroll-to-top (mantener) */
 .scroll-top {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff;
+    bottom: 30px; /* Más arriba */
+    right: 30px; /* Más a la derecha */
+    background-color: var(--color-primary);
     color: white;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
-    display: none; /* Se oculta por JS hasta hacer scroll */
+    width: 55px; /* Un poco más grande */
+    height: 55px;
+    font-size: 1.7em; /* Icono más grande */
+    display: none;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); /* Sombra más definida */
+    transition: background-color 0.3s ease, transform 0.2s ease;
     z-index: 1000;
 }
 .scroll-top:hover {
-    background-color: #0056b3;
+    background-color: var(--color-secondary);
+    transform: translateY(-3px); /* Pequeña elevación */
 }
 
-/* Estilos específicos para la página de Sucesiones (si aplica, para contraste sobre imagen de fondo) */
-.sucesiones main {
-    background-color: rgba(255, 255, 255, 0.15); /* Fondo del main un poco transparente */
-    color: #f8f9fa; /* Color blanco casi puro para el texto general del main */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Sombra para mejorar legibilidad */
+/* Estilos específicos para las páginas de áreas (para contraste sobre imagen de fondo) */
+.familia main, .laboral main, .sucesiones main {
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo del main más opaco y formal */
+    color: var(--color-text-dark); /* Color oscuro para el texto */
+    text-shadow: none; /* Quitar sombra de texto para mejor legibilidad en fondos claros */
+    padding: 40px;
 }
-.sucesiones main h1, .sucesiones main h2, .sucesiones main h3,
-.sucesiones main h4, .sucesiones main h5, .sucesiones main h6 {
-    color: #ffffff; /* Color blanco puro para todos los encabezados dentro del main */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Sombra para mejor contraste */
+.familia main h1, .familia main h2, .familia main h3,
+.laboral main h1, .laboral main h2, .laboral main h3,
+.sucesiones main h1, .sucesiones main h2, .sucesiones main h3 {
+    color: var(--color-primary); /* Encabezados en color primario */
+    text-shadow: none; /* Quitar sombra */
 }
-.sucesiones main li strong {
-    color: #90caf9; /* Un azul claro para los textos fuertes en las listas, para contraste */
+.familia main li strong, .laboral main li strong, .sucesiones main li strong {
+    color: var(--color-secondary); /* Resaltar con azul secundario */
 }
-.sucesiones main a {
-    color: #90caf9; /* Un color claro para los enlaces */
+.familia main a, .laboral main a, .sucesiones main a {
+    color: var(--color-primary); /* Enlaces en color primario */
 }
-.sucesiones main a:hover {
-    color: #ffffff;
+.familia main a:hover, .laboral main a:hover, .sucesiones main a:hover {
+    color: var(--color-secondary);
     text-decoration: underline;
 }
-
-/* --- Estilos específicos para agenda.html (el formulario de solicitud de turnos para clientes) --- */
-
-.agenda-title {
-    font-family: 'Playfair Display', serif; /* Usar la misma fuente de los títulos */
-    font-size: 2.5rem; /* Ajustar tamaño para que coincida con otros títulos */
-    color: #0056b3; /* Usar el color azul de los encabezados */
-    margin-bottom: 30px; /* Espacio debajo del título */
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.custom-form {
-    max-width: 550px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.15);
-    padding: 30px;
-    margin-top: 2rem;
-}
-
-.custom-form label {
-    font-weight: 600;
-    color: #34495e;
-}
-
-.custom-form .form-control {
-    border-radius: 0.5rem;
-    border: 1px solid #ced4da;
-    padding: 0.75rem 1rem;
-}
-
-.custom-form .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-    transition: all 0.2s ease-in-out;
-}
-
-.custom-form textarea.form-control {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.custom-btns {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.btn-whatsapp, .btn-telegram {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.15rem;
-    padding: 12px 25px;
-    border-radius: 50px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    font-weight: 600;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-}
-
-.btn-whatsapp:hover, .btn-telegram:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-    text-decoration: none;
-}
-
-.btn-whatsapp {
-    background: #25d366;
-    color: #fff;
-    border: 1px solid #25d366;
-}
-
-.btn-whatsapp:hover {
-    background: #1da851;
-    border-color: #1da851;
-}
-
-.btn-telegram {
-    background: #229ED9;
-    color: #fff;
-    border: 1px solid #229ED9;
-}
-
-.btn-telegram:hover {
-    background: #1a7bbd;
-    border-color: #1a7bbd;
-}
-
-.btn-whatsapp svg, .btn-telegram svg {
-    margin-right: 10px;
-}
-
-/* Estilos de la tabla de turnos (aunque esta tabla está en agenda-admin.html, tus estilos originales la incluían aquí, la he movido a admin-panel.css) */
-/*
-#agendaTable thead { background-color: #007bff; }
-#agendaTable th { color: #fff; }
-#agendaTable tbody tr:hover { background-color: #e2f2ff; }
-*/
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     /* Navbar ajustes */
+    .custom-navbar {
+        padding: 0.7rem 1.5rem;
+    }
     .custom-navbar .navbar-brand {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     .custom-navbar .nav-link {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+    }
+    .custom-navbar .nav-link:hover,
+    .custom-navbar .nav-link.active {
+        border-bottom: none; /* Eliminar borde inferior en móviles */
+        padding-bottom: 0;
     }
 
     /* Inicio Oficina ajustes */
     .inicio-oficina h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     .inicio-oficina p#frase-juridica {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
     .accesos-dinamicos {
-        gap: 1.5rem;
+        gap: 2rem;
     }
     .acceso-area {
-        padding: 1.2rem 1.5rem;
-        min-width: 150px;
+        padding: 1.5rem 2rem;
+        min-width: 160px;
     }
     .acceso-area img {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
     }
 
     /* Contenido principal (main) ajustes */
     main {
-        padding: 20px;
-        margin-top: 5rem !important;
+        padding: 30px;
+        margin-top: 6rem !important;
     }
     h1, h2, h3, h4, h5, h6 {
-        font-size: 1.8rem;
-    }
-
-    /* Agenda.html ajustes */
-    .agenda-title {
         font-size: 2rem;
     }
-    .custom-form {
-        margin-top: 1.5rem;
-        padding: 20px;
+
+    /* Contacto ajustes */
+    #contacto h3 {
+        font-size: 1.8rem;
     }
     .btn-whatsapp, .btn-telegram {
-        font-size: 1rem;
-        padding: 10px 20px;
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+    .btn-whatsapp i, .btn-telegram i {
+        font-size: 1.2rem;
     }
 }
 
@@ -385,35 +411,52 @@ li strong {
         padding: 0.5rem 1rem;
     }
     .nav-brand {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     /* Inicio Oficina ajustes */
     .inicio-oficina h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     .inicio-oficina p#frase-juridica {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     .accesos-dinamicos {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.5rem;
     }
     .acceso-area {
-        width: 80%; /* Para que los accesos ocupen más ancho */
-        max-width: 250px; /* Limitar ancho máximo */
+        width: 90%;
+        max-width: 300px;
+        padding: 1.2rem 1.8rem;
     }
 
-    /* Agenda.html ajustes */
-    .custom-form {
-        padding: 15px;
-        margin-top: 1rem;
+    /* Contenido principal (main) ajustes */
+    main {
+        padding: 20px;
+        margin-top: 5rem !important;
     }
-    .custom-btns {
-        flex-direction: column;
-        gap: 1rem;
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.6rem;
+    }
+
+    /* Contacto ajustes */
+    #contacto h3 {
+        font-size: 1.6rem;
+    }
+    .d-grid.gap-3.col-md-6.mx-auto {
+        width: 90%;
     }
     .btn-whatsapp, .btn-telegram {
         width: 100%;
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    .btn-whatsapp i, .btn-telegram i {
+        font-size: 1.1rem;
+    }
+    .footer {
+        padding: 1.5rem 0 1rem 0;
+        font-size: 0.85rem;
     }
 }
