@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body class="sucesiones">
-    <nav class="navbar navbar-expand-lg fixed-top fondo-transparente" aria-label="Barra de navegación principal">
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar" aria-label="Barra de navegación principal">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">Estudio Jurídico Dr. Lionel Zurita</a>
+            <a class="navbar-brand nav-brand" href="../index.html">Estudio Jurídico Zurita</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,20 +27,29 @@
                     <li class="nav-item"><a class="nav-link" href="familia.html">Familia</a></li>
                     <li class="nav-item"><a class="nav-link" href="laboral.html">Laboral</a></li>
                     <li class="nav-item"><a class="nav-link active" href="sucesiones.html" aria-current="page">Sucesiones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../agenda.html">Agenda</a></li>
-                </ul>
+                    </ul>
             </div>
         </div>
     </nav>
 
     <header id="inicio" class="hero hero-sucesiones text-center">
         <div data-aos="fade-down">
-            <img src="../images/sucesiones.jpg" alt="Ilustración derecho sucesorio" class="balanza-hero mb-4" loading="lazy">
             <h1 class="display-4">Derecho Sucesorio</h1>
         </div>
     </header>
 
     <main class="my-5 pt-5" tabindex="0" data-aos="fade-up" role="main">
+        <div class="text-center mb-4">
+            <svg width="90" height="90" viewBox="0 0 48 48" fill="none" aria-hidden="true" role="img">
+                <title>Ícono Derecho Sucesorio</title>
+                <path d="M24 4L18 10H30L24 4Z" fill="#1976d2"/>
+                <rect x="15" y="10" width="18" height="34" rx="4" fill="#90caf9"/>
+                <path d="M21 20H27V22H21V20Z" fill="#1565c0"/>
+                <path d="M21 26H27V28H21V26Z" fill="#1565c0"/>
+                <rect x="18" y="32" width="12" height="6" rx="2" fill="#1565c0"/>
+            </svg>
+        </div>
+        <h1 class="mb-4">Derecho Sucesorio</h1>
         <p class="lead text-center"> El Derecho Sucesorio regula cómo se distribuye el patrimonio de una persona al fallecer, protegiendo los derechos de los herederos y brindando seguridad jurídica. </p>
 
         <h2 class="mt-5">¿Cómo es el procedimiento sucesorio?</h2>
@@ -83,13 +92,11 @@
             </ul>
         </section>
 
-        <div class="mt-5 text-center">
-            <a href="../agenda.html" class="btn btn-primary btn-lg" aria-label="Solicitar turno para consulta de Derecho Sucesorio">Solicitar Turno</a>
-        </div>
-    </main>
+        </main>
 
-    <footer>
-        <p> Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/541131976852" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a> </p>
+    <footer class="footer">
+        <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
+        <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/541131976852" class="text-white" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a></p>
     </footer>
 
     <button onclick="scrollToTop()" class="scroll-top" id="btn-scroll-top" aria-label="Ir arriba">↑</button>
