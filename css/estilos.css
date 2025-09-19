@@ -460,3 +460,17 @@ li strong {
         font-size: 0.85rem;
     }
 }
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-link:hover .card {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-body i {
+    font-size: 3rem; /* Para que los iconos Font Awesome sean más grandes */
+}
