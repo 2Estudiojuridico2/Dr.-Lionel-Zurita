@@ -11174,7 +11174,7 @@ animation-fill-mode: both;
 
 .inicio-oficina {
     min-height: 100vh;
-    background: url('../images/bg-office.jpg') no-repeat center center/cover;
+    background: url('../images/oficina.jpg') no-repeat center center/cover;
     position: relative;
     padding: 100px 20px;
     display: flex;
