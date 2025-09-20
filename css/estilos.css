@@ -15,25 +15,25 @@ h1, h2, h3, h4, h5, h6 {
 /* ========================================================================= */
 
 .custom-navbar {
-    background-color: #f8f9fa; /* Color de fondo claro para la barra de navegación */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    background-color: #f8f9fa; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     z-index: 1000;
 }
 
 .nav-brand {
     font-weight: bold;
-    color: #343a40 !important; /* Color oscuro para el texto del logo */
+    color: #343a40 !important; 
     font-size: 1.5rem;
 }
 
 .nav-link {
     font-weight: 500;
-    color: #495057 !important; /* Color para los enlaces del menú */
+    color: #495057 !important; 
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f4623a !important; /* Cambia a color naranja al pasar el mouse */
+    color: #f4623a !important; 
 }
 
 /* ========================================================================= */
@@ -42,16 +42,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .inicio-oficina {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/oficina.jpg') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/oficina-abogado.jpg') no-repeat center center;
     background-size: cover;
     color: #fff;
-    padding-top: 56px; /* Para que el contenido no quede detrás de la navbar fija */
+    padding-top: 56px;
 }
 
 .inicio-oficina h1 {
     font-weight: 700;
-    font-size: 3rem; /* Tamaño grande para el título principal */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejor legibilidad */
+    font-size: 3rem; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 @media (min-width: 992px) {
@@ -67,23 +67,62 @@ h1, h2, h3, h4, h5, h6 {
 .nav-pills .nav-link {
     border-radius: 0.5rem;
     font-weight: 600;
-    color: #212529; /* Color de texto para pestañas inactivas */
-    background-color: #e9ecef; /* Color de fondo para pestañas inactivas */
+    color: #212529; 
+    background-color: #e9ecef;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .nav-link:hover {
-    color: #fff; /* Color de texto para pestaña activa */
-    background-color: #f4623a; /* Naranja para la pestaña activa */
+    color: #fff; 
+    background-color: #f4623a; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.tab-content {
+.tab-pane {
     border: 1px solid #dee2e6;
     border-top: none;
     border-radius: 0 0 0.5rem 0.5rem;
     padding: 2rem;
-    background-color: #fff;
+    min-height: 400px; 
+}
+
+/* ========================================================================= */
+/* FONDOS PERSONALIZADOS PARA LAS PESTAÑAS                                   */
+/* ========================================================================= */
+
+#pills-familia {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/familia.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+#pills-laboral {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/laboral.png');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+#pills-sucesiones {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sucesiones.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+#pills-contratos {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/contrato.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+#pills-transito {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/tránsito.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
 }
 
 /* ========================================================================= */
