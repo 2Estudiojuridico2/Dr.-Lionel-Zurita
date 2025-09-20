@@ -91,23 +91,23 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Fondos para las páginas de áreas (ej: areas/familia.html) */
 .hero-familia {
-    background-image: url('../images/familia.jpg');
+    background-image: url('../imagenes/familia.jpg');
 }
 
 .hero-laboral {
-    background-image: url('../images/laboral.png');
+    background-image: url('../imagenes/laboral.png');
 }
 
 .hero-sucesiones {
-    background-image: url('../images/sucesiones.jpg');
+    background-image: url('../imagenes/sucesiones.jpg');
 }
 
 .hero-transito {
-    background-image: url('../images/tránsito.jpg');
+    background-image: url('../imagenes/tránsito.jpg');
 }
 
 .hero-contratos {
-    background-image: url('../images/contrato.jpg');
+    background-image: url('../imagenes/contrato.jpg');
 }
 
 
