@@ -7,6 +7,7 @@
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
+
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -11342,9 +11343,9 @@ animation-fill-mode: both;
 }
 
 .hero-contratos {
-    background-image: url('../images/bg-contratos.jpg');
+    background-image: url('../images/contratos.jpg');
 }
 
 .hero-transito {
-    background-image: url('../images/bg-transito.jpg');
+    background-image: url('../images/transito.jpg');
 }
