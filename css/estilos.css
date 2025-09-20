@@ -38,11 +38,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ========================================================================= */
 /* SECCIÓN SUPERIOR (HERO) - Estilo base para todas las páginas              */
+/* (Aplica a la sección <header> o <section> que actúa como hero)           */
 /* ========================================================================= */
 
-/* Esta clase define la estructura y el color del texto, pero NO el fondo. */
-/* El fondo se definirá con clases adicionales como .oficina-bg, .familia-bg, etc. */
-.inicio-oficina {
+.hero { /* Clase base para la sección superior de todas las páginas */
     min-height: 100vh;
     background-size: cover;
     background-position: center;
@@ -53,16 +52,30 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative; /* Necesario para el pseudo-elemento del degradado */
+    z-index: 1; /* Asegura que el contenido esté sobre el degradado */
 }
 
-.inicio-oficina h1 {
+/* Pseudo-elemento para el degradado oscuro sobre la imagen */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: -1; /* Coloca el degradado detrás del contenido */
+}
+
+.hero h1 {
     font-weight: 700;
     font-size: 3rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 992px) {
-    .inicio-oficina h1 {
+    .hero h1 {
         font-size: 4.5rem;
     }
 }
@@ -72,32 +85,31 @@ h1, h2, h3, h4, h5, h6 {
 /* ========================================================================= */
 
 /* Fondo para la página principal (index.html) */
-.oficina-bg { /* Nueva clase para el fondo de index.html */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/oficina.jpg');
+.hero-oficina { /* Nueva clase para el hero de index.html */
+    background-image: url('../images/oficina.jpg');
 }
 
 /* Fondos para las páginas de áreas (ej: areas/familia.html) */
-.familia-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/familia.jpg');
+.hero-familia {
+    background-image: url('../images/familia.jpg');
 }
 
-.laboral-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/laboral.png');
+.hero-laboral {
+    background-image: url('../images/laboral.png');
 }
 
-.sucesiones-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sucesiones.jpg');
-    background-size: cover; /* Asegura que no se repita si ya se definió en .inicio-oficina */
-    background-position: center; /* Asegura que no se repita si ya se definió en .inicio-oficina */
+.hero-sucesiones {
+    background-image: url('../images/sucesiones.jpg');
 }
 
-.transito-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/tránsito.jpg');
+.hero-transito {
+    background-image: url('../images/tránsito.jpg');
 }
 
-.contratos-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/contrato.jpg');
+.hero-contratos {
+    background-image: url('../images/contrato.jpg');
 }
+
 
 /* ========================================================================= */
 /* SECCIÓN ÁREAS DE PRÁCTICA (TABS) EN LA PÁGINA PRINCIPAL                   */
@@ -124,4 +136,108 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 0 0 0.5rem 0.5rem;
     padding: 2rem;
     min-height: 400px; /* Le damos una altura mínima para que las imágenes de fondo se vean */
-    background-size: cover; /* Asegura
+    background-size: cover;
+    background-position: center;
+    color: #fff; /* Texto blanco por defecto para las pestañas con fondo */
+    position: relative; /* Necesario para el pseudo-elemento del degradado */
+    z-index: 1; /* Asegura que el contenido esté sobre el degradado */
+}
+
+.tab-pane::before { /* Pseudo-elemento para el degradado en las pestañas */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: -1; /* Coloca el degradado detrás del contenido */
+}
+
+
+/* ========================================================================= */
+/* FONDOS PARA EL CONTENIDO DE LAS PESTAÑAS EN INDEX.HTML                    */
+/* ========================================================================= */
+
+#pills-familia {
+    background-image: url('../images/familia.jpg');
+}
+
+#pills-laboral {
+    background-image: url('../images/laboral.png');
+}
+
+#pills-sucesiones {
+    background-image: url('../images/sucesiones.jpg');
+}
+
+#pills-contratos {
+    background-image: url('../images/contrato.jpg');
+}
+
+#pills-transito {
+    background-image: url('../images/tránsito.jpg');
+}
+
+
+/* ========================================================================= */
+/* SECCIÓN DE CONTACTO Y PIE DE PÁGINA (FOOTER)                              */
+/* ========================================================================= */
+
+.btn-primary, .btn-secondary {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #f4623a;
+    border-color: #f4623a;
+    color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c94c2e;
+    border-color: #c94c2e;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+/* BOTÓN IR ARRIBA */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f4623a;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    display: none; /* Oculto por defecto, se muestra con JS */
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #c94c2e;
+}
