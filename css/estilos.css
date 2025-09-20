@@ -163,3 +163,37 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem 0;
     font-size: 0.9rem;
 }
+
+/* ========================================================================= */
+/* FONDOS PARA LAS PÁGINAS INDIVIDUALES                                      */
+/* ========================================================================= */
+
+.familia-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/familia.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.laboral-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/laboral.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.sucesiones-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sucesiones.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.transito-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/tránsito.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.contratos-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/contrato.jpg');
+    background-size: cover;
+    background-position: center;
+}
