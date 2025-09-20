@@ -11330,15 +11330,15 @@ animation-fill-mode: both;
 }
 
 .hero-familia {
-    background-image: url('../images/bg-familia.jpg');
+    background-image: url('../images/familia.jpg');
 }
 
 .hero-laboral {
-    background-image: url('../images/bg-laboral.jpg');
+    background-image: url('../images/laboral.png');
 }
 
 .hero-sucesiones {
-    background-image: url('../images/bg-sucesiones.jpg');
+    background-image: url('../images/sucesiones.jpg');
 }
 
 .hero-contratos {
