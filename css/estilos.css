@@ -15,43 +15,50 @@ h1, h2, h3, h4, h5, h6 {
 /* ========================================================================= */
 
 .custom-navbar {
-    background-color: #f8f9fa; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
 .nav-brand {
     font-weight: bold;
-    color: #343a40 !important; 
+    color: #343a40 !important;
     font-size: 1.5rem;
 }
 
 .nav-link {
     font-weight: 500;
-    color: #495057 !important; 
+    color: #495057 !important;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f4623a !important; 
+    color: #f4623a !important;
 }
 
 /* ========================================================================= */
-/* SECCIÓN DE INICIO (HERO)                                                  */
+/* SECCIÓN SUPERIOR (HERO) - Estilo base para todas las páginas              */
 /* ========================================================================= */
 
+/* Esta clase define la estructura y el color del texto, pero NO el fondo. */
+/* El fondo se definirá con clases adicionales como .oficina-bg, .familia-bg, etc. */
 .inicio-oficina {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/oficina-abogado.jpg') no-repeat center center;
     background-size: cover;
+    background-position: center;
     color: #fff;
-    padding-top: 56px;
+    padding-top: 56px; /* Para que el contenido no quede detrás de la navbar fija */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .inicio-oficina h1 {
     font-weight: 700;
-    font-size: 3rem; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 992px) {
@@ -61,139 +68,60 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ========================================================================= */
-/* SECCIÓN ÁREAS DE PRÁCTICA (TABS)                                          */
+/* FONDOS ESPECÍFICOS PARA LA SECCIÓN SUPERIOR (HERO) DE CADA PÁGINA         */
+/* ========================================================================= */
+
+/* Fondo para la página principal (index.html) */
+.oficina-bg { /* Nueva clase para el fondo de index.html */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/oficina.jpg');
+}
+
+/* Fondos para las páginas de áreas (ej: areas/familia.html) */
+.familia-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/familia.jpg');
+}
+
+.laboral-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/laboral.png');
+}
+
+.sucesiones-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sucesiones.jpg');
+    background-size: cover; /* Asegura que no se repita si ya se definió en .inicio-oficina */
+    background-position: center; /* Asegura que no se repita si ya se definió en .inicio-oficina */
+}
+
+.transito-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/tránsito.jpg');
+}
+
+.contratos-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/contrato.jpg');
+}
+
+/* ========================================================================= */
+/* SECCIÓN ÁREAS DE PRÁCTICA (TABS) EN LA PÁGINA PRINCIPAL                   */
 /* ========================================================================= */
 
 .nav-pills .nav-link {
     border-radius: 0.5rem;
     font-weight: 600;
-    color: #212529; 
+    color: #212529;
     background-color: #e9ecef;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .nav-link:hover {
-    color: #fff; 
-    background-color: #f4623a; 
+    color: #fff;
+    background-color: #f4623a;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Regla genérica para los contenedores de las pestañas */
 .tab-pane {
     border: 1px solid #dee2e6;
     border-top: none;
     border-radius: 0 0 0.5rem 0.5rem;
     padding: 2rem;
-    min-height: 400px; 
-}
-
-/* ========================================================================= */
-/* FONDOS PERSONALIZADOS PARA LAS PESTAÑAS                                   */
-/* ========================================================================= */
-
-#pills-familia {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/familia.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-}
-
-#pills-laboral {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/laboral.png');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-}
-
-#pills-sucesiones {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sucesiones.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-}
-
-#pills-contratos {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/contrato.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-}
-
-#pills-transito {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/tránsito.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-}
-
-/* ========================================================================= */
-/* SECCIÓN DE CONTACTO Y PIE DE PÁGINA (FOOTER)                              */
-/* ========================================================================= */
-
-.btn-primary, .btn-secondary {
-    font-weight: bold;
-}
-
-.btn-primary {
-    background-color: #f4623a;
-    border-color: #f4623a;
-    color: #fff;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #c94c2e;
-    border-color: #c94c2e;
-}
-
-.btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    color: #fff;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
-}
-
-.footer {
-    background-color: #343a40;
-    color: #f8f9fa;
-    text-align: center;
-    padding: 2rem 0;
-    font-size: 0.9rem;
-}
-
-/* ========================================================================= */
-/* FONDOS PARA LAS PÁGINAS INDIVIDUALES                                      */
-/* ========================================================================= */
-
-.familia-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/familia.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.laboral-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/laboral.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.sucesiones-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sucesiones.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.transito-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/tránsito.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.contratos-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/contrato.jpg');
-    background-size: cover;
-    background-position: center;
-}
+    min-height: 400px; /* Le damos una altura mínima para que las imágenes de fondo se vean */
+    background-size: cover; /* Asegura
