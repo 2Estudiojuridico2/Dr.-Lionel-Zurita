@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .inicio-oficina {
     min-height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/oficina-abogado.jpg') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/oficina.jpg') no-repeat center center;
     background-size: cover;
     color: #fff;
     padding-top: 56px; /* Para que el contenido no quede detrás de la navbar fija */
