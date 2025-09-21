@@ -1,62 +1,102 @@
 /* ========================================================================= */
-/* ESTILOS GENERALES Y DE BOOTSTRAP PERSONALIZADOS                           */
+/* VARIABLES DE COLOR (PARA FACILITAR EL MANTENIMIENTO) */
+/* ========================================================================= */
+:root {
+    --color-primario: #f4623a; /* Tu color naranja principal para botones, hover, etc. */
+    --color-secundario: #6c757d; /* Gris para botones secundarios */
+    --color-texto-oscuro: #343a40; /* Color principal del texto oscuro */
+    --color-fondo-claro: #f8f9fa; /* Fondo claro general */
+    --color-navbar-fondo: #f8f9fa; /* Fondo específico de la navbar */
+    --color-navbar-enlace: #495057; /* Color de los enlaces de la navbar */
+    --color-navbar-hover: #c94c2e; /* Color al pasar el ratón por los enlaces de la navbar y hover de primario */
+    --color-telegram: #17a2b8; /* Azul de Telegram */
+    --color-whatsapp: #28a745; /* Verde de WhatsApp */
+    --color-footer-fondo: #343a40; /* Fondo del footer */
+    --color-footer-texto: #f8f9fa; /* Color del texto del footer */
+}
+
+
+/* ========================================================================= */
+/* ESTILOS GENERALES Y DE BOOTSTRAP PERSONALIZADOS                         */
 /* ========================================================================= */
 
 body {
     font-family: 'Roboto', sans-serif;
+    color: var(--color-texto-oscuro); /* Usar variable */
+    line-height: 1.6; /* Añadido para mejor legibilidad */
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+    font-weight: 600; /* Añadido un peso por defecto, puedes ajustar */
+    color: var(--color-texto-oscuro); /* Color por defecto, lo ajustaremos más abajo */
 }
 
+a {
+    color: var(--color-primario); /* Usar variable, por si no tiene otra clase de color */
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-navbar-hover); /* Usar variable para el hover */
+    text-decoration: underline;
+}
+
+
 /* ========================================================================= */
-/* NAVEGACIÓN (NAVBAR)                                                       */
+/* NAVEGACIÓN (NAVBAR)                                                     */
 /* ========================================================================= */
 
 .custom-navbar {
-    background-color: #f8f9fa;
+    background-color: var(--color-navbar-fondo); /* Usar variable */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
 
 .nav-brand {
     font-weight: bold;
-    color: #343a40 !important;
+    color: var(--color-texto-oscuro) !important; /* Usar variable */
     font-size: 1.5rem;
 }
 
 .nav-link {
     font-weight: 500;
-    color: #495057 !important;
+    color: var(--color-navbar-enlace) !important; /* Usar variable */
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #f4623a !important;
+    color: var(--color-navbar-hover) !important; /* Usar variable */
 }
 
+/* Color del icono del toggler para que contraste con la navbar */
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.custom-navbar .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+
 /* ========================================================================= */
-/* SECCIÓN SUPERIOR (HERO) - Estilo base para todas las páginas              */
-/* (Aplica a la sección <header> o <section> que actúa como hero)           */
+/* SECCIÓN SUPERIOR (HERO) - Estilo base para todas las páginas            */
 /* ========================================================================= */
 
-.hero { /* Clase base para la sección superior de todas las páginas */
+.hero {
     min-height: 100vh;
     background-size: cover;
     background-position: center;
     color: #fff;
-    padding-top: 56px; /* Para que el contenido no quede detrás de la navbar fija */
+    padding-top: 56px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative; /* Necesario para el pseudo-elemento del degradado */
+    position: relative;
     z-index: 1; /* Asegura que el contenido esté sobre el degradado */
 }
 
-/* Pseudo-elemento para el degradado oscuro sobre la imagen */
 .hero::before {
     content: "";
     position: absolute;
@@ -70,63 +110,66 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero h1 {
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 3rem; /* Tamaño inicial, ajustado con media queries para desktop */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-@media (min-width: 992px) {
-    .hero h1 {
-        font-size: 4.5rem;
-    }
+.hero p.lead { /* Estilo para el párrafo lead en el hero */
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
+.hero .btn-primary { /* Botón principal en el hero */
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.hero .btn-primary:hover {
+    background-color: var(--color-navbar-hover);
+    border-color: var(--color-navbar-hover);
+}
+
+
 /* ========================================================================= */
-/* FONDOS ESPECÍFICOS PARA LA SECCIÓN SUPERIOR (HERO) DE CADA PÁGINA         */
+/* FONDOS ESPECÍFICOS PARA LA SECCIÓN SUPERIOR (HERO) DE CADA PÁGINA        */
 /* ========================================================================= */
 
 /* Fondo para la página principal (index.html) */
-.hero-oficina { /* Nueva clase para el hero de index.html */
-    background-image: url('../images/oficina.jpg');
+.hero-oficina {
+    background-image: url('../images/oficina.jpg'); /* O usa oficina-zurita.jpg si es el que quieres */
 }
 
 /* Fondos para las páginas de áreas (ej: areas/familia.html) */
-.hero-familia {
-    background-image: url('../images/familia.jpg');
-}
-
-.hero-laboral {
-    background-image: url('../images/laboral.png');
-}
-
-.hero-sucesiones {
-    background-image: url('../images/sucesiones.jpg');
-}
-
-.hero-transito {
-    background-image: url('../images/transito.jpg');
-}
-
-.hero-contratos {
-    background-image: url('../images/contrato.jpg');
-}
+.hero-familia { background-image: url('../images/familia.jpg'); }
+.hero-laboral { background-image: url('../images/laboral.png'); }
+.hero-sucesiones { background-image: url('../images/sucesiones.jpg'); }
+.hero-transito { background-image: url('../images/transito.jpg'); }
+.hero-contratos { background-image: url('../images/contrato.jpg'); }
 
 
 /* ========================================================================= */
-/* SECCIÓN ÁREAS DE PRÁCTICA (TABS) EN LA PÁGINA PRINCIPAL                   */
+/* SECCIÓN ÁREAS DE PRÁCTICA (TABS) EN LA PÁGINA PRINCIPAL                 */
 /* ========================================================================= */
 
 .nav-pills .nav-link {
     border-radius: 0.5rem;
     font-weight: 600;
-    color: #212529;
-    background-color: #e9ecef;
+    color: var(--color-texto-oscuro); /* Usar variable */
+    background-color: #e9ecef; /* Mantener tu color original de fondo de píldora */
+    border: 1px solid transparent; /* Añadido un borde transparente por defecto */
+    transition: all 0.3s ease; /* Añadido para transiciones suaves */
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .nav-link:hover {
     color: #fff;
-    background-color: #f4623a;
+    background-color: var(--color-primario); /* Usar variable */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primario); /* Añadido borde del mismo color al activo/hover */
 }
 
 /* Regla genérica para los contenedores de las pestañas */
@@ -135,15 +178,16 @@ h1, h2, h3, h4, h5, h6 {
     border-top: none;
     border-radius: 0 0 0.5rem 0.5rem;
     padding: 2rem;
-    min-height: 400px; /* Le damos una altura mínima para que las imágenes de fondo se vean */
+    min-height: 400px;
     background-size: cover;
     background-position: center;
     color: #fff; /* Texto blanco por defecto para las pestañas con fondo */
-    position: relative; /* Necesario para el pseudo-elemento del degradado */
-    z-index: 1; /* Asegura que el contenido esté sobre el degradado */
+    position: relative;
+    z-index: 1;
+    text-align: justify; /* Asegura el justificado para el contenido de las pestañas */
 }
 
-.tab-pane::before { /* Pseudo-elemento para el degradado en las pestañas */
+.tab-pane::before {
     content: "";
     position: absolute;
     top: 0;
@@ -151,37 +195,31 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    z-index: -1; /* Coloca el degradado detrás del contenido */
+    z-index: -1;
+}
+
+.tab-pane p { /* Estilo específico para párrafos dentro de las pestañas */
+    margin-bottom: 1rem;
+}
+
+.tab-pane strong + br + p {
+    margin-top: 0.5rem;
 }
 
 
 /* ========================================================================= */
-/* FONDOS PARA EL CONTENIDO DE LAS PESTAÑAS EN INDEX.HTML                    */
+/* FONDOS PARA EL CONTENIDO DE LAS PESTAÑAS EN INDEX.HTML                   */
 /* ========================================================================= */
 
-#pills-familia {
-    background-image: url('../images/familia.jpg');
-}
-
-#pills-laboral {
-    background-image: url('../images/laboral.png');
-}
-
-#pills-sucesiones {
-    background-image: url('../images/sucesiones.jpg');
-}
-
-#pills-contratos {
-    background-image: url('../images/contrato.jpg');
-}
-
-#pills-transito {
-    background-image: url('../images/tránsito.jpg');
-}
+#pills-familia { background-image: url('../images/familia.jpg'); }
+#pills-laboral { background-image: url('../images/laboral.png'); }
+#pills-sucesiones { background-image: url('../images/sucesiones.jpg'); }
+#pills-contratos { background-image: url('../images/contrato.jpg'); }
+#pills-transito { background-image: url('../images/tránsito.jpg'); }
 
 
 /* ========================================================================= */
-/* SECCIÓN DE CONTACTO Y PIE DE PÁGINA (FOOTER)                              */
+/* SECCIÓN DE CONTACTO Y PIE DE PÁGINA (FOOTER)                             */
 /* ========================================================================= */
 
 .btn-primary, .btn-secondary {
@@ -189,42 +227,203 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-    background-color: #f4623a;
-    border-color: #f4623a;
+    background-color: var(--color-primario); /* Usar variable */
+    border-color: var(--color-primario); /* Usar variable */
     color: #fff;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #c94c2e;
-    border-color: #c94c2e;
+    background-color: var(--color-navbar-hover); /* Usar variable */
+    border-color: var(--color-navbar-hover); /* Usar variable */
 }
 
 .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
+    background-color: var(--color-secundario); /* Usar variable */
+    border-color: var(--color-secundario); /* Usar variable */
     color: #fff;
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
+    background-color: #5a6268; /* Mantener tu color original */
+    border-color: #545b62; /* Mantener tu color original */
 }
 
+/* Footer */
 .footer {
-    background-color: #343a40;
-    color: #f8f9fa;
+    background-color: var(--color-footer-fondo); /* Usar variable */
+    color: var(--color-footer-texto); /* Usar variable */
     text-align: center;
     padding: 2rem 0;
     font-size: 0.9rem;
 }
 
-/* BOTÓN IR ARRIBA */
+.footer a {
+    color: var(--color-footer-texto); /* Color para los enlaces del footer */
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: #cceeff; /* Un color de hover más claro */
+}
+
+
+/* ========================================================================= */
+/* BOTONES DE ICONO EN LA SECCIÓN DE CONTACTO                                */
+/* ========================================================================= */
+
+/* Estilos para los botones de contacto con icono y texto (ej. Formulario completo, WhatsApp) */
+.btn-icon-lg {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.btn-icon-lg i {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.btn-icon-lg span {
+    display: block;
+    font-weight: 500;
+}
+
+/* Colores específicos para btn-icon-lg */
+.btn-outline-primary.btn-icon-lg {
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+.btn-outline-primary.btn-icon-lg:hover {
+    background-color: var(--color-primario);
+    color: #fff;
+}
+
+.btn-outline-success.btn-icon-lg {
+    color: var(--color-whatsapp);
+    border-color: var(--color-whatsapp);
+}
+.btn-outline-success.btn-icon-lg:hover {
+    background-color: var(--color-whatsapp);
+    color: #fff;
+}
+
+/* Estilo para botones de solo icono (ej. Telegram) */
+.btn-icon-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Circular */
+    font-size: 1.5rem; /* Tamaño base del icono */
+    transition: all 0.3s ease;
+    padding: 0;
+    text-decoration: none;
+}
+
+.btn-icon-only i {
+    line-height: 1;
+}
+
+/* Colores específicos para btn-icon-only (Telegram) */
+.btn-outline-info.btn-icon-only {
+    color: var(--color-telegram);
+    border-color: var(--color-telegram);
+}
+.btn-outline-info.btn-icon-only:hover {
+    background-color: var(--color-telegram);
+    color: #fff;
+}
+
+
+/* ========================================================================= */
+/* AJUSTES DE TÍTULOS Y RESPONSIVIDAD (Media Queries)                        */
+/* ========================================================================= */
+
+/* Ajustes de tamaño para títulos en pantallas grandes */
+@media (min-width: 992px) {
+    .hero-oficina h1.display-5 { font-size: 3.5rem; } /* Ajustado desde 4.5rem de tu código original */
+    h2.display-6 { font-size: 2.5rem; } /* Ajustado */
+}
+
+/* Ajustes de tamaño para títulos en pantallas medianas y pequeñas */
+@media (max-width: 991.98px) {
+    .hero-oficina h1.display-5 { font-size: 2.5rem; }
+    h2.display-6 { font-size: 2rem; }
+}
+
+/* Subtítulos en la sección de contacto */
+.container #contacto h3 {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Media Queries Responsivas Generales */
+@media (max-width: 768px) {
+    .hero h1 { /* Para el h1 base del hero en pantallas más pequeñas */
+        font-size: 2.5rem;
+    }
+    .hero p.lead {
+        font-size: 1.2rem;
+    }
+    .nav-pills .nav-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    .btn-icon-lg { /* Ajuste de tamaño para iconos grandes */
+        width: 75px;
+        height: 75px;
+    }
+    .btn-icon-lg i {
+        font-size: 1.8rem;
+    }
+    .btn-icon-only { /* Ajuste de tamaño para iconos pequeños */
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    .container #contacto h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p.lead {
+        font-size: 1rem;
+    }
+    .nav-pills {
+        flex-direction: column; /* Apila los botones de las pestañas en móviles */
+        align-items: center;
+    }
+    .nav-pills .nav-link {
+        width: 90%; /* Ocupa más ancho en móvil */
+        margin-bottom: 10px;
+    }
+}
+
+
+/* ========================================================================= */
+/* BOTÓN IR ARRIBA (Si lo necesitas, mantén este código)                    */
+/* ========================================================================= */
 .scroll-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #f4623a;
+    background-color: var(--color-primario); /* Usar variable */
     color: white;
     border: none;
     border-radius: 50%;
@@ -239,165 +438,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .scroll-top:hover {
-    background-color: #c94c2e;
+    background-color: var(--color-navbar-hover); /* Usar variable */
 }
-/* Estilos para los botones de contacto con solo icono */
-.btn-icon-lg {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90px; /* Ancho fijo para los botones */
-    height: 90px; /* Altura fija para los botones */
-    border-radius: 15px; /* Bordes un poco más redondeados */
-    font-size: 0.8rem; /* Tamaño de fuente para el texto debajo del icono */
-    transition: all 0.3s ease; /* Transición suave para hover */
-    padding: 10px; /* Espaciado interno */
-    text-decoration: none; /* Quitar subrayado del enlace */
-}
-
-.btn-icon-lg i {
-    font-size: 2.2rem; /* Tamaño del icono */
-    margin-bottom: 5px; /* Espacio entre icono y texto */
-    line-height: 1; /* Asegura que el icono no añada espacio extra */
-}
-
-.btn-icon-lg span {
-    display: block; /* Para que el texto se coloque debajo del icono */
-    font-weight: 500;
-}
-
-/* Colores específicos para los botones de icono */
-.btn-outline-primary.btn-icon-lg {
-    color: var(--color-primario); /* Usar tu color primario definido */
-    border-color: var(--color-primario);
-}
-.btn-outline-primary.btn-icon-lg:hover {
-    background-color: var(--color-primario);
-    color: #fff;
-}
-
-.btn-outline-success.btn-icon-lg {
-    color: #28a745; /* Color verde de WhatsApp */
-    border-color: #28a745;
-}
-.btn-outline-success.btn-icon-lg:hover {
-    background-color: #28a745;
-    color: #fff;
-}
-
-.btn-outline-info.btn-icon-lg {
-    color: #17a2b8; /* Color azul de Telegram */
-    border-color: #17a2b8;
-}
-.btn-outline-info.btn-icon-lg:hover {
-    background-color: #17a2b8;
-    color: #fff;
-}
-
-/* Asegurar el justificado para las pestañas */
-.tab-pane p {
-    text-align: justify;
-    margin-bottom: 1rem; /* Añadir un poco de espacio entre párrafos */
-}
-
-/* Opcional: si quieres más espacio entre un título en negrita y el párrafo que le sigue */
-.tab-pane strong + br + p {
-    margin-top: 0.5rem;
-}
-/* Nuevo estilo para botones de solo icono (ej. Telegram) */
-.btn-icon-only {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px; /* Tamaño del botón para solo el icono */
-    height: 60px; /* Asegura que sea cuadrado */
-    border-radius: 50%; /* Lo hace circular */
-    font-size: 1.5rem; /* Tamaño base del icono */
-    transition: all 0.3s ease;
-    padding: 0; /* Sin padding interno */
-    text-decoration: none;
-}
-
-.btn-icon-only i {
-    line-height: 1; /* Asegura que el icono esté centrado verticalmente */
-}
-
-/* Colores para el botón de solo icono de Telegram */
-.btn-outline-info.btn-icon-only {
-    color: #17a2b8; /* Color azul de Telegram */
-    border-color: #17a2b8;
-}
-.btn-outline-info.btn-icon-only:hover {
-    background-color: #17a2b8;
-    color: #fff;
-}
-
-/* Mantén los estilos existentes para .btn-icon-lg si los otros botones siguen usándolos */
-/* Estilos para los botones de contacto con solo icono y texto (ej. Formulario completo, WhatsApp) */
-.btn-icon-lg {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90px; /* Ancho fijo para los botones */
-    height: 90px; /* Altura fija para los botones */
-    border-radius: 15px; /* Bordes un poco más redondeados */
-    font-size: 0.8rem; /* Tamaño de fuente para el texto debajo del icono */
-    transition: all 0.3s ease; /* Transición suave para hover */
-    padding: 10px; /* Espaciado interno */
-    text-decoration: none; /* Quitar subrayado del enlace */
-}
-
-.btn-icon-lg i {
-    font-size: 2.2rem; /* Tamaño del icono */
-    margin-bottom: 5px; /* Espacio entre icono y texto */
-    line-height: 1; /* Asegura que el icono no añada espacio extra */
-}
-
-.btn-icon-lg span {
-    display: block; /* Para que el texto se coloque debajo del icono */
-    font-weight: 500;
-}
-
-/* Colores específicos para los botones de icono y texto */
-.btn-outline-primary.btn-icon-lg {
-    color: var(--color-primario);
-    border-color: var(--color-primario);
-}
-.btn-outline-primary.btn-icon-lg:hover {
-    background-color: var(--color-primario);
-    color: #fff;
-}
-
-.btn-outline-success.btn-icon-lg {
-    color: #28a745; /* Color verde de WhatsApp */
-    border-color: #28a745;
-}
-.btn-outline-success.btn-icon-lg:hover {
-    background-color: #28a745;
-    color: #fff;
-}
-
-/* Asegurar el justificado para las pestañas */
-.tab-pane p {
-    text-align: justify;
-    margin-bottom: 1rem;
-}
-
-/* Opcional: si quieres más espacio entre un título en negrita y el párrafo que le sigue */
-.tab-pane strong + br + p {
-    margin-top: 0.5rem;
-}
-
-/* Ajustes específicos para los títulos grandes (del comentario anterior) */
-/* Asegúrate de que estos estén presentes y ajustados si hiciste cambios */
-@media (min-width: 992px) {
-    .hero-oficina h1.display-5 { font-size: 3.5rem; }
-    h2.display-6 { font-size: 2.5rem; }
-}
-@media (max-width: 991.98px) {
-    .hero-oficina h1.display-5 { font-size: 2.5rem; }
-    h2.display-6 { font-size: 2rem; }
-}
-.container #contacto h3 { font-size: 1.8rem; margin-top: 1.5rem; margin-bottom: 1.5rem;}
