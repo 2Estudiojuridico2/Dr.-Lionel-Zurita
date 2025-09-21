@@ -305,3 +305,99 @@ h1, h2, h3, h4, h5, h6 {
 .tab-pane strong + br + p {
     margin-top: 0.5rem;
 }
+/* Nuevo estilo para botones de solo icono (ej. Telegram) */
+.btn-icon-only {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; /* Tamaño del botón para solo el icono */
+    height: 60px; /* Asegura que sea cuadrado */
+    border-radius: 50%; /* Lo hace circular */
+    font-size: 1.5rem; /* Tamaño base del icono */
+    transition: all 0.3s ease;
+    padding: 0; /* Sin padding interno */
+    text-decoration: none;
+}
+
+.btn-icon-only i {
+    line-height: 1; /* Asegura que el icono esté centrado verticalmente */
+}
+
+/* Colores para el botón de solo icono de Telegram */
+.btn-outline-info.btn-icon-only {
+    color: #17a2b8; /* Color azul de Telegram */
+    border-color: #17a2b8;
+}
+.btn-outline-info.btn-icon-only:hover {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+/* Mantén los estilos existentes para .btn-icon-lg si los otros botones siguen usándolos */
+/* Estilos para los botones de contacto con solo icono y texto (ej. Formulario completo, WhatsApp) */
+.btn-icon-lg {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90px; /* Ancho fijo para los botones */
+    height: 90px; /* Altura fija para los botones */
+    border-radius: 15px; /* Bordes un poco más redondeados */
+    font-size: 0.8rem; /* Tamaño de fuente para el texto debajo del icono */
+    transition: all 0.3s ease; /* Transición suave para hover */
+    padding: 10px; /* Espaciado interno */
+    text-decoration: none; /* Quitar subrayado del enlace */
+}
+
+.btn-icon-lg i {
+    font-size: 2.2rem; /* Tamaño del icono */
+    margin-bottom: 5px; /* Espacio entre icono y texto */
+    line-height: 1; /* Asegura que el icono no añada espacio extra */
+}
+
+.btn-icon-lg span {
+    display: block; /* Para que el texto se coloque debajo del icono */
+    font-weight: 500;
+}
+
+/* Colores específicos para los botones de icono y texto */
+.btn-outline-primary.btn-icon-lg {
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+}
+.btn-outline-primary.btn-icon-lg:hover {
+    background-color: var(--color-primario);
+    color: #fff;
+}
+
+.btn-outline-success.btn-icon-lg {
+    color: #28a745; /* Color verde de WhatsApp */
+    border-color: #28a745;
+}
+.btn-outline-success.btn-icon-lg:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Asegurar el justificado para las pestañas */
+.tab-pane p {
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* Opcional: si quieres más espacio entre un título en negrita y el párrafo que le sigue */
+.tab-pane strong + br + p {
+    margin-top: 0.5rem;
+}
+
+/* Ajustes específicos para los títulos grandes (del comentario anterior) */
+/* Asegúrate de que estos estén presentes y ajustados si hiciste cambios */
+@media (min-width: 992px) {
+    .hero-oficina h1.display-5 { font-size: 3.5rem; }
+    h2.display-6 { font-size: 2.5rem; }
+}
+@media (max-width: 991.98px) {
+    .hero-oficina h1.display-5 { font-size: 2.5rem; }
+    h2.display-6 { font-size: 2rem; }
+}
+.container #contacto h3 { font-size: 1.8rem; margin-top: 1.5rem; margin-bottom: 1.5rem;}
