@@ -12,10 +12,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'AW-17555284710');
-        // NOTA: El evento de conversión de Google Ads ('AW-17555284710/xbZyCOG1gJobEObFgbNB')
-        // fue ELIMINADO de aquí. Se recomienda activarlo en una página de "gracias.html"
-        // o mediante un evento de clic/envío de formulario configurado en Google Tag Manager.
-        // Esto evita que el evento se registre en cada carga de la página de inicio.
     </script>
 
     <meta charset="UTF-8">
@@ -152,66 +148,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Estilos para el botón flotante */
-        .floating-button-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1050; /* Mayor que el modal (1040) */
-        }
-        .floating-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            background-color: var(--bs-primary); /* Usar variable de Bootstrap */
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .floating-button:hover {
-            transform: scale(1.1);
-            background-color: #0056b3; /* Un tono más oscuro para el hover */
-        }
-        /* Ajustar el tamaño del logo dentro del botón si es necesario */
-        .floating-button img {
-            width: 40px; /* Ajusta el tamaño de tu logo */
-            height: 40px;
-            border-radius: 50%; /* Si el logo es redondo, para que se ajuste bien al botón circular */
-            object-fit: contain; /* Asegura que la imagen se adapte sin cortarse */
-        }
-        /* Ajustes para el modal de contacto */
-        .modal-body .btn-icon-lg {
-            width: 100%; /* Para que los botones se expandan en el modal */
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-body .btn-icon-lg i {
-            font-size: 1.5rem;
-            margin-right: 10px;
-        }
-        .modal-body .btn-icon-lg span {
-            font-size: 1.1rem;
-        }
-
-        /* ESTILOS PARA EL CHATBOT (Ajustado para la imagen y texto) */
+        /* Estilos del Chatbot: Necesarios para el layout y la estética */
         .chatbot-toggle-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 70px; /* Un poco más ancho para el texto */
-            height: 70px; /* Un poco más alto para el texto */
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background-color: #007bff; /* Color primario de Bootstrap */
             color: white;
             display: flex;
-            flex-direction: column; /* Para apilar imagen y texto */
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -219,31 +167,33 @@
             transition: all 0.3s ease;
             z-index: 1000;
             border: none;
-            text-decoration: none; /* Asegurar que no tenga subrayado de enlace */
+            text-decoration: none;
+            text-align: center; /* Centrar el texto */
+            padding-top: 5px; /* Pequeño ajuste para centrado vertical */
         }
         .chatbot-toggle-button:hover {
-            background-color: #0056b3; /* Un tono más oscuro para el hover */
+            background-color: #0056b3;
             transform: scale(1.1);
         }
         .chatbot-toggle-button img {
-            width: 35px; /* Ajusta el tamaño de tu logo */
+            width: 35px;
             height: 35px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 3px; /* Espacio entre imagen y texto */
+            margin-bottom: 3px;
         }
         .chatbot-toggle-button span {
-            font-size: 0.75rem; /* Tamaño de texto para el botón */
+            font-size: 0.75rem;
             font-weight: bold;
-            line-height: 1; /* Para que el texto no ocupe mucho espacio vertical */
+            line-height: 1;
         }
 
         #chatbot-container {
             position: fixed;
-            bottom: 100px; /* Un poco más arriba que el botón con texto */
+            bottom: 100px; /* Elevar un poco sobre el botón */
             right: 20px;
-            width: 350px; /* Ancho del chatbot */
-            height: 450px; /* Alto del chatbot */
+            width: 350px;
+            height: 500px; /* Un poco más alto para más mensajes */
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -252,52 +202,56 @@
             overflow: hidden;
             z-index: 999;
             font-family: 'Roboto', sans-serif;
+            border: 1px solid #dee2e6; /* Borde suave */
         }
         .chatbot-header {
             background-color: #007bff;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: bold;
+            font-size: 1.1rem;
         }
         .chatbot-header .close-button {
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Más grande para que sea fácil de ver */
             cursor: pointer;
+            line-height: 1; /* Para que la 'x' se vea centrada */
         }
         #chatbot-body {
             flex-grow: 1;
             padding: 15px;
             overflow-y: auto;
-            background-color: #e9ecef;
+            background-color: #e9ecef; /* Fondo más suave para el chat */
             display: flex;
             flex-direction: column;
         }
         .message {
-            max-width: 80%;
-            padding: 8px 12px;
-            border-radius: 15px;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            font-size: 0.9rem; /* Un poco más pequeño para chats */
+            max-width: 85%; /* Un poco más de espacio */
+            padding: 10px 15px;
+            border-radius: 20px; /* Bordes más redondeados */
+            margin-bottom: 8px; /* Menos espacio entre mensajes */
+            line-height: 1.5;
+            font-size: 0.95rem;
+            word-wrap: break-word; /* Asegura que palabras largas no rompan el layout */
         }
         .message.user {
             align-self: flex-end;
-            background-color: #d1e7dd; /* Light green for user */
+            background-color: #d1e7dd; /* Verde claro */
             color: #0f5132;
-            border-bottom-right-radius: 2px;
+            border-bottom-right-radius: 5px; /* Pequeño ajuste en la esquina */
         }
         .message.bot {
             align-self: flex-start;
-            background-color: #f8f9fa; /* Light gray for bot */
+            background-color: #f8f9fa; /* Gris claro */
             color: #212529;
-            border-bottom-left-radius: 2px;
+            border-bottom-left-radius: 5px; /* Pequeño ajuste en la esquina */
         }
         .chatbot-input-area {
             display: flex;
@@ -309,7 +263,7 @@
             flex-grow: 1;
             border: 1px solid #ced4da;
             border-radius: 20px;
-            padding: 8px 15px;
+            padding: 10px 15px;
             margin-right: 10px;
             font-size: 0.95rem;
         }
@@ -323,17 +277,184 @@
             color: white;
             border: none;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 45px; /* Un poco más grande */
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
             transition: background-color 0.2s ease;
         }
         .chatbot-input-area button:hover {
             background-color: #0056b3;
+        }
+
+        /* Estilos generales de tu página */
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: #004d99; /* Azul oscuro para títulos */
+            font-weight: 700;
+        }
+        .custom-navbar {
+            background-color: rgba(0, 77, 153, 0.95); /* Azul oscuro con transparencia */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #fff !important;
+            font-size: 1.5rem;
+        }
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #f8f9fa !important;
+            text-decoration: underline;
+        }
+        .hero {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        .hero-oficina {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero-oficina.jpg'); /* Asegúrate de tener esta imagen */
+            min-height: 60vh;
+        }
+        .hero h1, .hero p {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+        .nav-pills .nav-link.active, .nav-pills .nav-link:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .tab-pane {
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-top: none;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            background-color: #fff;
+        }
+        .icon-valores {
+            width: 100px; /* Tamaño fijo para los iconos de valores */
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #212529 !important;
+            color: #f8f9fa !important;
+        }
+        footer a {
+            color: #f8f9fa !important;
+        }
+        footer a:hover {
+            color: #007bff !important;
+        }
+        .social-icons a {
+            font-size: 2rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #007bff !important;
+        }
+        .btn-icon-lg {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 140px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .btn-icon-lg i {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .btn-icon-lg span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .btn-icon-lg:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .text-justify {
+            text-align: justify;
+        }
+
+        /* Ajustes Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .nav-brand {
+                font-size: 1.2rem;
+            }
+            .chatbot-toggle-button {
+                width: 60px;
+                height: 60px;
+                bottom: 15px;
+                right: 15px;
+            }
+            .chatbot-toggle-button img {
+                width: 30px;
+                height: 30px;
+            }
+            .chatbot-toggle-button span {
+                font-size: 0.65rem;
+            }
+            #chatbot-container {
+                width: 90%;
+                max-width: 320px;
+                height: 400px;
+                bottom: 80px;
+                right: 5%;
+                left: 5%; /* Centrarlo en pantallas pequeñas */
+            }
+            .btn-icon-lg {
+                min-width: unset;
+                width: 100%;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -407,7 +528,7 @@
                     <p><strong>Liquidación de bienes</strong><br>
                     Se ayuda a las partes a llegar a acuerdos para la división de los bienes comunes tras una separación o divorcio. En caso de ser necesario, se inician procesos judiciales para proteger el patrimonio de los cónyuges.</p>
                     <p><strong>Vivienda familiar</strong><br>
-                    Se asesora sobre la atribución del uso de la vivienda familiar después de una separación o divorcio, y la posible compensación económica que esto puede generar para la otra parte.</p>
+                    Se asesora sobre la atribución del uso de la vivienda familiar después de una separación o divorcio, y la posible compensación económica que esto pueda generar para la otra parte.</p>
                     <p><strong>Uniones convivenciales</strong><br>
                     Se proporciona asesoramiento sobre las uniones convivenciales, sus diferencias con el matrimonio y la redacción o revisión de pactos de convivencia.</p>
                     <p><strong>Regímenes patrimoniales</strong><br>
@@ -585,7 +706,7 @@
 
     <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
         <div class="container text-center">
-            <p>&copy; 2025 Dr. Lionel Zurita. Todos los derechos reservados. <a href="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/aviso-legal.html" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none ms-2">Aviso Legal</a></p>
+            <p>&copy; 2024 Dr. Lionel Zurita. Todos los derechos reservados. <a href="https://github.com/2Estudiojuridico2/Dr.-Lionel-Zurita/blob/main/aviso-legal.html" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none ms-2">Aviso Legal</a></p>
             <div class="social-icons mt-3">
                 <a href="https://www.linkedin.com/in/lionel-nicolas-zurita-857a2219b/" target="_blank" rel="noopener noreferrer" class="text-white mx-2" aria-label="LinkedIn del Dr. Lionel Zurita"><i class="fab fa-linkedin fa-2x"></i></a>
             </div>
@@ -639,7 +760,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            duration: 1000, // Duración de la animación
+            once: true // Las animaciones solo ocurren una vez
+        });
         document.addEventListener('DOMContentLoaded', function() {
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
