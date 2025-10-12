@@ -168,8 +168,8 @@
             z-index: 1000;
             border: none;
             text-decoration: none;
-            text-align: center; /* Centrar el texto */
-            padding-top: 5px; /* Pequeño ajuste para centrado vertical */
+            text-align: center;
+            padding-top: 5px;
         }
         .chatbot-toggle-button:hover {
             background-color: #0056b3;
@@ -190,10 +190,10 @@
 
         #chatbot-container {
             position: fixed;
-            bottom: 100px; /* Elevar un poco sobre el botón */
+            bottom: 100px;
             right: 20px;
             width: 350px;
-            height: 500px; /* Un poco más alto para más mensajes */
+            height: 500px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -202,7 +202,7 @@
             overflow: hidden;
             z-index: 999;
             font-family: 'Roboto', sans-serif;
-            border: 1px solid #dee2e6; /* Borde suave */
+            border: 1px solid #dee2e6;
         }
         .chatbot-header {
             background-color: #007bff;
@@ -220,38 +220,38 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.8rem; /* Más grande para que sea fácil de ver */
+            font-size: 1.8rem;
             cursor: pointer;
-            line-height: 1; /* Para que la 'x' se vea centrada */
+            line-height: 1;
         }
         #chatbot-body {
             flex-grow: 1;
             padding: 15px;
             overflow-y: auto;
-            background-color: #e9ecef; /* Fondo más suave para el chat */
+            background-color: #e9ecef;
             display: flex;
             flex-direction: column;
         }
         .message {
-            max-width: 85%; /* Un poco más de espacio */
+            max-width: 85%;
             padding: 10px 15px;
-            border-radius: 20px; /* Bordes más redondeados */
-            margin-bottom: 8px; /* Menos espacio entre mensajes */
+            border-radius: 20px;
+            margin-bottom: 8px;
             line-height: 1.5;
             font-size: 0.95rem;
-            word-wrap: break-word; /* Asegura que palabras largas no rompan el layout */
+            word-wrap: break-word;
         }
         .message.user {
             align-self: flex-end;
-            background-color: #d1e7dd; /* Verde claro */
+            background-color: #d1e7dd;
             color: #0f5132;
-            border-bottom-right-radius: 5px; /* Pequeño ajuste en la esquina */
+            border-bottom-right-radius: 5px;
         }
         .message.bot {
             align-self: flex-start;
-            background-color: #f8f9fa; /* Gris claro */
+            background-color: #f8f9fa;
             color: #212529;
-            border-bottom-left-radius: 5px; /* Pequeño ajuste en la esquina */
+            border-bottom-left-radius: 5px;
         }
         .chatbot-input-area {
             display: flex;
@@ -277,7 +277,7 @@
             color: white;
             border: none;
             border-radius: 50%;
-            width: 45px; /* Un poco más grande */
+            width: 45px;
             height: 45px;
             display: flex;
             align-items: center;
@@ -290,7 +290,7 @@
             background-color: #0056b3;
         }
 
-        /* Estilos generales de tu página */
+        /* Tus estilos generales */
         body {
             font-family: 'Roboto', sans-serif;
             color: #333;
@@ -303,7 +303,7 @@
             font-weight: 700;
         }
         .custom-navbar {
-            background-color: rgba(0, 77, 153, 0.95); /* Azul oscuro con transparencia */
+            background-color: rgba(0, 77, 153, 0.95);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .nav-brand {
@@ -329,7 +329,7 @@
             padding: 100px 0;
         }
         .hero-oficina {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero-oficina.jpg'); /* Asegúrate de tener esta imagen */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/hero-oficina.jpg');
             min-height: 60vh;
         }
         .hero h1, .hero p {
@@ -366,7 +366,7 @@
             background-color: #fff;
         }
         .icon-valores {
-            width: 100px; /* Tamaño fijo para los iconos de valores */
+            width: 100px;
             height: 100px;
             object-fit: cover;
             border-radius: 50%;
@@ -448,7 +448,7 @@
                 height: 400px;
                 bottom: 80px;
                 right: 5%;
-                left: 5%; /* Centrarlo en pantallas pequeñas */
+                left: 5%;
             }
             .btn-icon-lg {
                 min-width: unset;
@@ -706,7 +706,7 @@
 
     <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
         <div class="container text-center">
-            <p>&copy; 2024 Dr. Lionel Zurita. Todos los derechos reservados. <a href="https://github.com/2Estudiojuridico2/Dr.-Lionel-Zurita/blob/main/aviso-legal.html" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none ms-2">Aviso Legal</a></p>
+            <p>&copy; 2024 Dr. Lionel Zurita. Todos los derechos reservados. <a href="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/aviso-legal.html" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none ms-2">Aviso Legal</a></p>
             <div class="social-icons mt-3">
                 <a href="https://www.linkedin.com/in/lionel-nicolas-zurita-857a2219b/" target="_blank" rel="noopener noreferrer" class="text-white mx-2" aria-label="LinkedIn del Dr. Lionel Zurita"><i class="fab fa-linkedin fa-2x"></i></a>
             </div>
@@ -761,8 +761,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000, // Duración de la animación
-            once: true // Las animaciones solo ocurren una vez
+            duration: 1000,
+            once: true
         });
         document.addEventListener('DOMContentLoaded', function() {
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -785,8 +785,8 @@
                 currentIndex = (currentIndex + 1) % frases.length;
             }
 
-            changeFrase(); // Establece la primera frase
-            setInterval(changeFrase, 5000); // Cambia cada 5 segundos
+            changeFrase();
+            setInterval(changeFrase, 5000);
         });
     </script>
     <script src="respuestas.js"></script>
