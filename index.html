@@ -175,13 +175,14 @@
         }
         .floating-button:hover {
             transform: scale(1.1);
-            background-color: var(--bs-primary-hover); /* Si tienes un color hover definido */
+            background-color: #0056b3; /* Un tono más oscuro para el hover */
         }
         /* Ajustar el tamaño del logo dentro del botón si es necesario */
         .floating-button img {
             width: 40px;
             height: 40px;
-            border-radius: 50%; /* Si el logo es redondo */
+            border-radius: 50%; /* Si el logo es redondo, para que se ajuste bien al botón circular */
+            object-fit: contain; /* Asegura que la imagen se adapte sin cortarse */
         }
         /* Ajustes para el modal de contacto */
         .modal-body .btn-icon-lg {
@@ -197,6 +198,135 @@
         }
         .modal-body .btn-icon-lg span {
             font-size: 1.1rem;
+        }
+
+        /* ESTILOS PARA EL CHATBOT (Ajustado para la imagen) */
+        .chatbot-toggle-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #007bff; /* Color primario de Bootstrap */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Eliminamos font-size para que no afecte a la imagen */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            border: none;
+        }
+        .chatbot-toggle-button:hover {
+            background-color: #0056b3; /* Un tono más oscuro para el hover */
+            transform: scale(1.1);
+        }
+        .chatbot-toggle-button img {
+            width: 40px; /* Ajusta el tamaño de tu logo */
+            height: 40px;
+            border-radius: 50%; /* Para que la imagen se vea circular */
+            object-fit: cover; /* Recorta la imagen para llenar el espacio circular */
+        }
+
+        #chatbot-container {
+            position: fixed;
+            bottom: 90px; /* Un poco más arriba que el botón */
+            right: 20px;
+            width: 350px; /* Ancho del chatbot */
+            height: 450px; /* Alto del chatbot */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: none; /* Oculto por defecto */
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 999; /* Por debajo del botón si es necesario, o igual */
+            font-family: 'Roboto', sans-serif;
+        }
+        .chatbot-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+        .chatbot-header .close-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        #chatbot-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #e9ecef;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            font-size: 0.9rem; /* Un poco más pequeño para chats */
+        }
+        .message.user {
+            align-self: flex-end;
+            background-color: #d1e7dd; /* Light green for user */
+            color: #0f5132;
+            border-bottom-right-radius: 2px;
+        }
+        .message.bot {
+            align-self: flex-start;
+            background-color: #f8f9fa; /* Light gray for bot */
+            color: #212529;
+            border-bottom-left-radius: 2px;
+        }
+        .chatbot-input-area {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #dee2e6;
+            background-color: #f8f9fa;
+        }
+        #user-input {
+            flex-grow: 1;
+            border: 1px solid #ced4da;
+            border-radius: 20px;
+            padding: 8px 15px;
+            margin-right: 10px;
+            font-size: 0.95rem;
+        }
+        #user-input:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+        .chatbot-input-area button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .chatbot-input-area button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -420,139 +550,114 @@
                                 <i class="fab fa-whatsapp" aria-hidden="true"></i>
                                 <span class="d-block mt-1">WhatsApp</span>
                             </a>
-                            <a href="https://t.me/drzuritalionel" class="btn btn-outline-info btn-icon-only" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="400" data-bs-toggle="tooltip" data-bs-placement="top" title="Enviar Telegram" role="button">
-                                <i class="fab fa-telegram-plane fa-2x" aria-hidden="true"></i>
+                            <a href="https://t.me/drzuritalionel" class="btn btn-outline-info btn-icon-lg" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-delay="400" data-bs-toggle="tooltip" data-bs-placement="top" title="Enviar Telegram" role="button">
+                                <i class="fab fa-telegram-plane" aria-hidden="true"></i>
+                                <span class="d-block mt-1">Telegram</span>
+                            </a>
+                            <a href="#" class="btn btn-outline-secondary btn-icon-lg" data-bs-toggle="modal" data-bs-target="#contactModal" data-aos="fade-up" data-aos-delay="500" title="Ver otras opciones de contacto" role="button">
+                                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+                                <span class="d-block mt-1">Más opciones</span>
                             </a>
                         </div>
-                        <div class="d-flex align-items-center justify-content-center mt-3" data-aos="fade-up" data-aos-delay="500">
-                            <i class="fas fa-phone-alt fa-2x me-2 text-primary" aria-hidden="true"></i>
-                            <a href="tel:+541137722140" class="h4 mb-0 text-decoration-none text-dark">11 3772-2140</a>
-                        </div>
-                        <p class="text-center mt-4">
-                            <small>Horarios de atención: Lunes a Viernes de 9:00 a 18:00 hs.</small>
-                        </p>
                     </div>
-
-                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <h3 class="text-center mb-4">Envíanos una Consulta Rápida</h3>
-                        <p class="text-center text-muted mb-4">Completa el formulario y te contactaremos a la brevedad.</p>
-                        <form action="https://formsubmit.co/Dr.Zuritalionel@gmail.com" method="POST" id="quickContactForm">
-                            <input type="hidden" name="_replyto" value="email">
-                            <input type="hidden" name="_next" value="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/gracias.html">
-                            <input type="hidden" name="_honeypot" value="bot_trap">
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label visually-hidden">Nombre</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu Nombre Completo" required>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <div class="card shadow-sm p-4">
+                            <div class="card-body">
+                                <h3 class="card-title text-center mb-4">Información General</h3>
+                                <p class="card-text text-center"><i class="fas fa-phone-alt me-2"></i> Teléfono: <a href="tel:+541137722140" class="text-decoration-none">+54 11 3772-2140</a></p>
+                                <p class="card-text text-center"><i class="fas fa-envelope me-2"></i> Email: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-decoration-none">Dr.Zuritalionel@gmail.com</a></p>
+                                <p class="card-text text-center"><i class="fas fa-map-marker-alt me-2"></i> Buenos Aires, Argentina</p>
+                                <p class="card-text text-center"><i class="fas fa-clock me-2"></i> Horario de Atención: Lunes a Viernes de 9:00 a 18:00 hs.</p>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label visually-hidden">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Tu Correo Electrónico" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label visually-hidden">Teléfono</label>
-                                <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Tu Teléfono (opcional)">
-                            </div>
-                            <div class="mb-3">
-                                <label for="mensaje" class="form-label visually-hidden">Mensaje</label>
-                                <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Describe brevemente tu consulta" required></textarea>
-                            </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-lg">Enviar Consulta</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-dark text-white py-4" role="contentinfo">
+    <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
         <div class="container text-center">
-            <p>&copy; 2024 Estudio Jurídico Dr. Lionel Zurita. Todos los derechos reservados.</p>
-            <div class="social-icons mb-3">
-                <a href="https://facebook.com/DrLionelZurita" target="_blank" rel="noopener noreferrer" aria-label="Facebook del estudio">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://instagram.com/DrLionelZurita" target="_blank" rel="noopener noreferrer" aria-label="Instagram del estudio">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/lionel-nicolás-zurita-8a7167280/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn del Dr. Lionel Zurita">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+            <p>&copy; 2024 Dr. Lionel Zurita. Todos los derechos reservados.</p>
+            <div class="social-icons mt-3">
+                <a href="https://www.linkedin.com/in/lionel-nicolas-zurita-857a2219b/" target="_blank" rel="noopener noreferrer" class="text-white mx-2" aria-label="LinkedIn del Dr. Lionel Zurita"><i class="fab fa-linkedin fa-2x"></i></a>
             </div>
-            <p><a href="#inicio-oficina" class="text-white-50 text-decoration-none">Volver al inicio</a></p>
         </div>
     </footer>
-
-    <div class="floating-button-container">
-        <button type="button" class="floating-button" data-bs-toggle="modal" data-bs-target="#contactModal" aria-label="Abrir opciones de contacto rápido">
-            <img src="images/logo-estudio-circular.png" alt="Logo del Estudio Jurídico Dr. Lionel Zurita" loading="lazy">
-        </button>
-    </div>
 
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Contáctanos Rápido</h5>
+                    <h5 class="modal-title" id="contactModalLabel">Opciones Adicionales de Contacto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <p class="lead mb-4">Elige tu forma preferida para una consulta:</p>
-                    <a href="https://wa.me/5491131976852" class="btn btn-success btn-icon-lg mb-3" target="_blank" rel="noopener noreferrer" role="button">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i> <span>WhatsApp</span>
+                    <p>Elige tu método de contacto preferido:</p>
+                    <a href="mailto:Dr.Zuritalionel@gmail.com" class="btn btn-outline-dark btn-icon-lg mb-2" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-envelope me-2"></i><span>Enviar Email</span>
                     </a>
-                    <a href="https://t.me/drzuritalionel" class="btn btn-info btn-icon-lg mb-3" target="_blank" rel="noopener noreferrer" role="button">
-                        <i class="fab fa-telegram-plane" aria-hidden="true"></i> <span>Telegram</span>
+                    <a href="tel:+541137722140" class="btn btn-outline-dark btn-icon-lg mb-2">
+                        <i class="fas fa-phone-alt me-2"></i><span>Llamar por Teléfono</span>
                     </a>
-                    <a href="tel:+541137722140" class="btn btn-primary btn-icon-lg mb-3" role="button">
-                        <i class="fas fa-phone-alt" aria-hidden="true"></i> <span>Llamar Ahora</span>
+                    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2j2sK-O_n8W0X2d_d_f-1S_k_z_a_z_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_0_1_2_3_4_5_6_7_8_9" class="btn btn-outline-dark btn-icon-lg" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-calendar-alt me-2"></i><span>Agendar Cita (Google Calendar)</span>
                     </a>
-                    <p class="mt-4"><a href="#contacto" data-bs-dismiss="modal" class="text-secondary text-decoration-none">Ver todas las opciones de contacto</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <button class="chatbot-toggle-button" onclick="toggleChat()" aria-label="Abrir Asistente Virtual">
+        <img src="images/icono-justicia.png" alt="Icono de Chatbot de Justicia">
+    </button>
+
+    <div id="chatbot-container">
+        <div class="chatbot-header">
+            <span>Asistente Legal Virtual</span>
+            <button class="close-button" onclick="toggleChat()" aria-label="Cerrar Asistente Virtual">&times;</button>
+        </div>
+        <div id="chatbot-body">
+            </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="user-input" placeholder="Escribe tu pregunta o 'MENÚ'..." aria-label="Introduce tu pregunta">
+            <button onclick="processUserQuery()" aria-label="Enviar pregunta"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
+        AOS.init();
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+
+            // Frases jurídicas
+            const frases = [
+                "La justicia no es un fin en sí mismo, sino un medio para alcanzar la paz social.",
+                "En el estudio del derecho, la lógica es la clave que abre todas las puertas.",
+                "El abogado es el artesano de la justicia, construyendo defensas y argumentos.",
+                "Defender los derechos es la más noble de las luchas."
+            ];
+            const fraseElement = document.getElementById('frase-juridica');
+            let currentIndex = 0;
+
+            function changeFrase() {
+                fraseElement.textContent = frases[currentIndex];
+                currentIndex = (currentIndex + 1) % frases.length;
+            }
+
+            changeFrase(); // Establece la primera frase
+            setInterval(changeFrase, 5000); // Cambia cada 5 segundos
         });
-
-        // Script para la frase jurídica dinámica
-        const frasesJuridicas = [
-            "La ley no se pide, se impone.",
-            "En el derecho, la justicia es el arte de la equidad.",
-            "La justicia es la constante y perpetua voluntad de dar a cada uno lo suyo.",
-            "Ubi societas ibi ius (Donde hay sociedad, hay derecho).",
-            "Ignorantia juris non excusat (La ignorancia de la ley no excusa)."
-        ];
-        let indiceFrase = 0;
-        const fraseElemento = document.getElementById('frase-juridica');
-
-        function cambiarFrase() {
-            fraseElemento.classList.remove('fade-in'); // Reset animation
-            void fraseElemento.offsetWidth; // Trigger reflow
-            fraseElemento.textContent = frasesJuridicas[indiceFrase];
-            fraseElemento.classList.add('fade-in'); // Add animation
-            indiceFrase = (indiceFrase + 1) % frasesJuridicas.length;
-        }
-
-        if (fraseElemento) {
-            fraseElemento.classList.add('fade-in'); // Add initial animation
-            cambiarFrase(); // Mostrar la primera frase inmediatamente
-            setInterval(cambiarFrase, 8000); // Cambiar cada 8 segundos
-        }
-
-        // Script para tooltips de Bootstrap
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
     </script>
+    <script src="respuestas.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
