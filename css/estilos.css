@@ -1,3 +1,71 @@
+/* ======================================= */
+/* ESTILOS DEL WIDGET FLOTANTE DINÁMICO */
+/* ======================================= */
+
+/* 1. EL BOTÓN/ÍCONO FLOTANTE (TOGGLER) */
+#chatbot-toggler {
+    position: fixed; 
+    bottom: 30px;    
+    right: 30px;     
+    width: 70px;     /* Aumentamos un poco el tamaño para que el logo se luzca */
+    height: 70px;
+    border-radius: 50%; 
+    
+    /* QUITAMOS el color de fondo azul, ya que tu logo ya lo tiene integrado (el círculo negro) */
+    background-color: transparent; 
+    
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Sombra más fuerte para destacarlo */
+    z-index: 1000; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+#chatbot-toggler:hover {
+    transform: scale(1.1); /* Efecto más notorio al pasar el mouse */
+}
+
+/* La imagen del logo dentro del botón */
+.chat-icon {
+    width: 100%; /* El logo llenará todo el botón */
+    height: 100%;
+    object-fit: contain; /* Asegura que el logo se vea bien dentro del círculo */
+    border-radius: 50%; /* Si el logo no es perfectamente circular, esto ayuda */
+    
+    /* QUITAMOS el filtro invert(), ya que tu logo ya tiene blanco y negro */
+    /* filter: none; */ 
+}
+
+/* 2. ENCABEZADO DEL CHAT: Lo ajustamos para que combine con tus colores */
+#chatbot-header {
+    cursor: pointer;
+    padding: 10px;
+    
+    /* Usamos el color dominante de tu marca (rojo o negro) */
+    background-color: #000000; /* Fondo negro */
+    color: white; /* Texto blanco */
+    
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#chatbot-footer button {
+    /* Botón de Enviar en color rojo */
+    background-color: #cc0000; /* Un rojo intenso, similar al de tu logo */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ... el resto de los estilos ... */
 /* ========================================================================= */
 /* VARIABLES DE COLOR (PARA FACILITAR EL MANTENIMIENTO) */
 /* ========================================================================= */
