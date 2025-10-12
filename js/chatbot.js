@@ -1,13 +1,12 @@
+// chatbot.js
 // Variable global para rastrear el estado del chatbot (en qué menú estamos)
 let currentState = 'PRINCIPAL';
+let chatInitialized = false; // Bandera para saber si el chat ya mostró el mensaje de bienvenida
 
 // --- CONFIGURACIÓN DE ARCHIVOS ---
 // ¡Importante! El archivo respuestas.js debe cargarse en el HTML ANTES de este archivo.
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicializa el estado del chatbot al cargar
-    displayWelcomeMessage(); 
-    
     // Hace que ENTER funcione para enviar el mensaje
     const userInput = document.getElementById('user-input');
     if (userInput) {
@@ -17,38 +16,47 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    // Asegura que el contenedor esté en la vista al cargar (si quieres que esté visible)
-    const container = document.getElementById('chatbot-container');
-    if (container) {
-        container.style.display = 'flex'; 
-    }
 });
 
 // Función para mostrar el mensaje de bienvenida y el menú principal
 function displayWelcomeMessage() {
-    appendMessage(RESPUESTAS_FAMILIA['WELCOME'] + '<br>' + RESPUESTAS_FAMILIA['MENU_PRINCIPAL'], 'bot');
+    appendMessage(RESPUESTAS_FAMILIA['WELCOME'] + '<br><br>' + RESPUESTAS_FAMILIA['MENU_PRINCIPAL'], 'bot');
     currentState = 'PRINCIPAL';
+    chatInitialized = true;
 }
 
 // Función para mostrar/ocultar el widget completo
 window.toggleChat = function() {
     const container = document.getElementById('chatbot-container');
-    container.style.display = (container.style.display === 'none' || container.style.display === '') ? 'flex' : 'none';
+    const chatbotBody = document.getElementById('chatbot-body'); // Necesario para limpiar o inicializar
+
+    if (container.style.display === 'none' || container.style.display === '') {
+        container.style.display = 'flex';
+        // Si el chat no ha sido inicializado o se ha reseteado, muestra el mensaje de bienvenida
+        if (!chatInitialized || chatbotBody.children.length === 0) {
+            displayWelcomeMessage();
+        }
+    } else {
+        container.style.display = 'none';
+    }
 }
+
 
 // Función principal de la lógica del Chatbot
 window.processUserQuery = function() {
     const inputField = document.getElementById('user-input');
-    const query = inputField.value.trim().toUpperCase();
+    // Convertir a mayúsculas para las claves, pero solo el input real.
+    // Mantenemos la original para el mensaje del usuario si fuera necesario.
+    const rawQuery = inputField.value.trim();
+    const query = rawQuery.toUpperCase();
     inputField.value = ''; // Limpiar input
 
-    if (!query) return;
+    if (!rawQuery) return; // Si la entrada está vacía, no hacer nada
 
     // 1. Agregar el mensaje del usuario
-    appendMessage(query, 'user');
+    appendMessage(rawQuery, 'user'); // Mostrar el mensaje tal cual lo escribió el usuario
 
-    // 2. Procesar la respuesta
+    // 2. Procesar la respuesta con un pequeño delay para simular que el bot "piensa"
     setTimeout(() => {
         handleQuery(query);
     }, 500);
@@ -56,63 +64,55 @@ window.processUserQuery = function() {
 
 // Lógica de respuesta central basada en el estado actual
 function handleQuery(query) {
-    let responseKey = 'ERROR';
-    let nextState = currentState;
+    let responseKey = 'ERROR'; // Mensaje de error por defecto
+    let nextState = currentState; // El próximo estado, por defecto se mantiene
 
+    // Siempre permitir "MENÚ" para volver al principal, sin importar el estado
     if (query === 'MENÚ' || query === 'MENU') {
-        responseKey = 'WELCOME';
+        responseKey = 'MENU_PRINCIPAL';
         nextState = 'PRINCIPAL';
-    } 
+    }
     // ---- ESTADO PRINCIPAL (Pide 1, 2, 3, 4, 5) ----
     else if (currentState === 'PRINCIPAL') {
-        if (query === '1') {
-            responseKey = 'OPCIONES_1';
-            nextState = '1';
-        } else if (query === '2') {
-            responseKey = 'OPCIONES_2';
-            nextState = '2';
-        } else if (query === '3') {
-            responseKey = 'OPCIONES_3';
-            nextState = '3';
-        } else if (query === '4') {
-            responseKey = 'OPCIONES_4';
-            nextState = '4';
-        } else if (query === '5') {
-            responseKey = 'OPCIONES_5';
-            nextState = '5'; // Se mantiene en este estado (o puede volver a principal)
+        if (['1', '2', '3', '4', '5'].includes(query)) {
+            responseKey = `OPCIONES_${query}`; // Ejemplo: 'OPCIONES_1'
+            nextState = query; // El próximo estado es el número del menú principal (ej. '1' para Familia)
         }
-    } 
-    // ---- ESTADOS DE SUB-MENÚS (Pide 1.1, 2.2, 3.1, etc.) ----
-    else if (currentState === '1' && RESPUESTAS_FAMILIA[`${currentState}.${query}`]) {
-        responseKey = `${currentState}.${query}`;
-        // Después de la respuesta, volvemos a mostrar el sub-menú
-        nextState = '1'; 
-    } else if (currentState === '2' && RESPUESTAS_FAMILIA[`${currentState}.${query}`]) {
-        responseKey = `${currentState}.${query}`;
-        nextState = '2';
-    } else if (currentState === '3' && RESPUESTAS_FAMILIA[`${currentState}.${query}`]) {
-        responseKey = `${currentState}.${query}`;
-        nextState = '3';
-    } else if (currentState === '4' && RESPUESTAS_FAMILIA[`${currentState}.${query}`]) {
-        responseKey = `${currentState}.${query}`;
-        nextState = '4';
     }
+    // ---- ESTADOS DE SUB-MENÚS (Pide 1.1, 2.2, 3.1, etc.) ----
+    // Si estamos en un sub-estado (ej. '1' para Familia) y la query es una sub-opción (ej. '1.1')
+    else if (RESPUESTAS_FAMILIA[query]) { // Busca si la query es una clave directa de respuesta (ej. "1.1", "2.1")
+        // Asegurarse de que la sub-opción corresponda al menú actual
+        const menuPrefix = query.split('.')[0]; // Obtiene '1', '2', etc. de '1.1'
+        if (menuPrefix === currentState) {
+            responseKey = query;
+            // Después de dar la respuesta, mantenemos el estado del sub-menú
+            // para que el usuario pueda seguir preguntando dentro de ese sub-tema
+            // o se le recuerde cómo volver.
+        } else {
+            responseKey = 'ERROR'; // La opción no corresponde al menú actual
+        }
+    }
+
 
     // 3. Agregar la respuesta del bot
     const finalResponse = RESPUESTAS_FAMILIA[responseKey];
     appendMessage(finalResponse, 'bot');
-    
-    // Si la respuesta fue una pregunta específica, volvemos a mostrar el submenú para guiar al usuario
-    if (responseKey.includes('.') && responseKey !== 'ERROR') {
+
+    // 4. Lógica para guiar al usuario después de una respuesta
+    if (responseKey.includes('.') && responseKey !== 'ERROR') { // Si la respuesta es de un sub-tema (ej. "1.1")
         setTimeout(() => {
-            appendMessage(`---<br>Continúe con las opciones de ${RESPUESTAS_FAMILIA[currentState]}, o escriba **MENÚ** para volver.`, 'bot');
+            // Muestra un recordatorio de las opciones del submenú actual
+            appendMessage(`---<br>Continúe con las opciones de **${RESPUESTAS_FAMILIA[currentState]}**, o escriba **MENÚ** para volver al principal.`, 'bot');
         }, 1000);
-    } else if (nextState !== 'PRINCIPAL' && responseKey !== 'WELCOME' && responseKey !== 'ERROR' && responseKey !== 'OPCIONES_5') {
-        // Si entramos a un submenú (OPCIONES_1, OPCIONES_2...), mostramos la lista de preguntas
-        appendMessage(RESPUESTAS_FAMILIA[`OPCIONES_${nextState}`], 'bot');
+    } else if (responseKey.startsWith('OPCIONES_') && responseKey !== 'OPCIONES_5' && nextState !== 'PRINCIPAL') {
+        // Si acabamos de mostrar un submenú (OPCIONES_1, OPCIONES_2, etc.),
+        // el mensaje de las opciones ya se mostró, no necesitamos añadir nada más.
+    } else if (responseKey === 'MENU_PRINCIPAL' || responseKey === 'WELCOME') {
+        // No hay necesidad de añadir más mensajes si ya se ha mostrado el menú principal o bienvenida.
     }
-    
-    // 4. Actualizar el estado
+
+    // 5. Actualizar el estado
     currentState = nextState;
 }
 
@@ -121,12 +121,16 @@ function handleQuery(query) {
 function appendMessage(text, sender) {
     const body = document.getElementById('chatbot-body');
     if (!body) return;
-    
+
     const messageElement = document.createElement('div');
     messageElement.classList.add('message', sender);
-    
-    // Usamos innerHTML para que reconozca los <br> y los enlaces
-    messageElement.innerHTML = text.replace(/\n/g, '<br>');
+
+    // Procesar Markdown para enlaces [Texto](URL) y negritas **Texto**
+    let formattedText = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    formattedText = formattedText.replace(/\n/g, '<br>'); // Convertir saltos de línea a <br>
+
+    messageElement.innerHTML = formattedText;
 
     body.appendChild(messageElement);
 
