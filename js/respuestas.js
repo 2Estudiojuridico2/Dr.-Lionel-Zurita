@@ -1,6 +1,8 @@
+// respuestas.js
 // Base de Datos de Respuestas de Derecho de Familia (Provincia de Buenos Aires)
 const RESPUESTAS_FAMILIA = {
     // TEMAS PRINCIPALES DEL MENÚ
+    // Estos se usan para el "currentState" y para el mensaje de recordatorio del submenú
     '1': 'Cuota Alimentaria',
     '2': 'Cuidado Personal y Comunicación',
     '3': 'Incumplimiento y Ejecución',
@@ -16,7 +18,7 @@ Cálculo: Se basa en las **Necesidades** del Niño/a y la **Capacidad Económica
     '1.2': `**P2: Tareas de Cuidado (Art. 660 CCCN)**
 Las tareas de cuidado personal del progenitor conviviente tienen **valor económico** y constituyen un aporte a la manutención.
 El Juez equilibra los aportes: el progenitor no conviviente debe realizar un aporte económico proporcional a la diferencia de tareas.`,
-    
+
     '1.3': `**P3: Cuota Provisional Urgente (Art. 544 CCCN)**
 Sí. Se puede solicitar una Cuota Provisional desde el inicio de la demanda (o en cualquier momento) para cubrir necesidades urgentes, sin esperar la sentencia. Requiere acreditar el vínculo y las necesidades básicas.`,
 
@@ -91,8 +93,8 @@ Escriba **MENÚ** para volver al principal.`,
 
     'OPCIONES_5': `**CONTACTO PERSONAL**
 Para un asesoramiento detallado sobre su caso, haga clic aquí:
-- **WhatsApp:** [Enviar Mensaje Directo] (https://wa.me/5491131976852)
-- **Formulario Completo:** [Completar Consulta Detallada] (https://ejemplo.com/formulario)
+- [WhatsApp] (https://wa.me/5491131976852)
+- [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
 Escriba **MENÚ** para volver al principal.`,
 
     // Mensajes genéricos
