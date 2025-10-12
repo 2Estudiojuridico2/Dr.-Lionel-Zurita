@@ -20,6 +20,10 @@
 /* ESTILOS GENERALES Y DE BOOTSTRAP PERSONALIZADOS                         */
 /* ========================================================================= */
 
+html {
+    scroll-padding-top: 80px; /* Ajusta según la altura de tu navbar en desktop */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     color: var(--color-texto-oscuro); /* Usar variable */
@@ -112,6 +116,7 @@ a:hover {
     font-weight: 700;
     font-size: 3rem; /* Tamaño inicial, ajustado con media queries para desktop */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #fff; /* Asegura que los títulos del hero sean blancos */
 }
 
 .hero p.lead { /* Estilo para el párrafo lead en el hero */
@@ -152,7 +157,7 @@ a:hover {
 
 
 /* ========================================================================= */
-/* SECCIÓN ÁREAS DE PRÁCTICA (TABS) EN LA PÁGINA PRINCIPAL                 */
+/* SECCIÓN ÁREAS DE PRÁCTICA (TABS) EN LA PÁGINA PRINCIPAL                  */
 /* ========================================================================= */
 
 .nav-pills .nav-link {
@@ -208,18 +213,18 @@ a:hover {
 
 
 /* ========================================================================= */
-/* FONDOS PARA EL CONTENIDO DE LAS PESTAÑAS EN INDEX.HTML                   */
+/* FONDOS PARA EL CONTENIDO DE LAS PESTAÑAS EN INDEX.HTML                  */
 /* ========================================================================= */
 
 #pills-familia { background-image: url('../images/familia.jpg'); }
 #pills-laboral { background-image: url('../images/laboral.png'); }
 #pills-sucesiones { background-image: url('../images/sucesiones.jpg'); }
 #pills-contratos { background-image: url('../images/contrato.jpg'); }
-#pills-transito { background-image: url('../images/tránsito.jpg'); }
+#pills-transito { background-image: url('../images/transito.jpg'); }
 
 
 /* ========================================================================= */
-/* SECCIÓN DE CONTACTO Y PIE DE PÁGINA (FOOTER)                             */
+/* SECCIÓN DE CONTACTO Y PIE DE PÁGINA (FOOTER)                              */
 /* ========================================================================= */
 
 .btn-primary, .btn-secondary {
@@ -242,6 +247,7 @@ a:hover {
     background-color: var(--color-secundario); /* Usar variable */
     border-color: var(--color-secundario); /* Usar variable */
     color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Añadida transición */
 }
 
 .btn-secondary:hover {
@@ -336,13 +342,15 @@ a:hover {
 }
 
 /* Colores específicos para btn-icon-only (Telegram) */
-.btn-outline-info.btn-icon-only {
-    color: var(--color-telegram);
-    border-color: var(--color-telegram);
-}
-.btn-outline-info.btn-icon-only:hover {
+/* Se aplica a los botones con clase .btn-info y .btn-lg en areas/familia.html, que por su estilo ya es un botón de solo icono en realidad */
+.btn-info { /* Ajustado para que use la variable de telegram */
     background-color: var(--color-telegram);
-    color: #fff;
+    border-color: var(--color-telegram);
+    color: #fff; /* Texto blanco para que contraste */
+}
+.btn-info:hover {
+    background-color: darken(var(--color-telegram), 10%); /* Oscurece un poco para el hover */
+    border-color: darken(var(--color-telegram), 10%);
 }
 
 
@@ -358,6 +366,9 @@ a:hover {
 
 /* Ajustes de tamaño para títulos en pantallas medianas y pequeñas */
 @media (max-width: 991.98px) {
+    html {
+        scroll-padding-top: 60px; /* Ajuste para móviles si el navbar es más pequeño */
+    }
     .hero-oficina h1.display-5 { font-size: 2.5rem; }
     h2.display-6 { font-size: 2rem; }
 }
@@ -381,13 +392,14 @@ a:hover {
         font-size: 0.9rem;
         padding: 8px 12px;
     }
-    .btn-icon-lg { /* Ajuste de tamaño para iconos grandes */
+    /* El btn-icon-lg ya no se usa para los botones de la página de contacto general */
+    /* .btn-icon-lg { 
         width: 75px;
         height: 75px;
     }
     .btn-icon-lg i {
         font-size: 1.8rem;
-    }
+    } */
     .btn-icon-only { /* Ajuste de tamaño para iconos pequeños */
         width: 50px;
         height: 50px;
@@ -412,6 +424,11 @@ a:hover {
     .nav-pills .nav-link {
         width: 90%; /* Ocupa más ancho en móvil */
         margin-bottom: 10px;
+    }
+    /* Ajustes para los botones de contacto en pantallas muy pequeñas */
+    #contact-area-page .btn-lg {
+        width: 100%; /* Hacen que los botones de contacto ocupen todo el ancho */
+        margin-bottom: 10px; /* Espacio entre ellos */
     }
 }
 
