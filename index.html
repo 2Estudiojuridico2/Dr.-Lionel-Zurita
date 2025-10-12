@@ -179,7 +179,7 @@
         }
         /* Ajustar el tamaño del logo dentro del botón si es necesario */
         .floating-button img {
-            width: 40px;
+            width: 40px; /* Ajusta el tamaño de tu logo */
             height: 40px;
             border-radius: 50%; /* Si el logo es redondo, para que se ajuste bien al botón circular */
             object-fit: contain; /* Asegura que la imagen se adapte sin cortarse */
@@ -200,40 +200,47 @@
             font-size: 1.1rem;
         }
 
-        /* ESTILOS PARA EL CHATBOT (Ajustado para la imagen) */
+        /* ESTILOS PARA EL CHATBOT (Ajustado para la imagen y texto) */
         .chatbot-toggle-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 60px;
-            height: 60px;
+            width: 70px; /* Un poco más ancho para el texto */
+            height: 70px; /* Un poco más alto para el texto */
             border-radius: 50%;
             background-color: #007bff; /* Color primario de Bootstrap */
             color: white;
             display: flex;
+            flex-direction: column; /* Para apilar imagen y texto */
             align-items: center;
             justify-content: center;
-            /* Eliminamos font-size para que no afecte a la imagen */
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             cursor: pointer;
             transition: all 0.3s ease;
-            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            z-index: 1000;
             border: none;
+            text-decoration: none; /* Asegurar que no tenga subrayado de enlace */
         }
         .chatbot-toggle-button:hover {
             background-color: #0056b3; /* Un tono más oscuro para el hover */
             transform: scale(1.1);
         }
         .chatbot-toggle-button img {
-            width: 40px; /* Ajusta el tamaño de tu logo */
-            height: 40px;
-            border-radius: 50%; /* Para que la imagen se vea circular */
-            object-fit: cover; /* Recorta la imagen para llenar el espacio circular */
+            width: 35px; /* Ajusta el tamaño de tu logo */
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 3px; /* Espacio entre imagen y texto */
+        }
+        .chatbot-toggle-button span {
+            font-size: 0.75rem; /* Tamaño de texto para el botón */
+            font-weight: bold;
+            line-height: 1; /* Para que el texto no ocupe mucho espacio vertical */
         }
 
         #chatbot-container {
             position: fixed;
-            bottom: 90px; /* Un poco más arriba que el botón */
+            bottom: 100px; /* Un poco más arriba que el botón con texto */
             right: 20px;
             width: 350px; /* Ancho del chatbot */
             height: 450px; /* Alto del chatbot */
@@ -243,7 +250,7 @@
             display: none; /* Oculto por defecto */
             flex-direction: column;
             overflow: hidden;
-            z-index: 999; /* Por debajo del botón si es necesario, o igual */
+            z-index: 999;
             font-family: 'Roboto', sans-serif;
         }
         .chatbot-header {
@@ -578,7 +585,7 @@
 
     <footer class="bg-dark text-white py-4 mt-5" role="contentinfo">
         <div class="container text-center">
-            <p>&copy; 2024 Dr. Lionel Zurita. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Dr. Lionel Zurita. Todos los derechos reservados. <a href="https://github.com/2Estudiojuridico2/Dr.-Lionel-Zurita/blob/main/aviso-legal.html" target="_blank" rel="noopener noreferrer" class="text-white text-decoration-none ms-2">Aviso Legal</a></p>
             <div class="social-icons mt-3">
                 <a href="https://www.linkedin.com/in/lionel-nicolas-zurita-857a2219b/" target="_blank" rel="noopener noreferrer" class="text-white mx-2" aria-label="LinkedIn del Dr. Lionel Zurita"><i class="fab fa-linkedin fa-2x"></i></a>
             </div>
@@ -611,8 +618,9 @@
         </div>
     </div>
 
-    <button class="chatbot-toggle-button" onclick="toggleChat()" aria-label="Abrir Asistente Virtual">
-        <img src="images/icono-justicia.png" alt="Icono de Chatbot de Justicia">
+    <button class="chatbot-toggle-button" onclick="toggleChat()" aria-label="Asistente de Preguntas Frecuentes">
+        <img src="images/icono-justicia.png" alt="Icono de Asistente Virtual">
+        <span>Preguntas</span>
     </button>
 
     <div id="chatbot-container">
