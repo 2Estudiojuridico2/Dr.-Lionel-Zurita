@@ -1,567 +1,244 @@
-/* * ========================================================================= 
- * ARCHIVO DE ESTILOS PRINCIPAL (CSS/estilo.css)
- *
- * Este archivo contiene:
- * 1. Variables de color (personalización de marca).
- * 2. Estilos generales (body, tipografía, enlaces).
- * 3. Estilos de la barra de navegación (navbar).
- * 4. Estilos de la sección HERO (principal de cada página).
- * 5. Estilos de las pestañas de Áreas de Práctica.
- * 6. Estilos del Footer y botones de contacto.
- * 7. Estilos específicos para el Chatbot Flotante.
- * 8. Media Queries para asegurar la responsividad.
- *
- * ========================================================================= 
+/* =========================================================================
+ * ARCHIVO DE ESTILOS PRINCIPAL (css/estilos.css)
+ * =========================================================================
+ * Incluye:
+ * 1. Variables de color (marca)
+ * 2. Estilos generales y tipografía
+ * 3. Navbar y Hero
+ * 4. Áreas de práctica
+ * 5. Footer y botones flotantes
+ * 6. Media queries responsivas
+ * =========================================================================
  */
 
 /* ========================================================================= */
-/* VARIABLES DE COLOR (PARA FACILITAR EL MANTENIMIENTO) */
+/* VARIABLES DE COLOR */
 /* ========================================================================= */
 :root {
-    --color-primario: #f4623a; /* Naranja principal: Botones, hover de links */
-    --color-secundario: #6c757d; /* Gris para botones secundarios */
-    --color-texto-oscuro: #343a40; /* Color principal del texto oscuro */
-    --color-fondo-claro: #f8f9fa; /* Fondo claro general */
-    
-    /* Variables Navbar */
-    --color-navbar-fondo: #f8f9fa;
-    --color-navbar-enlace: #495057;
-    --color-navbar-hover: #c94c2e; /* Naranja más oscuro para hover */
-    
-    /* Variables Footer */
-    --color-footer-fondo: #343a40;
-    --color-footer-texto: #f8f9fa;
-    
-    /* Variables Redes Sociales */
-    --color-telegram: #17a2b8; 
-    --color-whatsapp: #28a745; 
-    
-    /* Variables Chatbot (Ajustados a tu solicitud de negro/rojo) */
-    --color-chatbot-fondo: #ffffff;
-    --color-chatbot-header: #000000; /* Negro para el encabezado */
-    --color-chatbot-send-button: #cc0000; /* Rojo intenso para el botón de enviar */
+  --color-primario: #f4623a;
+  --color-secundario: #6c757d;
+  --color-texto-oscuro: #343a40;
+  --color-fondo-claro: #f8f9fa;
+
+  /* Navbar */
+  --color-navbar-fondo: #f8f9fa;
+  --color-navbar-enlace: #495057;
+  --color-navbar-hover: #c94c2e;
+
+  /* Footer */
+  --color-footer-fondo: #343a40;
+  --color-footer-texto: #f8f9fa;
+
+  /* Redes */
+  --color-telegram: #17a2b8;
+  --color-whatsapp: #28a745;
 }
 
-
 /* ========================================================================= */
-/* ESTILOS GENERALES Y DE BOOTSTRAP PERSONALIZADOS 
+/* ESTILOS GENERALES */
 /* ========================================================================= */
 
 html {
-    /* Ajusta según la altura de tu navbar en desktop */
-    scroll-padding-top: 80px; 
+  scroll-padding-top: 80px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--color-texto-oscuro); 
-    line-height: 1.6; 
+  font-family: "Roboto", sans-serif;
+  color: var(--color-texto-oscuro);
+  line-height: 1.6;
+  background-color: var(--color-fondo-claro);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600; 
-    color: var(--color-texto-oscuro); 
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: var(--color-texto-oscuro);
 }
 
 a {
-    color: var(--color-primario); 
-    text-decoration: none;
+  color: var(--color-primario);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-navbar-hover); 
-    text-decoration: underline;
+  color: var(--color-navbar-hover);
+  text-decoration: underline;
 }
 
-/* Estilos de botones generales */
+/* Botones */
 .btn-primary {
-    background-color: var(--color-primario);
-    border-color: var(--color-primario);
-    color: #fff;
-    font-weight: bold;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-navbar-hover);
-    border-color: var(--color-navbar-hover);
+  background-color: var(--color-navbar-hover);
+  border-color: var(--color-navbar-hover);
 }
 
 .btn-secondary {
-    background-color: var(--color-secundario);
-    border-color: var(--color-secundario);
-    color: #fff;
-    font-weight: bold;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: var(--color-secundario);
+  border-color: var(--color-secundario);
+  color: #fff;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268; 
-    border-color: #545b62; 
+  background-color: #5a6268;
+  border-color: #545b62;
 }
 
-
 /* ========================================================================= */
-/* NAVEGACIÓN (NAVBAR) 
+/* NAVBAR */
 /* ========================================================================= */
 
 .custom-navbar {
-    background-color: var(--color-navbar-fondo); 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+  background-color: var(--color-navbar-fondo);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
 .nav-brand {
-    font-weight: bold;
-    color: var(--color-texto-oscuro) !important; 
-    font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-texto-oscuro) !important;
+  font-size: 1.5rem;
 }
 
 .nav-link {
-    font-weight: 500;
-    color: var(--color-navbar-enlace) !important; 
-    transition: color 0.3s ease;
+  font-weight: 500;
+  color: var(--color-navbar-enlace) !important;
+  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--color-navbar-hover) !important; 
+  color: var(--color-navbar-hover) !important;
 }
 
-/* Color del icono del toggler para que contraste con la navbar */
 .custom-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
-.custom-navbar .navbar-toggler {
-    border-color: rgba(0, 0, 0, 0.1);
-}
-
 
 /* ========================================================================= */
-/* SECCIÓN SUPERIOR (HERO) */
+/* HERO */
 /* ========================================================================= */
 
 .hero {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding-top: 56px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    z-index: 1; 
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding-top: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
 }
 
 .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Degradado oscuro para asegurar contraste con el texto */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    z-index: -1; 
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  z-index: -1;
 }
 
 .hero h1 {
-    font-weight: 700;
-    font-size: 3rem; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    color: #fff; 
+  font-weight: 700;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero p.lead { 
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+.hero p.lead {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.hero .btn-primary { 
-    padding: 12px 30px;
-    border-radius: 5px;
-    font-size: 1.1rem;
+.hero .btn-primary {
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 1.1rem;
 }
 
-/* FONDOS ESPECÍFICOS PARA EL HERO */
-.hero-oficina {
-    background-image: url('../images/oficina.jpg'); 
-}
+/* Fondos específicos */
+.hero-oficina { background-image: url('../images/oficina.jpg'); }
 .hero-familia { background-image: url('../images/familia.jpg'); }
 .hero-laboral { background-image: url('../images/laboral.png'); }
 .hero-sucesiones { background-image: url('../images/sucesiones.jpg'); }
 .hero-transito { background-image: url('../images/transito.jpg'); }
 .hero-contratos { background-image: url('../images/contrato.jpg'); }
 
-
 /* ========================================================================= */
-/* SECCIÓN ÁREAS DE PRÁCTICA (TABS) */
-/* ========================================================================= */
-
-.nav-pills .nav-link {
-    border-radius: 0.5rem;
-    font-weight: 600;
-    color: var(--color-texto-oscuro); 
-    background-color: #e9ecef; 
-    border: 1px solid transparent; 
-    transition: all 0.3s ease; 
-}
-
-.nav-pills .nav-link.active,
-.nav-pills .nav-link:hover {
-    color: #fff;
-    background-color: var(--color-primario); 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-primario); 
-}
-
-.tab-pane {
-    border: 1px solid #dee2e6;
-    border-top: none;
-    border-radius: 0 0 0.5rem 0.5rem;
-    padding: 2rem;
-    min-height: 400px;
-    background-size: cover;
-    background-position: center;
-    color: #fff; 
-    position: relative;
-    z-index: 1;
-    text-align: justify; 
-}
-
-.tab-pane::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Degradado para que el texto de la pestaña se lea bien */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    z-index: -1;
-}
-
-/* FONDOS PARA EL CONTENIDO DE LAS PESTAÑAS */
-#pills-familia { background-image: url('../images/familia.jpg'); }
-#pills-laboral { background-image: url('../images/laboral.png'); }
-#pills-sucesiones { background-image: url('../images/sucesiones.jpg'); }
-#pills-contratos { background-image: url('../images/contrato.jpg'); }
-#pills-transito { background-image: url('../images/transito.jpg'); }
-
-
-/* ========================================================================= */
-/* BOTONES DE ICONO Y FOOTER */
+/* FOOTER */
 /* ========================================================================= */
 
-/* Footer */
 .footer {
-    background-color: var(--color-footer-fondo); 
-    color: var(--color-footer-texto); 
-    text-align: center;
-    padding: 2rem 0;
-    font-size: 0.9rem;
+  background-color: var(--color-footer-fondo);
+  color: var(--color-footer-texto);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
 }
 
 .footer a {
-    color: var(--color-footer-texto); 
-    text-decoration: underline;
+  color: var(--color-footer-texto);
+  text-decoration: underline;
 }
 
 .footer a:hover {
-    color: #cceeff; 
+  color: #cceeff;
 }
 
-/* Botón flotante para ir arriba */
+/* Botón "ir arriba" */
 .scroll-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--color-primario); 
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    display: none; 
-    cursor: pointer;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 100;
-    transition: background-color 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-primario);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: background-color 0.3s ease;
 }
 
 .scroll-top:hover {
-    background-color: var(--color-navbar-hover); 
+  background-color: var(--color-navbar-hover);
 }
-
-/* BOTONES DE ICONO (Contactos) */
-
-.btn-icon-lg {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90px;
-    height: 90px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-    padding: 10px;
-    text-decoration: none;
-}
-
-.btn-icon-lg i {
-    font-size: 2.2rem;
-    margin-bottom: 5px;
-    line-height: 1;
-}
-
-/* Colores específicos para btn-icon-lg */
-.btn-outline-primary.btn-icon-lg {
-    color: var(--color-primario);
-    border-color: var(--color-primario);
-}
-.btn-outline-primary.btn-icon-lg:hover {
-    background-color: var(--color-primario);
-    color: #fff;
-}
-
-.btn-outline-success.btn-icon-lg {
-    color: var(--color-whatsapp);
-    border-color: var(--color-whatsapp);
-}
-.btn-outline-success.btn-icon-lg:hover {
-    background-color: var(--color-whatsapp);
-    color: #fff;
-}
-
-/* Estilo para botones de solo icono (Telegram, etc.) */
-.btn-icon-only {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%; 
-    font-size: 1.5rem; 
-    transition: all 0.3s ease;
-    padding: 0;
-    text-decoration: none;
-}
-
-.btn-icon-only i {
-    line-height: 1;
-}
-
-.btn-info { 
-    background-color: var(--color-telegram);
-    border-color: var(--color-telegram);
-    color: #fff; 
-}
-.btn-info:hover {
-    /* Aquí se requiere una función de pre-procesador (darken) que CSS puro no tiene. 
-       Usamos un color fijo para compatibilidad pura con CSS. */
-    background-color: #0c7385; 
-    border-color: #0c7385;
-}
-
 
 /* ========================================================================= */
-/* ESTILOS DEL WIDGET FLOTANTE DINÁMICO (CHATBOT) */
+/* MEDIA QUERIES */
 /* ========================================================================= */
 
-/* El Botón/Ícono Flotante (Toggler) */
-#chatbot-toggler {
-    position: fixed; 
-    bottom: 30px;    
-    right: 30px;    
-    width: 70px;    
-    height: 70px;
-    border-radius: 50%; 
-    background-color: transparent; /* Mantiene la transparencia para que se vea tu logo */
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
-    z-index: 1000; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-#chatbot-toggler:hover {
-    transform: scale(1.1); 
-}
-
-/* La imagen del logo dentro del botón */
-.chat-icon {
-    width: 100%; 
-    height: 100%;
-    object-fit: contain; 
-    border-radius: 50%; 
-}
-
-/* El Contenedor Principal del Chatbot */
-#chatbot {
-    position: fixed;
-    bottom: 110px; /* Separado del toggler */
-    right: 30px;
-    width: 380px; /* Buen ancho para desktop */
-    max-height: 80vh;
-    background-color: var(--color-chatbot-fondo);
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    /* TRANSICIÓN: usa una transición suave para que aparezca/desaparezca */
-    transform: scale(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Estado Activo del Chatbot (mostrado) */
-#chatbot.show {
-    transform: scale(1);
-    opacity: 1;
-}
-
-/* Encabezado del Chat */
-#chatbot-header {
-    cursor: pointer;
-    padding: 15px;
-    background-color: var(--color-chatbot-header); /* Negro */
-    color: white; 
-    font-weight: bold;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.1rem;
-}
-
-/* Contenido de Mensajes */
-#chatbot-messages {
-    flex-grow: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background-color: #f4f4f4; /* Fondo más suave para el chat */
-    line-height: 1.4;
-}
-
-/* Estilos de los mensajes */
-.message {
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    max-width: 85%;
-    word-wrap: break-word; /* Para asegurar que el texto se ajuste */
-}
-
-.message.user {
-    background-color: var(--color-primario); /* Naranja */
-    color: white;
-    margin-left: auto;
-    border-bottom-right-radius: 0;
-}
-
-.message.bot {
-    background-color: #e2e2e2;
-    color: var(--color-texto-oscuro);
-    margin-right: auto;
-    border-bottom-left-radius: 0;
-}
-
-/* Pie de Página (Input y Botón de Envío) */
-#chatbot-footer {
-    padding: 10px;
-    border-top: 1px solid #ddd;
-    display: flex;
-    gap: 10px;
-    background-color: var(--color-chatbot-fondo);
-}
-
-#chatbot-footer input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-#chatbot-footer button {
-    background-color: var(--color-chatbot-send-button); /* Rojo intenso */
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#chatbot-footer button:hover {
-    background-color: #a30000; /* Rojo más oscuro en hover */
-}
-
-
-/* ========================================================================= */
-/* RESPONSIVIDAD (Media Queries) */
-/* ========================================================================= */
-
-/* Ajustes para pantallas grandes (desktop) */
 @media (min-width: 992px) {
-    .hero h1 { font-size: 4rem; } 
-    h2.display-6 { font-size: 2.5rem; } 
-    /* El chatbot mantiene el ancho de 380px */
+  .hero h1 { font-size: 4rem; }
 }
 
-/* Ajustes para pantallas medianas y pequeñas (tablet/mobile) */
 @media (max-width: 991.98px) {
-    html {
-        scroll-padding-top: 60px; /* Ajuste para navbar más pequeña */
-    }
-    .hero h1 { font-size: 2.8rem; }
-    .hero p.lead { font-size: 1.3rem; }
-    h2.display-6 { font-size: 2.2rem; }
+  html { scroll-padding-top: 60px; }
+  .hero h1 { font-size: 2.8rem; }
+  .hero p.lead { font-size: 1.3rem; }
 }
 
-/* Ajustes para pantallas muy pequeñas (mobile) */
 @media (max-width: 576px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-    .hero p.lead {
-        font-size: 1rem;
-    }
-    .nav-pills {
-        flex-direction: column; /* Apila los botones de las pestañas */
-        align-items: center;
-    }
-    .nav-pills .nav-link {
-        width: 90%; 
-        margin-bottom: 10px;
-    }
-    
-    /* CHATBOT en móvil: ocupa casi todo el ancho */
-    #chatbot {
-        width: 90vw; /* Usa 90% del ancho del viewport */
-        right: 5vw;
-        bottom: 100px; /* Sube un poco más */
-    }
-    
-    /* Botones de contacto en móvil */
-    #contact-area-page .btn-lg {
-        width: 100%; 
-        margin-bottom: 10px; 
-    }
-    
-    .btn-icon-only { 
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
+  .hero h1 { font-size: 2rem; }
+  .hero p.lead { font-size: 1rem; }
+  .scroll-top {
+    width: 45px;
+    height: 45px;
+    bottom: 15px;
+    right: 15px;
+  }
 }
