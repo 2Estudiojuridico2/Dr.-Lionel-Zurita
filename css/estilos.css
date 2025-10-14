@@ -242,3 +242,24 @@ a:hover {
     right: 15px;
   }
 }
+
+/* ========================================================================= */
+/* Mejora visual de botones de contacto */
+/* ========================================================================= */
+
+#contacto .btn-icon-lg {
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+#contacto .btn-icon-lg i {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+#contacto .btn-icon-lg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
