@@ -323,3 +323,31 @@
 .chat-button[data-value*="VOLVER"]:hover {
     background-color: #5a6268;
 }
+/* chatbot.css */
+/* ... (estilos existentes) ... */
+
+.baremo-info {
+    background-color: #f8f9fa; /* Un fondo ligeramente diferente para destacar */
+    border-left: 4px solid var(--chatbot-boton); /* Una línea de color de tu marca */
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #333;
+    font-size: 0.95em;
+}
+
+.baremo-info ul {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px; /* Indentación para las listas */
+    list-style-type: disc; /* Puntos para las listas */
+}
+
+.baremo-info li {
+    margin-bottom: 3px;
+}
+
+.baremo-info strong {
+    color: #000; /* Asegurar que las negritas se vean bien */
+}
