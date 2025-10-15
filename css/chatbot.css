@@ -271,3 +271,55 @@
     right: 20px;
   }
 }
+/* Añade esto al final de tu chatbot.css existente */
+
+/* Estilos para el grupo de botones */
+.button-group {
+    display: flex;
+    flex-direction: column; /* Botones apilados verticalmente */
+    gap: 8px; /* Espacio entre botones */
+    margin-top: 10px;
+    margin-bottom: 10px; /* Para separar de otros mensajes */
+    max-width: 90%; /* Para que no ocupen todo el ancho si no es necesario */
+    align-self: flex-start; /* Se alinean a la izquierda como mensajes del bot */
+}
+
+.button-group.user {
+    align-self: flex-end; /* Si alguna vez quieres que los botones del usuario se alineen a la derecha */
+}
+
+/* Estilos para los botones individuales */
+.chat-button {
+    background-color: var(--chatbot-boton); /* Rojo de tu marca */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    text-align: left; /* Alinea el texto a la izquierda */
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%; /* Para que cada botón ocupe el ancho completo de su contenedor */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-button:hover {
+    background-color: var(--chatbot-boton-hover); /* Rojo más oscuro al pasar el mouse */
+    transform: translateY(-1px); /* Efecto sutil al pasar el mouse */
+}
+
+.chat-button:active {
+    background-color: var(--chatbot-boton);
+    transform: translateY(0);
+}
+
+/* Puedes añadir un estilo para un tipo diferente de botón si quieres, ej. para "Volver" */
+.chat-button[data-value*="BACK"],
+.chat-button[data-value*="VOLVER"] {
+    background-color: #6c757d; /* Gris para botones de navegación */
+}
+
+.chat-button[data-value*="BACK"]:hover,
+.chat-button[data-value*="VOLVER"]:hover {
+    background-color: #5a6268;
+}
