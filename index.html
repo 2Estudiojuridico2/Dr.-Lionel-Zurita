@@ -33,7 +33,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/chatbot.css"> </head>
+    <link rel="stylesheet" href="css/chatbot.css">
+</head>
 
 <body>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5T92VD5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -94,6 +95,49 @@
             <div class="tab-pane fade text-justify" id="transito" role="tabpanel" aria-labelledby="pills-transito-tab" tabindex="0">
                 <p>Accidentes de tránsito y pericias accidentológicas. Defensa integral y reclamos ante aseguradoras.</p>
                 <a href="areas/transito.html" class="btn btn-secondary mt-3">Ver más detalles</a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="my-5">
+
+    <section id="sobre-nosotros" class="container mb-5 py-5" aria-labelledby="sobre-nosotros-titulo">
+        <h2 id="sobre-nosotros-titulo" class="display-5 fw-bold text-center mb-5" data-aos="fade-up">Sobre Nosotros</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+                <img src="images/abogado-confianza.jpg" class="img-fluid rounded shadow-lg" alt="Dr. Lionel Nicolás Zurita en su estudio jurídico, representando confianza y profesionalismo." loading="lazy">
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <p class="lead">
+                    El Estudio Jurídico del Dr. Lionel Nicolás Zurita se distingue por su **compromiso, ética y excelencia profesional**. Entendemos la importancia de la cercanía con el cliente y la necesidad de un asesoramiento claro y honesto.
+                </p>
+                <p class="lead">
+                    Nuestra misión es brindar una representación legal sólida y estratégica, adaptada a las particularidades de cada situación. Nos esforzamos por construir relaciones de confianza a largo plazo con nuestros clientes, ofreciendo soluciones prácticas y efectivas a sus desafíos legales. La actualización constante en las leyes y jurisprudencia nos permite garantizar el más alto nivel de servicio.
+                </p>
+                <ul class="list-unstyled mt-4">
+                    <li class="d-flex align-items-start mb-2">
+                        <i class="fas fa-balance-scale text-primary fa-lg me-3 mt-1" aria-hidden="true"></i>
+                        <div>
+                            <h3 class="h5 fw-bold">Ética y Profesionalismo</h3>
+                            <p class="mb-0">Valores fundamentales en cada interacción y proceso legal.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start mb-2">
+                        <i class="fas fa-lightbulb text-primary fa-lg me-3 mt-1" aria-hidden="true"></i>
+                        <div>
+                            <h3 class="h5 fw-bold">Enfoque Estratégico</h3>
+                            <p class="mb-0">Diseñamos la mejor estrategia para cada caso, buscando resultados óptimos.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start mb-2">
+                        <i class="fas fa-handshake text-primary fa-lg me-3 mt-1" aria-hidden="true"></i>
+                        <div>
+                            <h3 class="h5 fw-bold">Relación Cercana</h3>
+                            <p class="mb-0">Comunicación constante y transparente con nuestros clientes.</p>
+                        </div>
+                    </li>
+                </ul>
+                <a href="sobre-nosotros.html" class="btn btn-primary mt-3">Conoce más sobre nosotros</a>
             </div>
         </div>
     </section>
@@ -177,8 +221,7 @@
     </div>
 </footer>
 
-<div id="chatbot-container">
-    <div id="chatbot-header">Asistente Legal ⚖️</div>
+<div id="chatbot-container" style="display: none;"> <div id="chatbot-header">Asistente Legal ⚖️</div>
     <div id="chatbot-body"></div>
     <div id="chatbot-footer">
         <input type="text" id="user-input" placeholder="Escriba su consulta...">
@@ -202,5 +245,6 @@
 <script src="js/main.js"></script>
 <script src="js/frases.js"></script>
 <script src="js/respuestas.js"></script>
-<script src="js/chatbot.js"></script> </body>
+<script src="js/chatbot.js"></script>
+</body>
 </html>
