@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
         "El derecho no se crea ni se destruye, solo se transforma.",
         "Sin derecho no hay orden, sin orden no hay justicia.",
         "La ley es la razón libre de pasión."
-        "La justicia es la constante y perpetua voluntad de dar a cada uno lo suyo."
+        "La justicia es la constante y perpetua voluntad de dar a cada uno lo suyo." // <-- SIN COMA AQUÍ
+            }, // <--- ASEGÚRATE QUE HAY UNA LLAVE DE CIERRE SI ES UN OBJETO
+            { // <--- Y LUEGO UNA LLAVE DE APERTURA PARA EL SIGUIENTE OBJETO SI ES UN ARRAY DE OBJETOS
             autor: "Ulpiano"
+            }
     ];
 
     const fraseElement = document.getElementById('frase-juridica');
