@@ -9,19 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // AGREGAR EVENTO DE CLICK PARA EL BOTÓN DE ENVÍO
     const sendButton = document.getElementById('send-button');
     if (sendButton) {
         sendButton.addEventListener('click', processUserQuery);
     }
 
-    // AGREGAR EVENTO DE CLICK PARA EL BOTÓN FLOTANTE (ABRIR/CERRAR)
     const openChatbotBtn = document.getElementById('chatbot-toggler');
     if (openChatbotBtn) {
         openChatbotBtn.addEventListener('click', toggleChat);
     }
 
-    // AGREGAR EVENTO DE CLICK PARA EL BOTÓN DE CERRAR DENTRO DEL CHAT
     const closeChatBtn = document.getElementById('close-chat');
     if (closeChatBtn) {
         closeChatBtn.addEventListener('click', toggleChat);
@@ -29,26 +26,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function displayWelcomeMessage() {
-    appendMessage(RESPUESTAS_FAMILIA['WELCOME'] + '<br><br>' + RESPUESTAS_FAMILIA['MENU_PRINCIPAL'], 'bot');
+    // Asegúrate de que RESPUESTAS_FAMILIA esté definido y accesible.
+    // Podría ser necesario que sea una variable global en respuestas.js o importada.
+    if (typeof RESPUESTAS_FAMILIA !== 'undefined' && RESPUESTAS_FAMILIA['WELCOME'] && RESPUESTAS_FAMILIA['MENU_PRINCIPAL']) {
+        appendMessage(RESPUESTAS_FAMILIA['WELCOME'] + '<br><br>' + RESPUESTAS_FAMILIA['MENU_PRINCIPAL'], 'bot');
+    } else {
+        appendMessage('¡Hola! Soy tu asistente legal. Por favor, selecciona una opción del menú principal.<br><br>1. Derecho de Familia<br>2. Derecho Laboral<br>3. Sucesiones<br>4. Contratos<br>5. Contacto Personal', 'bot');
+    }
     currentState = 'PRINCIPAL';
     chatInitialized = true;
 }
 
 window.toggleChat = function() {
-    const container = document.getElementById('chatbot-container'); // ID CORREGIDO AQUÍ
-    if (container.classList.contains('show')) {
-        container.classList.remove('show');
-        // Opcional: si quieres reiniciar el estado o el chat al cerrar
-        // currentState = 'PRINCIPAL';
-        // chatInitialized = false;
-    } else {
-        container.classList.add('show');
-        if (!chatInitialized) displayWelcomeMessage();
+    const container = document.getElementById('chatbot-container');
+    if (!container) return; // Asegurarse de que el contenedor existe
+
+    // Toggle la clase 'show' para controlar la visibilidad con CSS
+    container.classList.toggle('show');
+
+    // Inicializar el mensaje de bienvenida si el chat se está abriendo por primera vez
+    if (container.classList.contains('show') && !chatInitialized) {
+        displayWelcomeMessage();
     }
+    // Opcional: si quieres reiniciar el chat cada vez que se abre
+    // else if (container.classList.contains('show') && chatInitialized) {
+    //     // Limpiar mensajes anteriores o volver a mostrar el menú principal
+    //     const chatBody = document.getElementById('chatbot-body');
+    //     if (chatBody) chatBody.innerHTML = '';
+    //     displayWelcomeMessage();
+    // }
 };
 
+
 function showTyping() {
-    const body = document.getElementById('chatbot-body'); // ID CORREGIDO AQUÍ
+    const body = document.getElementById('chatbot-body');
     const el = document.createElement('div');
     el.classList.add('message', 'bot', 'typing');
     el.textContent = 'Escribiendo...';
@@ -65,9 +76,9 @@ window.processUserQuery = function() {
     const input = document.getElementById('user-input');
     const raw = input.value.trim();
     if (!raw) return;
-    const query = raw.toUpperCase(); // Convertimos a mayúsculas para las búsquedas
+    const query = raw.toUpperCase();
     input.value = '';
-    appendMessage(raw, 'user'); // Mostramos el mensaje original del usuario
+    appendMessage(raw, 'user');
     showTyping();
     setTimeout(() => {
         removeTyping();
@@ -76,66 +87,60 @@ window.processUserQuery = function() {
 };
 
 function handleQuery(query) {
-    let key = 'ERROR';
-    let next = currentState; // Mantener el estado actual por defecto
+    let responseKey = 'ERROR';
+    let nextState = currentState;
 
-    // Reiniciar o ir al menú principal
     if (['MENÚ', 'MENU', 'INICIO', 'REINICIAR'].includes(query)) {
-        key = 'MENU_PRINCIPAL';
-        next = 'PRINCIPAL';
-    }
-    // Manejar opciones del menú principal (1, 2, 3, 4, 5)
-    else if (currentState === 'PRINCIPAL' && ['1', '2', '3', '4', '5'].includes(query)) {
-        key = `OPCIONES_${query}`;
-        next = query; // El nuevo estado es el número del tema principal
-    }
-    // Manejar sub-opciones (1.1, 1.2, etc.)
-    else if (query.match(/^\d\.\d$/) && RESPUESTAS_FAMILIA[query]) { // Verifica formato X.X y existencia
-        const prefix = query.split('.')[0];
-        // Si el prefijo de la pregunta coincide con el estado actual del tema, o estamos en el menú principal
-        // (esto último puede ser opcional si queremos que siempre pase por el submenú)
-        if (prefix === currentState || currentState === 'PRINCIPAL') {
-            key = query;
-            // No cambiamos el estado aquí, permanecemos en el submenú o volvemos a PRINCIPAL después de la respuesta
-            // Podríamos volver a "PRINCIPAL" o al "prefijo" del submenú.
-            // Si quieres que después de responder una pregunta 1.1, siga en "1", usa `next = prefix;`
-            // Si quieres que después de 1.1 vuelva al menú principal, usa `next = 'PRINCIPAL';`
-            // Por simplicidad para este ejemplo, lo dejaremos para que al responder 1.1,
-            // luego al escribir "MENÚ" vuelva al principal, o si pone otra 1.X, siga en el mismo flujo.
+        responseKey = 'MENU_PRINCIPAL';
+        nextState = 'PRINCIPAL';
+    } else if (currentState === 'PRINCIPAL') {
+        if (['1', '2', '3', '4', '5'].includes(query)) {
+            responseKey = `OPCIONES_${query}`;
+            nextState = query; // El nuevo estado es el número del tema principal
         } else {
-            // Si intenta preguntar 2.1 estando en el menú de "Cuota Alimentaria" (estado 1)
-            key = 'ERROR';
+            responseKey = 'ERROR';
         }
-    }
-    // Si el usuario escribe una palabra clave de tema principal directamente (ej. "CUOTA ALIMENTARIA")
-    else if (Object.values(RESPUESTAS_FAMILIA).some(res => res.includes(query))) {
-        // Esto es más flexible, pero puede llevar a ambigüedades.
-        // Por simplicidad, nos basamos en los números y "MENÚ"
-        key = 'ERROR'; // Por ahora, mantenemos la estrictez de números
+    } else if (query.match(/^\d\.\d$/)) { // Maneja sub-opciones como 1.1, 1.2
+        const prefix = query.split('.')[0];
+        // Verificar si la sub-opción es válida para el estado actual
+        if (prefix === currentState && RESPUESTAS_FAMILIA[query]) {
+            responseKey = query;
+            nextState = currentState; // Permanece en el submenú del tema principal
+        } else if (RESPUESTAS_FAMILIA[query]) { // Si intenta preguntar una sub-opción de otro tema
+             responseKey = 'ERROR_CONTEXTO'; // Mensaje de error más específico
+             nextState = currentState; // Permanece en el estado actual
+        } else {
+            responseKey = 'ERROR';
+        }
+    } else if (currentState === '5' && !['MENÚ', 'MENU', 'INICIO', 'REINICIAR'].includes(query)) {
+        // Si ya se mostró el contacto, cualquier otra entrada que no sea para reiniciar, es un error
+        responseKey = 'ERROR';
+        nextState = 'PRINCIPAL'; // Forzar a volver al menú principal
+    } else {
+        responseKey = 'ERROR';
     }
 
-
-    // Si el usuario entró a la opción 5 "Contacto Personal" y luego quiere otra cosa que no sea MENÚ
-    if (currentState === '5' && !['MENÚ', 'MENU', 'INICIO', 'REINICIAR'].includes(query)) {
-        // Asumiendo que después de mostrar el contacto, no hay más opciones para ese estado
-        // y debería volver al menú principal si quiere hacer otra consulta.
-        key = 'ERROR';
-        next = 'PRINCIPAL';
+    // Asegurarse de que la clave de respuesta exista antes de usarla
+    if (RESPUESTAS_FAMILIA[responseKey]) {
+        appendMessage(RESPUESTAS_FAMILIA[responseKey], 'bot');
+    } else {
+        // Fallback si la clave de respuesta específica no existe
+        appendMessage(RESPUESTAS_FAMILIA['ERROR'] || 'Lo siento, no entiendo tu consulta. Por favor, intenta de nuevo o escribe "MENÚ" para ver las opciones principales.', 'bot');
     }
-
-    appendMessage(RESPUESTAS_FAMILIA[key], 'bot');
-    currentState = next;
+    
+    currentState = nextState;
 }
 
+
 function appendMessage(text, sender) {
-    const body = document.getElementById('chatbot-body'); // ID CORREGIDO AQUÍ
+    const body = document.getElementById('chatbot-body');
     if (!body) return;
     const msg = document.createElement('div');
     msg.classList.add('message', sender);
     let html = text
-        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>')
+        .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>') // Asegúrate de añadir rel="noopener noreferrer" por seguridad en enlaces externos
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\n/g, '<br>'); // Convierte saltos de línea a <br>
+        .replace(/\n/g, '<br>');
     msg.innerHTML = html;
     body.appendChild(msg);
     body.scrollTo({ top: body.scrollHeight, behavior: 'smooth' });
