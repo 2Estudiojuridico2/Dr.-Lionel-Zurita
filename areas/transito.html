@@ -9,6 +9,7 @@
         // Configuración principal de Google Ads (mantener)
         gtag('config', 'AW-17555284710');
     </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accidentes de Tránsito: Reclamos y Abogados | Estudio Jurídico Dr. Lionel Zurita</title>
@@ -144,11 +145,13 @@
       ]
     }
     </script>
+
     <link rel="icon" href="../images/justicia.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body class="transito">
@@ -175,6 +178,7 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../index.html#sobre-nosotros">Sobre Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../aviso-legal.html">Aviso Legal</a></li>
                 </ul>
             </div>
         </div>
@@ -351,7 +355,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
             </section>
             
             <hr class="my-5">
@@ -387,18 +391,31 @@
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    <!-- CHATBOT -->
+    <div id="chatbot-container" style="display: none;">
+      <div id="chatbot-header">Asistente Legal ⚖️</div>
+      <div id="chatbot-body"></div>
+      <div id="chatbot-footer">
+          <input type="text" id="user-input" placeholder="Escriba su consulta...">
+          <button onclick="processUserQuery()">Enviar</button>
+      </div>
+    </div>
+    
+    <button id="chatbot-toggler" onclick="toggleChat()" aria-label="Abrir Asistente Legal">
+      <img src="../images/imageslogo-chat-flotante.png" alt="Asistente Legal" class="chat-icon">
     </button>
     
-    <a href="https://wa.me/5491131976852" target="_blank" rel="noopener noreferrer" class="chat-flotante" id="chatFlotanteLink">
-        <img src="../images/imageslogo-chat-flotante.png" alt="Icono de chat flotante de WhatsApp" width="60" height="60" loading="lazy">
+    <a href="https://wa.me/5491131976852" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" title="WhatsApp">
+        <i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i>
     </a>
-
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <script>        
+        AOS.init({ duration: 900, once: true });
+    </script>
+    
     <script src="../js/main.js"></script>
     <script src="../js/frases.js"></script>
     <script src="../js/respuestas.js"></script>
