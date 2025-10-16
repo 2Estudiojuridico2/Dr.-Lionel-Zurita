@@ -11,18 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     });
 
-    // Script para el botón de "Ir Arriba"
-    const scrollTopBtn = document.getElementById('scrollTopBtn');
-    if (scrollTopBtn) {
-        window.addEventListener('scroll', function() {
-            // Muestra el botón después de 300px de scroll
-            if (window.scrollY > 300) { 
-                scrollTopBtn.style.display = 'block';
-            } else {
-                scrollTopBtn.style.display = 'none';
-            }
-        });
-
+   
         scrollTopBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
