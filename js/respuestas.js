@@ -302,4 +302,150 @@ Requiere escritura pública para su validez y oponibilidad a terceros. El boleto
 Identificación de partes, descripción del bien, precio y forma de pago, plazos de entrega, y condiciones resolutorias.`,
 
         'INCUMPLIMIENTO_CONTRACTUAL': `**P6: ¿Qué hacer ante un Incumplimiento Contractual?**
-Se 
+Se puede exigir el cumplimiento forzado del contrato, la resolución del mismo con daños y perjuicios, o la aplicación de cláusulas penales.`,
+
+        'CLAUSULAS_REVISION': `**P7: Cláusulas de Revisión**
+Permiten adaptar el contrato a cambios de circunstancias (ej. inflación) para mantener el equilibrio de las prestaciones.`,
+        'CLAUSULAS_PENALES': `**P8: Cláusulas Penales**
+Fijan de antemano una multa o indemnización para el caso de incumplimiento, facilitando el reclamo sin necesidad de probar el daño exacto.`,
+
+        // MENÚS ESPECÍFICOS DE CONTRATOS
+        'MENU_CONTRATOS': [ // Cambiado a 'MENU_CONTRATOS'
+            { text: 'Contratos de Alquiler 🏠', value: 'SUBMENU_ALQUILER_CONTRATOS' },
+            { text: 'Contratos de Compraventa ✍️', value: 'SUBMENU_COMPRAVENTA_CONTRATOS' },
+            { text: 'Incumplimiento de Contratos 💔', value: 'SUBMENU_INCUMPLIMIENTO_CONTRATOS' },
+            { text: 'Cláusulas Importantes 📝', value: 'SUBMENU_CLAUSULAS_IMPORTANTES' },
+            { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_CONTRATOS' },
+            { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
+        ],
+
+        'SUBMENU_ALQUILER_CONTRATOS': [
+            { text: '¿Qué dice la Ley de Alquileres?', value: 'ALQUILER_LEY' },
+            { text: '¿Cómo rescindo un contrato de alquiler anticipadamente?', value: 'ALQUILER_RESCISION_ANTICIPADA' },
+            { text: '¿Qué garantías se piden en un alquiler?', value: 'ALQUILER_GARANTIAS' },
+            { text: '⬅️ Volver a Contratos', value: 'MENU_CONTRATOS_BACK' }, // Ajustado el value
+            { text: '🏠 Volver a Áreas Principales', value: 'VOLVER_AREAS' }
+        ],
+
+        'SUBMENU_COMPRAVENTA_CONTRATOS': [
+            { text: '¿Cómo funciona la compraventa de inmuebles?', value: 'COMPRAVENTA_INMUEBLES' },
+            { text: '¿Qué cláusulas son importantes en una compraventa?', value: 'COMPRAVENTA_CLAUSULAS_ESENCIALES' },
+            { text: '⬅️ Volver a Contratos', value: 'MENU_CONTRATOS_BACK' }, // Ajustado el value
+            { text: '🏠 Volver a Áreas Principales', value: 'VOLVER_AREAS' }
+        ],
+
+        'SUBMENU_INCUMPLIMIENTO_CONTRATOS': [
+            { text: '¿Qué puedo hacer si hay un incumplimiento contractual?', value: 'INCUMPLIMIENTO_CONTRACTUAL' },
+            { text: '⬅️ Volver a Contratos', value: 'MENU_CONTRATOS_BACK' }, // Ajustado el value
+            { text: '🏠 Volver a Áreas Principales', value: 'VOLVER_AREAS' }
+        ],
+
+        'SUBMENU_CLAUSULAS_IMPORTANTES': [
+            { text: '¿Qué son las cláusulas de revisión?', value: 'CLAUSULAS_REVISION' },
+            { text: '¿Qué son las cláusulas penales?', value: 'CLAUSULAS_PENALES' },
+            { text: '⬅️ Volver a Contratos', value: 'MENU_CONTRATOS_BACK' }, // Ajustado el value
+            { text: '🏠 Volver a Áreas Principales', value: 'VOLVER_AREAS' }
+        ],
+
+        'CONTACTO_PERSONAL_CONTRATOS': `**CONTACTO PERSONAL (Contratos)**
+Para un asesoramiento detallado sobre su caso de contratos, haga clic aquí:
+- [WhatsApp] (https://wa.me/5491131976852)
+- [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
+Escriba **MENÚ_ANTERIOR** para volver al menú de Contratos o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
+    },
+
+    // =========================================================================
+    // RESPUESTAS DE ACCIDENTES DE TRÁNSITO
+    // =========================================================================
+    TRANSITO: { // Cambiado a 'TRANSITO'
+        'ACCIDENTE_QUE_HACER': `**P1: ¿Qué hacer en el momento del Accidente?**
+1. **No mover** los vehículos ni la escena (salvo riesgo).
+2. Llamar a la policía (si hay lesionados o dudas).
+3. Tomar **fotos y videos** (daños, patentes, ubicación, personas).
+4. Recopilar **datos de terceros** (nombre, DNI, teléfono, seguro, patente).
+5. No admitir responsabilidad ni llegar a acuerdos en el lugar.
+6. Si hay lesiones, ir a un centro médico y guardar comprobantes.`,
+
+        'LESIONES_RECLAMO_SEGURO': `**P2: Lesiones: ¿Cómo reclamo a la aseguradora?**
+Una vez atendido, notificar a su compañía y a la del tercero (si lo hubiera). Se inicia un reclamo administrativo con la aseguradora del responsable. Si no hay acuerdo, se puede ir a juicio.`,
+
+        'DAÑOS_MATERIALES_RECLAMO': `**P3: Daños Materiales: ¿Cómo reclamo?**
+Presentar denuncia a su aseguradora y/o a la del tercero. Se peritan los daños. Si no hay acuerdo en el monto de la reparación, se puede litigar.`,
+
+
+        // MENÚS ESPECÍFICOS DE TRÁNSITO
+        'MENU_TRANSITO': [ // Cambiado a 'MENU_TRANSITO'
+            { text: '¿Qué hacer en un Accidente? 🚨', value: 'ACCIDENTE_QUE_HACER' },
+            { text: 'Reclamo por Lesiones Personales 🤕', value: 'LESIONES_RECLAMO_SEGURO' },
+            { text: 'Reclamo por Daños Materiales al Vehículo 🔨', value: 'DAÑOS_MATERIALES_RECLAMO' },
+            { text: 'Baremo de Lesiones (Daño Civil) 📊', value: 'BAREMO_CIVIL' }, // <-- Usar solo 'BAREMO_CIVIL'
+            { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_TRANSITO' },
+            { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
+        ],
+
+        'CONTACTO_PERSONAL_TRANSITO': `**CONTACTO PERSONAL (Accidentes de Tránsito)**
+Para un asesoramiento detallado sobre su caso de tránsito, haga clic aquí:
+- [WhatsApp] (https://wa.me/5491131976852)
+- [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
+Escriba **MENÚ_ANTERIOR** para volver al menú de Tránsito o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
+    },
+
+    // =========================================================================
+    // INFORMACIÓN DE BAREMOS Y DAÑOS (ahora fuera de las RESPUESTAS_X)
+    // =========================================================================
+    BAREMO_Y_DAÑO: {
+        'LABORAL': {
+            NOMBRE: "Baremo Laboral (Incapacidad ART)",
+            FUNDAMENTO: [
+                "Ley de Riesgos del Trabajo N° 24.557",
+                "Decreto PEN 659/96 (Tabla de Evaluación de Incapacidades Laborales)",
+                "Jurisprudencia específica de cada fuero (ej. 'Méndez' o 'Milone' para topes indemnizatorios)"
+            ],
+            DESCRIPCION: `Este baremo se utiliza para determinar el porcentaje de incapacidad laboral permanente que sufre un trabajador a causa de un accidente de trabajo o enfermedad profesional. Este porcentaje es fundamental para calcular la indemnización correspondiente por parte de la Aseguradora de Riesgos del Trabajo (ART).`,
+            FACTORES_PONDERACION: [
+                "Edad del trabajador",
+                "Tipo de actividad laboral (esfuerzo, calificación)",
+                "Dificultad para la reubicación en el mercado laboral",
+                "Factores de ponderación de la tabla del Decreto 659/96."
+            ],
+            COMPONENTES: [
+                "Daño Físico (lesiones)",
+                "Daño Psíquico (secuelas psicológicas)",
+                "Daño Estético (en algunos casos, si afecta la capacidad laboral)",
+                "Gastos de tratamiento y rehabilitación"
+            ],
+            METODO_CALCULO: `La incapacidad se determina por examen médico pericial siguiendo las pautas del Decreto 659/96. El porcentaje final de incapacidad se aplica sobre un cálculo que considera el salario base del trabajador, su edad y un coeficiente de ajuste según la fórmula 'Vuotto' o similar, dependiendo del criterio judicial.`,
+            OBSERVACIONES: `Es crucial contar con un seguimiento médico adecuado y asesoramiento legal para asegurar la correcta determinación de la incapacidad y la liquidación de la indemnización. Las ART suelen ofrecer una primera liquidación que puede ser inferior a lo que realmente corresponde.
+            
+            Para un asesoramiento especializado sobre incapacidades laborales, le sugerimos contactarnos directamente.`
+        },
+        'CIVIL': {
+            NOMBRE: "Baremo de Lesiones (Daño Civil)",
+            FUNDAMENTO: [
+                "Jurisprudencia de la Corte Suprema de Justicia de la Nación (ej. 'Méndez', 'Vuotto', 'Peralta')",
+                "Doctrina jurídica sobre la cuantificación del daño",
+                "Dictámenes periciales médicos y psicológicos"
+            ],
+            DESCRIPCION: `Este baremo (más bien un conjunto de criterios jurisprudenciales y doctrinales) se aplica en reclamos por daños y perjuicios en el ámbito civil (ej. accidentes de tránsito, mala praxis, caídas) para cuantificar la indemnización por las lesiones sufridas. No es una tabla rígida, sino una guía para la valoración judicial.`,
+            FACTORES_PONDERACION: [
+                "Gravedad y extensión de las lesiones (físicas y psíquicas)",
+                "Edad de la víctima",
+                "Ingresos de la víctima (capacidad de generar ganancias)",
+                "Actividades que realizaba y dejó de realizar",
+                "Gastos médicos, de rehabilitación y farmacéuticos",
+                "Padecimientos sufridos (daño moral/extrapatrimonial)"
+            ],
+            COMPONENTES: [
+                "Lucro Cesante (pérdida de ganancias futuras)",
+                "Daño Emergente (gastos médicos, traslados, etc.)",
+                "Incapacidad Sobreviniente (pérdida de capacidad física o psíquica para el trabajo o la vida diaria)",
+                "Daño Moral (sufrimientos, angustias, impacto emocional)",
+                "Daño Estético (en algunos casos, si no está ya incluido en la incapacidad)"
+            ],
+            METODO_CALCULO: `La cuantificación se realiza "caso por caso", aunque los jueces utilizan fórmulas matemáticas (ej. 'Vuotto', 'Méndez', 'Peralta') para guiar el cálculo de la incapacidad sobreviniente y el lucro cesante, adaptándolas a las circunstancias particulares de la víctima y los montos de referencia en casos similares.`,
+            OBSERVACIONES: `La valoración del daño civil es compleja y requiere pericias médicas, psicológicas y contables. Es fundamental contar con representación legal especializada para obtener una indemnización justa.
+            
+            Para un asesoramiento especializado sobre daños civiles, le sugerimos contactarnos directamente.`
+        }
+    }
+}; // <<-- ¡Este es el cierre final y crucial que faltaba!
