@@ -11,15 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     });
 
-   
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth' // Desplazamiento suave
-            });
-        });
-    }
-
     // ==========================================================
     // INICIO DEL SEGUIMIENTO DE CONVERSIONES DE GOOGLE ADS
     // ==========================================================
