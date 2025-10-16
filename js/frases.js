@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
         "Donde hay hombres, hay sociedad; donde hay sociedad, hay derecho.",
         "El derecho no se crea ni se destruye, solo se transforma.",
         "Sin derecho no hay orden, sin orden no hay justicia.",
-        "La ley es la razón libre de pasión."
-        "La justicia es la constante y perpetua voluntad de dar a cada uno lo suyo." // <-- SIN COMA AQUÍ
-            }, // <--- ASEGÚRATE QUE HAY UNA LLAVE DE CIERRE SI ES UN OBJETO
-            { // <--- Y LUEGO UNA LLAVE DE APERTURA PARA EL SIGUIENTE OBJETO SI ES UN ARRAY DE OBJETOS
-            autor: "Ulpiano"
-            }
+        "La ley es la razón libre de pasión.", // <-- CORRECTED: Added the comma here
+        "La justicia es la constante y perpetua voluntad de dar a cada uno lo suyo."
+        // The subsequent lines in your original comment (curly braces and 'autor: "Ulpiano"') 
+        // looked like they were part of a different structure (array of objects) but 
+        // were incorrectly placed in this array of strings. 
+        // I've removed them to keep the array as a simple list of strings.
     ];
 
     const fraseElement = document.getElementById('frase-juridica');
