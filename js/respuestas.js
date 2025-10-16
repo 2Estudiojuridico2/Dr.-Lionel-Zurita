@@ -59,7 +59,7 @@ Si hay negativa: Se inicia la Acción Judicial de **Autorización Supletoria** p
         { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_FAMILIA' },
         { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
     ],
-    
+
     'SUBMENU_CUOTA_ALIMENTARIA': [
         { text: '¿Hasta qué edad se paga y qué incluye?', value: 'CUOTA_ALIMENTARIA_ALCANCE' },
         { text: '¿Cómo influyen las tareas de cuidado?', value: 'CUOTA_ALIMENTARIA_TAREAS_CUIDADO' },
@@ -140,6 +140,14 @@ Es un trato hostil, abusivo o
 discriminatorio recurrente en el ámbito laboral que daña la dignidad del
 trabajador. Puede ser causa de despido indirecto y generar derecho a
 indemnización.`,
+    
+    // RESPUESTA DE BAREMO LABORAL INTEGRADA
+    'BAREMO_LABORAL_INFO': `**BAREMO LABORAL (ART)**
+Fundamento: ${BAREMO.LABORAL.FUNDAMENTO.join(', ')}.
+Descripción: ${BAREMO.LABORAL.DESCRIPCION.trim()}
+Método de Cálculo: ${BAREMO.LABORAL.METODO_CALCULO.trim()}
+Observaciones: ${BAREMO.LABORAL.OBSERVACIONES.trim()}`,
+
 
     // MENÚS ESPECÍFICOS DE LABORAL
     'MENU_LABORAL': [
@@ -150,8 +158,8 @@ indemnización.`,
         { text: 'Baremo Laboral (Incapacidad ART) 📊', value: 'BAREMO_LABORAL_INFO' }, // <-- Opción nueva
         { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_LABORAL' },
         { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
-    ]
-};
+    ], // <-- COMA AGREGADA
+
     'SUBMENU_DESPIDO_LABORAL': [
         { text: '¿Qué es el despido sin causa?', value: 'DESPIDO_SIN_CAUSA' },
         { text: '¿Qué es el despido con justa causa?', value: 'DESPIDO_POR_CAUSA' },
@@ -347,6 +355,15 @@ En casos complejos, con versiones contradictorias, o cuando la aseguradora dispu
 Daño emergente (gastos médicos, traslados, reparaciones del vehículo), lucro cesante (ganancias dejadas de percibir), daño moral (sufrimiento, angustia), incapacidad física o psíquica.`,
     'INDEMNIZACIONES_PLAZO_RECLAMAR': `**P9: ¿Cuánto tiempo tengo para reclamar?**
 El plazo de prescripción es de **2 años** desde la fecha del accidente para iniciar la acción judicial.`,
+    
+    // RESPUESTA DE BAREMO CIVIL INTEGRADA
+    'BAREMO_CIVIL_INFO': `**BAREMO CIVIL (DAÑO PERSONAL)**
+Fundamento: ${BAREMO.CIVIL.FUNDAMENTO.join(', ')}.
+Descripción: ${BAREMO.CIVIL.DESCRIPCION.trim()}
+Componentes: ${BAREMO.CIVIL.COMPONENTES.join(', ')}
+Método de Cálculo: ${BAREMO.CIVIL.METODO_CALCULO.trim()}
+Observaciones: ${BAREMO.CIVIL.OBSERVACIONES.trim()}`,
+
 
     // MENÚS ESPECÍFICOS DE ACCIDENTES DE TRÁNSITO
     'MENU_TRANSITO': [
@@ -354,6 +371,7 @@ El plazo de prescripción es de **2 años** desde la fecha del accidente para in
         { text: 'Reclamo a Aseguradoras 🛡️', value: 'SUBMENU_RECLAMO_ASEGURADORAS_TRANSITO' },
         { text: 'Pericia Accidentológica 📊', value: 'SUBMENU_PERICIA_ACCIDENTOLOGICA_TRANSITO' },
         { text: 'Indemnizaciones y Daños 💵', value: 'SUBMENU_INDEMNIZACIONES_DANOS_TRANSITO' },
+        { text: 'Baremo Civil (Daño Personal) ⚖️', value: 'BAREMO_CIVIL_INFO' }, // Nueva opción
         { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_TRANSITO' },
         { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
     ],
@@ -393,8 +411,6 @@ Para un asesoramiento detallado sobre su caso de accidentes, haga clic aquí:
 - [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
 Escriba **MENÚ** para volver al menú de Tránsito o **VOLVER** para el menú de Áreas.`,
 };
-// respuestas.js
-// ... (código existente de RESPUESTAS_FAMILIA, RESPUESTAS_LABORAL, etc.) ...
 
 // ===================== BAREMOS Y DAÑO PERSONAL ===================== //// Módulo dual: ámbito laboral (ART) y civil (responsabilidad extracontractual)
 const BAREMO = {
@@ -462,25 +478,6 @@ Daño Total = Daño Emergente + Lucro Cesante + (Valor Base × %Incapacidad) + D
 • Jurisprudencia reciente: Cámara Civil 2025 – daño físico $40M + moral $15M.
         `
     }
-};
-// =========================================================================
-// RESPUESTAS DE ACCIDENTES DE TRÁNSITO
-// =========================================================================
-const RESPUESTAS_TRANSITO = {
-    // ... (restos de las respuestas de tránsito) ...
-
-    // Menú de Tránsito, añadir opción para Baremo Civil
-    'MENU_TRANSITO': [
-        { text: 'Primeros Pasos Post-Accidente 🚨', value: 'SUBMENU_PRIMEROS_PASOS_TRANSITO' },
-        { text: 'Reclamo a Aseguradoras 🛡️', value: 'SUBMENU_RECLAMO_ASEGURADORAS_TRANSITO' },
-        { text: 'Pericia Accidentológica 📊', value: 'SUBMENU_PERICIA_ACCIDENTOLOGICA_TRANSITO' },
-        { text: 'Indemnizaciones y Daños 💵', value: 'SUBMENU_INDEMNIZACIONES_DANOS_TRANSITO' },
-        { text: 'Baremo Civil (Daño Personal) ⚖️', value: 'BAREMO_CIVIL_INFO' }, // Nueva opción
-        { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_TRANSITO' },
-        { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
-    ],
-
-    // ... (restos de los submenús de tránsito) ...
 };
 
 // =========================================================================
