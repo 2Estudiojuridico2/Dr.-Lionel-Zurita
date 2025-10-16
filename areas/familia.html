@@ -350,11 +350,6 @@
         </div>
     </footer>
 
-    <!-- BOTÓN IR ARRIBA -->
-    <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba" style="display:none;">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </button>
-
     <!-- CHATBOT (oculto por defecto, chatbot.js controla la visibilidad y lógica) -->
     <div id="chatbot-container" aria-live="polite" role="region" aria-label="Asistente Legal" style="display:none;">
         <div id="chatbot-header">Asistente Legal ⚖️</div>
@@ -392,16 +387,5 @@
     <script src="../js/respuestas.js"></script>
     <script src="../js/chatbot.js"></script>
 
-    <!-- Pequeño script para mostrar/ocultar botón scroll-top (si main.js no lo tiene) -->
-    <script>
-        (function(){
-            const btn = document.getElementById('scrollTopBtn');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) { btn.style.display = 'block'; }
-                else { btn.style.display = 'none'; }
-            });
-            btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-        })();
-    </script>
 </body>
 </html>
