@@ -18,9 +18,16 @@
 
 /* Contenedor principal del chatbot */
 #chatbot-container {
+  /* BOTTOM AJUSTADO: Se calcula en base al whatsapp-float.
+     Si whatsapp está a 105px, y mide 60px, debe ir a 165px + margen
+     Mejor ponerlo dinámicamente encima del whatsapp-float.
+     Si chatbot-toggler está abajo (20px) y whatsapp arriba (105px), el chatbot DEBE estar encima del whatsapp.
+     Cálculo: bottom de WhatsApp (105px) + altura de WhatsApp (60px) + margen (10px) = 175px (aproximado)
+     Vamos a usar 180px para que haya espacio.
+  */
   position: fixed;
-  bottom: 100px; /* Separar del borde para el botón flotante */
-  right: 30px;
+  bottom: 180px; 
+  right: 20px; /* Alineación con los botones flotantes */
   width: 380px;
   max-height: 75vh;
   display: none; /* Oculto por defecto, controlado por JS y la clase 'show' */
@@ -175,11 +182,15 @@
   background-color: var(--chatbot-boton-hover);
 }
 
-/* Botón flotante del asistente */
+/* ========================================================================= */
+/* ESTILOS DE BOTONES FLOTANTES (CORREGIDOS) */
+/* ========================================================================= */
+
+/* Botón flotante del asistente (EL DE ABAJO) */
 #chatbot-toggler {
   position: fixed;
-  bottom: 30px; /* Separar del borde */
-  right: 30px;
+  bottom: 20px; /* Distancia base desde el fondo */
+  right: 20px; /* Distancia base desde la derecha */
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -191,8 +202,8 @@
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
-  z-index: 1001; /* Más alto que el chatbot */
-  padding: 0; /* Asegura que la imagen ocupe todo el espacio */
+  z-index: 1001; 
+  padding: 0;
 }
 
 #chatbot-toggler:hover {
@@ -207,11 +218,12 @@
 }
 
 
-/* === Botón Flotante de WhatsApp === */
+/* Botón Flotante de WhatsApp (EL DE ARRIBA) */
 .whatsapp-float {
   position: fixed;
-  bottom: 110px; /* Ajustado para estar por encima del chatbot-toggler */
-  right: 30px; /* Coherente con el right del chatbot-toggler */
+  /* CÁLCULO: bottom del Chatbot (20px) + altura del Chatbot (75px) + margen (10px) = 105px */
+  bottom: 105px; 
+  right: 20px; /* MISMO valor que el toggler para alineación */
   background-color: #25D366;
   color: white;
   font-size: 28px;
@@ -224,7 +236,7 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   text-decoration: none;
   transition: all 0.3s ease;
-  z-index: 999; /* Asegura que esté por encima de otros elementos, pero debajo del chatbot */
+  z-index: 999; 
 }
 
 .whatsapp-float:hover {
@@ -244,12 +256,15 @@
   background-color: #999;
 }
 
-/* Responsividad */
+/* ========================================================================= */
+/* MEDIA QUERIES (CORREGIDAS) */
+/* ========================================================================= */
 @media (max-width: 576px) {
   #chatbot-container {
     width: 90vw;
     right: 5vw;
-    bottom: 90px; /* Más arriba para no chocar con la barra inferior del móvil */
+    /* bottom ajustado para dejar espacio a los flotantes en móvil */
+    bottom: 100px; 
     border-radius: 10px;
   }
   #chatbot-header {
@@ -260,17 +275,23 @@
     width: 30px;
     height: 30px;
   }
+  
+  /* Botón del Chatbot (EL DE ABAJO) */
   #chatbot-toggler {
     width: 60px;
     height: 60px;
     bottom: 20px;
     right: 20px;
   }
+  
+  /* Botón de WhatsApp (EL DE ARRIBA) */
   .whatsapp-float {
-    bottom: 90px; /* Ajuste para móviles, un poco más alto que el toggler */
-    right: 20px;
+    /* CÁLCULO: bottom del toggler (20px) + altura del toggler (60px) + margen (10px) = 90px */
+    bottom: 90px; 
+    right: 20px; /* MISMO valor que el toggler */
   }
 }
+
 /* Añade esto al final de tu chatbot.css existente */
 
 /* Estilos para el grupo de botones */
