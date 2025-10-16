@@ -6,7 +6,7 @@
  * 2. Estilos generales y tipografía
  * 3. Navbar y Hero
  * 4. Áreas de práctica
- * 5. Footer (SIN BOTONES FLOTANTES DE CHAT)
+ * 5. Footer (SIN BOTONES FLOTANTES DE CHAT NI SCROLL-TOP)
  * 6. Media queries responsivas
  * =========================================================================
  */
@@ -195,7 +195,7 @@ a:hover {
   color: #cceeff;
 }
 
-/* NOTA: La regla .scroll-top ha sido eliminada. */
+/* NOTA: Las reglas de posicionamiento de flotantes y scroll-top han sido ELIMINADAS. */
 
 /* ========================================================================= */
 /* MEDIA QUERIES */
