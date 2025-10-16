@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Script para el botón de "Ir Arriba"
     const scrollTopBtn = document.getElementById('scrollTopBtn');
+     if (scrollTopBtn) {
 
     window.addEventListener('scroll', function() {
         if (window.scrollY > 300) { // Muestra el botón después de 300px de scroll
