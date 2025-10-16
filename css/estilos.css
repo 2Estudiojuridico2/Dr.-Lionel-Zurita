@@ -1,374 +1,238 @@
 /* =========================================================================
- * ASISTENTE LEGAL - ESTILOS DEL CHATBOT
- * Archivo: css/chatbot.css
- * Diseño sobrio, profesional y moderno para el Estudio Jurídico Dr. Lionel Zurita
- * ========================================================================= */
+ * ARCHIVO DE ESTILOS PRINCIPAL (css/estilos.css)
+ * =========================================================================
+ * Incluye:
+ * 1. Variables de color (marca)
+ * 2. Estilos generales y tipografía
+ * 3. Navbar y Hero
+ * 4. Áreas de práctica
+ * 5. Footer (SIN BOTONES FLOTANTES DE CHAT)
+ * 6. Media queries responsivas
+ * =========================================================================
+ */
 
-/* Variables del asistente (coherentes con la paleta del sitio) */
+/* ========================================================================= */
+/* VARIABLES DE COLOR */
+/* ========================================================================= */
 :root {
-  --chatbot-fondo: #ffffff;
-  --chatbot-header: #1c1c1c; /* Color oscuro similar a tu texto principal */
-  --chatbot-borde: #b3b3b3;
-  --chatbot-texto: #212121;
-  --chatbot-bot: #f1f1f1;
-  --chatbot-user: #a30000; /* Color rojo de tu marca */
-  --chatbot-boton: #a30000;
-  --chatbot-boton-hover: #7a0000;
+  --color-primario: #f4623a;
+  --color-secundario: #6c757d;
+  --color-texto-oscuro: #343a40;
+  --color-fondo-claro: #f8f9fa;
+
+  /* Navbar */
+  --color-navbar-fondo: #f8f9fa;
+  --color-navbar-enlace: #495057;
+  --color-navbar-hover: #c94c2e;
+
+  /* Footer */
+  --color-footer-fondo: #343a40;
+  --color-footer-texto: #f8f9fa;
+
+  /* Redes */
+  --color-telegram: #17a2b8;
+  --color-whatsapp: #28a745;
 }
 
-/* Contenedor principal del chatbot */
-#chatbot-container {
-  /* BOTTOM AJUSTADO: Se calcula en base al whatsapp-float.
-     Si whatsapp está a 105px, y mide 60px, debe ir a 165px + margen
-     Mejor ponerlo dinámicamente encima del whatsapp-float.
-     Si chatbot-toggler está abajo (20px) y whatsapp arriba (105px), el chatbot DEBE estar encima del whatsapp.
-     Cálculo: bottom de WhatsApp (105px) + altura de WhatsApp (60px) + margen (10px) = 175px (aproximado)
-     Vamos a usar 180px para que haya espacio.
-  */
-  position: fixed;
-  bottom: 180px; 
-  right: 20px; /* Alineación con los botones flotantes */
-  width: 380px;
-  max-height: 75vh;
-  display: none; /* Oculto por defecto, controlado por JS y la clase 'show' */
-  flex-direction: column;
-  background-color: var(--chatbot-fondo);
-  border: 1px solid var(--chatbot-borde);
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  z-index: 1000;
-  opacity: 0; /* Para la animación de entrada */
-  transform: translateY(20px); /* Para la animación de entrada */
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+/* ========================================================================= */
+/* ESTILOS GENERALES */
+/* ========================================================================= */
+
+html {
+  scroll-padding-top: 80px;
 }
 
-/* Estado mostrado del chatbot */
-#chatbot-container.show {
-  display: flex; /* Mostrar cuando tiene la clase 'show' */
-  opacity: 1;
-  transform: translateY(0);
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--color-texto-oscuro);
+  line-height: 1.6;
+  background-color: var(--color-fondo-claro);
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: var(--color-texto-oscuro);
+}
 
-/* Encabezado */
-#chatbot-header {
-  background-color: var(--chatbot-header);
+a {
+  color: var(--color-primario);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-navbar-hover);
+  text-decoration: underline;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--color-primario);
+  border-color: var(--color-primario);
   color: #fff;
   font-weight: bold;
-  padding: 14px 18px;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative; /* Para posicionar el botón de cierre */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-#chatbot-header .title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.btn-primary:hover {
+  background-color: var(--color-navbar-hover);
+  border-color: var(--color-navbar-hover);
 }
 
-#chatbot-header img {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #ccc; /* Un borde sutil para el avatar */
-}
-
-#chatbot-header h3 {
+.btn-secondary {
+  background-color: var(--color-secundario);
+  border-color: var(--color-secundario);
   color: #fff;
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-#chatbot-header .close-btn { /* Estilos para el botón de cerrar */
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.8rem; /* Tamaño más grande para la 'x' */
-  line-height: 1;
-  cursor: pointer;
-  padding: 0 5px; /* Pequeño padding para el clic */
-  transition: color 0.2s ease;
-}
-
-#chatbot-header .close-btn:hover {
-  color: #ffcccc; /* Color más claro al pasar el ratón */
-}
-
-/* Cuerpo de mensajes */
-#chatbot-body {
-  flex-grow: 1;
-  background-color: #f7f7f7;
-  padding: 15px;
-  overflow-y: auto;
-  line-height: 1.4;
-  display: flex; /* Añadir display flex y flex-direction para mejor control de los mensajes */
-  flex-direction: column;
-}
-
-/* Mensajes */
-.message {
-  padding: 10px 14px;
-  margin-bottom: 10px;
-  border-radius: 12px;
-  max-width: 85%;
-  word-wrap: break-word;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  font-size: 0.95rem; /* Ajuste del tamaño de fuente */
-}
-
-.message.bot {
-  background-color: var(--chatbot-bot);
-  color: var(--chatbot-texto);
-  border-top-left-radius: 0;
-  margin-right: auto;
-  align-self: flex-start; /* Para que los mensajes del bot se alineen a la izquierda */
-}
-
-.message.user {
-  background-color: var(--chatbot-user);
-  color: #fff;
-  border-top-right-radius: 0;
-  margin-left: auto;
-  align-self: flex-end; /* Para que los mensajes del usuario se alineen a la derecha */
-}
-
-/* Estilo para el mensaje de "escribiendo..." */
-.message.bot.typing {
-    font-style: italic;
-    color: #888;
-    background-color: #e0e0e0;
-}
-
-
-/* Pie de chat */
-#chatbot-footer {
-  display: flex;
-  padding: 10px;
-  background-color: var(--chatbot-fondo);
-  border-top: 1px solid var(--chatbot-borde);
-  gap: 10px;
-}
-
-#user-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid var(--chatbot-borde);
-  border-radius: 6px;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-#user-input:focus {
-  border-color: var(--chatbot-user);
-}
-
-#send-button {
-  background-color: var(--chatbot-boton);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 14px;
-  cursor: pointer;
+  font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
-#send-button:hover {
-  background-color: var(--chatbot-boton-hover);
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
 }
 
 /* ========================================================================= */
-/* ESTILOS DE BOTONES FLOTANTES (CORREGIDOS) */
+/* NAVBAR */
 /* ========================================================================= */
 
-/* Botón flotante del asistente (EL DE ABAJO) */
-#chatbot-toggler {
-  position: fixed;
-  bottom: 20px; /* Distancia base desde el fondo */
-  right: 20px; /* Distancia base desde la derecha */
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+.custom-navbar {
+  background-color: var(--color-navbar-fondo);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-brand {
+  font-weight: bold;
+  color: var(--color-texto-oscuro) !important;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--color-navbar-enlace) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-navbar-hover) !important;
+}
+
+.custom-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ========================================================================= */
+/* HERO */
+/* ========================================================================= */
+
+.hero {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding-top: 56px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  transition: transform 0.3s ease;
-  z-index: 1001; 
-  padding: 0;
-}
-
-#chatbot-toggler:hover {
-  transform: scale(1.08);
-}
-
-#chatbot-toggler img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-
-/* Botón Flotante de WhatsApp (EL DE ARRIBA) */
-.whatsapp-float {
-  position: fixed;
-  /* CÁLCULO: bottom del Chatbot (20px) + altura del Chatbot (75px) + margen (10px) = 105px */
-  bottom: 105px; 
-  right: 20px; /* MISMO valor que el toggler para alineación */
-  background-color: #25D366;
-  color: white;
-  font-size: 28px;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  z-index: 999; 
+  text-align: center;
+  position: relative;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  background-color: #20ba5a;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+  z-index: -1;
 }
 
-/* Scroll suave */
-#chatbot-body::-webkit-scrollbar {
-  width: 6px;
+.hero h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-#chatbot-body::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 3px;
+
+.hero p.lead {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
-#chatbot-body::-webkit-scrollbar-thumb:hover {
-  background-color: #999;
+
+.hero .btn-primary {
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-size: 1.1rem;
 }
+
+/* Fondos específicos (Usando rutas relativas originales) */
+.hero-oficina { background-image: url('../images/oficina.jpg'); }
+.hero-familia { background-image: url('../images/familia.jpg'); }
+.hero-laboral { background-image: url('../images/laboral.png'); }
+.hero-sucesiones { background-image: url('../images/sucesiones.jpg'); }
+.hero-transito { background-image: url('../images/transito.jpg'); }
+.hero-contratos { background-image: url('../images/contrato.jpg'); }
 
 /* ========================================================================= */
-/* MEDIA QUERIES (CORREGIDAS) */
+/* FOOTER */
 /* ========================================================================= */
+
+.footer {
+  background-color: var(--color-footer-fondo);
+  color: var(--color-footer-texto);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--color-footer-texto);
+  text-decoration: underline;
+}
+
+.footer a:hover {
+  color: #cceeff;
+}
+
+/* NOTA: La regla .scroll-top ha sido eliminada. */
+
+/* ========================================================================= */
+/* MEDIA QUERIES */
+/* ========================================================================= */
+
+@media (min-width: 992px) {
+  .hero h1 { font-size: 4rem; }
+}
+
+@media (max-width: 991.98px) {
+  html { scroll-padding-top: 60px; }
+  .hero h1 { font-size: 2.8rem; }
+  .hero p.lead { font-size: 1.3rem; }
+}
+
 @media (max-width: 576px) {
-  #chatbot-container {
-    width: 90vw;
-    right: 5vw;
-    /* bottom ajustado para dejar espacio a los flotantes en móvil */
-    bottom: 100px; 
-    border-radius: 10px;
-  }
-  #chatbot-header {
-    font-size: 1rem;
-    padding: 10px 14px;
-  }
-  #chatbot-header img {
-    width: 30px;
-    height: 30px;
-  }
-  
-  /* Botón del Chatbot (EL DE ABAJO) */
-  #chatbot-toggler {
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-  }
-  
-  /* Botón de WhatsApp (EL DE ARRIBA) */
-  .whatsapp-float {
-    /* CÁLCULO: bottom del toggler (20px) + altura del toggler (60px) + margen (10px) = 90px */
-    bottom: 90px; 
-    right: 20px; /* MISMO valor que el toggler */
-  }
+  .hero h1 { font-size: 2rem; }
+  .hero p.lead { font-size: 1rem; }
 }
 
-/* Añade esto al final de tu chatbot.css existente */
+/* ========================================================================= */
+/* Mejora visual de botones de contacto */
+/* ========================================================================= */
 
-/* Estilos para el grupo de botones */
-.button-group {
-    display: flex;
-    flex-direction: column; /* Botones apilados verticalmente */
-    gap: 8px; /* Espacio entre botones */
-    margin-top: 10px;
-    margin-bottom: 10px; /* Para separar de otros mensajes */
-    max-width: 90%; /* Para que no ocupen todo el ancho si no es necesario */
-    align-self: flex-start; /* Se alinean a la izquierda como mensajes del bot */
+#contacto .btn-icon-lg {
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
 }
 
-.button-group.user {
-    align-self: flex-end; /* Si alguna vez quieres que los botones del usuario se alineen a la derecha */
+#contacto .btn-icon-lg i {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
 }
 
-/* Estilos para los botones individuales */
-.chat-button {
-    background-color: var(--chatbot-boton); /* Rojo de tu marca */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 15px;
-    text-align: left; /* Alinea el texto a la izquierda */
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    width: 100%; /* Para que cada botón ocupe el ancho completo de su contenedor */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.chat-button:hover {
-    background-color: var(--chatbot-boton-hover); /* Rojo más oscuro al pasar el mouse */
-    transform: translateY(-1px); /* Efecto sutil al pasar el mouse */
-}
-
-.chat-button:active {
-    background-color: var(--chatbot-boton);
-    transform: translateY(0);
-}
-
-/* Puedes añadir un estilo para un tipo diferente de botón si quieres, ej. para "Volver" */
-.chat-button[data-value*="BACK"],
-.chat-button[data-value*="VOLVER"] {
-    background-color: #6c757d; /* Gris para botones de navegación */
-}
-
-.chat-button[data-value*="BACK"]:hover,
-.chat-button[data-value*="VOLVER"]:hover {
-    background-color: #5a6268;
-}
-/* chatbot.css */
-/* ... (estilos existentes) ... */
-
-.baremo-info {
-    background-color: #f8f9fa; /* Un fondo ligeramente diferente para destacar */
-    border-left: 4px solid var(--chatbot-boton); /* Una línea de color de tu marca */
-    padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    color: #333;
-    font-size: 0.95em;
-}
-
-.baremo-info ul {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-left: 20px; /* Indentación para las listas */
-    list-style-type: disc; /* Puntos para las listas */
-}
-
-.baremo-info li {
-    margin-bottom: 3px;
-}
-
-.baremo-info strong {
-    color: #000; /* Asegurar que las negritas se vean bien */
+#contacto .btn-icon-lg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
