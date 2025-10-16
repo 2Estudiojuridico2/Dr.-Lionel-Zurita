@@ -415,12 +415,40 @@
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        <div id="chatbot-container">
+        <div id="chatbot-header">
+            <div class="title">
+                <img src="../images/justicia.png" alt="asistente legal" class="avatar"> <h3>asistente legal ⚖️</h3>
+            </div>
+            <button id="close-chat" class="close-btn" aria-label="cerrar asistente legal">&times;</button>
+        </div>
+        <div id="chatbot-body"></div>
+        <div id="chatbot-footer">
+            <input type="text" id="user-input" placeholder="escriba su consulta...">
+            <button id="send-button">enviar</button>
+        </div>
+    </div>
+    <button id="chatbot-toggler" aria-label="abrir asistente legal">
+        <img src="../images/imageslogo-chat-flotante.png" alt="asistente legal" class="chat-icon">
     </button>
-
+    <a href="https://wa.me/5491131976852"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="contactar por whatsapp">
+       <i class="fab fa-whatsapp"></i>
+    </a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
     <script src="../js/main.js"></script>
+    <script src="../js/frases.js"></script>
+    <script src="../js/respuestas.js"></script>
+    <script src="../js/chatbot.js"></script>
 </body>
 </html>
