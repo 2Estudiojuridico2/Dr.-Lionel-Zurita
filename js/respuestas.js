@@ -102,24 +102,44 @@ Escriba **MENÚ** para volver al menú de Familia o **VOLVER** para el menú de 
 // =========================================================================
 const RESPUESTAS_LABORAL = {
     'DESPIDO_SIN_CAUSA': `**P1: Despido sin Causa (Art. 245 LCT)**
-Es cuando el empleador decide terminar la relación laboral sin un motivo válido. Da derecho a indemnización por antigüedad, preaviso y otros rubros.`,
+Es cuando el empleador decide terminar la
+relación laboral sin un motivo válido. Da derecho a indemnización por
+antigüedad, preaviso y otros rubros.`,
     'DESPIDO_POR_CAUSA': `**P2: Despido por Causa (Justa Causa)**
-El empleador debe probar un incumplimiento grave del trabajador. Si no lo prueba, se considera despido sin causa y hay derecho a indemnización.`,
+El empleador debe probar un incumplimiento
+grave del trabajador. Si no lo prueba, se considera despido sin causa y hay
+derecho a indemnización.`,
     'DESPIDO_INDIRECTO': `**P3: Despido Indirecto (Art. 246 LCT)**
-Ocurre cuando el empleador incumple gravemente el contrato (ej. falta de pago, cambio de condiciones) y el trabajador se considera despedido, teniendo derecho a la misma indemnización que en un despido sin causa.`,
+Ocurre cuando el empleador incumple
+gravemente el contrato (ej. falta de pago, cambio de condiciones) y el
+trabajador se considera despedido, teniendo derecho a la misma indemnización
+que en un despido sin causa.`,
 
     'INDEMNIZACION_CALCULO': `**P4: Cálculo de Indemnización**
-Se calcula en base al mejor sueldo normal y habitual de los últimos 12 meses, considerando un mes de sueldo por cada año de antigüedad o fracción mayor a 3 meses. (Art. 245 LCT).`,
+Se calcula en base al mejor sueldo normal y
+habitual de los últimos 12 meses, considerando un mes de sueldo por cada año de
+antigüedad o fracción mayor a 3 meses. (Art. 245 LCT).`,
     'INDEMNIZACION_RUBROS': `**P5: Rubros Indemnizatorios**
-Incluye: Indemnización por antigüedad, preaviso, integración mes de despido, vacaciones no gozadas, SAC proporcional.`,
+Incluye: Indemnización por antigüedad,
+preaviso, integración mes de despido, vacaciones no gozadas, SAC
+proporcional.`,
 
-    'ACCIDENTE_TRABAJO_QUE_HACER': `**P6: ¿Qué hacer ante un Accidente de Trabajo?**
-Comunicar inmediatamente a la ART y al empleador. La ART debe brindar atención médica y prestaciones. Si no responde, podemos iniciar acciones.`,
-    'ACCIDENTE_TRABAJO_ENFERMEDADES_PRO': `**P7: Enfermedades Profesionales**
-Son las contraídas a causa o en ocasión del trabajo, listadas en la ley. También dan derecho a cobertura de la ART y, en algunos casos, a indemnización adicional.`,
+    'ACCIDENTE_TRABAJO_QUE_HACER': `**P6: ¿Qué hacer ante un Accidente de
+Trabajo?**
+Comunicar inmediatamente a la ART y al
+empleador. La ART debe brindar atención médica y prestaciones. Si no responde,
+podemos iniciar acciones.`,
+    'ACCIDENTE_TRABAJO_ENFERMEDADES_PRO': `**P7: Enfermedades
+Profesionales**
+Son las contraídas a causa o en ocasión del
+trabajo, listadas en la ley. También dan derecho a cobertura de la ART y, en
+algunos casos, a indemnización adicional.`,
 
     'ACOSO_LABORAL_MOBBING': `**P8: Acoso Laboral (Mobbing)**
-Es un trato hostil, abusivo o discriminatorio recurrente en el ámbito laboral que daña la dignidad del trabajador. Puede ser causa de despido indirecto y generar derecho a indemnización.`,
+Es un trato hostil, abusivo o
+discriminatorio recurrente en el ámbito laboral que daña la dignidad del
+trabajador. Puede ser causa de despido indirecto y generar derecho a
+indemnización.`,
 
     // MENÚS ESPECÍFICOS DE LABORAL
     'MENU_LABORAL': [
@@ -127,10 +147,11 @@ Es un trato hostil, abusivo o discriminatorio recurrente en el ámbito laboral q
         { text: 'Indemnizaciones 💸', value: 'SUBMENU_INDEMNIZACIONES_LABORAL' },
         { text: 'Accidentes de Trabajo 🩹', value: 'SUBMENU_ACCIDENTES_TRABAJO_LABORAL' },
         { text: 'Acoso Laboral (Mobbing) 🚫', value: 'SUBMENU_ACOSO_LABORAL' },
+        { text: 'Baremo Laboral (Incapacidad ART) 📊', value: 'BAREMO_LABORAL_INFO' }, // <-- Opción nueva
         { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_LABORAL' },
         { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
-    ],
-
+    ]
+};
     'SUBMENU_DESPIDO_LABORAL': [
         { text: '¿Qué es el despido sin causa?', value: 'DESPIDO_SIN_CAUSA' },
         { text: '¿Qué es el despido con justa causa?', value: 'DESPIDO_POR_CAUSA' },
@@ -442,27 +463,6 @@ Daño Total = Daño Emergente + Lucro Cesante + (Valor Base × %Incapacidad) + D
         `
     }
 };
-
-// =========================================================================
-// RESPUESTAS DE DERECHO LABORAL
-// =========================================================================
-const RESPUESTAS_LABORAL = {
-    // ... (restos de las respuestas laborales) ...
-
-    // Menú laboral, añadir opción para Baremo Laboral
-    'MENU_LABORAL': [
-        { text: 'Despido 🧑‍⚖️', value: 'SUBMENU_DESPIDO_LABORAL' },
-        { text: 'Indemnizaciones 💸', value: 'SUBMENU_INDEMNIZACIONES_LABORAL' },
-        { text: 'Accidentes de Trabajo 🩹', value: 'SUBMENU_ACCIDENTES_TRABAJO_LABORAL' },
-        { text: 'Acoso Laboral (Mobbing) 🚫', value: 'SUBMENU_ACOSO_LABORAL' },
-        { text: 'Baremo Laboral (Incapacidad ART) 📊', value: 'BAREMO_LABORAL_INFO' }, // Nueva opción
-        { text: 'Contacto Personal 📞', value: 'CONTACTO_PERSONAL_LABORAL' },
-        { text: '⬅️ Volver a Áreas Principales', value: 'VOLVER_AREAS' }
-    ],
-
-    // ... (restos de los submenús laborales) ...
-};
-
 // =========================================================================
 // RESPUESTAS DE ACCIDENTES DE TRÁNSITO
 // =========================================================================
