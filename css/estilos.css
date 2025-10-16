@@ -6,7 +6,7 @@
  * 2. Estilos generales y tipografía
  * 3. Navbar y Hero
  * 4. Áreas de práctica
- * 5. Footer y botones flotantes
+ * 5. Footer (SIN BOTONES FLOTANTES)
  * 6. Media queries responsivas
  * =========================================================================
  */
@@ -195,7 +195,7 @@ a:hover {
   color: #cceeff;
 }
 
-/* Botón "ir arriba" */
+/* Botón "ir arriba" (manteniendo la regla que tenías, si lo usas) */
 .scroll-top {
   position: fixed;
   bottom: 20px;
@@ -235,12 +235,7 @@ a:hover {
 @media (max-width: 576px) {
   .hero h1 { font-size: 2rem; }
   .hero p.lead { font-size: 1rem; }
-  .scroll-top {
-    width: 45px;
-    height: 45px;
-    bottom: 15px;
-    right: 15px;
-  }
+  /* No tocamos los flotantes aquí. Se controlan en chatbot.css */
 }
 
 /* ========================================================================= */
