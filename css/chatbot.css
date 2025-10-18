@@ -27,12 +27,11 @@
   
   height: auto; /* Permitir que se ajuste a max/min height */
   max-height: calc(95vh - 120px); /* Ocupa hasta el 95% de la altura de la vista menos espacio para botones flotantes */
-  min-height: 480px; /* Asegura un tamaño mínimo confortable en escritorio, un poco más grande */
+  min-height: 480px; /* Asegura un tamaño mínimo confortable en escritorio */
 
   display: flex !important; /* Forzar display flex al cargar */
   flex-direction: column;
   background-color: var(--chatbot-fondo);
-  border: 1px solid var(--chatbot-borde);
   border-radius: 14px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   overflow: hidden; /* Muy importante para contener el scroll del body */
@@ -104,8 +103,8 @@
 /* Cuerpo de mensajes */
 #chatbot-body {
   flex-grow: 1; /* Ocupa el espacio restante */
-  flex-basis: 0; /* Permite que flex-grow: 1 funcione mejor */
-  height: 100%; /* Ayuda a que flex-grow: 1 funcione */
+  flex-basis: 0; /* Ayuda a que flex-grow: 1 funcione */
+  height: 100%; /* Asegura que el body tenga una altura para el scroll */
   background-color: #f7f7f7;
   padding: 15px;
   overflow-y: auto; /* Permite el scroll vertical dentro del cuerpo */
@@ -274,10 +273,9 @@
     margin-bottom: 10px;
     max-width: 95%;
     align-self: flex-start;
-    /* Ajuste de altura del grupo de botones para que ocupe más espacio */
-    max-height: 70%; /* Le damos mucho más espacio, ocupará hasta el 70% del body si es necesario */
-    overflow-y: auto;
-    padding-right: 5px;
+    /* Eliminamos max-height para que no comprima los botones */
+    /* overflow-y: auto; ya no es necesario aquí, el scroll lo maneja el body */
+    padding-right: 5px; /* Mantener para evitar que el scroll del body tape contenido */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     background-color: #e0e0e0;
     border-radius: 12px;
@@ -420,7 +418,7 @@
       font-size: var(--chatbot-font-size-sm);
   }
   .button-group {
-      max-height: 70%; /* Más espacio para los botones en móvil también */
+      /* Eliminamos max-height para que no comprima los botones */
       /* Borde de depuración */
       border: 2px solid orange !important;
   }
