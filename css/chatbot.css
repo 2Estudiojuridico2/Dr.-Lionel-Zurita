@@ -110,7 +110,8 @@
   overflow-y: auto; /* Permite el scroll vertical dentro del cuerpo */
   line-height: 1.5;
   display: flex; /* Ahora los mensajes dentro del body también usan flexbox */
-  flex-direction: column-reverse; /* Mensajes nuevos aparecen abajo, scroll más intuitivo */
+  flex-direction: column; /* Lo mantenemos en 'column' para el orden natural de arriba a abajo */
+  justify-content: flex-start; /* <-- CAMBIO CLAVE: Alinea el contenido al inicio (arriba) */
   gap: 10px; /* Espacio entre las burbujas de mensaje */
   /* Borde de depuración */
   border: 2px solid purple !important; 
