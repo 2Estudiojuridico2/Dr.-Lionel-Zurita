@@ -14,35 +14,38 @@
   --chatbot-user: #a30000; /* Color rojo de tu marca */
   --chatbot-boton: #a30000;
   --chatbot-boton-hover: #7a0000;
+  /* Nuevas variables para tamaño de fuente base, para fácil ajuste */
+  --chatbot-font-size-base: 0.9em; /* Fuente base para mensajes y botones */
+  --chatbot-font-size-sm: 0.85em; /* Fuente para móviles */
 }
 
 /* Contenedor principal del chatbot */
 #chatbot-container {
   position: fixed;
-  bottom: 100px; /* Posición más equilibrada en escritorio, sobre el WhatsApp flotante */
-  right: 20px; /* Alineación con los botones flotantes */
-  width: 380px;
-  /* Ajuste crucial para que el flexbox interno funcione bien */
-  height: calc(85vh - 120px); /* Altura dinámica, ajustada para que no se extienda demasiado */
-  max-height: 700px; /* Un máximo absoluto para escritorios muy grandes */
-  min-height: 350px; /* Un mínimo para evitar que se comprima demasiado */
+  bottom: 100px;
+  right: 20px;
+  width: 380px; /* Ancho fijo para escritorio */
+  
+  /* Ajustes de altura para que la ventana se vea más grande y cómoda */
+  height: auto; 
+  max-height: calc(95vh - 120px); /* Ocupa hasta el 95% de la altura de la vista menos espacio para botones flotantes */
+  min-height: 450px; /* Asegura un tamaño mínimo confortable en escritorio */
 
-  display: none; /* Oculto por defecto, controlado por JS y la clase 'show' */
-  flex-direction: column; /* Asegura que header, body y footer se apilen verticalmente */
+  display: flex !important; /* Forzar display flex al cargar */
+  flex-direction: column;
   background-color: var(--chatbot-fondo);
   border: 1px solid var(--chatbot-borde);
   border-radius: 14px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  overflow: hidden; /* Muy importante para contener el scroll del body */
+  overflow: hidden;
   z-index: 1000;
-  opacity: 0; /* Para la animación de entrada */
-  transform: translateY(20px); /* Para la animación de entrada */
+  opacity: 0;
+  transform: translateY(20px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 /* Estado mostrado del chatbot */
 #chatbot-container.show {
-  display: flex !important; /* Forzar display flex al mostrar */
   opacity: 1;
   transform: translateY(0);
 }
@@ -58,7 +61,7 @@
   align-items: center;
   justify-content: space-between;
   position: relative;
-  flex-shrink: 0; /* Asegura que el header no se encoja */
+  flex-shrink: 0;
 }
 
 #chatbot-header .title {
@@ -98,25 +101,27 @@
 
 /* Cuerpo de mensajes */
 #chatbot-body {
-  flex-grow: 1; /* Esto es CRUCIAL: permite que ocupe el espacio restante y tenga su propio scroll */
+  flex-grow: 1;
   background-color: #f7f7f7;
   padding: 15px;
-  overflow-y: auto; /* Permite el scroll vertical dentro del cuerpo */
-  line-height: 1.4;
+  overflow-y: auto;
+  line-height: 1.5; /* Aumentado para más espacio entre líneas */
   display: flex;
   flex-direction: column-reverse; /* Mensajes nuevos aparecen abajo, scroll más intuitivo */
   gap: 10px; /* Espacio entre las burbujas de mensaje */
+  /* padding-top: 10px; Eliminar si column-reverse da problemas con el padding inicial */
 }
 
 /* Mensajes */
 .message {
   padding: 10px 14px;
-  margin-bottom: 0px; /* Ajustado para que el gap del flexbox maneje el espacio */
+  margin-bottom: 0px; /* El gap del flexbox de #chatbot-body maneja el espacio */
   border-radius: 12px;
-  max-width: 85%;
+  max-width: 88%; /* Le damos un poco más de ancho a los mensajes */
   word-wrap: break-word;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  font-size: 0.95rem;
+  font-size: var(--chatbot-font-size-base); /* Tamaño de fuente más pequeño y ajustable */
+  flex-shrink: 0;
 }
 
 .message.bot {
@@ -149,7 +154,7 @@
   background-color: var(--chatbot-fondo);
   border-top: 1px solid var(--chatbot-borde);
   gap: 10px;
-  flex-shrink: 0; /* Asegura que el footer no se encoja */
+  flex-shrink: 0;
 }
 
 #user-input {
@@ -157,7 +162,7 @@
   padding: 10px;
   border: 1px solid var(--chatbot-borde);
   border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: var(--chatbot-font-size-base); /* Ajuste de tamaño de fuente */
   outline: none;
   transition: border-color 0.3s ease;
 }
@@ -174,6 +179,7 @@
   padding: 10px 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: var(--chatbot-font-size-base); /* Ajuste de tamaño de fuente */
 }
 
 #send-button:hover {
@@ -255,20 +261,20 @@
 /* Estilos para el grupo de botones */
 .button-group {
     display: flex;
-    flex-direction: column; /* Botones apilados verticalmente por defecto */
-    gap: 8px; /* Espacio entre botones */
+    flex-direction: column;
+    gap: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
-    max-width: 90%;
+    max-width: 95%; /* Ocupa más ancho */
     align-self: flex-start;
-    /* Limita la altura del grupo de botones y permite scroll si hay muchos */
-    max-height: 200px;
+    /* Ajuste de altura del grupo de botones */
+    max-height: 40%; /* Un poco menos restrictivo */
     overflow-y: auto;
     padding-right: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Añadido para darles más presencia */
-    background-color: #e0e0e0; /* Fondo sutil para el grupo de botones */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    background-color: #e0e0e0;
     border-radius: 12px;
-    padding: 10px; /* Padding interno para los botones */
+    padding: 10px;
 }
 
 .button-group.user {
@@ -296,7 +302,7 @@
     padding: 10px 15px;
     text-align: left;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: var(--chatbot-font-size-base); /* Ajuste de tamaño de fuente */
     transition: background-color 0.2s ease, transform 0.1s ease;
     width: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -332,8 +338,8 @@
     margin-bottom: 10px;
     border-radius: 5px;
     color: #333;
-    font-size: 0.95em;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra para destacarlo */
+    font-size: var(--chatbot-font-size-base); /* Ajuste de tamaño de fuente */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .baremo-info ul {
@@ -361,9 +367,8 @@
     bottom: 95px;
     border-radius: 10px;
     /* Altura ajustada para móvil */
-    height: calc(90vh - 100px); /* Un poco más de margen para espacio de la barra de direcciones */
-    max-height: 500px; /* Max-height para que no sea enorme en tablets pequeñas */
-    min-height: 250px;
+    max-height: calc(95vh - 100px); /* Un poco más de margen para espacio de la barra de direcciones */
+    min-height: 350px; /* Tamaño mínimo legible en móvil */
   }
   #chatbot-header {
     font-size: 1rem;
@@ -393,10 +398,16 @@
 
   /* Ajustes para botones y grupos de botones en móvil */
   .chat-button {
-      font-size: 0.9rem;
+      font-size: var(--chatbot-font-size-sm); /* Tamaño de fuente más pequeño para móvil */
       padding: 8px 12px;
   }
+  .message {
+      font-size: var(--chatbot-font-size-sm); /* Tamaño de fuente más pequeño para móvil */
+  }
+  .baremo-info {
+      font-size: var(--chatbot-font-size-sm); /* Tamaño de fuente más pequeño para móvil */
+  }
   .button-group {
-      max-height: 180px;
+      max-height: 50%; /* Ocupa hasta la mitad del espacio disponible en el body */
   }
 }
