@@ -129,6 +129,7 @@ function handleButtonClick(value, text) {
 
 
 function handleQuery(query) {
+    console.log('handleQuery - Query recibida:', query); // NUEVA LÍNEA
     let responseContent = CHATBOT_RESPONSES.COMMON.ERROR_INPUT_INVALIDO; // Respuesta por defecto de error
     let isButtonResponse = false;
     let customHtmlResponse = null; // Para respuestas de texto complejas como los baremos, que son HTML
@@ -311,6 +312,8 @@ function appendButtons(options, sender, introText = 'Selecciona una opción:') {
     if (!chatbotBody) return; // Protección
 
     // No eliminar botones anteriores aquí, se hace antes en handleQuery
+    console.log('appendButtons - Opciones recibidas:', options); // NUEVA LÍNEA
+    console.log('appendButtons - Intro Text:', introText); // NUEVA LÍNEA
     
     // Mensaje introductorio
     if (introText) {
