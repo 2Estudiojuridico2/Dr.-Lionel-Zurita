@@ -1,4 +1,4 @@
-/* =========================================================================
+ /* =========================================================================
  * Asistente Legal - Estilos del Chatbot
  * Archivo: css/chatbot.css
  * Diseño sobrio, profesional y moderno para el estudio jurídico Dr. Lionel Zurita
@@ -21,7 +21,7 @@
 /* Contenedor principal del chatbot */
 #chatbot-container {
   position: fixed;
-  bottom: 100px;
+  bottom: 100px; /* Ajustado para dejar espacio al avatar Lottie */
   right: 20px;
   width: 380px; /* Ancho fijo para escritorio */
   
@@ -29,7 +29,7 @@
   max-height: calc(95vh - 120px); /* Ocupa hasta el 95% de la altura de la vista menos espacio para botones flotantes */
   min-height: 480px; /* Asegura un tamaño mínimo confortable en escritorio */
 
-  display: flex !important; /* Forzar display flex al cargar */
+  display: flex; /* DEBE ser flex, no importa si se fuerza */
   flex-direction: column;
   background-color: var(--chatbot-fondo);
   border-radius: 14px;
@@ -37,16 +37,18 @@
   overflow: hidden; /* Muy importante para contener el scroll del body */
   z-index: 1000;
   opacity: 0;
+  visibility: hidden; /* Oculta el contenedor por defecto */
   transform: translateY(20px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
   /* Borde de depuración */
-  border: 2px solid blue !important; 
+  /* border: 2px solid blue !important; */
 }
 
 /* Estado mostrado del chatbot */
 #chatbot-container.show {
   opacity: 1;
   transform: translateY(0);
+  visibility: visible; /* Hace el contenedor visible */
 }
 
 /* Encabezado */
@@ -62,7 +64,7 @@
   position: relative;
   flex-shrink: 0;
   /* Borde de depuración */
-  border-bottom: 2px solid lime !important;
+  /* border-bottom: 2px solid lime !important; */
 }
 
 #chatbot-header .title {
@@ -111,10 +113,10 @@
   line-height: 1.5;
   display: flex; /* Ahora los mensajes dentro del body también usan flexbox */
   flex-direction: column; /* Lo mantenemos en 'column' para el orden natural de arriba a abajo */
-  justify-content: flex-start; /* <-- CAMBIO CLAVE: Alinea el contenido al inicio (arriba) */
+  justify-content: flex-start; /* Alinea el contenido al inicio (arriba) */
   gap: 10px; /* Espacio entre las burbujas de mensaje */
   /* Borde de depuración */
-  border: 2px solid purple !important; 
+  /* border: 2px solid purple !important; */
 }
 
 /* Mensajes */
@@ -161,7 +163,7 @@
   gap: 10px;
   flex-shrink: 0;
   /* Borde de depuración */
-  border-top: 2px solid red !important;
+  /* border-top: 2px solid red !important; */
 }
 
 #user-input {
@@ -197,42 +199,39 @@
 /* Estilos de botones flotantes */
 /* ========================================================================= */
 
-/* Botón flotante del asistente (el de abajo) */
-#chatbot-toggler {
+/* ESTILOS PARA EL NUEVO AVATAR LOTTIE FLOTANTE */
+#lottie-chatbot-toggler {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 75px;
-  height: 75px;
-  border-radius: 50%;
-  border: none;
-  background-color: transparent;
+  bottom: 30px; /* Distancia desde abajo */
+  right: 30px; /* Distancia desde la derecha */
+  width: 70px; /* Tamaño del avatar (ajusta si tu animación lo requiere) */
+  height: 70px; /* Tamaño del avatar */
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-  z-index: 1001;
-  padding: 0;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  background-color: transparent; /* El fondo de la animación suele ser transparente */
+  border-radius: 50%; /* Opcional: para darle forma circular al contenedor */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+  transition: all 0.3s ease; /* Transición suave para efectos hover */
 }
 
-#chatbot-toggler:hover {
-  transform: scale(1.08);
+#lottie-chatbot-toggler:hover {
+  transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-#chatbot-toggler img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
+/* Opcional: para ocultar el avatar cuando el chatbot está abierto */
+/* Usamos opacidad y pointer-events para una transición suave y para deshabilitar clics */
+#chatbot-container.show + #lottie-chatbot-toggler {
+    opacity: 0;
+    pointer-events: none; /* Deshabilita clics cuando está oculto */
 }
 
-/* Botón flotante de WhatsApp (el de arriba) */
+
+/* Antiguo #chatbot-toggler eliminado/reemplazado. Si tenías un botón WhatsApp flotante, ajústalo: */
 .whatsapp-float {
   position: fixed;
-  bottom: 105px;
-  right: 20px;
+  bottom: 110px; /* Subido para dejar espacio al Lottie y no solaparse */
+  right: 30px; /* Misma posición horizontal que el Lottie */
   background-color: #25d366;
   color: white;
   font-size: 28px;
@@ -282,7 +281,7 @@
     border-radius: 12px;
     padding: 10px;
     /* Borde de depuración */
-    border: 2px solid orange !important; 
+    /* border: 2px solid orange !important; */
 }
 
 .button-group.user {
@@ -290,6 +289,7 @@
 }
 
 /* Scrollbar para el grupo de botones (si es necesario) */
+/* Este scrollbar solo será visible si el grupo de botones es muy largo por sí mismo */
 .button-group::-webkit-scrollbar {
   width: 6px;
 }
@@ -372,18 +372,18 @@
   #chatbot-container {
     width: 90vw;
     right: 5vw;
-    bottom: 95px;
+    bottom: 95px; /* Ajustado para móviles */
     border-radius: 10px;
     max-height: calc(95vh - 100px);
     min-height: 400px;
     /* Borde de depuración */
-    border: 2px solid blue !important;
+    /* border: 2px solid blue !important; */
   }
   #chatbot-header {
     font-size: 1rem;
     padding: 10px 14px;
     /* Borde de depuración */
-    border-bottom: 2px solid lime !important;
+    /* border-bottom: 2px solid lime !important; */
   }
   #chatbot-header img {
     width: 30px;
@@ -391,7 +391,7 @@
   }
 
   /* Botón del chatbot (el de abajo) */
-  #chatbot-toggler {
+  #lottie-chatbot-toggler {
     width: 60px;
     height: 60px;
     bottom: 20px;
@@ -400,7 +400,7 @@
 
   /* Botón de WhatsApp (el de arriba) */
   .whatsapp-float {
-    bottom: 90px;
+    bottom: 90px; /* Subido para dejar espacio al Lottie y no solaparse */
     right: 20px;
     width: 50px;
     height: 50px;
@@ -421,14 +421,14 @@
   .button-group {
       /* Eliminamos max-height para que no comprima los botones */
       /* Borde de depuración */
-      border: 2px solid orange !important;
+      /* border: 2px solid orange !important; */
   }
   #chatbot-body {
     /* Borde de depuración */
-    border: 2px solid purple !important;
+    /* border: 2px solid purple !important; */
   }
   #chatbot-footer {
     /* Borde de depuración */
-    border-top: 2px solid red !important;
+    /* border-top: 2px solid red !important; */
   }
 }
