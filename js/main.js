@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 1. Seguimiento de clics en WhatsApp (incluye links del hero, footer y chat flotante)
     const whatsappLinks = document.querySelectorAll(
-        '#whatsapp-link, #whatsapp-link-bottom, #chatFlotanteLink'
+        '#whatsapp-link, #whatsapp-link-bottom, .whatsapp-float a' // Actualizado para incluir el .whatsapp-float
     );
     
     whatsappLinks.forEach(link => {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 3. (OPCIONAL) Seguimiento de Envío de Formulario (si tienes un formulario con ID 'quickContactForm' en otra página y quieres rastrear el submit)
-    // Este código se mantiene comentado ya que FormSubmit gratuito NO devuelve una respuesta JSON fácil de rastrear con AJAX.
+    // Este código se mantiene comentado ya que FormSubmit gratuito NO devuelve una una respuesta JSON fácil de rastrear con AJAX.
     // Si usas un formulario normal que redirige, el rastreo por Clic (punto 2) es la mejor práctica.
     
     /*
@@ -77,10 +77,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================================================
     // FIN DEL SEGUIMIENTO DE CONVERSIONES DE GOOGLE ADS
     // ==========================================================
-
-    // Las siguientes líneas de código (frases.js, respuestas.js, chatbot.js)
-    // deben estar enlazadas en el HTML y no necesitan ser incluidas aquí,
-    // a menos que uses el `main.js` como un archivo de inclusión principal para toda tu lógica.
-    // Pero si son archivos separados, el HTML ya se encarga de cargarlos.
 
 });
