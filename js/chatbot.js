@@ -3,9 +3,25 @@ let mainState = 'AREAS_PRINCIPAL'; // Para controlar el área principal actual (
 let currentMenuKey = 'MENU_AREAS_PRINCIPAL'; // La clave del menú/submenú actual que se está mostrando al usuario
 let chatInitialized = false;
 let chatbotBody; // Variable para almacenar el elemento del cuerpo del chat
+let lottieAnimation; // Variable global para la animación Lottie
 
 document.addEventListener('DOMContentLoaded', () => {
     chatbotBody = document.getElementById('chatbot-body'); // Asignar al cargar el DOM
+
+    // =========================================================================
+    // Lottie Animation Setup
+    // =========================================================================
+    const lottieChatbotToggler = document.getElementById('lottie-chatbot-toggler');
+    if (lottieChatbotToggler) {
+        lottieAnimation = lottie.loadAnimation({
+            container: lottieChatbotToggler, // the DOM element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/lottie/lawyer-assistant.json' // RUTA A TU ARCHIVO LOTTIE JSON
+        });
+        lottieChatbotToggler.addEventListener('click', toggleChat);
+    }
 
     const userInput = document.getElementById('user-input');
     if (userInput) {
@@ -19,10 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.addEventListener('click', processUserQuery);
     }
 
-    const openChatbotBtn = document.getElementById('chatbot-toggler');
-    if (openChatbotBtn) {
-        openChatbotBtn.addEventListener('click', toggleChat);
-    }
+    // EL BOTÓN CHATBOT-TOGGLER ANTIGUO HA SIDO REEMPLAZADO POR LOTTIE-CHATBOT-TOGGLER
+    // const openChatbotBtn = document.getElementById('chatbot-toggler');
+    // if (openChatbotBtn) {
+    //     openChatbotBtn.addEventListener('click', toggleChat);
+    // }
 
     const closeChatBtn = document.getElementById('close-chat');
     if (closeChatBtn) {
@@ -44,7 +61,7 @@ function displayWelcomeMessage() {
     // Asegurarse de que CHATBOT_RESPONSES y sus claves existan
     if (typeof CHATBOT_RESPONSES !== 'undefined' && CHATBOT_RESPONSES.COMMON && CHATBOT_RESPONSES.COMMON.WELCOME_MESSAGE && CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL) {
         // Limpiar el chat cada vez que se vuelve al menú principal
-        chatbotBody.innerHTML = ''; 
+        chatbotBody.innerHTML = '';
         
         appendMessage(CHATBOT_RESPONSES.COMMON.WELCOME_MESSAGE, 'bot');
         appendButtons(CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL, 'bot', 'Selecciona un área para comenzar:');
@@ -59,29 +76,35 @@ function displayWelcomeMessage() {
 
 window.toggleChat = function() {
     const container = document.getElementById('chatbot-container');
+    const lottieToggler = document.getElementById('lottie-chatbot-toggler');
     if (!container) return;
 
     container.classList.toggle('show');
+
+    // Controlar el estado de la animación Lottie
+    if (lottieAnimation) {
+        if (container.classList.contains('show')) {
+            lottieAnimation.pause(); // Pausar cuando el chatbot está abierto
+            if (lottieToggler) lottieToggler.style.opacity = '0'; // Ocultar el toggler
+            if (lottieToggler) lottieToggler.style.pointerEvents = 'none'; // Desactivar clics
+        } else {
+            lottieAnimation.play(); // Reproducir cuando el chatbot está cerrado
+            if (lottieToggler) lottieToggler.style.opacity = '1'; // Mostrar el toggler
+            if (lottieToggler) lottieToggler.style.pointerEvents = 'auto'; // Activar clics
+        }
+    }
 
     if (container.classList.contains('show') && !chatInitialized) {
         displayWelcomeMessage();
     } else if (container.classList.contains('show') && chatInitialized) {
         // Si ya está inicializado y se vuelve a abrir, asegurar que muestre el menú actual (o el principal)
-        if (mainState === 'AREAS_PRINCIPAL') {
-            displayWelcomeMessage(); // Para asegurar que siempre muestra el menú principal al reabrir desde AREAS_PRINCIPAL
-        } else {
-            // Si está en un submenú, intentar mostrar los botones de ese submenú de nuevo
-            const currentMenu = CHATBOT_RESPONSES[mainState] && CHATBOT_RESPONSES[mainState][currentMenuKey] ? CHATBOT_RESPONSES[mainState][currentMenuKey] : CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL;
-            const currentIntroText = mainState === 'AREAS_PRINCIPAL' ? 'Selecciona un área para comenzar:' : `Has vuelto al menú de ${mainState.charAt(0).toUpperCase() + mainState.slice(1).toLowerCase()}. Selecciona una opción:`;
-            
-            chatbotBody.innerHTML = ''; // Limpiar el chat antes de mostrar el menú
-            if (Array.isArray(currentMenu)) { // Asegurarse de que sea un array de botones
-                appendButtons(currentMenu, 'bot', currentIntroText);
-            } else { // Si no es un array, solo mostrar un mensaje
-                appendMessage(currentMenu, 'bot');
-            }
-        }
+        // Volver siempre al menú principal al reabrir, para una experiencia más consistente
+        displayWelcomeMessage(); 
     }
+    // Asegurar que el scroll se haga al final al abrir el chat
+    setTimeout(() => {
+        if (chatbotBody) chatbotBody.scrollTo({ top: chatbotBody.scrollHeight, behavior: 'smooth' });
+    }, 300); // Pequeño retraso para que la transición del chat tenga tiempo
 };
 
 function showTyping() {
@@ -90,12 +113,15 @@ function showTyping() {
     el.classList.add('message', 'bot', 'typing');
     el.textContent = 'Escribiendo...';
     chatbotBody.appendChild(el);
+    // SCROLL INTUITIVO: Asegura que el "escribiendo" sea visible
     chatbotBody.scrollTo({ top: chatbotBody.scrollHeight, behavior: 'smooth' });
 }
 
 function removeTyping() {
     const typing = chatbotBody.querySelector('.typing'); // Usar chatbotBody
     if (typing) typing.remove();
+    // SCROLL INTUITIVO: Asegura que el mensaje después del "escribiendo" sea visible
+    chatbotBody.scrollTo({ top: chatbotBody.scrollHeight, behavior: 'smooth' });
 }
 
 // Procesa la entrada del usuario (ahora más orientada a texto libre o comandos especiales)
@@ -110,10 +136,11 @@ window.processUserQuery = function() {
     input.value = '';
 
     showTyping();
+    // Aumentamos el delay para que el efecto "Escribiendo..." sea más notorio
     setTimeout(() => {
         removeTyping();
         handleQuery(query);
-    }, 600);
+    }, 1000); // Retraso de 1 segundo para la respuesta del bot
 };
 
 // Maneja los clics en los botones generados
@@ -121,10 +148,11 @@ function handleButtonClick(value, text) {
     appendMessage(text, 'user'); // Simular que el usuario "escribió" el botón
 
     showTyping();
+    // Aumentamos el delay para que el efecto "Escribiendo..." sea más notorio
     setTimeout(() => {
         removeTyping();
         handleQuery(value); // Procesar el valor del botón como si fuera una query
-    }, 600);
+    }, 800); // Retraso de 0.8 segundos para la respuesta del bot
 }
 
 
@@ -142,7 +170,7 @@ function handleQuery(query) {
         displayWelcomeMessage(); // Siempre vuelve al menú principal
         return;
     }
-    if (query.endsWith('_BACK') || query === 'MENÚ_ANTERIOR') {
+    if (query.endsWith('_BACK') || query === 'MENU_ANTERIOR') { // Cambié 'MENÚ_ANTERIOR' a 'MENU_ANTERIOR' por consistencia con otros valores
         // Lógica para volver al menú anterior dentro de un área, o al menú principal si es el primero
         if (mainState === 'AREAS_PRINCIPAL') {
             displayWelcomeMessage(); // Si ya estamos en el principal, lo volvemos a mostrar
@@ -166,7 +194,7 @@ function handleQuery(query) {
     // Lógica para el estado principal (selección de área)
     if (mainState === 'AREAS_PRINCIPAL') {
         const areaMap = {
-            'FAMILIA': 'FAMILY',       // Si el valor del botón es 'FAMILIA'
+            'FAMILIA': 'FAMILY',     // Si el valor del botón es 'FAMILIA'
             'LABORAL': 'LABORAL',
             'SUCESIONES': 'SUCESIONES',
             'CONTRATOS': 'CONTRATOS',
@@ -193,8 +221,8 @@ function handleQuery(query) {
                 appendButtons(CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL, 'bot', '¿Deseas volver a las áreas principales?');
                 return; // Importante para evitar procesar como botones después
             } else {
-                 console.error(`Menú para el área ${mainState} (${currentMenuKey}) no encontrado.`);
-                 responseContent = CHATBOT_RESPONSES.COMMON.ERROR_CONTEXTO_INVALIDO;
+                    console.error(`Menú para el área ${mainState} (${currentMenuKey}) no encontrado.`);
+                    responseContent = CHATBOT_RESPONSES.COMMON.ERROR_CONTEXTO_INVALIDO;
             }
         } else {
             responseContent = CHATBOT_RESPONSES.COMMON.ERROR_INPUT_INVALIDO;
@@ -205,8 +233,8 @@ function handleQuery(query) {
         const currentAreaResponses = CHATBOT_RESPONSES[mainState];
 
         // *** LÓGICA PARA BAREMOS Y OTROS CONTENIDOS HTML ***
-        if (query.startsWith('BAREMO_') && CHATBOT_RESPONSES.BAREMO_Y_DAÑO && CHATBOT_RESPONSES.BAREMO_Y_DAÑO[query.replace('BAREMO_','')]){
-            customHtmlResponse = formatBaremoInfo(CHATBOT_RESPONSES.BAREMO_Y_DAÑO[query.replace('BAREMO_','')]);
+        if (query.startsWith('BAREMO_') && CHATBOT_RESPONSES.BAREMO_Y_DAÑO && CHATBOT_RESPONSES.BAREMO_Y_DAÑO[query.replace('BAREMO_','').trim()]){ // Añadido .trim()
+            customHtmlResponse = formatBaremoInfo(CHATBOT_RESPONSES.BAREMO_Y_DAÑO[query.replace('BAREMO_','').trim()]); // Añadido .trim()
             // Después de mostrar la información, se puede volver a mostrar el menú actual
             responseContent = CHATBOT_RESPONSES[mainState][currentMenuKey]; // Para mostrar los botones del menú anterior
             isButtonResponse = true;
@@ -231,7 +259,7 @@ function handleQuery(query) {
         appendMessage(customHtmlResponse, 'bot'); // Muestra el HTML formateado
         // Si después de un HTML complejo queremos que aparezcan botones, se añaden aquí
         if (isButtonResponse && Array.isArray(responseContent)) {
-             appendButtons(responseContent, 'bot', '¿Deseas explorar otra opción?');
+            appendButtons(responseContent, 'bot', '¿Deseas explorar otra opción?');
         } else if (mainState !== 'AREAS_PRINCIPAL' && CHATBOT_RESPONSES[mainState] && CHATBOT_RESPONSES[mainState][currentMenuKey]) {
             // Si no hay botones específicos, pero estamos en un área, mostrar el menú de esa área
             appendButtons(CHATBOT_RESPONSES[mainState][currentMenuKey], 'bot', '¿Deseas explorar otra opción?');
@@ -301,9 +329,10 @@ function appendMessage(text, sender) {
     let html = text
         .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\n/g, '<br>'); 
+        .replace(/\n/g, '<br>');    
     msg.innerHTML = html;
     chatbotBody.appendChild(msg);
+    // SCROLL INTUITIVO: Al agregar un mensaje, deslizar hasta el final
     chatbotBody.scrollTo({ top: chatbotBody.scrollHeight, behavior: 'smooth' });
 }
 
@@ -334,7 +363,6 @@ function appendButtons(options, sender, introText = 'Selecciona una opción:') {
         buttonContainer.appendChild(button);
     });
     chatbotBody.appendChild(buttonContainer);
+    // SCROLL INTUITIVO: Al agregar botones, deslizar hasta el final
     chatbotBody.scrollTo({ top: chatbotBody.scrollHeight, behavior: 'smooth' });
 }
-
-            
