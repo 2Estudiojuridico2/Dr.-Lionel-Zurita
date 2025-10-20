@@ -1,434 +1,316 @@
- /* =========================================================================
- * Asistente Legal - Estilos del Chatbot
- * Archivo: css/chatbot.css
- * Diseño sobrio, profesional y moderno para el estudio jurídico Dr. Lionel Zurita
- * ========================================================================= */
-
-/* Variables del asistente (coherentes con la paleta del sitio) */
-:root {
-  --chatbot-fondo: #ffffff;
-  --chatbot-header: #1c1c1c; /* Color oscuro similar a tu texto principal */
-  --chatbot-borde: #b3b3b3;
-  --chatbot-texto: #212121;
-  --chatbot-bot: #f1f1f1;
-  --chatbot-user: #a30000; /* Color rojo de tu marca */
-  --chatbot-boton: #a30000;
-  --chatbot-boton-hover: #7a0000;
-  --chatbot-font-size-base: 0.88em; /* Ajustado para ser un poco más pequeño */
-  --chatbot-font-size-sm: 0.82em; /* Ajustado para ser un poco más pequeño en móviles */
+/* Estilos para el contenedor principal del chatbot */
+.chatbot-container {
+    position: fixed;
+    bottom: 90px; /* Ajustado para dejar espacio al botón de WhatsApp si existe */
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    font-family: 'Arial', sans-serif;
+    transform: scale(0); /* Inicialmente oculto y escalado a cero */
+    transform-origin: bottom right; /* Origen de la transformación */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transición suave */
+    opacity: 0; /* Opacidad inicial para la transición */
 }
 
-/* Contenedor principal del chatbot */
-#chatbot-container {
-  position: fixed;
-  bottom: 100px; /* Ajustado para dejar espacio al avatar Lottie */
-  right: 20px;
-  width: 380px; /* Ancho fijo para escritorio */
-  
-  height: auto; /* Permitir que se ajuste a max/min height */
-  max-height: calc(95vh - 120px); /* Ocupa hasta el 95% de la altura de la vista menos espacio para botones flotantes */
-  min-height: 480px; /* Asegura un tamaño mínimo confortable en escritorio */
-
-  display: flex; /* DEBE ser flex, no importa si se fuerza */
-  flex-direction: column;
-  background-color: var(--chatbot-fondo);
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  overflow: hidden; /* Muy importante para contener el scroll del body */
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden; /* Oculta el contenedor por defecto */
-  transform: translateY(20px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  /* Borde de depuración */
-  /* border: 2px solid blue !important; */
+.chatbot-container.open {
+    transform: scale(1);
+    opacity: 1;
 }
 
-/* Estado mostrado del chatbot */
-#chatbot-container.show {
-  opacity: 1;
-  transform: translateY(0);
-  visibility: visible; /* Hace el contenedor visible */
+/* Estilos para el encabezado del chatbot */
+.chatbot-header {
+    background-color: #004d40; /* Verde oscuro */
+    color: #fff;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Encabezado */
-#chatbot-header {
-  background-color: var(--chatbot-header);
-  color: #fff;
-  font-weight: bold;
-  padding: 14px 18px;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  flex-shrink: 0;
-  /* Borde de depuración */
-  /* border-bottom: 2px solid lime !important; */
+.chatbot-header .close-chat-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }
 
-#chatbot-header .title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.chatbot-header .close-chat-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-#chatbot-header img {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid #ccc;
+/* Estilos para el cuerpo del chatbot (donde van los mensajes) */
+.chatbot-body {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #e0f2f1; /* Verde claro muy suave */
+    display: flex;
+    flex-direction: column;
 }
 
-#chatbot-header h3 {
-  color: #fff;
-  margin: 0;
-  font-size: 1.1rem;
+/* Scrollbar personalizado para el cuerpo del chatbot */
+.chatbot-body::-webkit-scrollbar {
+    width: 8px;
 }
 
-#chatbot-header .close-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.8rem;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0 5px;
-  transition: color 0.2s ease;
+.chatbot-body::-webkit-scrollbar-track {
+    background: #e0f2f1;
 }
 
-#chatbot-header .close-btn:hover {
-  color: #ffcccc;
+.chatbot-body::-webkit-scrollbar-thumb {
+    background-color: #80cbc4; /* Verde medio */
+    border-radius: 10px;
+    border: 2px solid #e0f2f1;
 }
 
-/* Cuerpo de mensajes */
-#chatbot-body {
-  flex-grow: 1; /* Ocupa el espacio restante */
-  flex-basis: 0; /* Ayuda a que flex-grow: 1 funcione */
-  height: 100%; /* Asegura que el body tenga una altura para el scroll */
-  background-color: #f7f7f7;
-  padding: 15px;
-  overflow-y: auto; /* Permite el scroll vertical dentro del cuerpo */
-  line-height: 1.5;
-  display: flex; /* Ahora los mensajes dentro del body también usan flexbox */
-  flex-direction: column; /* Lo mantenemos en 'column' para el orden natural de arriba a abajo */
-  justify-content: flex-start; /* Alinea el contenido al inicio (arriba) */
-  gap: 10px; /* Espacio entre las burbujas de mensaje */
-  /* Borde de depuración */
-  /* border: 2px solid purple !important; */
-}
-
-/* Mensajes */
-.message {
-  padding: 9px 13px; /* Padding ligeramente reducido */
-  margin-bottom: 0px; /* El gap del flexbox de #chatbot-body maneja el espacio */
-  border-radius: 12px;
-  max-width: 85%; /* Ajustado para que quepa más texto */
-  word-wrap: break-word;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  font-size: var(--chatbot-font-size-base); /* Tamaño de fuente ahora más pequeño */
-  flex-shrink: 0;
-}
-
-.message.bot {
-  background-color: var(--chatbot-bot);
-  color: var(--chatbot-texto);
-  border-top-left-radius: 0;
-  margin-right: auto;
-  align-self: flex-start;
-}
-
+/* Estilos para los mensajes del usuario */
 .message.user {
-  background-color: var(--chatbot-user);
-  color: #fff;
-  border-top-right-radius: 0;
-  margin-left: auto;
-  align-self: flex-end;
+    align-self: flex-end;
+    background-color: #004d40; /* Verde oscuro */
+    color: #fff;
+    border-radius: 12px 12px 0 12px;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para el mensaje de "escribiendo..." */
-.message.bot.typing {
-    font-style: italic;
-    color: #888;
-    background-color: #e0e0e0;
+/* Estilos para los mensajes del bot */
+.message.bot {
+    align-self: flex-start;
+    background-color: #f5f5f5; /* Gris muy claro */
+    color: #333;
+    border-radius: 12px 12px 12px 0;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* Pie de chat */
-#chatbot-footer {
-  display: flex;
-  padding: 10px;
-  background-color: var(--chatbot-fondo);
-  border-top: 1px solid var(--chatbot-borde);
-  gap: 10px;
-  flex-shrink: 0;
-  /* Borde de depuración */
-  /* border-top: 2px solid red !important; */
+/* Estilos para los enlaces dentro de los mensajes del bot */
+.message.bot a {
+    color: #004d40; /* Mismo verde oscuro que el header */
+    text-decoration: underline;
 }
 
-#user-input {
-  flex: 1;
-  padding: 9px; /* Padding ligeramente reducido */
-  border: 1px solid var(--chatbot-borde);
-  border-radius: 6px;
-  font-size: var(--chatbot-font-size-base); /* Ajuste de tamaño de fuente */
-  outline: none;
-  transition: border-color 0.3s ease;
+.message.bot a:hover {
+    text-decoration: none;
 }
 
-#user-input:focus {
-  border-color: var(--chatbot-user);
+/* Estilos para el área de entrada de texto */
+.chatbot-input-area {
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
 }
 
-#send-button {
-  background-color: var(--chatbot-boton);
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 9px 13px; /* Padding ligeramente reducido */
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: var(--chatbot-font-size-base); /* Ajuste de tamaño de fuente */
+.chatbot-input-area input {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    margin-right: 10px;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-#send-button:hover {
-  background-color: var(--chatbot-boton-hover);
+.chatbot-input-area input:focus {
+    border-color: #004d40;
 }
 
-/* ========================================================================= */
-/* Estilos de botones flotantes */
-/* ========================================================================= */
-
-/* ESTILOS PARA EL NUEVO AVATAR LOTTIE FLOTANTE */
-#lottie-chatbot-toggler {
-  position: fixed;
-  bottom: 30px; /* Distancia desde abajo */
-  right: 30px; /* Distancia desde la derecha */
-  width: 70px; /* Tamaño del avatar (ajusta si tu animación lo requiere) */
-  height: 70px; /* Tamaño del avatar */
-  cursor: pointer;
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  background-color: transparent; /* El fondo de la animación suele ser transparente */
-  border-radius: 50%; /* Opcional: para darle forma circular al contenedor */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
-  transition: all 0.3s ease; /* Transición suave para efectos hover */
+.chatbot-input-area button {
+    background-color: #004d40;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Botón circular */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-#lottie-chatbot-toggler:hover {
-  transform: scale(1.05); /* Ligeramente más grande al pasar el ratón */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+.chatbot-input-area button:hover {
+    background-color: #00362c; /* Verde más oscuro al pasar el ratón */
+    transform: scale(1.05);
 }
 
-/* Opcional: para ocultar el avatar cuando el chatbot está abierto */
-/* Usamos opacidad y pointer-events para una transición suave y para deshabilitar clics */
-#chatbot-container.show + #lottie-chatbot-toggler {
+/* Estilos para el contenedor del lottie toggler */
+.lottie-chatbot-toggler {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px; /* Tamaño del icono Lottie */
+    height: 60px;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté por encima del chatbot cerrado */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    background-color: #fff; /* Fondo para que el Lottie se vea mejor */
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-out; /* Para la transición de ocultar/mostrar */
+}
+
+.lottie-chatbot-toggler.hidden {
     opacity: 0;
     pointer-events: none; /* Deshabilita clics cuando está oculto */
 }
 
-
-/* Antiguo #chatbot-toggler eliminado/reemplazado. Si tenías un botón WhatsApp flotante, ajústalo: */
-.whatsapp-float {
-  position: fixed;
-  bottom: 110px; /* Subido para dejar espacio al Lottie y no solaparse */
-  right: 30px; /* Misma posición horizontal que el Lottie */
-  background-color: #25d366;
-  color: white;
-  font-size: 28px;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  background-color: #20ba5a;
-}
-
-/* Scroll suave para el cuerpo de mensajes */
-#chatbot-body::-webkit-scrollbar {
-  width: 6px;
-}
-#chatbot-body::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 3px;
-}
-#chatbot-body::-webkit-scrollbar-thumb:hover {
-  background-color: #999;
-}
-
-/* Estilos para el grupo de botones */
-.button-group {
+/* Estilos para los botones de opciones */
+.chatbot-options-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     margin-top: 10px;
-    margin-bottom: 10px;
-    max-width: 95%;
-    align-self: flex-start;
-    /* Eliminamos max-height para que no comprima los botones */
-    /* overflow-y: auto; ya no es necesario aquí, el scroll lo maneja el body */
-    padding-right: 5px; /* Mantener para evitar que el scroll del body tape contenido */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    background-color: #e0e0e0;
-    border-radius: 12px;
-    padding: 10px;
-    /* Borde de depuración */
-    /* border: 2px solid orange !important; */
+    width: 100%; /* Asegura que ocupe el ancho disponible */
+    box-sizing: border-box; /* Para incluir padding y border en el ancho */
 }
 
-.button-group.user {
-    align-self: flex-end;
-}
-
-/* Scrollbar para el grupo de botones (si es necesario) */
-/* Este scrollbar solo será visible si el grupo de botones es muy largo por sí mismo */
-.button-group::-webkit-scrollbar {
-  width: 6px;
-}
-.button-group::-webkit-scrollbar-thumb {
-  background-color: #ccc;
-  border-radius: 3px;
-}
-.button-group::-webkit-scrollbar-thumb:hover {
-  background-color: #999;
-}
-
-/* Estilos para los botones individuales */
-.chat-button {
-    background-color: var(--chatbot-boton);
-    color: white;
-    border: none;
+.chatbot-options-container button {
+    background-color: #4db6ac; /* Verde medio claro */
+    color: #004d40; /* Texto verde oscuro */
+    border: 1px solid #004d40; /* Borde verde oscuro */
     border-radius: 8px;
-    padding: 9px 13px; /* Padding ligeramente reducido */
-    text-align: left;
+    padding: 12px 15px;
+    margin-bottom: 8px;
     cursor: pointer;
-    font-size: var(--chatbot-font-size-base); /* Tamaño de fuente ahora más pequeño */
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.95em;
+    text-align: left;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.chat-button:hover {
-    background-color: var(--chatbot-boton-hover);
-    transform: translateY(-1px);
+.chatbot-options-container button:hover {
+    background-color: #004d40; /* Fondo verde oscuro al pasar el ratón */
+    color: #fff; /* Texto blanco al pasar el ratón */
+    border-color: #00362c;
 }
 
-.chat-button:active {
-    background-color: var(--chatbot-boton);
-    transform: translateY(0);
+/* Estilo para el mensaje de "escribiendo..." */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 12px 12px 12px 0;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    max-width: 80px; /* Ajusta el ancho para los puntos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* Estilo para botones de navegación como "volver" */
-.chat-button[data-value*="back"],
-.chat-button[data-value*="volver"] {
-    background-color: #6c757d;
+.typing-indicator span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #80cbc4; /* Color de los puntos */
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: bounce 1.2s infinite ease-in-out;
 }
 
-.chat-button[data-value*="back"]:hover,
-.chat-button[data-value*="volver"]:hover {
-    background-color: #5a6268;
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
 }
 
-/* Estilos para la información de baremo */
-.baremo-info {
-    background-color: #f8f9fa;
-    border-left: 4px solid var(--chatbot-boton);
-    padding: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    color: #333;
-    font-size: var(--chatbot-font-size-base); /* Ajuste de tamaño de fuente */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
 }
 
-.baremo-info ul {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-left: 20px;
-    list-style-type: disc;
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
 }
 
-.baremo-info li {
-    margin-bottom: 3px;
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .chatbot-container {
+        width: 90vw; /* Utiliza el 90% del ancho del viewport */
+        height: 80vh; /* Utiliza el 80% de la altura del viewport */
+        bottom: 70px; /* Ajustado para móvil */
+        right: 5vw; /* Centrado relativo al viewport */
+        left: 5vw; /* Centrado relativo al viewport */
+        max-width: none; /* Elimina la restricción de ancho máximo */
+    }
+
+    .lottie-chatbot-toggler {
+        bottom: 15px; /* Ajustado para móvil */
+        right: 15px; /* Ajustado para móvil */
+        width: 50px;
+        height: 50px;
+    }
+
+    /* Ajustar el padding y fuente para pantallas más pequeñas si es necesario */
+    .chatbot-header {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .chatbot-body {
+        padding: 10px;
+    }
+
+    .message {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .chatbot-input-area {
+        padding: 8px 10px;
+    }
+
+    .chatbot-input-area input {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+
+    .chatbot-input-area button {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+
+    .chatbot-options-container button {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
 }
 
-.baremo-info strong {
-    color: #000;
+/* Estilo para ocultar el botón de WhatsApp cuando el chatbot está abierto */
+.whatsapp-float {
+    transition: opacity 0.3s ease-out; /* Suaviza la transición */
 }
 
-/* ========================================================================= */
-/* Media Queries */
-/* ========================================================================= */
-@media (max-width: 576px) {
-  #chatbot-container {
-    width: 90vw;
-    right: 5vw;
-    bottom: 95px; /* Ajustado para móviles */
-    border-radius: 10px;
-    max-height: calc(95vh - 100px);
-    min-height: 400px;
-    /* Borde de depuración */
-    /* border: 2px solid blue !important; */
-  }
-  #chatbot-header {
-    font-size: 1rem;
-    padding: 10px 14px;
-    /* Borde de depuración */
-    /* border-bottom: 2px solid lime !important; */
-  }
-  #chatbot-header img {
-    width: 30px;
-    height: 30px;
-  }
-
-  /* Botón del chatbot (el de abajo) */
-  #lottie-chatbot-toggler {
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
-  }
-
-  /* Botón de WhatsApp (el de arriba) */
-  .whatsapp-float {
-    bottom: 90px; /* Subido para dejar espacio al Lottie y no solaparse */
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-  }
-
-  /* Ajustes para botones y grupos de botones en móvil */
-  .chat-button {
-      font-size: var(--chatbot-font-size-sm);
-      padding: 8px 12px;
-  }
-  .message {
-      font-size: var(--chatbot-font-size-sm);
-  }
-  .baremo-info {
-      font-size: var(--chatbot-font-size-sm);
-  }
-  .button-group {
-      /* Eliminamos max-height para que no comprima los botones */
-      /* Borde de depuración */
-      /* border: 2px solid orange !important; */
-  }
-  #chatbot-body {
-    /* Borde de depuración */
-    /* border: 2px solid purple !important; */
-  }
-  #chatbot-footer {
-    /* Borde de depuración */
-    /* border-top: 2px solid red !important; */
-  }
+.chatbot-container.open ~ .whatsapp-float {
+    opacity: 0;
+    pointer-events: none; /* Para que no se pueda clickear aunque no se vea */
 }
