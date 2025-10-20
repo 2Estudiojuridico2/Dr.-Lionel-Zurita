@@ -128,7 +128,7 @@ Si hay negativa: Se inicia la Acción Judicial de **Autorización Supletoria** p
 Para un asesoramiento detallado sobre su caso de familia, haga clic aquí:
 - [WhatsApp] (https://wa.me/5491131976852)
 - [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
-Escriba **MENÚ_ANTERIOR** para volver al menú de Familia o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
+Escriba **MENU_ANTERIOR** para volver al menú de Familia o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
     },
 
     // =========================================================================
@@ -216,7 +216,7 @@ indemnización.`,
 Para un asesoramiento detallado sobre su caso laboral, haga clic aquí:
 - [WhatsApp] (https://wa.me/5491131976852)
 - [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
-Escriba **MENÚ_ANTERIOR** para volver al menú de Laboral o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
+Escriba **MENU_ANTERIOR** para volver al menú de Laboral o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
     },
 
     // =========================================================================
@@ -282,7 +282,7 @@ Es el acto por el cual los bienes de la herencia se dividen entre los herederos.
 Para un asesoramiento detallado sobre su caso sucesorio, haga clic aquí:
 - [WhatsApp] (https://wa.me/5491131976852)
 - [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
-Escriba **MENÚ_ANTERIOR** para volver al menú de Sucesiones o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
+Escriba **MENU_ANTERIOR** para volver al menú de Sucesiones o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
     },
 
     // =========================================================================
@@ -351,7 +351,7 @@ Fijan de antemano una multa o indemnización para el caso de incumplimiento, fac
 Para un asesoramiento detallado sobre su caso de contratos, haga clic aquí:
 - [WhatsApp] (https://wa.me/5491131976852)
 - [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
-Escriba **MENÚ_ANTERIOR** para volver al menú de Contratos o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
+Escriba **MENU_ANTERIOR** para volver al menú de Contratos o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
     },
 
     // =========================================================================
@@ -387,7 +387,7 @@ Presentar denuncia a su aseguradora y/o a la del tercero. Se peritan los daños.
 Para un asesoramiento detallado sobre su caso de tránsito, haga clic aquí:
 - [WhatsApp] (https://wa.me/5491131976852)
 - [Formulario Completo] (https://docs.google.com/forms/d/e/1FAIpQLSddw0zwc76GuSUHh2rpuxSO59BeyDItbWMVHDOp1d_rTp28Eg/viewform)
-Escriba **MENÚ_ANTERIOR** para volver al menú de Tránsito o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
+Escriba **MENU_ANTERIOR** para volver al menú de Tránsito o **VOLVER** para el menú de Áreas.`, // Ajustado el texto del comando para volver
     },
 
     // =========================================================================
