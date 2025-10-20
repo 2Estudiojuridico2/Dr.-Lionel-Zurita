@@ -64,12 +64,10 @@
     <p class="lead mb-2" data-aos="fade-up" data-aos-delay="50">Abogado y Accidentólogo Vial – Defensa y Compromiso Legal</p>
     <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">Asesoramiento integral en Derecho de Familia, Laboral, Sucesorio y Tránsito.</p>
     <a href="#areas-practica" class="btn btn-primary btn-lg mt-3" data-aos="zoom-in">Ver Áreas de Práctica</a>
-    <p id="frase-juridica" class="lead mt-4" data-aos="fade-up" data-aos-delay="400" aria-live="polite"></p>
-</section>
+    <p id="frase-juridica" class="lead mt-4" data-aos="fade-up" data-aos-delay="400"></p> </section>
 
 <main class="my-5" role="main">
-    <!-- (mantén el contenido principal igual al tuyo: secciones Áreas, Sobre Nosotros, Valores, Contacto - no las reescribo por brevedad) -->
-       <section id="areas-practica" class="container my-5 py-5" aria-labelledby="areas-practica-titulo">
+    <section id="areas-practica" class="container my-5 py-5" aria-labelledby="areas-practica-titulo">
         <h2 id="areas-practica-titulo" class="text-center mb-5 display-6 fw-bold" data-aos="fade-up">Áreas de Práctica</h2>
         <ul class="nav nav-pills justify-content-center mb-3" id="pills-tab" role="tablist" data-aos="fade-up">
             <li class="nav-item" role="presentation"><button class="nav-link active" id="pills-familia-tab" data-bs-toggle="pill" data-bs-target="#familia" type="button" role="tab" aria-controls="familia" aria-selected="true">Familia</button></li>
@@ -168,7 +166,9 @@
             </div>
         </div>
     </section>
-    <!-- ... -->
+
+    <hr class="my-5">
+
     <section id="contacto" class="py-5 bg-light" aria-labelledby="contacto-titulo">
         <div class="container">
             <h2 id="contacto-titulo" class="text-center mb-4 display-6 fw-bold" data-aos="fade-up">Contáctenos</h2>
@@ -176,13 +176,13 @@
                 <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="fade-right">
                     <img src="images/justicia-moderna-elegante.jpg" class="img-fluid rounded shadow mb-4" alt="Justicia equilibrio" loading="lazy">
                     <div class="d-flex justify-content-center gap-3">
-                        <a id="contacto-link" href="mailto:Dr.Zuritalionel@gmail.com" class="btn btn-outline-dark btn-icon-only" aria-label="Enviar Email">
+                        <a href="mailto:Dr.Zuritalionel@gmail.com" class="btn btn-outline-dark btn-icon-only" aria-label="Enviar Email">
                             <i class="fas fa-envelope"></i>
                         </a>
-                        <a id="whatsapp-link" href="https://wa.me/5491131976852" class="btn btn-outline-success btn-icon-only whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                        <a href="https://wa.me/5491131976852" class="btn btn-outline-success btn-icon-only" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a id="telegram-link" href="https://t.me/drzuritalionel" class="btn btn-info btn-icon-only" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                        <a href="https://t.me/drzuritalionel" class="btn btn-info btn-icon-only" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                             <i class="fab fa-telegram-plane"></i>
                         </a>
                     </div>
@@ -223,26 +223,23 @@
     </div>
 </footer>
 
-<!-- CHATBOT -->
-<div id="chatbot-container" class="chatbot-container" aria-live="polite" aria-hidden="true" role="dialog" aria-label="Asistente legal interactivo">
-    <div id="chatbot-header" class="chatbot-header">
-        <div class="title d-flex align-items-center">
-            <img src="images/justicia.png" alt="Asistente Legal" class="avatar me-2" style="width:36px;height:36px;"> 
-            <h3 class="mb-0">Asistente Legal ⚖️</h3>
+<div id="chatbot-container">
+    <div id="chatbot-header">
+        <div class="title">
+            <img src="images/justicia.png" alt="Asistente Legal" class="avatar"> 
+            <h3>Asistente Legal ⚖️</h3>
         </div>
-        <button id="close-chat" class="close-chat-btn" aria-label="Cerrar Asistente Legal">&times;</button>
+        <button id="close-chat" class="close-btn" aria-label="Cerrar Asistente Legal">&times;</button>
     </div>
-    <div id="chatbot-body" class="chatbot-body" role="log" aria-live="polite"></div>
-    <div id="chatbot-footer" class="chatbot-input-area">
-        <input type="text" id="user-input" placeholder="Escriba su consulta..." aria-label="Campo de consulta">
-        <button id="send-button" aria-label="Enviar mensaje">Enviar</button>
+    <div id="chatbot-body"></div>
+    <div id="chatbot-footer">
+        <input type="text" id="user-input" placeholder="Escriba su consulta...">
+        <button id="send-button">Enviar</button>
     </div>
 </div>
 
-<!-- LOTTIE TOGGLER -->
-<div id="lottie-chatbot-toggler" class="lottie-chatbot-toggler" aria-label="Abrir Asistente Legal" role="button" tabindex="0"></div>
+<div id="lottie-chatbot-toggler" aria-label="Abrir Asistente Legal"></div>
 
-<!-- WhatsApp float (sigue presente, se ocultará automáticamente cuando el chatbot se abra) -->
 <a href="https://wa.me/5491131976852"
    class="whatsapp-float"
    target="_blank"
@@ -251,15 +248,11 @@
    <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<!-- Carga de respuestas y lógica del chatbot -->
-<script src="js/respuestas.js"></script>
-<script src="js/frases.js"></script>
+<script src="js/CHATBOT_RESPONSES.js"></script>
 <script src="js/chatbot.js"></script>
+<script src="js/frases.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
-
