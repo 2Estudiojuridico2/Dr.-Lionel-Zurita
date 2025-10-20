@@ -448,4 +448,4 @@ Escriba **MENU_ANTERIOR** para volver al menú de Tránsito o **VOLVER** para el
             Para un asesoramiento especializado sobre daños civiles, le sugerimos contactarnos directamente.`
         }
     }
-}; // <<-- ¡Este es el cierre final y crucial que faltaba!
+};
