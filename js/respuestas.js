@@ -1,4 +1,4 @@
-// Archivo: js/respuestas.js (o CHATBOT_RESPONSES.js)
+// Archivo: js/CHATBOT_RESPONSES.js
 // La variable global DEBE llamarse window.CHATBOT_RESPONSES.
 window.CHATBOT_RESPONSES = {
     // =====================================================================
@@ -20,8 +20,8 @@ window.CHATBOT_RESPONSES = {
             { text: "Derecho Laboral 👷", value: "LABORAL.MENU_LABORAL" },
             { text: "Sucesiones y Herencias 📜", value: "SUCESIONES.MENU_SUCESIONES" },
             { text: "Accidentes de Tránsito 🚗", value: "TRANSITO.MENU_TRANSITO" },
-            { text: "Otras Consultas ❓", value: "OTRAS_CONSULTAS" },
-            { text: "Contacto Directo 📲", value: "CONTACTO_DIRECTO_GENERAL" }
+            { text: "Otras Consultas ❓", value: "COMMON.OTRAS_CONSULTAS" }, // Corregido: debe apuntar a COMMON.OTRAS_CONSULTAS
+            { text: "Contacto Directo 📲", value: "COMMON.CONTACTO_DIRECTO_GENERAL" } // Corregido: debe apuntar a COMMON.CONTACTO_DIRECTO_GENERAL
         ]
     },
 
@@ -48,7 +48,7 @@ window.CHATBOT_RESPONSES = {
         MENU_LABORAL: [
             { text: "Despido sin Causa", value: "LABORAL.DESPIDO_TEXT" },
             { text: "Accidentes Laborales (ART)", value: "LABORAL.ACCIDENTE_LABORAL_TEXT" },
-            { text: "Baremo de Indemnizaciones", value: "BAREMO_LABORAL" },
+            { text: "Baremo de Indemnizaciones", value: "BAREMO_Y_DAÑO.BAREMO_LABORAL" }, // Corregido para apuntar a la ruta completa
             { text: "Contacto Laboral 💼", value: "CONTACTO_PERSONAL_LABORAL" },
             { text: "Volver al Menú Principal ↩️", value: "VOLVER" }
         ],
@@ -78,7 +78,7 @@ window.CHATBOT_RESPONSES = {
     TRANSITO: {
         MENU_TRANSITO: [
             { text: "Accidentes Viales", value: "TRANSITO.ACCIDENTES_TEXT" },
-            { text: "Baremo de Daño Corporal", value: "BAREMO_TRANSITO" },
+            { text: "Baremo de Daño Corporal", value: "BAREMO_Y_DAÑO.BAREMO_TRANSITO" }, // Corregido para apuntar a la ruta completa
             { text: "Servicio de Pericia Vial", value: "TRANSITO.PERICIA_TEXT" },
             { text: "Contacto Tránsito 🚨", value: "CONTACTO_PERSONAL_TRANSITO" },
             { text: "Volver al Menú Principal ↩️", value: "VOLVER" }
@@ -89,8 +89,6 @@ window.CHATBOT_RESPONSES = {
 
     // =====================================================================
     // DATOS ESTRUCTURADOS: BAREMOS
-    // Las claves en el menú deben ser BAREMO_LABORAL o BAREMO_TRANSITO
-    // El chatbot las busca en BAREMO_Y_DAÑO.BAREMO_LABORAL
     // =====================================================================
     BAREMO_Y_DAÑO: {
         BAREMO_LABORAL: {
@@ -139,7 +137,7 @@ window.CHATBOT_RESPONSES = {
     },
 
     // =====================================================================
-    // CONTACTOS PERSONALES ESPECÍFICOS (Las claves deben ser exactas)
+    // CONTACTOS PERSONALES ESPECÍFICOS (Rutas finales)
     // =====================================================================
     CONTACTO_PERSONAL_FAMILY: "Para iniciar tu consulta de Derecho de Familia, haz clic en nuestro [WhatsApp directo](https://wa.me/5491131976852?text=Hola%2C%20quisiera%20asesoramiento%20sobre%20Derecho%20de%20Familia).",
     CONTACTO_PERSONAL_LABORAL: "Si se trata de un tema Laboral, envíanos un email a [Dr.Zuritalionel@gmail.com](mailto:Dr.Zuritalionel@gmail.com) con el telegrama y la fecha de ingreso/egreso.",
