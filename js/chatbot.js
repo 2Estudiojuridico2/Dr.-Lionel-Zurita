@@ -1,6 +1,6 @@
 // Archivo: js/chatbot.js - Lógica Principal del Chatbot
 
-// NOTA IMPORTANTE: Asegúrate de que este archivo se cargue después de lottie.min.js y respuestas.js
+// NOTA IMPORTANTE: Este archivo DEBE cargarse DESPUÉS de lottie.min.js y CHATBOT_RESPONSES.js.
 
 // =========================================================================
 // VARIABLES DE ESTADO Y ELEMENTOS DEL DOM
@@ -10,6 +10,7 @@ let currentChatState = 'COMMON.MENU_AREAS_PRINCIPAL'; // Estado inicial
 let chatHistory = []; // Para almacenar el historial de estados de menú visitados
 let typingTimeout; 
 
+// Elementos del DOM (Se asume que existen en el HTML)
 const chatbotContainer = document.getElementById('chatbot-container');
 const chatbotBody = document.getElementById('chatbot-body');
 const userInput = document.getElementById('user-input');
@@ -22,12 +23,14 @@ const whatsappFloatButton = document.querySelector('.whatsapp-float');
 // INICIALIZACIÓN DE LOTTIE
 // =========================================================================
 let lottieAnimation;
+// Verificamos que el elemento exista y que la biblioteca lottie esté cargada
 if (lottieChatbotToggler && typeof lottie !== 'undefined') {
     lottieAnimation = lottie.loadAnimation({
         container: lottieChatbotToggler,
         renderer: 'svg',
         loop: true,
         autoplay: true,
+        // Ruta del archivo Lottie (asumida desde la raíz del proyecto)
         path: 'assets/lottie/lawyer-assistant.json' 
     });
     lottieChatbotToggler.addEventListener('click', toggleChatbot);
@@ -72,12 +75,13 @@ function removeTypingIndicator(indicatorDiv) {
 
 function getNestedResponse(path) {
     const parts = path.split('.');
+    // Usamos window.CHATBOT_RESPONSES, según el archivo de respuestas
     let response = window.CHATBOT_RESPONSES;
     for (const part of parts) {
         if (response && response.hasOwnProperty(part)) {
             response = response[part];
         } else {
-            console.error(`Ruta no encontrada en CHATBOT_RESPONSES: ${path} (parte fallida: ${part})`);
+            // Error de ruta si no se encuentra la clave
             return null;
         }
     }
@@ -143,7 +147,6 @@ function handleOptionClick(value, text) {
 
 function clearChat() {
     chatbotBody.innerHTML = '';
-    // NOTA: El historial NO se limpia aquí, solo se limpia en VOLVER o en cierre.
 }
 
 // =========================================================================
@@ -193,7 +196,10 @@ async function processUserInput(input) {
     } else if (cleanedInput === 'MENU_ANTERIOR') {
         clearChat();
         
-        // 1. Quitar el estado actual (si está en el historial y no es un menú intermedio)
+        // El estado actual (currentChatState) es el último estado visitado.
+        // Si es una respuesta final (texto/baremo), el menú que lo llamó está en chatHistory[chatHistory.length - 1]
+
+        // 1. Quitar el estado actual del historial si fue agregado como el estado más reciente
         if (chatHistory.length > 0 && chatHistory[chatHistory.length - 1] === currentChatState) {
             chatHistory.pop(); 
         }
@@ -207,43 +213,26 @@ async function processUserInput(input) {
 
         let previousResponse = getNestedResponse(currentChatState);
             
-        if (previousResponse) {
-            if (Array.isArray(previousResponse)) {
-                // Caso A: El estado anterior era un menú
-                await displayBotResponse(window.CHATBOT_RESPONSES.COMMON.WELCOME_MESSAGE, 0);
-                appendButtons(previousResponse);
-            } else if (typeof previousResponse === 'string' || (typeof previousResponse === 'object' && previousResponse.hasOwnProperty('NOMBRE'))) {
-                // Caso B: El estado anterior era una respuesta final (texto/baremo)
-                await displayBotResponse(previousResponse);
-                
-                // Determinamos el menú del área para seguir navegando
-                let areaKey;
-                if (currentChatState.startsWith('BAREMO_Y_DAÑO.')) {
-                    areaKey = currentChatState.includes('LABORAL') ? 'LABORAL' : 'TRANSITO';
-                } else if (currentChatState.includes('.')) {
-                    areaKey = currentChatState.split('.')[0]; 
-                } else {
-                     areaKey = null; // Para rutas COMMON como OTRAS_CONSULTAS
-                }
-
-                if (areaKey) {
-                    const areaMenuKey = areaKey + '.' + 'MENU_' + areaKey; 
-                    let areaMenu = getNestedResponse(areaMenuKey);
-                    
-                    if (Array.isArray(areaMenu)) {
-                        appendButtons(areaMenu, `¿Qué otra consulta deseas realizar en el área de ${areaKey.toLowerCase()}?`); 
-                    } else {
-                        appendButtons(window.CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL); 
-                    }
-                } else {
-                    // Si el estado anterior fue una respuesta COMMON (sin área específica)
-                    appendButtons(window.CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL);
-                }
-            }
+        if (previousResponse && Array.isArray(previousResponse)) {
+            // Caso A: El estado anterior era un menú. Lo volvemos a mostrar.
+            await displayBotResponse(window.CHATBOT_RESPONSES.COMMON.WELCOME_MESSAGE, 0);
+            appendButtons(previousResponse);
+            
         } else {
-            // Fallback total
-            await displayBotResponse(window.CHATBOT_RESPONSES.COMMON.WELCOME_MESSAGE);
-            appendButtons(window.CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL);
+            // Caso B: El estado anterior era una respuesta final (texto/baremo) o el menú principal.
+            // Si el historial está vacío, vamos al menú principal.
+            let previousMenuState = chatHistory.length > 0 ? chatHistory[chatHistory.length - 1] : 'COMMON.MENU_AREAS_PRINCIPAL';
+            let previousMenu = getNestedResponse(previousMenuState);
+            
+            if (previousMenu && Array.isArray(previousMenu)) {
+                await displayBotResponse(window.CHATBOT_RESPONSES.COMMON.WELCOME_MESSAGE, 0);
+                // Si el menú anterior tiene una respuesta de bienvenida, la mostramos, sino no.
+                appendButtons(previousMenu);
+            } else {
+                 // Fallback total
+                await displayBotResponse(window.CHATBOT_RESPONSES.COMMON.WELCOME_MESSAGE);
+                appendButtons(window.CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL);
+            }
         }
         stateHandled = true;
     }
@@ -262,7 +251,7 @@ async function processUserInput(input) {
 
                 // Guardar el estado actual en el historial antes de cambiarlo
                 chatHistory.push(currentChatState);
-                currentChatState = nextStatePath; 
+                currentChatState = nextStatePath; // Actualizar el estado
 
                 let nextResponse = getNestedResponse(nextStatePath);
                 
@@ -282,10 +271,10 @@ async function processUserInput(input) {
                         } else if (nextStatePath.includes('.')) {
                             areaKey = nextStatePath.split('.')[0]; 
                         } else {
-                            areaKey = null; // Para rutas COMMON
+                            areaKey = null; 
                         }
 
-                        if (areaKey) {
+                        if (areaKey && !['COMMON', 'BAREMO_Y_DAÑO'].includes(areaKey)) {
                             const areaMenu = getNestedResponse(areaKey + '.' + 'MENU_' + areaKey); 
                             if (Array.isArray(areaMenu)) {
                                 appendButtons(areaMenu, `¿Deseas otra consulta sobre ${areaKey.toLowerCase()} o prefieres volver al menú principal?`); 
@@ -293,13 +282,12 @@ async function processUserInput(input) {
                                 appendButtons([window.CHATBOT_RESPONSES.COMMON.RETURN_TO_MAIN_MENU, window.CHATBOT_RESPONSES.COMMON.RETURN_TO_PREVIOUS_MENU]);
                             }
                         } else {
-                            // Para respuestas COMMON (sin área específica)
+                            // Para respuestas COMMON o BAREMO_Y_DAÑO (que requieren retroceso simple)
                             appendButtons([window.CHATBOT_RESPONSES.COMMON.RETURN_TO_MAIN_MENU, window.CHATBOT_RESPONSES.COMMON.RETURN_TO_PREVIOUS_MENU]);
                         }
                     } else {
                         // Error de ruta
                         await displayBotResponse(window.CHATBOT_RESPONSES.COMMON.ERROR_INPUT_INVALIDO);
-                        // Vuelve a mostrar el menú anterior
                         appendButtons(getNestedResponse(chatHistory[chatHistory.length - 1]) || window.CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL);
                     }
                 } else {
@@ -311,51 +299,9 @@ async function processUserInput(input) {
             } 
         }
         
-        // --- 3. Manejo de opciones globales que no son submenús (OTRAS_CONSULTAS, CONTACTOS) ---
+        // --- 3. Si no se encontró en el menú actual, es un error ---
         if (!foundMatch) {
-             if (cleanedInput === 'OTRAS_CONSULTAS' || cleanedInput === 'CONTACTO_DIRECTO_GENERAL' || cleanedInput.startsWith('CONTACTO_PERSONAL_')) {
-                // Estas opciones ya han sido mapeadas en el paso 2 si provienen de un menú,
-                // si llegan aquí es por un error. Las manejamos como rutas finales:
-                chatHistory.push(currentChatState); 
-                currentChatState = cleanedInput; 
-                let responsePath = cleanedInput.startsWith('CONTACTO_PERSONAL_') ? cleanedInput : `COMMON.${cleanedInput}`;
-                await displayBotResponse(getNestedResponse(responsePath));
-                
-                // Ofrecer botones de regreso
-                let areaKey = cleanedInput.replace('CONTACTO_PERSONAL_', '');
-                const areaMenu = getNestedResponse(areaKey + '.' + 'MENU_' + areaKey);
-                
-                if (Array.isArray(areaMenu)) {
-                    appendButtons([window.CHATBOT_RESPONSES.COMMON.RETURN_TO_MAIN_MENU, window.CHATBOT_RESPONSES.COMMON.RETURN_TO_PREVIOUS_MENU], `Puedes volver al menú de ${areaKey.toLowerCase()} o al principal.`);
-                } else {
-                    appendButtons([window.CHATBOT_RESPONSES.COMMON.RETURN_TO_MAIN_MENU, window.CHATBOT_RESPONSES.COMMON.RETURN_TO_PREVIOUS_MENU]);
-                }
-                foundMatch = true;
-            } else if (cleanedInput.startsWith('BAREMO_')) {
-                // Manejo de baremos directos
-                chatHistory.push(currentChatState); 
-                currentChatState = `BAREMO_Y_DAÑO.${cleanedInput}`; 
-                const baremoData = getNestedResponse(currentChatState);
-                
-                if (baremoData) {
-                    await displayBaremo(baremoData);
-                    const areaKey = (cleanedInput.includes('LABORAL')) ? 'LABORAL' : 'TRANSITO';
-                    const areaMenu = getNestedResponse(areaKey + '.' + 'MENU_' + areaKey);
-
-                    if (Array.isArray(areaMenu)) {
-                        appendButtons(areaMenu, `¿Qué otra consulta deseas realizar en el área de ${areaKey.toLowerCase()}?`);
-                    } else {
-                        appendButtons(window.CHATBOT_RESPONSES.COMMON.MENU_AREAS_PRINCIPAL);
-                    }
-                    foundMatch = true;
-                }
-            }
-        }
-
-        if (!foundMatch) {
-            // Si no se encontró ninguna coincidencia
             await displayBotResponse(window.CHATBOT_RESPONSES.COMMON.ERROR_INPUT_INVALIDO);
-            // Volver a mostrar los botones del último menú válido
             let currentMenu = getNestedResponse(chatHistory[chatHistory.length -1]); 
             if (Array.isArray(currentMenu)) {
                 appendButtons(currentMenu);
@@ -406,6 +352,7 @@ sendButton?.addEventListener('click', () => {
 
 userInput?.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
+        e.preventDefault(); 
         sendButton.click();
     }
 });
