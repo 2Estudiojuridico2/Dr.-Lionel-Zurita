@@ -68,7 +68,7 @@ a:hover {
 
 /* Contenido principal para evitar superposición con navbar fija */
 main {
-    padding-top: 72px; /* Altura aproximada de la navbar */
+    padding-top: 0; /* Ajuste para no tener padding innecesario, las secciones manejan su padding */
 }
 
 /* Botones */
@@ -401,16 +401,10 @@ main {
     border: 1px solid #ced4da;
 }
 
-#contacto .form-control:focus {
-    border-color: var(--color-primario);
-    box-shadow: 0 0 0 0.25rem rgba(var(--color-primario), .25); /* Requiere adaptar a RGB o usar CSS variable con rgba */
-}
-
 /* Ajuste para usar la variable de color en box-shadow */
 #contacto .form-control:focus {
     border-color: var(--color-primario);
     /* Para usar rgba con una variable HEX, necesitas un truco CSS o especificarlo directamente */
-    /* Aquí un ejemplo que funciona si tienes un color primario fijo en HEX */
     box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25); /* Color de --color-primario en RGB + alpha */
 }
 
@@ -512,7 +506,7 @@ main {
 
 @media (max-width: 991.98px) {
     html { scroll-padding-top: 60px; }
-    main { padding-top: 60px; }
+    main { padding-top: 0; }
     .hero { padding-top: 60px; }
     .hero h1 { font-size: 2.8rem; }
     .hero p.lead { font-size: 1.3rem; }
