@@ -26,11 +26,12 @@
     --color-telegram: #17a2b8;
     --color-whatsapp: #28a745;
     --color-email: #6c757d; /* Gris para email */
-    --color-chatbot-fondo-header: #004d40; /* Verde oscuro para el header del chatbot */
-    --color-chatbot-input-send: #004d40; /* Verde oscuro para botón enviar del chatbot */
-    --color-chatbot-user-bubble: #dcf8c6; /* Verde claro para burbuja de usuario */
-    --color-chatbot-bot-bubble: #e0e0e0; /* Gris claro para burbuja de bot */
-    --color-chatbot-fondo-body: #f5f5f5; /* Fondo del cuerpo del chatbot */
+    /* Variables de Chatbot (aunque se usan en chatbot.css, se definen aquí) */
+    --color-chatbot-fondo-header: #004d40;
+    --color-chatbot-input-send: #004d40;
+    --color-chatbot-user-bubble: #dcf8c6;
+    --color-chatbot-bot-bubble: #e0e0e0;
+    --color-chatbot-fondo-body: #f5f5f5;
 }
 
 /* ========================================================================= */
@@ -63,12 +64,12 @@ a {
 
 a:hover {
     color: var(--color-navbar-hover);
-    text-decoration: underline;
+    text-decoration: none; /* Quitamos underline en hover para un look más limpio */
 }
 
 /* Contenido principal para evitar superposición con navbar fija */
 main {
-    padding-top: 0; /* Ajuste para no tener padding innecesario, las secciones manejan su padding */
+    padding-top: 0; 
 }
 
 /* Botones */
@@ -77,6 +78,7 @@ main {
     border-color: var(--color-primario);
     color: #fff;
     font-weight: bold;
+    border-radius: 0.3rem; /* Añadir border-radius */
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -91,6 +93,7 @@ main {
     border-color: var(--color-secundario);
     color: #fff;
     font-weight: bold;
+    border-radius: 0.3rem;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -103,6 +106,7 @@ main {
 .btn-outline-primary {
     color: var(--color-primario);
     border-color: var(--color-primario);
+    border-radius: 0.3rem;
     transition: all 0.3s ease;
 }
 
@@ -163,7 +167,7 @@ main {
 .custom-navbar {
     background-color: var(--color-navbar-fondo);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1050; /* Mayor z-index para navbar */
+    z-index: 1050; 
 }
 
 .nav-brand {
@@ -231,27 +235,27 @@ main {
     background-size: cover;
     background-position: center;
     color: #fff;
-    padding-top: 72px; /* Espacio para navbar en el top del hero */
+    padding-top: 72px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Asegura que el contenido no se salga */
+    overflow: hidden; 
 }
 
 .hero::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)); /* Oscurece más la imagen */
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)); /* Ligeramente más oscuro */
     z-index: -1;
 }
 
 .hero h1 {
     font-weight: 700;
-    font-size: 3.5rem; /* Ajuste un poco más grande */
+    font-size: 3.5rem; 
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
     margin-bottom: 0.5em;
 }
@@ -262,7 +266,7 @@ main {
     margin-bottom: 1.5em;
 }
 
-/* Fondos específicos para áreas */
+/* Fondos específicos para áreas (Deben coincidir con las imágenes usadas en el HTML) */
 .hero-oficina { background-image: url('../images/oficina.jpg'); }
 .hero-familia { background-image: url('../images/familia.jpg'); }
 .hero-laboral { background-image: url('../images/laboral.png'); }
@@ -307,6 +311,7 @@ main {
 
 #valores .card {
     border: none;
+    border-radius: 0.75rem; /* Asegurar bordes redondeados */
     box-shadow: 0 0 15px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -336,16 +341,16 @@ main {
 }
 
 #areas .card {
-    border: 1px solid rgba(0,0,0,.125); /* Borde suave */
-    border-radius: .75rem; /* Bordes más redondeados */
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08); /* Sombra más pronunciada */
+    border: 1px solid rgba(0,0,0,.125); 
+    border-radius: .75rem; 
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; /* Para asegurar que nada se salga del card */
+    overflow: hidden; 
 }
 
 #areas .card:hover {
-    transform: translateY(-8px); /* Elevación al pasar el ratón */
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.15); /* Sombra más intensa en hover */
+    transform: translateY(-8px); 
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15); 
 }
 
 #areas .card-body {
@@ -359,17 +364,17 @@ main {
 
 #areas .card-body i {
     color: var(--color-primario);
-    font-size: 3.5rem; /* Iconos más grandes */
+    font-size: 3.5rem; 
     margin-bottom: 1.5rem;
     transition: color 0.3s ease;
 }
 
 #areas .card:hover .card-body i {
-    color: var(--color-navbar-hover); /* Cambio de color de icono en hover */
+    color: var(--color-navbar-hover); 
 }
 
 #areas .card-body h4 {
-    font-size: 1.8rem; /* Títulos de área más grandes */
+    font-size: 1.8rem; 
     margin-bottom: 1rem;
     color: var(--color-texto-oscuro);
 }
@@ -378,7 +383,7 @@ main {
     font-size: 1.05rem;
     color: var(--color-secundario);
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Para que los párrafos ocupen espacio y los botones estén alineados */
+    flex-grow: 1; 
 }
 
 
@@ -401,11 +406,10 @@ main {
     border: 1px solid #ced4da;
 }
 
-/* Ajuste para usar la variable de color en box-shadow */
 #contacto .form-control:focus {
     border-color: var(--color-primario);
-    /* Para usar rgba con una variable HEX, necesitas un truco CSS o especificarlo directamente */
-    box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25); /* Color de --color-primario en RGB + alpha */
+    /* Usando un valor explícito de rgba basado en --color-primario (#f4623a) */
+    box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
 }
 
 
@@ -427,7 +431,7 @@ main {
 }
 
 .footer a:hover {
-    color: var(--color-primario); /* Resalta enlaces del footer con color primario */
+    color: var(--color-primario);
     text-decoration: underline;
 }
 
@@ -437,40 +441,41 @@ main {
 }
 
 /* ========================================================================= */
-/* LOTTIE CHATBOT TOGGLER & WHATSAPP FLOAT */
+/* LOTTIE CHATBOT TOGGLER & WHATSAPP FLOAT - ARMONIZADO */
 /* ========================================================================= */
 
-#lottie-chatbot-toggler {
+/* Botón flotante del Chatbot Lottie */
+#chatbot-lottie-btn { /* Usando el ID armonizado */
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 70px; /* Tamaño más visible para el icono Lottie */
+    width: 70px;
     height: 70px;
     cursor: pointer;
-    z-index: 1001; /* Mayor que WhatsApp */
+    z-index: 1001; 
     border-radius: 50%;
-    background-color: transparent; /* El Lottie es una SVG, no necesita fondo */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra más suave */
+    background-color: #fff; /* Le damos un fondo blanco para que resalte la animación */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
     transition: transform 0.3s ease;
-    display: flex; /* Para centrar el SVG de Lottie si fuera necesario */
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#lottie-chatbot-toggler:hover {
+#chatbot-lottie-btn:hover {
     transform: scale(1.1);
 }
 
 /* Botón flotante de WhatsApp */
-.whatsapp-float {
+#whatsapp-float-btn { /* Usando el ID armonizado */
     position: fixed;
     bottom: 20px;
-    right: 100px; /* Posicionado a la izquierda del Lottie toggler */
-    z-index: 1000; /* Menor que Lottie toggler, pero mayor que el contenido */
+    right: 100px; 
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px; /* Un poco más pequeño que el Lottie */
+    width: 60px;
     height: 60px;
     background-color: var(--color-whatsapp);
     color: white;
@@ -478,18 +483,19 @@ main {
     text-decoration: none;
     font-size: 28px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.whatsapp-float:hover {
+#whatsapp-float-btn:hover {
     transform: scale(1.1);
-    color: white; /* Asegura el color blanco en hover */
+    background-color: #1aae3b; /* Un verde ligeramente diferente para hover */
+    color: white; 
 }
 
-/* Clase para ocultar el botón de WhatsApp cuando el chatbot está abierto */
-.whatsapp-float.hidden {
+/* Clase que JS usará para ocultar el botón de WhatsApp cuando el chatbot esté abierto */
+#whatsapp-float-btn.hidden { 
     opacity: 0;
-    visibility: hidden;
+    pointer-events: none; /* Deshabilita clics */
     transform: scale(0.8);
 }
 
@@ -528,14 +534,16 @@ main {
     #sobre-nosotros img, #contacto img {
         margin-bottom: 2rem;
     }
-    .whatsapp-float {
-        right: 80px; /* Ajuste para móviles */
+    
+    /* Ajustes móviles para botones flotantes */
+    #whatsapp-float-btn {
+        right: 80px; 
         width: 55px;
         height: 55px;
         font-size: 25px;
     }
-    #lottie-chatbot-toggler {
-        right: 15px; /* Ajuste para móviles */
+    #chatbot-lottie-btn {
+        right: 15px; 
         width: 65px;
         height: 65px;
     }
@@ -545,17 +553,19 @@ main {
     .hero h1 { font-size: 1.8rem; }
     .hero p.lead { font-size: 1rem; }
     .hero .btn {
-        width: 90%; /* Botones de hero ocupan casi todo el ancho */
+        width: 90%; 
         margin-bottom: 10px;
     }
-    .whatsapp-float {
+    
+    /* Ajustes móviles más pequeños para botones flotantes */
+    #whatsapp-float-btn {
         right: 70px;
         bottom: 15px;
         width: 50px;
         height: 50px;
         font-size: 22px;
     }
-    #lottie-chatbot-toggler {
+    #chatbot-lottie-btn {
         right: 10px;
         bottom: 15px;
         width: 60px;
