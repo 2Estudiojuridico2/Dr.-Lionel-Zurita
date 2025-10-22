@@ -13,29 +13,33 @@ let typingTimeout;
 // Elementos del DOM (Se asume que existen en el HTML)
 const chatbotContainer = document.getElementById('chatbot-container');
 const chatbotBody = document.getElementById('chatbot-body');
-const chatbotinput = document.getElementById('chatbot-input');
-const chatbotsendbtn = document.getElementById('chatbot-send-btn');
-const chatclosebtn = document.getElementById('chat-close-btn');
-const chatbotlottiebtn = document.getElementById('chatbot-lottie-btn');
-const whatsappFloatbtn = document.querySelector('.whatsapp-float-btn');
+const userInput = document.getElementById('chatbot-input'); // Usaremos 'userInput'
+const sendButton = document.getElementById('chatbot-send-btn'); // Usaremos 'sendButton'
+const closeChatButton = document.getElementById('chatbot-close-btn'); // Usaremos 'closeChatButton'
+const lottieChatbotToggler = document.getElementById('chatbot-lottie-btn'); 
+const whatsappFloatButton = document.getElementById('whatsapp-float-btn'); // Usamos el ID en lugar del selector de clase que tenías
 
 // =========================================================================
-// INICIALIZACIÓN DE LOTTIE
+// INICIALIZACIÓN DE LOTTIE Y ASIGNACIÓN DE EVENTO
 // =========================================================================
-let lottieAnimation;
-// Verificamos que el elemento exista y que la biblioteca lottie esté cargada
-if (lottieChatbotToggler && typeof lottie !== 'undefined') {
-    lottieAnimation = lottie.loadAnimation({
-        container: lottieChatbotToggler,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        // Ruta del archivo Lottie (asumida desde la raíz del proyecto)
-        path: 'assets/lottie/lawyer-assistant.json' 
-    });
+let lottieAnimation = null; // Inicializamos a null
+
+// ⚠️ Asigna el evento de clic directamente si el botón existe.
+// Esto garantiza que el chatbot se abra, incluso si la animación Lottie falla.
+if (lottieChatbotToggler) {
     lottieChatbotToggler.addEventListener('click', toggleChatbot);
-}
 
+    // Intentamos cargar la animación solo si 'lottie' está definido globalmente
+    if (typeof lottie !== 'undefined') {
+        lottieAnimation = lottie.loadAnimation({
+            container: lottieChatbotToggler,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/lottie/lawyer-assistant.json' 
+        });
+    }
+}
 // =========================================================================
 // FUNCIONES DE UTILIDAD
 // =========================================================================
