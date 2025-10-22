@@ -13,11 +13,11 @@ let typingTimeout;
 // Elementos del DOM (Se asume que existen en el HTML)
 const chatbotContainer = document.getElementById('chatbot-container');
 const chatbotBody = document.getElementById('chatbot-body');
-const userInput = document.getElementById('user-input');
-const sendButton = document.getElementById('send-button');
-const closeChatButton = document.getElementById('close-chat');
-const lottieChatbotToggler = document.getElementById('lottie-chatbot-toggler');
-const whatsappFloatButton = document.querySelector('.whatsapp-float');
+const chatbotinput = document.getElementById('chatbot-input');
+const chatbotsendbtn = document.getElementById('chatbot-send-btn');
+const chatclosebtn = document.getElementById('chat-close-btn');
+const chatbotlottiebtn = document.getElementById('chatbot-lottie-btn');
+const whatsappFloatbtn = document.querySelector('.whatsapp-float-btn');
 
 // =========================================================================
 // INICIALIZACIÓN DE LOTTIE
