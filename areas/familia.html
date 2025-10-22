@@ -16,17 +16,14 @@
 
     <link rel="icon" href="../images/justicia.png" type="image/png">
 
-    <!-- CSS externos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Tus estilos (rutas relativas porque estamos en /areas/) -->
     <link rel="stylesheet" href="../css/estilos.css">
     <link rel="stylesheet" href="../css/chatbot.css">
 
-    <!-- Pequeños ajustes locales para evitar problemas de visualización -->
     <style>
         /* Asegurar que el anclaje no quede tapado por la navbar fija */
         html { scroll-padding-top: 80px; }
@@ -74,17 +71,35 @@
         .whatsapp-float:hover { transform: translateY(-4px); }
 
         /* Asegurar que el chatbot-toggler quede por encima del whatsapp (en caso de superposición) */
-        #chatbot-toggler { z-index: 1150; }
-        /* Si tu chatbot.css no haya definido el contenedor cerrado, lo dejamos oculto por defecto */
-        #chatbot-container { display: none; }
-
+        /* Eliminé el ID redundante #chatbot-toggler ya que usas #chatbot-lottie-btn */
+        
+        /* Asegurar que el chatbot-container esté oculto por defecto */
+        #chatbot-container:not(.open) { display: none; }
+        
         /* Asegurar que las imágenes en valores y encabezados no sean demasiado grandes en móvil */
         .valores-img { max-height: 220px; object-fit: cover; }
+        
+        /* Estilo para el botón de scroll-top (usado por main.js) */
+        .scroll-top-btn { 
+            position: fixed; 
+            right: 24px; 
+            bottom: 20px; /* El JS lo ajusta para no chocar con WhatsApp */
+            width: 50px; 
+            height: 50px; 
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 50%; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+            z-index: 1050; 
+            cursor: pointer;
+            display: none; /* Oculto por defecto, el JS lo muestra */
+            transition: opacity 0.3s;
+        }
     </style>
 </head>
 <body class="familia">
 
-    <!-- NAV -->
     <nav class="navbar navbar-expand-lg fixed-top custom-navbar" aria-label="Barra de navegación principal">
         <div class="container">
             <a class="navbar-brand nav-brand" href="../index.html">Estudio Jurídico Zurita</a>
@@ -114,7 +129,6 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <header id="inicio-familia" class="hero hero-familia text-center" role="banner">
         <div class="container d-flex flex-column justify-content-center align-items-center">
             <h1 class="display-4 text-white mb-3" data-aos="fade-down">Derecho de Familia</h1>
@@ -133,7 +147,6 @@
     <main class="my-5 py-5" role="main" tabindex="0">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <!-- Si quieres usar familia-og.jpg aquí en formato visual -->
                 <img src="../images/familia-og.jpg" alt="Derecho de Familia" class="img-fluid mb-3" style="max-width:220px;">
                 <h2 class="display-6 fw-bold">Protegiendo lo que más importa: Tu Familia</h2>
                 <p class="lead mt-3">
@@ -143,7 +156,6 @@
 
             <hr class="my-5" id="nuestros-servicios">
 
-            <!-- SERVICIOS -->
             <section class="mb-5" aria-labelledby="nuestros-servicios-titulo">
                 <h3 id="nuestros-servicios-titulo" class="fw-bold text-center mb-4" data-aos="fade-up">Nuestros Servicios Detallados en Derecho de Familia</h3>
 
@@ -212,7 +224,6 @@
 
             <hr class="my-5">
 
-            <!-- COMPROMISO -->
             <section class="mb-5" aria-labelledby="compromiso-familia-titulo">
                 <h3 id="compromiso-familia-titulo" class="fw-bold text-center mb-4" data-aos="fade-up">Nuestro Compromiso y Enfoque en Derecho de Familia</h3>
                 <div class="row align-items-center">
@@ -256,7 +267,6 @@
 
             <hr class="my-5">
 
-            <!-- FAQ -->
             <section id="faqs" class="mb-5" aria-labelledby="faqs-familia-titulo">
                 <h3 id="faqs-familia-titulo" class="fw-bold text-center mb-4" data-aos="fade-up">Preguntas Frecuentes (FAQ) sobre Derecho de Familia</h3>
 
@@ -317,7 +327,6 @@
 
             <hr class="my-5">
 
-            <!-- CONTACT AREA -->
             <section id="contact-area-page" class="py-5 text-center" aria-labelledby="contact-heading">
                 <h2 id="contact-heading" class="display-6 fw-bold mb-4" data-aos="fade-up">¿Necesitas asesoramiento en Derecho de Familia?</h2>
                 <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -337,11 +346,11 @@
             </section>
         </div>
     </main>
-
-   <div id="chatbot-lottie-btn" class="floating-btn chatbot-btn" role="button" tabindex="0" aria-label="Abrir Asistente de Chat Legal" data-bs-toggle="tooltip" data-bs-placement="left" title="Asistente Legal IA">
+    
+    <div id="chatbot-lottie-btn" class="floating-btn chatbot-btn" role="button" tabindex="0" aria-label="Abrir Asistente de Chat Legal" data-bs-toggle="tooltip" data-bs-placement="left" title="Asistente Legal IA">
         <lottie-player 
             id="lottie-icon"
-            src="../Assent/Lottie/lawyer-assistant.json" 
+            src="../assets/lottie/lawyer-assistant.json" 
             background="transparent" 
             speed="1" 
             style="width: 60px; height: 60px;" 
@@ -355,18 +364,23 @@
             <h3 id="chatbot-header-title">Asistente Legal Zurita</h3>
             <button id="chatbot-close-btn" aria-label="Cerrar Chatbot">&times;</button>
         </div>
-        <div id="chatbot-body">
-            <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
+        <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3">
+             <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
         </div>
-        <div id="chatbot-footer">
-            <input type="text" id="chatbot-input" placeholder="Escribe tu consulta...">
-            <button id="chatbot-send-btn" aria-label="Enviar Mensaje"><i class="fas fa-paper-plane"></i></button>
-        </div>
+        <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t">
+            </div>
+        <form id="chat-form" class="p-3 border-t flex">
+            <input type="text" id="chatbot-input" placeholder="Escribe tu consulta..." class="flex-grow p-2 border rounded-l-lg focus:outline-none">
+            <button type="submit" id="chatbot-send-btn" aria-label="Enviar Mensaje" class="p-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
     </div>
 
-    <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Consulta por WhatsApp">
+    <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Consulta por WhatsApp">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
+    
     <footer class="footer" role="contentinfo">
         <div class="container text-center">
             <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
@@ -377,12 +391,8 @@
             </p>
         </div>
     </footer>
-    <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
-    </button>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -392,9 +402,8 @@
     </script>
     
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="../js/respuestas.js"></script> 
-    <script src="../js/frases.js"></script>     
+    <script src="../js/respuestas.js"></script>
     <script src="../js/chatbot.js"></script>
     <script src="../js/main.js"></script>
-    </body>
+</body>
 </html>
