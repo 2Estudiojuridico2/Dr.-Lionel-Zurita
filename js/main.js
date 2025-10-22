@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3.2 Lógica de Inicialización del Chatbot ---
 
     // Toggle Chatbot UI
-    document.getElementById('chatbot-toggle-btn').addEventListener('click', () => {
+    document.getElementById('chatbot-lottie-btn').addEventListener('click', () => {
         chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
         // Cargar el mensaje de bienvenida solo si el chat está vacío
         if (chatMessages.innerHTML.trim() === '') {
