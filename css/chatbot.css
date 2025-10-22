@@ -1,176 +1,179 @@
 /* =========================================================================
- * CHATBOT STYLES (css/chatbot.css) - CORREGIDO
+ * CHATBOT STYLES (css/chatbot.css) - ARMONIZADO CON INDEX.HTML
  * ========================================================================= */
 
 /* Estilos para el contenedor principal del chatbot */
-.chatbot-container {
-    position: fixed;
-    bottom: 90px; /* Ajustado para dejar espacio al botón de WhatsApp si existe */
-    right: 20px;
-    width: 350px;
-    height: 500px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: 1000; /* Z-Index para el chatbot. Visible por encima del cuerpo de la página. */
-    font-family: 'Arial', sans-serif;
-    transform: scale(0); /* Inicialmente oculto y escalado a cero */
-    transform-origin: bottom right; /* Origen de la transformación */
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transición suave */
-    opacity: 0; /* Opacidad inicial para la transición */
+#chatbot-container { /* Usando el ID del HTML */
+    position: fixed;
+    bottom: 90px; /* Ajustado para dejar espacio al botón de WhatsApp si existe */
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000; /* Z-Index para el chatbot. Visible por encima del cuerpo de la página. */
+    font-family: 'Roboto', sans-serif;
+    transform: scale(0); /* Inicialmente oculto y escalado a cero */
+    transform-origin: bottom right; /* Origen de la transformación */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transición suave */
+    opacity: 0; /* Opacidad inicial para la transición */
 }
 
-.chatbot-container.open {
-    transform: scale(1);
-    opacity: 1;
+/* Clase que se añade con JavaScript para mostrar el chatbot */
+#chatbot-container.open {
+    transform: scale(1);
+    opacity: 1;
 }
 
 /* Estilos para el encabezado del chatbot */
-.chatbot-header {
-    background-color: #004d40; /* Verde oscuro */
-    color: #fff;
-    padding: 15px;
-    font-size: 1.1em;
-    font-weight: bold;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#chatbot-header { /* Usando el ID del HTML */
+    background-color: #004d40; /* Verde oscuro */
+    color: #fff;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.chatbot-header .close-chat-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.2em;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.2s;
+/* Estilos para el botón de cierre dentro del encabezado */
+#chatbot-close-btn { /* Usando el ID del HTML */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
 }
 
-.chatbot-header .close-chat-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+#chatbot-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Estilos para el cuerpo del chatbot (donde van los mensajes) */
-.chatbot-body {
-    flex-grow: 1;
-    padding: 15px;
-    overflow-y: auto;
-    background-color: #e0f2f1; /* Verde claro muy suave */
-    display: flex;
-    flex-direction: column;
+#chatbot-body { /* Usando el ID del HTML */
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #e0f2f1; /* Verde claro muy suave */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Scrollbar personalizado para el cuerpo del chatbot */
-.chatbot-body::-webkit-scrollbar {
-    width: 8px;
+#chatbot-body::-webkit-scrollbar {
+    width: 8px;
 }
 
-.chatbot-body::-webkit-scrollbar-track {
-    background: #e0f2f1;
+#chatbot-body::-webkit-scrollbar-track {
+    background: #e0f2f1;
 }
 
-.chatbot-body::-webkit-scrollbar-thumb {
-    background-color: #80cbc4; /* Verde medio */
-    border-radius: 10px;
-    border: 2px solid #e0f2f1;
+#chatbot-body::-webkit-scrollbar-thumb {
+    background-color: #80cbc4; /* Verde medio */
+    border-radius: 10px;
+    border: 2px solid #e0f2f1;
 }
 
 /* Estilos para los mensajes del usuario */
 .message.user {
-    align-self: flex-end;
-    background-color: #004d40; /* Verde oscuro */
-    color: #fff;
-    border-radius: 12px 12px 0 12px;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    max-width: 80%;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-self: flex-end;
+    background-color: #004d40; /* Verde oscuro */
+    color: #fff;
+    border-radius: 12px 12px 0 12px;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para los mensajes del bot */
 .message.bot {
-    align-self: flex-start;
-    background-color: #f5f5f5; /* Gris muy claro */
-    color: #333;
-    border-radius: 12px 12px 12px 0;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    max-width: 80%;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    align-self: flex-start;
+    background-color: #f5f5f5; /* Gris muy claro */
+    color: #333;
+    border-radius: 12px 12px 12px 0;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* Estilos para los enlaces dentro de los mensajes del bot */
 .message.bot a {
-    color: #004d40; /* Mismo verde oscuro que el header */
-    text-decoration: underline;
+    color: #004d40; /* Mismo verde oscuro que el header */
+    text-decoration: underline;
 }
 
 .message.bot a:hover {
-    text-decoration: none;
+    text-decoration: none;
 }
 
-/* Estilos para el área de entrada de texto */
-.chatbot-input-area {
-    display: flex;
-    padding: 10px 15px;
-    border-top: 1px solid #ccc;
-    background-color: #fff;
+/* Estilos para el área de entrada de texto - Renombrado de .chatbot-input-area a #chatbot-footer */
+#chatbot-footer { 
+    display: flex;
+    padding: 10px 15px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
 }
 
-.chatbot-input-area input {
-    flex-grow: 1;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    padding: 10px 15px;
-    font-size: 0.9em;
-    margin-right: 10px;
-    outline: none;
-    transition: border-color 0.2s;
+#chatbot-footer input { /* Selectores de input dentro del footer */
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    margin-right: 10px;
+    outline: none;
+    transition: border-color 0.2s;
 }
 
-.chatbot-input-area input:focus {
-    border-color: #004d40;
+#chatbot-footer input:focus {
+    border-color: #004d40;
 }
 
-.chatbot-input-area button {
-    background-color: #004d40;
-    color: #fff;
-    border: none;
-    border-radius: 50%; /* Botón circular */
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.2s, transform 0.2s;
+#chatbot-send-btn { /* Usando el ID del botón de enviar */
+    background-color: #004d40;
+    color: #fff;
+    border: none;
+    border-radius: 50%; /* Botón circular */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.2s, transform 0.2s;
 }
 
-.chatbot-input-area button:hover {
-    background-color: #00362c; /* Verde más oscuro al pasar el ratón */
-    transform: scale(1.05);
+#chatbot-send-btn:hover {
+    background-color: #00362c; /* Verde más oscuro al pasar el ratón */
+    transform: scale(1.05);
 }
 
 /* ========================================================================= */
-/* ESTILOS CORREGIDOS para el contenedor del lottie toggler (AVATAR) */
-/* Se ha cambiado de . a # para usar el ID del HTML */
+/* ESTILOS para el botón flotante (LOTTIE) y WHATSAPP */
 /* ========================================================================= */
-#lottie-chatbot-toggler {
+
+/* Botón flotante Lottie - Renombrado de #lottie-chatbot-toggler a #chatbot-lottie-btn */
+#chatbot-lottie-btn { 
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 60px; /* Tamaño del icono Lottie */
-    height: 60px;
+    width: 70px; /* Tamaño ligeramente más grande */
+    height: 70px;
     cursor: pointer;
     z-index: 1001; /* Asegura que esté por encima del chatbot cerrado y WhatsApp */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -180,145 +183,172 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease;
 }
 
-#lottie-chatbot-toggler.hidden {
+#chatbot-lottie-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Botón flotante WhatsApp */
+#whatsapp-float-btn { /* Usando el ID del HTML */
+    position: fixed;
+    bottom: 20px;
+    right: 100px; /* Movido a la izquierda para que el Lottie esté en la esquina */
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    font-size: 1.8em;
+    transition: opacity 0.3s ease-out, transform 0.3s ease;
+}
+
+#whatsapp-float-btn:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+/* Estilo para ocultar el botón de WhatsApp cuando el chatbot está abierto (Controlado por JS) */
+.whatsapp-hidden { /* Clase que se añade con JS */
     opacity: 0;
-    pointer-events: none; /* Deshabilita clics cuando está oculto */
+    pointer-events: none; /* Deshabilita clics */
+    transform: scale(0.8);
 }
 
 /* Estilos para los botones de opciones */
 .chatbot-options-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    width: 100%; /* Asegura que ocupe el ancho disponible */
-    box-sizing: border-box; /* Para incluir padding y border en el ancho */
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .chatbot-options-container button {
-    background-color: #4db6ac; /* Verde medio claro */
-    color: #004d40; /* Texto verde oscuro */
-    border: 1px solid #004d40; /* Borde verde oscuro */
-    border-radius: 8px;
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    font-size: 0.95em;
-    text-align: left;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #4db6ac; /* Verde medio claro */
+    color: #004d40; /* Texto verde oscuro */
+    border: 1px solid #004d40; /* Borde verde oscuro */
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    text-align: left;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .chatbot-options-container button:hover {
-    background-color: #004d40; /* Fondo verde oscuro al pasar el ratón */
-    color: #fff; /* Texto blanco al pasar el ratón */
-    border-color: #00362c;
+    background-color: #004d40; /* Fondo verde oscuro al pasar el ratón */
+    color: #fff; /* Texto blanco al pasar el ratón */
+    border-color: #00362c;
 }
 
 /* Estilo para el mensaje de "escribiendo..." */
 .typing-indicator {
-    display: flex;
-    align-items: center;
-    background-color: #f5f5f5;
-    padding: 8px 12px;
-    border-radius: 12px 12px 12px 0;
-    margin-bottom: 8px;
-    align-self: flex-start;
-    max-width: 80px; /* Ajusta el ancho para los puntos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 8px 12px;
+    border-radius: 12px 12px 12px 0;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    max-width: 80px; /* Ajusta el ancho para los puntos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .typing-indicator span {
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: #80cbc4; /* Color de los puntos */
-    border-radius: 50%;
-    margin: 0 2px;
-    animation: bounce 1.2s infinite ease-in-out;
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #80cbc4; /* Color de los puntos */
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: bounce 1.2s infinite ease-in-out;
 }
 
 .typing-indicator span:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: 0.2s;
 }
 
 .typing-indicator span:nth-child(3) {
-    animation-delay: 0.4s;
+    animation-delay: 0.4s;
 }
 
 @keyframes bounce {
-    0%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-5px);
-    }
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
 }
 
 
-/* Media queries para responsividad */
+/* Media queries para responsividad (Optimizado para móvil) */
 @media (max-width: 768px) {
-    .chatbot-container {
-        width: 90vw; /* Utiliza el 90% del ancho del viewport */
-        height: 80vh; /* Utiliza el 80% de la altura del viewport */
-        bottom: 70px; /* Ajustado para móvil */
-        right: 5vw; /* Centrado relativo al viewport */
-        left: 5vw; /* Centrado relativo al viewport */
-        max-width: none; /* Elimina la restricción de ancho máximo */
-    }
+    #chatbot-container {
+        width: 90vw; /* Utiliza el 90% del ancho del viewport */
+        height: 80vh; /* Utiliza el 80% de la altura del viewport */
+        bottom: 70px; /* Ajustado para móvil */
+        right: 5vw; 
+        left: 5vw; 
+        max-width: none; 
+    }
 
-    #lottie-chatbot-toggler { /* Se mantiene ID # */
-        bottom: 15px; /* Ajustado para móvil */
-        right: 15px; /* Ajustado para móvil */
-        width: 50px;
-        height: 50px;
-    }
+    #chatbot-lottie-btn { 
+        bottom: 15px; 
+        right: 15px; 
+        width: 60px;
+        height: 60px;
+    }
 
-    /* Ajustar el padding y fuente para pantallas más pequeñas si es necesario */
-    .chatbot-header {
-        padding: 12px;
-        font-size: 1em;
-    }
+    #whatsapp-float-btn {
+        bottom: 15px; 
+        right: 85px; /* Ajustado para móvil */
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+    }
 
-    .chatbot-body {
-        padding: 10px;
-    }
+    /* Ajustar el padding y fuente para pantallas más pequeñas si es necesario */
+    #chatbot-header {
+        padding: 12px;
+        font-size: 1em;
+    }
 
-    .message {
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
+    #chatbot-body {
+        padding: 10px;
+    }
 
-    .chatbot-input-area {
-        padding: 8px 10px;
-    }
+    .message {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
 
-    .chatbot-input-area input {
-        padding: 8px 12px;
-        font-size: 0.85em;
-    }
+    #chatbot-footer {
+        padding: 8px 10px;
+    }
 
-    .chatbot-input-area button {
-        width: 35px;
-        height: 35px;
-        font-size: 1em;
-    }
+    #chatbot-footer input {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
 
-    .chatbot-options-container button {
-        padding: 10px 12px;
-        font-size: 0.85em;
-    }
-}
+    #chatbot-send-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
 
-/* Estilo para ocultar el botón de WhatsApp cuando el chatbot está abierto */
-.whatsapp-float {
-    transition: opacity 0.3s ease-out; /* Suaviza la transición */
-}
-
-/* Este selector oculta el WhatsApp cuando el chatbot está abierto */
-.chatbot-container.open ~ .whatsapp-float {
-    opacity: 0;
-    pointer-events: none; /* Para que no se pueda clickear aunque no se vea */
+    .chatbot-options-container button {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
 }
