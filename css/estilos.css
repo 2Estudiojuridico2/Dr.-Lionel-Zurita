@@ -572,3 +572,58 @@ main {
         height: 60px;
     }
 }
+/* -------------------------------------------------------------------------- */
+/* CORRECCIÓN DE ESCALA PARA PANTALLAS GRANDES (PC) */
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 1400px) {
+    /* Selecciona el cuerpo de la página (contenido principal) */
+    body {
+        /* Reduce el tamaño visual de todo el contenido al 70% (0.7) */
+        transform: scale(0.70);
+        
+        /* Fija el punto de origen de la escala en la esquina superior izquierda */
+        transform-origin: top left;
+        
+        /* Ajusta el ancho para que el contenido escalado del body cubra el 100% visible */
+        /* Cálculo: 100% dividido por el factor de escala (1 / 0.7 ≈ 1.428) */
+        width: 142.857%;
+        
+        /* Asegura que no haya scrollbars innecesarias en el elemento body */
+        overflow-x: hidden;
+    }
+    
+    /* AJUSTES ADICIONALES PARA ELEMENTOS FLOTANTES */
+    
+    /* El botón de WhatsApp y el botón del Chatbot flotan, por lo que deben re-escalarse inversamente */
+    .floating-btn,
+    .whatsapp-float-btn,
+    .chatbot-btn {
+        /* Re-escala inversamente (1 / 0.7 ≈ 1.428) */
+        transform: scale(1.428); 
+        
+        /* Ajusta la posición para compensar la escala del body */
+        /* Los valores de 'bottom' y 'right' pueden necesitar un ajuste fino si no quedan perfectos */
+        right: 15px !important;
+        bottom: 15px !important;
+    }
+    
+    /* El contenedor del Chatbot (que se abre) también necesita compensación */
+    #chatbot-container {
+        /* Re-escala inversamente para que se vea en el tamaño normal (100%) dentro del body reducido */
+        transform: scale(1.428); 
+        
+        /* Posiciona el contenedor en la esquina correcta del viewport escalado */
+        right: 20px !important;
+        bottom: 20px !important;
+    }
+    
+    /* La barra de navegación (fixed-top) también podría necesitar un ajuste de posición o escala si se ve afectada */
+    .fixed-top {
+        /* Reajuste simple de posición, puede variar */
+        left: 0;
+        right: 0;
+        transform: scale(1); /* Asegurar que no escale si no está dentro del body directamente */
+        width: 100%;
+    }
+}
