@@ -447,10 +447,10 @@ main {
 /* Botón flotante del Chatbot Lottie */
 #chatbot-lottie-btn { /* Usando el ID armonizado */
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     z-index: 1050; 
     border-radius: 0%;
@@ -570,53 +570,5 @@ main {
         bottom: 15px;
         width: 60px;
         height: 60px;
-    }
-}
-/* -------------------------------------------------------------------------- */
-/* CORRECCIÓN DE ESCALA PARA PANTALLAS GRANDES (PC) - USANDO UN WRAPPER */
-/* -------------------------------------------------------------------------- */
-/* Aplicar la escala solo a partir de resoluciones de escritorio (ej: 1200px) */
-@media (min-width: 1200px) {
-    
-    #page-content-wrapper {
-        /* Reduce el tamaño visual de todo el contenido al 70% (0.7) */
-        transform: scale(0.70);
-        
-        /* Fija el punto de origen de la escala en la esquina superior izquierda */
-        transform-origin: top left;
-        
-        /* Ajusta el ancho y el alto para compensar la escala (1 / 0.7 ≈ 1.428) */
-        width: 142.857%;
-        min-height: 142.857vh; /* Ajuste para la altura visible */
-        
-        /* Oculta el scroll horizontal que podría crearse por la compensación de ancho */
-        overflow-x: hidden;
-    }
-
-    /* COMPENSACIÓN PARA ELEMENTOS FIJOS (Chatbot, WhatsApp, Scroll Top) */
-    
-    .floating-btn,
-    #chatbot-container,
-    .scroll-top {
-        /* Re-escala inversamente para que se vean en tamaño 100% (1 / 0.7 ≈ 1.428) */
-        transform: scale(1.428); 
-        
-        /* Ajuste de posición para compensar la escala del wrapper */
-        right: 15px !important;
-        bottom: 15px !important;
-    }
-    
-    #chatbot-container {
-        /* Ajuste adicional si se abre demasiado grande */
-        right: 20px !important; 
-        bottom: 20px !important;
-    }
-    
-    /* La barra de navegación (fixed-top) - Asegurar que no escale */
-    .fixed-top {
-        transform: none; /* Deshacer cualquier posible escala heredada */
-        width: 100%;
-        left: 0;
-        right: 0;
     }
 }
