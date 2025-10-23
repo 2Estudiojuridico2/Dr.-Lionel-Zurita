@@ -170,7 +170,7 @@
 /* Botón flotante Lottie - Renombrado de #lottie-chatbot-toggler a #chatbot-lottie-btn */
 #chatbot-lottie-btn { 
     position: fixed;
-    bottom: 80px !important;
+    bottom: 20px !important;
     right: 20px;
     width: 80px !important; /* Tamaño ligeramente más grande */
     height: 80px !important;
@@ -304,8 +304,8 @@
     #chatbot-lottie-btn { 
         bottom: 15px; 
         right: 15px; 
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
 
     #whatsapp-float-btn {
