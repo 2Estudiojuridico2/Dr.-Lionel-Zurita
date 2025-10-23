@@ -176,9 +176,9 @@
     height: 160px !important;
     cursor: pointer;
     z-index: 1050; /* Asegura que esté por encima del chatbot cerrado y WhatsApp */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 0%;
-    padding: 5px;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,7 +193,7 @@
 #whatsapp-float-btn { /* Usando el ID del HTML */
     position: fixed;
     bottom: 20px;
-    right: 100px; /* Movido a la izquierda para que el Lottie esté en la esquina */
+    right: 150px; /* Movido a la izquierda para que el Lottie esté en la esquina */
     width: 60px;
     height: 60px;
     background-color: #25d366;
@@ -203,7 +203,7 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 999;
+    z-index: 1049;
     font-size: 1.8em;
     transition: opacity 0.3s ease-out, transform 0.3s ease;
 }
