@@ -170,15 +170,14 @@
 /* Botón flotante Lottie - Renombrado de #lottie-chatbot-toggler a #chatbot-lottie-btn */
 #chatbot-lottie-btn { 
     position: fixed;
-    bottom: 20px;
+    bottom: 80px !important;
     right: 20px;
-    width: 70px; /* Tamaño ligeramente más grande */
-    height: 70px;
+    width: 80px !important; /* Tamaño ligeramente más grande */
+    height: 80px !important;
     cursor: pointer;
-    z-index: 1001; /* Asegura que esté por encima del chatbot cerrado y WhatsApp */
+    z-index: 1050; /* Asegura que esté por encima del chatbot cerrado y WhatsApp */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    background-color: #fff; /* Fondo para que el Lottie se vea mejor */
+    border-radius: 0%;
     padding: 5px;
     display: flex;
     justify-content: center;
