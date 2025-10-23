@@ -172,8 +172,8 @@
     position: fixed;
     bottom: 20px !important;
     right: 20px;
-    width: 80px !important; /* Tamaño ligeramente más grande */
-    height: 80px !important;
+    width: 160px !important; /* Tamaño ligeramente más grande */
+    height: 160px !important;
     cursor: pointer;
     z-index: 1050; /* Asegura que esté por encima del chatbot cerrado y WhatsApp */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -186,7 +186,7 @@
 }
 
 #chatbot-lottie-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.15);
 }
 
 /* Botón flotante WhatsApp */
