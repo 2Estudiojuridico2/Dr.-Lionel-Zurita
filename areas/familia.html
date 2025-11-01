@@ -49,79 +49,36 @@
             z-index: 0;
         }
         .hero-familia .container { position: relative; z-index: 1; }
-
-        /* Whatsapp flotante (simple y compatible) */
-        .whatsapp-float {
-            position: fixed;
-            right: 24px;
-            bottom: 100px; /* sobre el scroll top y separado del chatbot */
-            width: 62px;
-            height: 62px;
-            border-radius: 50%;
-            background-color: #25D366;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            z-index: 1100;
-            transition: transform .15s ease;
-            text-decoration: none;
-        }
-        .whatsapp-float:hover { transform: translateY(-4px); }
-
-        /* Asegurar que el chatbot-toggler quede por encima del whatsapp (en caso de superposición) */
-        /* Eliminé el ID redundante #chatbot-toggler ya que usas #chatbot-lottie-btn */
-        
-        /* Asegurar que el chatbot-container esté oculto por defecto */
-        #chatbot-container:not(.open) { display: none; }
-        
-        /* Asegurar que las imágenes en valores y encabezados no sean demasiado grandes en móvil */
-        .valores-img { max-height: 220px; object-fit: cover; }
-        
-        /* Estilo para el botón de scroll-top (usado por main.js) */
-        .scroll-top-btn { 
-            position: fixed; 
-            right: 24px; 
-            bottom: 20px; /* El JS lo ajusta para no chocar con WhatsApp */
-            width: 50px; 
-            height: 50px; 
-            background-color: #007bff; 
-            color: white; 
-            border: none; 
-            border-radius: 50%; 
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-            z-index: 1050; 
-            cursor: pointer;
-            display: none; /* Oculto por defecto, el JS lo muestra */
-            transition: opacity 0.3s;
-        }
     </style>
 </head>
 <body class="familia">
 
     <nav class="navbar navbar-expand-lg fixed-top custom-navbar" aria-label="Barra de navegación principal">
         <div class="container">
-            <a class="navbar-brand nav-brand" href="../index.html">Estudio Jurídico Zurita</a>
+            <a class="navbar-brand nav-brand" href="../index.html">Estudio Jurídico Dr. Lionel Zurita</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-                    <li class="nav-item dropdown">
+                    
+                    <li class="nav-item dropdown"> 
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownAreas" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
                             Áreas de Práctica
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownAreas">
-                            <li><a class="dropdown-item active" href="familia.html" aria-current="page">Familia</a></li>
-                            <li><a class="dropdown-item" href="laboral.html">Laboral</a></li>
-                            <li><a class="dropdown-item" href="sucesiones.html">Sucesiones</a></li>
+                            <li><a class="dropdown-item active" href="familia.html" aria-current="page">Derecho de Familia</a></li>
+                            <li><a class="dropdown-item" href="laboral.html">Derecho Laboral</a></li>
+                            <li><a class="dropdown-item" href="sucesiones.html">Derecho Sucesorio</a></li>
                             <li><a class="dropdown-item" href="contratos.html">Contratos</a></li>
                             <li><a class="dropdown-item" href="transito.html">Accidentes de Tránsito</a></li>
+                            <li><hr class="dropdown-divider"></li> 
+                            <li><a class="dropdown-item" href="calculadora-cuota.html">Simulador Cuota Alimentaria</a></li> 
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../index.html#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendar-turno.html">Agendar Turno</a></li>
                     <li class="nav-item"><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link" href="../aviso-legal.html">Aviso Legal</a></li>
                 </ul>
@@ -357,7 +314,7 @@
             loop 
             autoplay>
         </lottie-player>
-    </div
+    </div>
 
     <div id="chatbot-container" class="chatbot-hidden" role="dialog" aria-modal="true" aria-labelledby="chatbot-header-title">
         <div id="chatbot-header">
@@ -365,7 +322,7 @@
             <button id="chatbot-close-btn" aria-label="Cerrar Chatbot">&times;</button>
         </div>
         <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3">
-             <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
+               <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
         </div>
         <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t">
             </div>
@@ -377,7 +334,7 @@
         </form>
     </div>
 
-    <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Consulta por WhatsApp">
+    <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Consulta por WhatsApp">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
     
@@ -387,11 +344,15 @@
             <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/541131976852" class="text-white" aria-label="Enviar mensaje por WhatsApp al +541131976852">+54 11 3197 6852</a></p>
             <p class="mt-2 text-white-50 small">
                 <i class="fas fa-info-circle me-1" aria-hidden="true"></i> La información de este sitio es a modo ilustrativo y no constituye asesoramiento legal específico.
-                <a href="aviso-legal.html" class="text-white-50 ms-1" aria-label="Ver aviso legal completo">Ver Aviso Legal Completo</a>
+                <a href="../aviso-legal.html" class="text-white-50 ms-1" aria-label="Ver aviso legal completo">Ver Aviso Legal Completo</a>
             </p>
         </div>
     </footer>
     
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
