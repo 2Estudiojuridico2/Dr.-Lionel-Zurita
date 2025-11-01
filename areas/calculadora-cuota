@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Judicial de Cuota Alimentaria | Estudio Jurídico Dr. Lionel Zurita</title>
+    <meta name="description" content="Simulador no vinculante de cuota alimentaria para Argentina, basado en parámetros del Código Civil y Comercial.">
+    <meta name="author" content="Dr. Lionel Nicolás Zurita">
+    <link rel="icon" href="../images/justicia.png" type="image/png"> <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/estilos.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Variables de color de la calculadora */
+        :root {
+            --color-primary-calc: #8B5CF6; /* Morado Vibrante */
+            --color-accent-calc: #EC4899; /* Rosa Intenso */
+            --color-bg-calc: #F3F4F6; /* Fondo Suave */
+            --color-text-calc: #1F2937; /* Texto Oscuro */
+            --color-warning-calc: #EF4444; /* Rojo para Advertencias */
+        }
+        
+        /* Estilos generales para el body de la calculadora */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg-calc);
+            /* Asegura que el padding-top del body no choque con tu navbar fijo */
+            padding-top: 70px; /* Ajustar según la altura real de tu navbar */
+        }
+        
+        /* Estilos de la calculadora */
+        .header-bg {
+            background-color: var(--color-primary-calc);
+        }
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-primary-calc { /* Cambié a btn-primary-calc para evitar conflicto con Bootstrap */
+            background-color: var(--color-accent-calc);
+            color: white;
+            font-weight: 700;
+        }
+        .btn-primary-calc:hover {
+            background-color: #DB2777;
+        }
+        .warning-box {
+            border-left: 5px solid var(--color-warning-calc);
+            background-color: #FEF2F2;
+            color: var(--color-warning-calc);
+        }
+        .accent-text-calc { /* Cambié a accent-text-calc */
+            color: var(--color-accent-calc);
+        }
+        .primary-text-calc { /* Cambié a primary-text-calc */
+            color: var(--color-primary-calc);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            background: var(--color-accent-calc);
+        }
+        .result-box {
+            border: 3px solid var(--color-primary-calc);
+            background-color: #F5F3FF;
+        }
+
+        /* --- Estilos para la navegación y footer del sitio principal en esta página --- */
+        /* Sobreescribimos algunos estilos para el navbar para que no lo afecte Tailwind */
+        .custom-navbar.calculadora-nav {
+            background-color: #ffffff; /* Fondo blanco */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1050; /* Asegura que esté por encima de todo */
+        }
+        .custom-navbar.calculadora-nav .navbar-brand,
+        .custom-navbar.calculadora-nav .nav-link {
+            color: #1F2937 !important; /* Texto oscuro para buena legibilidad */
+        }
+        .custom-navbar.calculadora-nav .nav-link:hover {
+            color: var(--color-accent-calc) !important; /* Usamos el color de acento de la calculadora */
+        }
+        .custom-navbar.calculadora-nav .nav-item .nav-link.active {
+            color: var(--color-accent-calc) !important; /* Resaltar el link activo */
+            border-bottom: 2px solid var(--color-accent-calc);
+        }
+
+        /* Para el botón que pueda volver al área de familia */
+        .btn-back-to-family {
+            background-color: var(--color-primary-calc); /* Usamos el color primario de la calculadora */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        .btn-back-to-family:hover {
+            background-color: #6D28D9; /* Un tono más oscuro */
+        }
+
+        /* Ajustar el sticky del resultado para que no choque con el footer al desplazarse */
+        @media (min-width: 1024px) {
+            .sticky-lg-top-offset {
+                top: 90px; /* Ajusta este valor si tu navbar tiene otra altura */
+                max-height: calc(100vh - 120px); /* Deja espacio para navbar y footer */
+                overflow-y: auto;
+            }
+        }
+
+        /* Asegurar que el footer se vea bien */
+        .footer {
+            background-color: #343a40 !important; /* Fondo oscuro de Bootstrap, o tu color custom */
+            color: #f8f9fa !important; /* Texto claro */
+            padding: 2rem 0;
+            margin-top: 4rem; /* Espacio superior */
+        }
+        .footer a {
+            color: #f8f9fa !important;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar calculadora-nav" aria-label="Barra de navegación principal de la calculadora">
+        <div class="container">
+            <a class="navbar-brand nav-brand" href="../index.html">Estudio Jurídico Dr. Lionel Zurita</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#inicio-oficina">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#areas-practica">Áreas</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../areas/familia.html">Derecho de Familia</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../index.html#sobre-nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../areas/agendar-turno.html">Agendar Turno</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../aviso-legal.html">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="max-w-4xl mx-auto pt-4 md:pt-8"> 
+
+        <header class="header-bg p-6 card mb-8">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-white text-center tracking-tight">
+                Simulador Judicial de Cuota Alimentaria
+            </h1>
+            <p class="text-white text-opacity-90 mt-2 text-center text-lg">
+                Proyección no vinculante según parámetros del CCCN (Argentina).
+            </p>
+        </header>
+
+        <div class="warning-box p-4 md:p-6 mb-8 card">
+            <p class="font-bold text-xl mb-2">⚠ ADVERTENCIA LEGAL CRÍTICA (Simulación)</p>
+            <p class="text-gray-700 text-sm leading-relaxed">
+                Este cálculo es una **simulación teórica** basada en promedios y principios judiciales (Art. 659 CCCN). **NO ES UN VALOR OFICIAL** ni vinculante. La cuota final solo puede ser determinada por un Juez de Familia, quien evaluará la **capacidad económica real de ambos progenitores** y las **necesidades probadas** de los hijos (Alimentación, Vestimenta, Educación, Salud, Esparcimiento, etc.). La jurisprudencia suele asignar entre el 20% y 40% del ingreso neto para 1 a 3 hijos, ajustándose según el caso.
+            </p>
+        </div>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <section class="lg:col-span-2 space-y-6">
+
+                <div class="card p-6">
+                    <h2 class="text-2xl font-bold primary-text-calc mb-4">Parámetros Económicos y Judiciales</h2>
+                    
+                    <div>
+                        <label for="ingresoNeto" class="block text-gray-700 font-semibold mb-2">1. Ingreso Neto Mensual del Alimentante ($):</label>
+                        <input type="number" id="ingresoNeto" value="900000" min="1000" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 text-lg" oninput="calcularCuota()">
+                        <p class="text-sm text-gray-500 mt-1">Sueldo, ingresos por monotributo, etc., después de descuentos obligatorios.</p>
+                    </div>
+
+                    <div class="mt-6">
+                        <label for="porcentajeJudicial" class="block text-gray-700 font-semibold mb-2">2. Porcentaje Judicial Estimado a Asignar (P): <span id="porcentajeValue" class="accent-text-calc font-bold">33%</span></label>
+                        <input type="range" id="porcentajeJudicial" min="20" max="40" value="33" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-lg" oninput="calcularCuota()">
+                        <p class="text-sm text-gray-500 mt-1">Rango habitual de la jurisprudencia para la cuota total (20% a 40% del neto).</p>
+                    </div>
+
+                </div>
+
+                <div class="card p-6">
+                    <h2 class="text-2xl font-bold primary-text-calc mb-4">Ponderación de Rubros por Necesidad (100% Total)</h2>
+                    <p class="text-sm text-gray-600 mb-4">Ajuste el peso de cada rubro para simular las necesidades de los hijos. La suma debe ser 100%.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <label for="pAlimentacion" class="w-1/3 text-gray-700 font-medium">Alimentación:</label>
+                            <input type="range" id="pAlimentacion" min="10" max="50" value="30" class="w-2/3 h-2 bg-pink-100 rounded-lg appearance-none cursor-pointer" oninput="calcularCuota()">
+                            <span id="vAlimentacion" class="ml-4 w-12 text-right font-bold accent-text-calc">30%</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <label for="pEducacion" class="w-1/3 text-gray-700 font-medium">Educación (Cuotas, útiles):</label>
+                            <input type="range" id="pEducacion" min="5" max="30" value="15" class="w-2/3 h-2 bg-pink-100 rounded-lg appearance-none cursor-pointer" oninput="calcularCuota()">
+                            <span id="vEducacion" class="ml-4 w-12 text-right font-bold accent-text-calc">15%</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <label for="pSalud" class="w-1/3 text-gray-700 font-medium">Salud (Obra social, farmacia):</label>
+                            <input type="range" id="pSalud" min="5" max="30" value="15" class="w-2/3 h-2 bg-pink-100 rounded-lg appearance-none cursor-pointer" oninput="calcularCuota()">
+                            <span id="vSalud" class="ml-4 w-12 text-right font-bold accent-text-calc">15%</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <label for="pVivienda" class="w-1/3 text-gray-700 font-medium">Vivienda y Servicios:</label>
+                            <input type="range" id="pVivienda" min="10" max="40" value="20" class="w-2/3 h-2 bg-pink-100 rounded-lg appearance-none cursor-pointer" oninput="calcularCuota()">
+                            <span id="vVivienda" class="ml-4 w-12 text-right font-bold accent-text-calc">20%</span>
+                        </div>
+
+                        <div class="flex items-center">
+                            <label for="pVestimenta" class="w-1/3 text-gray-700 font-medium">Vestimenta y Esparcimiento:</label>
+                            <input type="range" id="pVestimenta" min="5" max="30" value="20" class="w-2/3 h-2 bg-pink-100 rounded-lg appearance-none cursor-pointer" oninput="calcularCuota()">
+                            <span id="vVestimenta" class="ml-4 w-12 text-right font-bold accent-text-calc">20%</span>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-gray-200">
+                               <p class="text-lg font-bold">Suma de Rubros: <span id="totalRubros" class="accent-text-calc">100%</span></p>
+                               <p id="rubrosError" class="text-sm text-red-500 font-medium hidden">⚠ Error: La suma de rubros debe ser exactamente 100%.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="lg:col-span-1">
+                <div class="card p-6 sticky sticky-lg-top-offset"> 
+                    <h2 class="text-2xl font-bold primary-text-calc mb-4">Resultado de la Simulación</h2>
+
+                    <div class="result-box p-4 md:p-6 mb-6 text-center rounded-lg">
+                        <p class="text-lg font-medium text-gray-700">Cuota Total Simulada (P % del Neto)</p>
+                        <p id="cuotaSimulada" class="text-4xl md:text-5xl font-extrabold accent-text-calc mt-1">$ 0</p>
+                        <p class="text-sm text-gray-600 mt-2">Monto total a distribuir.</p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold primary-text-calc mb-3">Distribución Estimada por Rubro</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Alimentación:</span>
+                            <span id="distAlimentacion" class="font-bold text-gray-800"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Educación:</span>
+                            <span id="distEducacion" class="font-bold text-gray-800"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Salud:</span>
+                            <span id="distSalud" class="font-bold text-gray-800"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vivienda/Servicios:</span>
+                            <span id="distVivienda" class="font-bold text-gray-800"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Vestimenta/Esparcimiento:</span>
+                            <span id="distVestimenta" class="font-bold text-gray-800"></span>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <p class="text-base text-gray-600">Monto del Ingreso Neto restante para el Alimentante:</p>
+                        <p id="montoRestante" class="text-2xl font-bold primary-text-calc mt-1">$ 0</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <div class="text-center mt-12 mb-8">
+            <a href="familia.html" class="btn-back-to-family">
+                <i class="fas fa-arrow-left me-2"></i> Volver al Área de Familia
+            </a>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
+            <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/5491131976852" class="text-white" target="_blank" rel="noopener noreferrer">+54 11 3197 6852</a></p>
+            <p class="text-white-50 small">
+                <i class="fas fa-info-circle me-1"></i> La información es ilustrativa y no constituye asesoramiento legal específico.
+                <a href="../aviso-legal.html" class="text-white-50">Ver Aviso Legal</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Función de formato de moneda (locale AR)
+        const formatCurrency = (amount) => {
+            return new Intl.NumberFormat('es-AR', {
+                style: 'currency',
+                currency: 'ARS',
+                minimumFractionDigits: 0
+            }).format(amount);
+        };
+
+        const calcularCuota = () => {
+            const ingresoNeto = parseFloat(document.getElementById('ingresoNeto').value) || 0;
+            const porcentajeJudicial = parseFloat(document.getElementById('porcentajeJudicial').value) || 0;
+            const pAlimentacion = parseFloat(document.getElementById('pAlimentacion').value);
+            const pEducacion = parseFloat(document.getElementById('pEducacion').value);
+            const pSalud = parseFloat(document.getElementById('pSalud').value);
+            const pVivienda = parseFloat(document.getElementById('pVivienda').value);
+            const pVestimenta = parseFloat(document.getElementById('pVestimenta').value);
+
+            document.getElementById('porcentajeValue').textContent = `${porcentajeJudicial}%`;
+
+            const cuotaTotalSimulada = ingresoNeto * (porcentajeJudicial / 100);
+
+            document.getElementById('cuotaSimulada').textContent = formatCurrency(cuotaTotalSimulada);
+            document.getElementById('montoRestante').textContent = formatCurrency(ingresoNeto - cuotaTotalSimulada);
+
+            const totalRubros = pAlimentacion + pEducacion + pSalud + pVivienda + pVestimenta;
+            document.getElementById('totalRubros').textContent = `${totalRubros}%`;
+            const rubrosError = document.getElementById('rubrosError');
+
+            if (totalRubros !== 100) {
+                rubrosError.classList.remove('hidden');
+                document.getElementById('distAlimentacion').textContent = 'Error';
+                document.getElementById('distEducacion').textContent = 'Error';
+                document.getElementById('distSalud').textContent = 'Error';
+                document.getElementById('distVivienda').textContent = 'Error';
+                document.getElementById('distVestimenta').textContent = 'Error';
+            } else {
+                rubrosError.classList.add('hidden');
+
+                const distribucion = (porcentaje, cuota) => cuota * (porcentaje / 100);
+
+                document.getElementById('distAlimentacion').textContent = formatCurrency(distribucion(pAlimentacion, cuotaTotalSimulada));
+                document.getElementById('distEducacion').textContent = formatCurrency(distribucion(pEducacion, cuotaTotalSimulada));
+                document.getElementById('distSalud').textContent = formatCurrency(distribucion(pSalud, cuotaTotalSimulada));
+                document.getElementById('distVivienda').textContent = formatCurrency(distribucion(pVivienda, cuotaTotalSimulada));
+                document.getElementById('distVestimenta').textContent = formatCurrency(distribucion(pVestimenta, cuotaTotalSimulada));
+            }
+
+            document.getElementById('vAlimentacion').textContent = `${pAlimentacion}%`;
+            document.getElementById('vEducacion').textContent = `${pEducacion}%`;
+            document.getElementById('vSalud').textContent = `${pSalud}%`;
+            document.getElementById('vVivienda').textContent = `${pVivienda}%`;
+            document.getElementById('vVestimenta').textContent = `${pVestimenta}%`;
+        };
+
+        window.onload = calcularCuota;
+    </script>
+
+</body>
+</html>
