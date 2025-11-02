@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Agendar Turno | Estudio Jurídico Dr. Lionel Nicolás Zurita</title>
-    <meta name="description" content="Agenda tu turno de asesoramiento legal online de forma rápida y sencilla con el Dr. Lionel Zurita.">
+    <meta name="description" content="Asesoramiento legal integral y servicios jurídicos profesionales con el Dr. Lionel Zurita.">
     <meta name="author" content="Dr. Lionel Nicolás Zurita">
 
     <link rel="canonical" href="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/agendar-turno.html" />
     <meta property="og:locale" content="es_AR">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Agendar Turno | Estudio Jurídico Dr. Lionel Zurita">
-    <meta property="og:description" content="Agenda tu turno de asesoramiento legal online de forma rápida y sencilla.">
+    <meta property="og:description" content="Consultas legales online con el Dr. Lionel Zurita.">
     <meta property="og:image" content="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/og-default.jpg"> 
     <link rel="icon" href="images/justicia.png" type="image/png">
 
@@ -24,31 +24,9 @@
     <link rel="stylesheet" href="css/chatbot.css">
 
     <style>
-        /* Asegurar que el anclaje no quede tapado por la navbar fija */
         html { scroll-padding-top: 80px; }
         @media (max-width: 991.98px) { html { scroll-padding-top: 60px; } }
 
-        /* Estilos para el iframe de Turnito */
-        .turnito-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding-top: 150%; /* Altura relativa para mantener la proporción */
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .turnito-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Hero específico para esta página */
         .hero-agendar {
             background-image: url('images/turnos.jpg');
             background-size: cover;
@@ -106,59 +84,50 @@
 
     <header class="hero hero-agendar text-center" role="banner">
         <div class="container d-flex flex-column justify-content-center align-items-center">
-            <h1 class="display-4 text-white mb-3" data-aos="fade-down">Agendá Tu Turno Online</h1>
+            <h1 class="display-4 text-white mb-3" data-aos="fade-down">Servicios Jurídicos y Asesoramiento</h1>
             <p class="lead text-white mb-3" data-aos="fade-up" data-aos-delay="100">
-                Elegí el día y la hora que mejor se adapte a vos para tu consulta legal.
+                Conocé las áreas de trabajo y cómo podemos ayudarte en tu consulta legal.
             </p>
         </div>
     </header>
 
     <main class="my-5 py-5" role="main" tabindex="0">
         <div class="container">
+
             <section id="informacion-turno" class="mb-5" aria-labelledby="info-heading">
-                <h2 id="info-heading" class="fw-bold text-center mb-4" data-aos="fade-up">Información Importante para tu Turno</h2>
+                <h2 id="info-heading" class="fw-bold text-center mb-4" data-aos="fade-up">Información Importante</h2>
                 <div class="card shadow p-4" data-aos="fade-up" data-aos-delay="100">
-                    <p class="lead mb-3">Antes de agendar, por favor tené en cuenta lo siguiente:</p>
+                    <p class="lead mb-3">Nuestro estudio ofrece atención personalizada en las siguientes áreas:</p>
                     <ul>
-                        <li><i class="fas fa-calendar-check text-primary me-2"></i> Las consultas son <strong>online</strong> a través de videollamada o llamada de voz a elección.</li>
-                        <li><i class="fas fa-money-bill-wave text-success me-2"></i> La primera consulta tiene un costo de <strong>$44330</strong>, que se abona previamente para confirmar tu turno.</li>
-                        <li><i class="fas fa-clock text-info me-2"></i> La duración estimada de la consulta es de <strong>30 minutos</strong>.</li>
-                        <li><i class="fas fa-lightbulb text-warning me-2"></i> Prepará un resumen de tu caso y cualquier documento relevante para aprovechar al máximo el tiempo.</li>
-                        <li><i class="fas fa-exclamation-triangle text-danger me-2"></i> En caso de no poder asistir, por favor cancelá o reprogramá con al menos 24 horas de antelación.</li>
+                        <li><i class="fas fa-balance-scale text-primary me-2"></i> Derecho de Familia: divorcios, alimentos, régimen de visitas y adopciones.</li>
+                        <li><i class="fas fa-briefcase text-success me-2"></i> Derecho Laboral: despidos, reclamos laborales, indemnizaciones y asesoramiento sindical.</li>
+                        <li><i class="fas fa-home text-info me-2"></i> Sucesiones y herencias: trámites judiciales y extrajudiciales.</li>
+                        <li><i class="fas fa-file-contract text-warning me-2"></i> Contratos civiles y comerciales, confección y revisión de documentos.</li>
+                        <li><i class="fas fa-car-crash text-danger me-2"></i> Accidentes de tránsito: reclamos a aseguradoras y representación judicial.</li>
                     </ul>
-                    <p class="mt-4 text-muted small">Al continuar, confirmás que leíste y aceptás estas condiciones.</p>
+                    <p class="mt-4">Podés solicitar una consulta inicial para recibir orientación general sobre tu caso y los pasos a seguir.</p>
                 </div>
             </section>
 
             <hr class="my-5">
 
-            <section id="turnito-widget" aria-labelledby="widget-heading">
-                <h2 id="widget-heading" class="fw-bold text-center mb-4" data-aos="fade-up">Selecciona tu Horario Disponible</h2>
-                <p class="text-center mb-4" data-aos="fade-up" data-aos-delay="100">Utiliza el calendario de abajo para ver y reservar tu turno.</p>
-                <div class="turnito-container shadow-lg rounded" data-aos="zoom-in" data-aos-delay="200">
-                    <iframe src="https://turnito.app/c/P2gjnDx2FfKo3u-" title="Turnito - Agendar Turno"></iframe>
-                </div>
-            </section>
-
-            <hr class="my-5">
-
-            <section id="confirmacion-turno" class="mb-5" aria-labelledby="confirm-heading">
-                <h2 id="confirm-heading" class="fw-bold text-center mb-4" data-aos="fade-up">¿Qué sucede después de agendar?</h2>
+            <section id="contacto-info" aria-labelledby="contacto-heading">
+                <h2 id="contacto-heading" class="fw-bold text-center mb-4" data-aos="fade-up">Datos de Atención</h2>
                 <div class="card shadow p-4" data-aos="fade-up" data-aos-delay="100">
-                    <p class="lead mb-3">Una vez que completes el proceso en el calendario:</p>
+                    <p class="lead mb-3">Atendemos de lunes a viernes de 9:00 a 18:00 hs.</p>
                     <ul>
-                        <li><i class="fas fa-envelope-open-text text-primary me-2"></i> Recibirás un correo electrónico de <strong>Turnito</strong> con la confirmación de tu turno y los detalles para el pago.</li>
-                        <li><i class="fas fa-money-check-alt text-success me-2"></i> Una vez que se verifique el pago, te enviaremos por WhatsApp los datos de conexión para la videollamada.</li>
-                        <li><i class="fas fa-bell text-info me-2"></i> Te enviaremos un recordatorio de tu turno 24 horas antes por WhatsApp.</li>
-                        <li><i class="fas fa-question-circle text-warning me-2"></i> Si tenés alguna duda, no dudes en contactarnos a través de WhatsApp o por teléfono.</li>
+                        <li><i class="fas fa-envelope text-primary me-2"></i> Correo: <a href="mailto:Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a></li>
+                        <li><i class="fab fa-whatsapp text-success me-2"></i> WhatsApp: <a href="https://wa.me/541131976852" target="_blank">+54 11 3197 6852</a></li>
+                        <li><i class="fas fa-video text-info me-2"></i> Modalidad: consultas online por videollamada o llamada de voz.</li>
+                        <li><i class="fas fa-map-marker-alt text-danger me-2"></i> Zona de atención: Ciudad Autónoma de Buenos Aires y alrededores.</li>
                     </ul>
-                    <p class="mt-4 text-muted small">¡Esperamos tu consulta para poder ayudarte!</p>
+                    <p class="mt-4 text-muted small">Todas las consultas se coordinan previamente para garantizar atención personalizada.</p>
                 </div>
             </section>
 
-            <!-- 🔗 Botón externo agregado -->
+            <!-- 🔗 Botón externo -->
             <section class="text-center my-5">
-                <a href="https://turnito.app/c/P2gjnDx2FfKo3u-" 
+                <a href="https://turnito.app/c/P2gjnDx2FfKo3u" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="btn btn-primary btn-lg shadow-sm">
@@ -220,12 +189,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        AOS.init({ duration: 1000, once: true });
     </script>
-    
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="js/respuestas.js"></script>
     <script src="js/chatbot.js"></script>
