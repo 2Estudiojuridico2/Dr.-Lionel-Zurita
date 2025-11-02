@@ -452,28 +452,26 @@
         </section>
         </main>
 
-    <div id="chatbot-lottie-btn" class="floating-btn chatbot-btn" role="button" tabindex="0" aria-label="Abrir Asistente de Chat Legal" data-bs-toggle="tooltip" data-bs-placement="left" title="Asistente Legal IA">
-        <lottie-player 
-            id="lottie-icon"
-            src="Assent/Lottie/lawyer-assistant.json" 
-            background="transparent" 
-            speed="1.2" 
-            style="width: 80px; height: 80px;" /* Ajustado a 80px para consistencia */
-            loop 
-            autoplay>
-        </lottie-player>
-    </div>
+   <div id="chatbot-lottie-btn" class="floating-btn chatbot-btn" role="button" tabindex="0" aria-label="Abrir Asistente de Chat Legal" data-bs-toggle="tooltip" data-bs-placement="left" title="Asistente Legal IA">
+    <lottie-player
+        id="lottie-icon"
+        src="Assent/Lottie/lawyer-assistant.json"
+        background="transparent"
+        speed="1.2"
+        loop
+        autoplay
+        style="width: 120px; height: 120px;"> </lottie-player>
+</div>
 
-    <div id="chatbot-container" class="chatbot-hidden" role="dialog" aria-modal="true" aria-labelledby="chatbot-header-title">
-        <div id="chatbot-header">
-            <h3 id="chatbot-header-title">Asistente Legal Zurita</h3>
-            <button id="chatbot-close-btn" aria-label="Cerrar Chatbot">&times;</button>
-        </div>
-        <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3"> /* Añadido p-3, overflow-y-auto, space-y-3 para consistencia */
-               <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
-        </div>
-        <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t"> /* Contenedor de botones añadido */
-            </div>
+<div id="chatbot-container" class="chatbot-hidden" role="dialog" aria-modal="true" aria-labelledby="chatbot-header-title">
+    <div id="chatbot-header">
+        <h3 id="chatbot-header-title">Asistente Legal Zurita</h3>
+        <button id="chatbot-close-btn" aria-label="Cerrar Chatbot">&times;</button>
+    </div>
+    <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3">
+        <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
+    </div>
+    <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t"> </div>
         <form id="chat-form" class="p-3 border-t flex"> /* Formulario integrado en el footer y estilizado */
             <input type="text" id="chatbot-input" placeholder="Escribe tu consulta..." class="flex-grow p-2 border rounded-l-lg focus:outline-none">
             <button type="submit" id="chatbot-send-btn" aria-label="Enviar Mensaje" class="p-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition">
