@@ -37,16 +37,13 @@
     <meta property="og:description" content="Asesoramiento legal profesional y especializado en Accidentología Vial, Derecho de Familia, Laboral y Sucesorio. Comprometidos con la ética y la defensa de tus derechos.">
     <meta property="og:url" content="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/index.html">
     <meta property="og:site_name" content="Estudio Jurídico Dr. Lionel Zurita">
-    <meta property="og:image" content="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/logo-estudio.png">
-    <meta property="og:image:width" content="1200">
+    <meta property="og:image" content="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/og-default.jpg"> <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Asesoramiento legal profesional y especializado en Accidentología Vial, Derecho de Familia, Laboral y Sucesorio. Comprometidos con la ética y la defensa de tus derechos.">
     <meta name="twitter:title" content="Dr. Lionel Zurita | Abogado y Accidentólogo Vial | Estudio Jurídico Integral">
-    <meta name="twitter:image" content="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/logo-estudio.png">
-    
-    <script type="application/ld+json">
+    <meta name="twitter:image" content="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/og-default.jpg"> <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
@@ -87,8 +84,7 @@
           "name": "Estudio Jurídico Dr. Lionel Zurita - Abogado y Accidentólogo Vial",
           "description": "Estudio Jurídico del Dr. Lionel Zurita. Asesoramiento legal profesional y especializado en Accidentología Vial, Derecho de Familia, Laboral y Sucesorio. Comprometidos con la ética y la defensa de tus derechos.",
           "url": "https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/index.html",
-          "image": "https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/logo-estudio.png",
-          "telephone": "+541137722140",
+          "image": "https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/og-default.jpg", "telephone": "+541137722140",
           "email": "Dr.Zuritalionel@gmail.com",
           "address": {
             "@type": "PostalAddress",
@@ -166,7 +162,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#inicio-oficina">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#inicio-oficina">Inicio</a></li>
                     
                     <li class="nav-item dropdown"> 
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownAreas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -183,7 +179,7 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#sobre-nosotros">Sobre Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link" href="areas/agendar-turno.html">Agendar Turno</a></li> <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendar-turno.html">Agendar Turno</a></li> <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
                     <li class="nav-item"><a class="nav-link" href="aviso-legal.html">Aviso Legal</a></li>
                 </ul>
             </div>
@@ -462,7 +458,7 @@
             src="Assent/Lottie/lawyer-assistant.json" 
             background="transparent" 
             speed="1.2" 
-            style="width: 160px; height: 160px !important;" 
+            style="width: 80px; height: 80px;" /* Ajustado a 80px para consistencia */
             loop 
             autoplay>
         </lottie-player>
@@ -473,13 +469,17 @@
             <h3 id="chatbot-header-title">Asistente Legal Zurita</h3>
             <button id="chatbot-close-btn" aria-label="Cerrar Chatbot">&times;</button>
         </div>
-        <div id="chatbot-body">
-            <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
+        <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3"> /* Añadido p-3, overflow-y-auto, space-y-3 para consistencia */
+               <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
         </div>
-        <div id="chatbot-footer">
-            <input type="text" id="chatbot-input" placeholder="Escribe tu consulta...">
-            <button id="chatbot-send-btn" aria-label="Enviar Mensaje"><i class="fas fa-paper-plane"></i></button>
-        </div>
+        <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t"> /* Contenedor de botones añadido */
+            </div>
+        <form id="chat-form" class="p-3 border-t flex"> /* Formulario integrado en el footer y estilizado */
+            <input type="text" id="chatbot-input" placeholder="Escribe tu consulta..." class="flex-grow p-2 border rounded-l-lg focus:outline-none">
+            <button type="submit" id="chatbot-send-btn" aria-label="Enviar Mensaje" class="p-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
     </div>
 
     <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Consulta por WhatsApp">
@@ -510,8 +510,8 @@
     </script>
     
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="js/respuestas.js"></script> 
-    <script src="js/frases.js"></script>    
+    <script src="js/respuestas.js"></script>    
+    <script src="js/frases.js"></script>     
     <script src="js/chatbot.js"></script>
     <script src="js/main.js"></script>
     </body>
