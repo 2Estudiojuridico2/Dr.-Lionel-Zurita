@@ -1,26 +1,28 @@
 /* =========================================================================
- * CHATBOT STYLES (css/chatbot.css) - ARMONIZADO CON INDEX.HTML
+ * CHATBOT STYLES (css/chatbot.css) - OPTIMIZADO Y SINCRONIZADO CON JS
  * ========================================================================= */
 
 /* Estilos para el contenedor principal del chatbot */
-#chatbot-container { /* Usando el ID del HTML */
+#chatbot-container {
     position: fixed;
-    bottom: 90px; /* Ajustado para dejar espacio al botón de WhatsApp si existe */
+    bottom: 90px;
     right: 20px;
-    width: 350px;
-    height: 500px;
+    width: 350px; /* Ancho fijo para escritorio */
+    height: 500px; /* Altura fija para escritorio */
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    z-index: 1000; /* Z-Index para el chatbot. Visible por encima del cuerpo de la página. */
+    z-index: 1000;
     font-family: 'Roboto', sans-serif;
-    transform: scale(0); /* Inicialmente oculto y escalado a cero */
-    transform-origin: bottom right; /* Origen de la transformación */
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transición suave */
-    opacity: 0; /* Opacidad inicial para la transición */
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+    /* Ajuste para asegurar que el contenido interno no se salga */
+    box-sizing: border-box; 
 }
 
 /* Clase que se añade con JavaScript para mostrar el chatbot */
@@ -30,8 +32,8 @@
 }
 
 /* Estilos para el encabezado del chatbot */
-#chatbot-header { /* Usando el ID del HTML */
-    background-color: #004d40; /* Verde oscuro */
+#chatbot-header {
+    background-color: #004d40;
     color: #fff;
     padding: 15px;
     font-size: 1.1em;
@@ -44,7 +46,7 @@
 }
 
 /* Estilos para el botón de cierre dentro del encabezado */
-#chatbot-close-btn { /* Usando el ID del HTML */
+#chatbot-close-btn {
     background: none;
     border: none;
     color: #fff;
@@ -60,13 +62,15 @@
 }
 
 /* Estilos para el cuerpo del chatbot (donde van los mensajes) */
-#chatbot-body { /* Usando el ID del HTML */
+#chatbot-body {
     flex-grow: 1;
     padding: 15px;
     overflow-y: auto;
-    background-color: #e0f2f1; /* Verde claro muy suave */
+    background-color: #e0f2f1;
     display: flex;
     flex-direction: column;
+    /* Asegura que el contenido se ajuste correctamente */
+    box-sizing: border-box; 
 }
 
 /* Scrollbar personalizado para el cuerpo del chatbot */
@@ -79,56 +83,82 @@
 }
 
 #chatbot-body::-webkit-scrollbar-thumb {
-    background-color: #80cbc4; /* Verde medio */
+    background-color: #80cbc4;
     border-radius: 10px;
     border: 2px solid #e0f2f1;
 }
 
-/* Estilos para los mensajes del usuario */
-.message.user {
-    align-self: flex-end;
-    background-color: #004d40; /* Verde oscuro */
-    color: #fff;
-    border-radius: 12px 12px 0 12px;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    max-width: 80%;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* 🚨 CAMBIO CRÍTICO: Estilos para las burbujas de mensaje (bot y usuario)
+   Estas clases (message-bubble) se añadieron en chatbot.js en el HTML generado.
+   Los estilos `bg-blue-100`, `p-3`, `rounded-tr-xl`, `max-w-[80%]` etc.
+   vienen de Tailwind en tu JS. Aquí solo ajustamos si es necesario.
+*/
+.message-bubble {
+    /* Si el texto es muy largo, Tailwind CSS ya lo envuelve por defecto.
+       max-w-[80%] de Tailwind es un buen punto de partida.
+       Asegúrate de que no haya un `white-space: nowrap;` o similar que lo impida.
+       `word-break: break-word;` puede ser útil para palabras muy largas sin espacios. */
+    word-break: break-word; 
+    /* Elimina cualquier margen residual si lo tenías en .message.user/.bot */
+    margin-bottom: 0 !important; 
 }
 
-/* Estilos para los mensajes del bot */
-.message.bot {
-    align-self: flex-start;
-    background-color: #f5f5f5; /* Gris muy claro */
-    color: #333;
-    border-radius: 12px 12px 12px 0;
-    padding: 10px 15px;
-    margin-bottom: 8px;
-    max-width: 80%;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+/* 🚨 NUEVO: Estilos para el contenedor de botones */
+#chat-buttons {
+    display: flex;
+    flex-direction: column; /* Apila los botones verticalmente */
+    padding: 15px; /* Mismo padding que el body */
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    gap: 8px; /* Espacio entre botones */
+    box-sizing: border-box;
+}
+
+/* 🚨 NUEVO: Estilos para los botones de opción (sincronizado con chatbot.js) */
+.chatbot-option-btn {
+    background-color: #4db6ac;
+    color: #004d40;
+    border: 1px solid #004d40;
+    border-radius: 8px;
+    padding: 12px 15px;
+    /* margin-bottom ya lo maneja el gap en #chat-buttons */
+    cursor: pointer;
+    font-size: 0.95em;
+    text-align: left;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+    box-sizing: border-box;
+}
+
+.chatbot-option-btn:hover {
+    background-color: #004d40;
+    color: #fff;
+    border-color: #00362c;
 }
 
 /* Estilos para los enlaces dentro de los mensajes del bot */
-.message.bot a {
-    color: #004d40; /* Mismo verde oscuro que el header */
+/* Apunta directamente a los enlaces dentro de las burbujas del bot (clase de Tailwind) */
+.flex.items-start .message-bubble a {
+    color: #004d40;
     text-decoration: underline;
 }
 
-.message.bot a:hover {
+.flex.items-start .message-bubble a:hover {
     text-decoration: none;
 }
 
-/* Estilos para el área de entrada de texto - Renombrado de .chatbot-input-area a #chatbot-footer */
-#chatbot-footer { 
+
+/* Estilos para el área de entrada de texto - Ahora es #chat-form en tu HTML */
+#chat-form { /* Usando el ID del formulario */
     display: flex;
     padding: 10px 15px;
     border-top: 1px solid #ccc;
     background-color: #fff;
+    box-sizing: border-box;
 }
 
-#chatbot-footer input { /* Selectores de input dentro del footer */
+#chat-form input { /* Selectores de input dentro del formulario */
     flex-grow: 1;
     border: 1px solid #ddd;
     border-radius: 20px;
@@ -139,15 +169,15 @@
     transition: border-color 0.2s;
 }
 
-#chatbot-footer input:focus {
+#chat-form input:focus {
     border-color: #004d40;
 }
 
-#chatbot-send-btn { /* Usando el ID del botón de enviar */
+#chatbot-send-btn {
     background-color: #004d40;
     color: #fff;
     border: none;
-    border-radius: 50%; /* Botón circular */
+    border-radius: 50%;
     width: 40px;
     height: 40px;
     display: flex;
@@ -159,7 +189,7 @@
 }
 
 #chatbot-send-btn:hover {
-    background-color: #00362c; /* Verde más oscuro al pasar el ratón */
+    background-color: #00362c;
     transform: scale(1.05);
 }
 
@@ -167,15 +197,15 @@
 /* ESTILOS para el botón flotante (LOTTIE) y WHATSAPP */
 /* ========================================================================= */
 
-/* Botón flotante Lottie - Renombrado de #lottie-chatbot-toggler a #chatbot-lottie-btn */
+/* Botón flotante Lottie */
 #chatbot-lottie-btn { 
     position: fixed;
     bottom: 20px !important;
     right: 20px;
-    width: 160px !important; /* Tamaño ligeramente más grande */
+    width: 160px !important;
     height: 160px !important;
     cursor: pointer;
-    z-index: 1050; /* Asegura que esté por encima del chatbot cerrado y WhatsApp */
+    z-index: 1050;
     box-shadow: none !important;
     border: none !important;
     padding: 0px;
@@ -185,15 +215,22 @@
     transition: opacity 0.3s ease-out, transform 0.3s ease;
 }
 
+#chatbot-lottie-btn.hidden { /* Clase para ocultar con JS */
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+}
+
+
 #chatbot-lottie-btn:hover {
     transform: scale(1.15);
 }
 
 /* Botón flotante WhatsApp */
-#whatsapp-float-btn { /* Usando el ID del HTML */
+#whatsapp-float-btn {
     position: fixed;
     bottom: 20px;
-    right: 150px; /* Movido a la izquierda para que el Lottie esté en la esquina */
+    right: 150px;
     width: 60px;
     height: 60px;
     background-color: #25d366;
@@ -214,42 +251,15 @@
 }
 
 /* Estilo para ocultar el botón de WhatsApp cuando el chatbot está abierto (Controlado por JS) */
-.whatsapp-hidden { /* Clase que se añade con JS */
+/* La clase 'whatsapp-hidden' debe ser añadida al botón flotante de WhatsApp */
+#whatsapp-float-btn.whatsapp-hidden { 
     opacity: 0;
-    pointer-events: none; /* Deshabilita clics */
+    pointer-events: none; 
     transform: scale(0.8);
 }
 
-/* Estilos para los botones de opciones */
-.chatbot-options-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
 
-.chatbot-options-container button {
-    background-color: #4db6ac; /* Verde medio claro */
-    color: #004d40; /* Texto verde oscuro */
-    border: 1px solid #004d40; /* Borde verde oscuro */
-    border-radius: 8px;
-    padding: 12px 15px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    font-size: 0.95em;
-    text-align: left;
-    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.chatbot-options-container button:hover {
-    background-color: #004d40; /* Fondo verde oscuro al pasar el ratón */
-    color: #fff; /* Texto blanco al pasar el ratón */
-    border-color: #00362c;
-}
-
-/* Estilo para el mensaje de "escribiendo..." */
+/* Estilo para el mensaje de "escribiendo..." (Se mantiene tal cual) */
 .typing-indicator {
     display: flex;
     align-items: center;
@@ -258,7 +268,7 @@
     border-radius: 12px 12px 12px 0;
     margin-bottom: 8px;
     align-self: flex-start;
-    max-width: 80px; /* Ajusta el ancho para los puntos */
+    max-width: 80px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
@@ -266,7 +276,7 @@
     display: inline-block;
     width: 6px;
     height: 6px;
-    background-color: #80cbc4; /* Color de los puntos */
+    background-color: #80cbc4;
     border-radius: 50%;
     margin: 0 2px;
     animation: bounce 1.2s infinite ease-in-out;
@@ -293,30 +303,29 @@
 /* Media queries para responsividad (Optimizado para móvil) */
 @media (max-width: 768px) {
     #chatbot-container {
-        width: 90vw; /* Utiliza el 90% del ancho del viewport */
-        height: 80vh; /* Utiliza el 80% de la altura del viewport */
-        bottom: 70px; /* Ajustado para móvil */
-        right: 5vw; 
-        left: 5vw; 
-        max-width: none; 
+        width: 90vw;
+        height: 80vh;
+        bottom: 70px;
+        right: 5vw;
+        left: 5vw;
+        max-width: none; /* Deshabilita el max-width para móvil si lo tenía fijo */
     }
 
     #chatbot-lottie-btn { 
         bottom: 15px; 
         right: 15px; 
-        width: 80px;
-        height: 80px;
+        width: 80px !important; /* Más pequeño en móvil */
+        height: 80px !important;
     }
 
     #whatsapp-float-btn {
         bottom: 15px; 
-        right: 85px; /* Ajustado para móvil */
+        right: 85px; 
         width: 50px;
         height: 50px;
         font-size: 1.5em;
     }
 
-    /* Ajustar el padding y fuente para pantallas más pequeñas si es necesario */
     #chatbot-header {
         padding: 12px;
         font-size: 1em;
@@ -326,16 +335,17 @@
         padding: 10px;
     }
 
-    .message {
+    /* Ajuste de padding/fuente para la burbuja de mensaje en móvil */
+    .message-bubble {
         padding: 8px 12px;
         font-size: 0.9em;
     }
 
-    #chatbot-footer {
+    #chat-form {
         padding: 8px 10px;
     }
 
-    #chatbot-footer input {
+    #chat-form input {
         padding: 8px 12px;
         font-size: 0.85em;
     }
@@ -346,8 +356,18 @@
         font-size: 1em;
     }
 
-    .chatbot-options-container button {
+    /* Ajuste para los botones de opción en móvil */
+    .chatbot-option-btn {
         padding: 10px 12px;
         font-size: 0.85em;
     }
+}
+
+/* 🚨 NUEVO: Estilo para las respuestas estructuradas (Baremos) */
+/* Esto se aplica a la burbuja de mensaje que contiene el baremo */
+.message-bubble .structured-data {
+    padding: 0; /* Ya tiene padding interno, evita doble padding */
+    background-color: transparent; /* El color de fondo lo da el .message-bubble */
+    border: none; /* El borde lo da el .message-bubble */
+    box-shadow: none; /* La sombra la da el .message-bubble */
 }
