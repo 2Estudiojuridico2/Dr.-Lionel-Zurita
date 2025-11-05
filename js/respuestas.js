@@ -44,7 +44,7 @@ window.CHATBOT_RESPONSES = {
             { text: "Volver al Menú Principal ↩️", value: "VOLVER" } 
         ],
         // 💡 RUTA: Se corrige la ruta a la página de detalle
-        DIVORCIOS_TEXT: "El Dr. Zurita maneja divorcios de mutuo acuerdo y contenciosos. El proceso se inicia con la presentación de la demanda. Para un divorcio exprés, ambos deben estar de acuerdo. [Más info aquí](areas/familia.html).",
+        DIVORCIOS_TEXT: "El Dr. Zurita maneja divorcios de mutuo acuerdo o unilateral. El proceso se inicia con la presentación de la demanda.[Más info aquí](areas/familia.html).",
         // 💡 CONTEXTO: Se añade el contexto de la imagen (que no se renderiza en texto)
         ALIMENTOS_TEXT: "La cuota alimentaria se establece según las necesidades del menor y la capacidad económica del alimentante. Puedes iniciar el reclamo contactándonos. Recomendamos juntar comprobantes de gastos.",
         REGIMEN_COMUNICACION_TEXT: "El régimen de comunicación busca garantizar el contacto del menor con el progenitor no conviviente. Esto se puede negociar o fijar judicialmente. [Ver detalles](areas/familia.html).",
