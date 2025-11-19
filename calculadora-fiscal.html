@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17555284710"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17555284710');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Legal y Fiscal PBA | Estudio Jurídico Dr. Lionel Zurita</title>
+    <meta name="description" content="Calculadora de Honorarios (Jus), Tasa de Justicia e Impuesto Inmobiliario según Ley Impositiva 15479 y Ley de Honorarios 14967. Herramienta para abogados y clientes.">
+    <meta name="author" content="Dr. Lionel Nicolás Zurita">
+    
+    <link rel="canonical" href="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/calculadora-fiscal.html" />
+    <link rel="icon" href="images/justicia.png" type="image/png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+
+    <style>
+        /* Ajustes para convivencia Bootstrap + Tailwind */
+        body { font-family: 'Roboto', sans-serif; background-color: #f8f9fa; }
+        .card-calc { background: white; border-radius: 1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .card-calc:hover { transform: translateY(-2px); }
+        
+        /* Tabs Personalizados */
+        .tab-btn {
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            color: #6b7280;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        .tab-btn:hover { color: #1e40af; background-color: #f0f9ff; }
+        .tab-btn.active { color: #1e40af; border-bottom-color: #1e40af; }
+        .tab-content { display: none; animation: fadeIn 0.4s; }
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Ajuste Navbar Fixed */
+        .pt-calc-body { padding-top: 100px; } 
+        @media(max-width: 991px) { .pt-calc-body { padding-top: 80px; } }
+    </style>
+</head>
+<body class="pt-calc-body">
+
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar" aria-label="Barra de navegación principal">
+        <div class="container">
+            <a class="navbar-brand nav-brand" href="index.html">Estudio Jurídico Zurita</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownAreas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Áreas de Práctica
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAreas">
+                            <li><a class="dropdown-item" href="areas/familia.html">Derecho de Familia</a></li>
+                            <li><a class="dropdown-item" href="areas/laboral.html">Derecho Laboral</a></li>
+                            <li><a class="dropdown-item" href="areas/sucesiones.html">Derecho Sucesorio</a></li>
+                            <li><a class="dropdown-item" href="areas/contratos.html">Contratos</a></li>
+                            <li><a class="dropdown-item" href="areas/transito.html">Accidentes de Tránsito</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="areas/calculadora-cuota.html">Simulador Cuota Alimentaria</a></li>
+                            <li><a class="dropdown-item active" href="calculadora-fiscal.html">Calculadora Fiscal & Honorarios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="agendar-turno.html">Agendar Turno</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 pb-12">
+        
+        <div class="text-center mb-10" data-aos="fade-down">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Calculadora Legal & Fiscal PBA</h1>
+            <p class="text-lg text-gray-600">Herramienta profesional actualizada según Ley 15479 (2024) y Ley 14967.</p>
+        </div>
+
+        <div class="bg-white rounded-t-2xl shadow-sm border-b border-gray-200 mx-auto max-w-5xl overflow-x-auto">
+            <div class="flex whitespace-nowrap px-4">
+                <button class="tab-btn active" onclick="openTab('honorarios')">⚖️ Honorarios (JUS)</button>
+                <button class="tab-btn" onclick="openTab('tasa')">🏛️ Tasa de Justicia</button>
+                <button class="tab-btn" onclick="openTab('inmobiliario')">🏠 Valuación Fiscal</button>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-b-2xl shadow-lg p-6 md:p-10 mx-auto max-w-5xl min-h-[500px]">
+
+            <div id="honorarios" class="tab-content active">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-600">
+                            <h3 class="font-bold text-blue-800">Cálculo de Honorarios (Ley 14967)</h3>
+                            <p class="text-sm text-blue-700 mt-1">El "Jus" es la unidad arancelaria del 1% de la remuneración de Juez de 1ra Instancia (Art. 9).</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Valor JUS Actual ($)</label>
+                            <input type="number" id="jus_valor" value="28737" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Consulte última Acordada SCBA">
+                            <p class="text-xs text-gray-500 mt-1">* Verifique valor vigente en SCBA.</p>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Cantidad de JUS</label>
+                            <input type="number" id="jus_cantidad" value="10" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" oninput="calcularJus()">
+                        </div>
+
+                        <div class="p-4 bg-gray-50 rounded border border-gray-200 text-sm">
+                            <p class="font-bold mb-2">Referencias Mínimas (Ley 14967):</p>
+                            <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                                <li>Divorcio: 40 Jus [cite: 40]</li>
+                                <li>Sucesiones: 30 a 50 Jus aprox.</li>
+                                <li>Alimentos: 20 Jus [cite: 40]</li>
+                                <li>Desalojo: 20 Jus [cite: 214]</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center space-y-6">
+                        <div class="card-calc p-6 border border-blue-100 bg-blue-50 text-center">
+                            <p class="text-sm font-bold text-blue-600 uppercase mb-1">Honorarios Netos</p>
+                            <p id="res_honorarios" class="text-5xl font-extrabold text-gray-800">$0</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-green-50 rounded-lg border border-green-100 text-center">
+                                <p class="text-xs font-bold text-green-700 uppercase">Aporte Previsional (10%)</p>
+                                <p id="res_aporte" class="text-xl font-bold text-gray-800 mt-1">$0</p>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg border border-purple-100 text-center">
+                                <p class="text-xs font-bold text-purple-700 uppercase">Ingresos Brutos (3.5%)</p>
+                                <p id="res_iibb" class="text-xl font-bold text-gray-800 mt-1">$0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tasa" class="tab-content">
+                <div class="max-w-3xl mx-auto space-y-8">
+                    <div class="bg-amber-50 p-4 rounded-lg border-l-4 border-amber-500">
+                        <h3 class="font-bold text-amber-800">Tasa de Justicia (Art. 77 - Ley 15479)</h3>
+                        <p class="text-sm text-amber-700 mt-1">La tasa general es del 22 o/oo (2.2%) en juicios por sumas de dinero.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Monto del Reclamo ($)</label>
+                            <input type="number" id="tasa_monto" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none" placeholder="Ej: 1000000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Proceso</label>
+                            <select id="tasa_alicuota" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 outline-none bg-white">
+                                <option value="0.022">General (2.2%) - Art. 77</option>
+                                <option value="0.011">Ejecutivo (1.1%) - Art. 78</option>
+                                <option value="0.0075">Sucesiones (0.75%)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button onclick="calcularTasa()" class="w-full py-3 bg-amber-600 text-white font-bold rounded-lg hover:bg-amber-700 transition shadow">Calcular Tasa & Sobretasa</button>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 text-center">
+                        <div class="p-4 border rounded-lg bg-gray-50">
+                            <p class="text-xs text-gray-500 uppercase">Tasa de Justicia</p>
+                            <p id="res_tasa_base" class="text-2xl font-bold text-gray-800">$0</p>
+                        </div>
+                        <div class="p-4 border rounded-lg bg-gray-50">
+                            <p class="text-xs text-gray-500 uppercase">Sobretasa (10%)</p>
+                            <p id="res_sobretasa" class="text-2xl font-bold text-gray-800">$0</p>
+                        </div>
+                        <div class="p-4 border rounded-lg bg-amber-100 border-amber-200">
+                            <p class="text-xs text-amber-800 uppercase font-bold">Total a Pagar</p>
+                            <p id="res_tasa_total" class="text-3xl font-extrabold text-amber-700">$0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inmobiliario" class="tab-content">
+                <div class="space-y-6">
+                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-600">
+                        <h3 class="font-bold text-green-800">Valuación Fiscal 2024 (Arts. 2, 4 y 5)</h3>
+                        <p class="text-sm text-green-700 mt-1">Cálculo de la Base Imponible según coeficientes de actualización.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="md:col-span-1 space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Formulario</label>
+                                <select id="inmo_form" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 bg-white" onchange="updateTipos()">
+                                    <option value="903">F.903 - Vivienda (Urbano)</option>
+                                    <option value="904">F.904 - Comercio/Industria</option>
+                                    <option value="905">F.905 - Rural</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Categoría</label>
+                                <select id="inmo_tipo" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500 bg-white">
+                                    </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Superficie ($m^2$)</label>
+                                <input type="number" id="inmo_sup" class="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-green-500" placeholder="Ej: 100">
+                            </div>
+                            <button onclick="calcularInmobiliario()" class="w-full py-2 bg-green-600 text-white font-bold rounded hover:bg-green-700 transition">Calcular</button>
+                        </div>
+
+                        <div class="md:col-span-2 bg-gray-50 p-6 rounded-xl border border-gray-200 flex flex-col justify-center items-center space-y-4">
+                            <div class="w-full flex justify-between border-b pb-2">
+                                <span class="text-gray-600">Valor Básico (Tabla Art. 2)</span>
+                                <span id="res_val_basico" class="font-bold">$0</span>
+                            </div>
+                            <div class="w-full flex justify-between border-b pb-2">
+                                <span class="text-gray-600">Coef. Actualización (Art. 4)</span>
+                                <span class="font-bold">x 1.2</span>
+                            </div>
+                            <div class="w-full flex justify-between border-b pb-2">
+                                <span class="text-gray-600">Coef. Base Imponible (Art. 5)</span>
+                                <span class="font-bold">x 11.41876</span>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-sm text-gray-500 uppercase tracking-widest">Valuación Fiscal Total</p>
+                                <p id="res_val_fiscal" class="text-4xl font-extrabold text-green-600">$0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container text-center">
+            <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
+            <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/541131976852" class="text-white">+54 11 3197 6852</a></p>
+            <p class="mt-2 text-white-50 small">
+                <i class="fas fa-info-circle me-1"></i> La información es ilustrativa y no constituye asesoramiento legal.
+                <a href="aviso-legal.html" class="text-white-50 ms-1">Ver Aviso Legal</a>
+            </p>
+        </div>
+    </footer>
+
+    <div id="chatbot-lottie-btn" class="floating-btn chatbot-btn">
+        <lottie-player id="lottie-icon" src="Assent/Lottie/lawyer-assistant.json" background="transparent" speed="1.2" style="width: 120px; height: 120px;" loop autoplay></lottie-player>
+    </div>
+    
+    <div id="chatbot-container" class="chatbot-hidden">
+        <div id="chatbot-header"><h3 id="chatbot-header-title">Asistente Legal Zurita</h3><button id="chatbot-close-btn">&times;</button></div>
+        <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3"><p class="text-center text-muted mt-5">¡Hola! ¿En qué puedo ayudarte?</p></div>
+        <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t"></div>
+        <form id="chat-form" class="p-3 border-t flex">
+            <input type="text" id="chatbot-input" placeholder="Escribe..." class="flex-grow p-2 border rounded-l-lg focus:outline-none">
+            <button type="submit" id="chatbot-send-btn" class="p-2 bg-blue-600 text-white rounded-r-lg"><i class="fas fa-paper-plane"></i></button>
+        </form>
+    </div>
+
+    <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank"><i class="fab fa-whatsapp fa-2x"></i></a>
+    <button class="scroll-top" id="scrollTopBtn"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="js/respuestas.js"></script>
+    <script src="js/frases.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // --- LOGICA DE LA CALCULADORA ---
+        
+        // Formateador de Moneda
+        const fmt = new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 });
+
+        // Datos Inmobiliarios (Ley 15479 Art 2)
+        const VALORES_INMO = {
+            '903': [ {t:'A', v:25000}, {t:'B', v:18000}, {t:'C', v:10000}, {t:'D', v:6000}, {t:'E', v:4000} ],
+            '904': [ {t:'A', v:19400}, {t:'B', v:15372}, {t:'C', v:8520}, {t:'D', v:5000} ],
+            '905': [ {t:'B', v:12300}, {t:'C', v:8046}, {t:'D', v:5856}, {t:'E', v:2928} ]
+        };
+
+        function openTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Calcular Jus
+        function calcularJus() {
+            const val = parseFloat(document.getElementById('jus_valor').value) || 0;
+            const qty = parseFloat(document.getElementById('jus_cantidad').value) || 0;
+            
+            const total = val * qty;
+            document.getElementById('res_honorarios').innerText = fmt.format(total);
+            document.getElementById('res_aporte').innerText = fmt.format(total * 0.10);
+            document.getElementById('res_iibb').innerText = fmt.format(total * 0.035);
+        }
+
+        // Calcular Tasa
+        function calcularTasa() {
+            const monto = parseFloat(document.getElementById('tasa_monto').value) || 0;
+            const alicuota = parseFloat(document.getElementById('tasa_alicuota').value);
+            
+            const tasa = monto * alicuota;
+            const sobretasa = tasa * 0.10;
+            
+            document.getElementById('res_tasa_base').innerText = fmt.format(tasa);
+            document.getElementById('res_sobretasa').innerText = fmt.format(sobretasa);
+            document.getElementById('res_tasa_total').innerText = fmt.format(tasa + sobretasa);
+        }
+
+        // Logica Inmobiliario
+        function updateTipos() {
+            const form = document.getElementById('inmo_form').value;
+            const sel = document.getElementById('inmo_tipo');
+            sel.innerHTML = '';
+            VALORES_INMO[form].forEach(i => {
+                let opt = document.createElement('option');
+                opt.value = i.v;
+                opt.text = `Tipo ${i.t} ($${i.v}/m2)`;
+                sel.appendChild(opt);
+            });
+        }
+
+        function calcularInmobiliario() {
+            const valM2 = parseFloat(document.getElementById('inmo_tipo').value);
+            const sup = parseFloat(document.getElementById('inmo_sup').value) || 0;
+            
+            // Ley 15479: Art 4 (Coef 1.2) y Art 5 (Coef 11.41876)
+            const valFiscal = (valM2 * sup) * 1.2 * 11.41876;
+            
+            document.getElementById('res_val_basico').innerText = fmt.format(valM2 * sup);
+            document.getElementById('res_val_fiscal').innerText = fmt.format(valFiscal);
+        }
+
+        // Inicializar
+        updateTipos();
+        calcularJus();
+    </script>
+</body>
+</html>
