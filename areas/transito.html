@@ -1,76 +1,369 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://example.com">
-    <link rel="preconnect" href="https://another-example.com" crossorigin>
-    <title>Your Website Title</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Accidentes de Tránsito | Estudio Jurídico Dr. Lionel Nicolás Zurita</title>
+    <meta name="description" content="Asesoramiento legal profesional en Accidentes de Tránsito: Reclamos a seguros, lesiones, daños y multas. Confía en la experiencia del Dr. Lionel Zurita.">
+    <meta name="author" content="Dr. Lionel Nicolás Zurita">
+
+    <link rel="canonical" href="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/areas/transito.html" />
+    <meta property="og:locale" content="es_AR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Accidentes de Tránsito | Estudio Jurídico Dr. Lionel Zurita">
+    <meta property="og:description" content="Asesoramiento legal profesional en Accidentes de Tránsito: Reclamos a aseguradoras, daños materiales y lesiones físicas.">
+    <meta property="og:image" content="https://2estudiojuridico2.github.io/Dr.-Lionel-Zurita/images/transito-og.jpg">
+
+    <link rel="icon" href="../images/justicia.png" type="image/png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+
+    <style>
+        /* Asegurar que el anclaje no quede tapado por la navbar fija */
+        html { scroll-padding-top: 80px; }
+        @media (max-width: 991.98px) { html { scroll-padding-top: 60px; } }
+
+        /* Hero específico: background + overlay */
+        .hero-transito {
+            background-image: url('../images/transito.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            min-height: 52vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3.5rem 1rem;
+        }
+        .hero-transito::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+            z-index: 0;
+        }
+        .hero-transito .container { position: relative; z-index: 1; }
+    </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+<body class="transito">
+
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar" aria-label="Barra de navegación principal">
+        <div class="container">
+            <a class="navbar-brand nav-brand" href="../index.html">Estudio Jurídico Dr. Lionel Zurita</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Mostrar/Ocultar menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                    
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownAreas" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+                            Áreas de Práctica
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownAreas">
+                            <li><a class="dropdown-item" href="familia.html">Derecho de Familia</a></li>
+                            <li><a class="dropdown-item" href="laboral.html">Derecho Laboral</a></li>
+                            <li><a class="dropdown-item" href="sucesiones.html">Derecho Sucesorio</a></li>
+                            <li><a class="dropdown-item" href="contratos.html">Contratos</a></li>
+                            <li><a class="dropdown-item active" href="transito.html" aria-current="page">Accidentes de Tránsito</a></li>
+                            <li><hr class="dropdown-divider"></li> 
+                            <li><a class="dropdown-item" href="calculadora-cuota.html">Simulador Cuota Alimentaria</a></li> 
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../agendar-turno.html">Agendar Turno</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../aviso-legal.html">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <!-- Header -->
-    <header>
-        <h1>Welcome to Our Law Firm</h1>
+    <header id="inicio-transito" class="hero hero-transito text-center" role="banner">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <h1 class="display-4 text-white mb-3" data-aos="fade-down">Accidentes de Tránsito</h1>
+            <p class="lead text-white mb-3" data-aos="fade-up" data-aos-delay="100">
+                Defendemos sus derechos ante siniestros viales para que obtenga la indemnización que le corresponde.
+            </p>
+            <div class="mt-4" data-aos="zoom-in" data-aos-delay="200">
+                <a href="#nuestros-servicios" class="btn btn-primary btn-lg me-3" role="button">Servicios Legales</a>
+                <a href="https://wa.me/5491131976852" class="btn btn-success btn-lg" target="_blank" rel="noopener noreferrer" role="button">
+                    <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> Consulta por WhatsApp
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- Services Cards -->
-    <section id="services">
-        <div class="service-card" loading="lazy">
-            <h3>Service 1</h3>
-            <p>Details about service 1.</p>
-        </div>
-        <div class="service-card" loading="lazy">
-            <h3>Service 2</h3>
-            <p>Details about service 2.</p>
-        </div>
-        <div class="service-card" loading="lazy">
-            <h3>Service 3</h3>
-            <p>Details about service 3.</p>
-        </div>
-    </section>
+    <main class="my-5 py-5" role="main" tabindex="0">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <img src="../images/justicia.png" alt="Accidentes de Tránsito" class="img-fluid mb-3" style="max-width:120px;">
+                <h2 class="display-6 fw-bold">Asesoría Integral en Siniestros Viales</h2>
+                <p class="lead mt-3">
+                    Tras un accidente, la rapidez y la estrategia legal son fundamentales. Brindamos un servicio enfocado en proteger su patrimonio y su integridad física frente a las compañías de seguros.
+                </p>
+            </div>
 
-    <!-- Commitment Section -->
-    <section>
-        <h2>Our Commitment</h2>
-        <p>We are committed to providing the best service for our clients.</p>
-    </section>
+            <hr class="my-5" id="nuestros-servicios">
 
-    <!-- FAQs -->
-    <section id="faqs">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq">
-            <h3>Question 1?</h3>
-            <p>Answer to question 1.</p>
+            <section class="mb-5" aria-labelledby="nuestros-servicios-titulo">
+                <h3 id="nuestros-servicios-titulo" class="fw-bold text-center mb-4" data-aos="fade-up">Especialidades en Derecho de Tránsito</h3>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                    <div class="col" data-aos="fade-up">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary fw-bold"><i class="fas fa-car-crash me-2" aria-hidden="true"></i> Accidentes de Tránsito</h4>
+                                <p class="card-text">Representación en choques de automóviles, motos, bicicletas y transporte público. Gestionamos el reclamo desde el primer momento para asegurar pruebas y testimonios.</p>
+                                <a href="../index.html#contacto" class="btn btn-outline-primary btn-sm mt-2">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary fw-bold"><i class="fas fa-file-invoice-dollar me-2" aria-hidden="true"></i> Reclamos a Seguros</h4>
+                                <p class="card-text">Negociación directa con compañías aseguradoras. Evite acuerdos insuficientes; buscamos la máxima indemnización por daños materiales, lucro cesante y desvalorización del vehículo.</p>
+                                <a href="../index.html#contacto" class="btn btn-outline-primary btn-sm mt-2">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary fw-bold"><i class="fas fa-user-injured me-2" aria-hidden="true"></i> Lesiones y Daños</h4>
+                                <p class="card-text">Reclamos por lesiones físicas, incapacidad sobreviniente y daño moral. Acompañamos a las víctimas en procesos judiciales y extrajudiciales para reparar el daño sufrido.</p>
+                                <a href="../index.html#contacto" class="btn btn-outline-primary btn-sm mt-2">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" data-aos="fade-up">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary fw-bold"><i class="fas fa-shredder me-2" aria-hidden="true"></i> Descargos por Multas</h4>
+                                <p class="card-text">Asesoramiento y redacción de descargos ante actas de infracción improcedentes, fotomultas sin homologación o vicios de forma en el procedimiento administrativo.</p>
+                                <a href="../index.html#contacto" class="btn btn-outline-primary btn-sm mt-2">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary fw-bold"><i class="fas fa-walking me-2" aria-hidden="true"></i> Atropellos y Peatones</h4>
+                                <p class="card-text">Defensa especializada para peatones víctimas de siniestros. Protección legal integral para asegurar que se respeten sus derechos frente a la vulnerabilidad del hecho.</p>
+                                <a href="../index.html#contacto" class="btn btn-outline-primary btn-sm mt-2">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="card-body">
+                                <h4 class="card-title text-primary fw-bold"><i class="fas fa-gavel me-2" aria-hidden="true"></i> Mediación Vía Civil</h4>
+                                <p class="card-text">Instancia de mediación obligatoria y procesos judiciales por daños y perjuicios. Litigamos con firmeza para obtener sentencias justas y reparadoras.</p>
+                                <a href="../index.html#contacto" class="btn btn-outline-primary btn-sm mt-2">Consultar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-5">
+
+            <section class="mb-5" aria-labelledby="compromiso-transito-titulo">
+                <h3 id="compromiso-transito-titulo" class="fw-bold text-center mb-4" data-aos="fade-up">Nuestro Método de Trabajo en Siniestros</h3>
+                <div class="row align-items-center">
+                    <div class="col-md-6" data-aos="fade-right">
+                        <img src="../images/transito-og.jpg" class="img-fluid rounded shadow-lg mb-4" alt="Compromiso en accidentes de tránsito" loading="lazy">
+                    </div>
+                    <div class="col-md-6" data-aos="fade-left">
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1" aria-hidden="true"></i>
+                                <div>
+                                    <h4 class="h5 fw-bold">Atención Inmediata</h4>
+                                    <p class="mb-0">Entendemos que el asesoramiento en las primeras horas del siniestro es vital para el éxito del reclamo.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1" aria-hidden="true"></i>
+                                <div>
+                                    <h4 class="h5 fw-bold">Sin Gastos Adelantados</h4>
+                                    <p class="mb-0">Trabajamos bajo la modalidad de cuota litis en la mayoría de los casos: cobramos cuando usted cobra.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1" aria-hidden="true"></i>
+                                <div>
+                                    <h4 class="h5 fw-bold">Gestión de Peritajes</h4>
+                                    <p class="mb-0">Contamos con consultores técnicos y médicos para evaluar correctamente los daños y lesiones.</p>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-start mb-3">
+                                <i class="fas fa-check-circle text-primary fa-lg me-3 mt-1" aria-hidden="true"></i>
+                                <div>
+                                    <h4 class="h5 fw-bold">Transparencia Total</h4>
+                                    <p class="mb-0">Informamos constantemente sobre el estado del reclamo ante la aseguradora o el juzgado.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-5">
+
+            <section id="faqs" class="mb-5" aria-labelledby="faqs-transito-titulo">
+                <h3 id="faqs-transito-titulo" class="fw-bold text-center mb-4" data-aos="fade-up">Preguntas Frecuentes sobre Siniestros Viales</h3>
+
+                <div class="accordion" id="accordionTransito" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion-item">
+                        <h4 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                ¿Qué datos debo tomar en el momento del accidente?
+                            </button>
+                        </h4>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionTransito">
+                            <div class="accordion-body">
+                                Es fundamental anotar: Nombre y DNI del otro conductor, su seguro y número de póliza, patente del vehículo, y contacto de testigos. Saque fotos de la posición de los vehículos y los daños.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h4 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿Cuánto tiempo tengo para hacer la denuncia en mi seguro?
+                            </button>
+                        </h4>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionTransito">
+                            <div class="accordion-body">
+                                Por ley, usted tiene un plazo de **72 horas hábiles** para realizar la denuncia administrativa en su propia compañía de seguros.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h4 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Qué pasa si el otro conductor no tiene seguro o se dio a la fuga?
+                            </button>
+                        </h4>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionTransito">
+                            <div class="accordion-body">
+                                Existen mecanismos legales para reclamar contra el dueño del vehículo y, en ciertos casos de lesiones graves, se analizan fondos de garantía o la responsabilidad civil personal del causante.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h4 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                ¿Debo aceptar el primer ofrecimiento de la compañía de seguros?
+                            </button>
+                        </h4>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionTransito">
+                            <div class="accordion-body">
+                                Recomendamos **no firmar nada** sin asesoría. Generalmente, los primeros ofrecimientos son muy inferiores al daño real. Nosotros evaluamos si la cifra cubre íntegramente la reparación y las lesiones.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr class="my-5">
+
+            <section id="contact-area-page" class="py-5 text-center" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" class="display-6 fw-bold mb-4" data-aos="fade-up">¿Tuvo un accidente de tránsito?</h2>
+                <p class="lead mb-4" data-aos="fade-up" data-aos-delay="100">
+                    No pierda tiempo. Consulte con un profesional para asegurar su reclamo.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="https://wa.me/5491131976852" class="btn btn-success btn-lg" target="_blank" rel="noopener noreferrer" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> WhatsApp Urgente
+                    </a>
+                    <a href="../index.html#contacto" class="btn btn-primary btn-lg" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-envelope me-2" aria-hidden="true"></i> Formulario de Contacto
+                    </a>
+                    <a href="tel:+541137722140" class="btn btn-info btn-lg text-white" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-phone-alt me-2" aria-hidden="true"></i> Llamar ahora
+                    </a>
+                </div>
+            </section>
         </div>
-    </section>
+    </main>
+    
+    <div id="chatbot-lottie-btn" class="floating-btn chatbot-btn" role="button" tabindex="0" aria-label="Abrir Asistente de Chat Legal" data-bs-toggle="tooltip" data-bs-placement="left" title="Asistente Legal IA">
+        <lottie-player 
+            id="lottie-icon"
+            src="../Assent/Lottie/lawyer-assistant.json" 
+            background="transparent" 
+            speed="1.2" 
+            style="width: 80px; height: 80px;" 
+            loop 
+            autoplay>
+        </lottie-player>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Phone: <a href="tel:+5491131976852">+54 9 11 3197 6852</a></p>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
+    <div id="chatbot-container" class="chatbot-hidden" role="dialog" aria-modal="true" aria-labelledby="chatbot-header-title">
+        <div id="chatbot-header">
+            <h3 id="chatbot-header-title">Asistente Legal Zurita</h3>
+            <button id="chatbot-close-btn" aria-label="Cerrar Chatbot">&times;</button>
+        </div>
+        <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3">
+               <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
+        </div>
+        <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t"></div>
+        <form id="chat-form" class="p-3 border-t flex">
+            <input type="text" id="chatbot-input" placeholder="Escribe tu consulta..." class="flex-grow p-2 border rounded-l-lg focus:outline-none">
+            <button type="submit" id="chatbot-send-btn" aria-label="Enviar Mensaje" class="p-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </form>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Your Company Name. All Rights Reserved.</p>
+    <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left" title="Consulta por WhatsApp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+    
+    <footer class="footer" role="contentinfo">
+        <div class="container text-center">
+            <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
+            <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/541131976852" class="text-white">+54 11 3197 6852</a></p>
+            <p class="mt-2 text-white-50 small">
+                <i class="fas fa-info-circle me-1" aria-hidden="true"></i> La información de este sitio es a modo ilustrativo y no constituye asesoramiento legal específico.
+                <a href="../aviso-legal.html" class="text-white-50 ms-1">Ver Aviso Legal Completo</a>
+            </p>
+        </div>
     </footer>
+    
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
-    <!-- Chatbot -->
-    <script src="chatbot.js" loading="lazy"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="../js/respuestas.js"></script>
+    <script src="../js/chatbot.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
