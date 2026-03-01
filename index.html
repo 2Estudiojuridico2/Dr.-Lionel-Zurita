@@ -151,7 +151,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/chatbot.css">
+   
     <!-- Non-intrusive graphics improvements (utilities only) -->
     <link rel="stylesheet" href="css/graphics-improvements.css">
 </head>
@@ -450,61 +450,31 @@
                                     <i class="fas fa-paper-plane me-2"></i> Enviar Consulta
                                 </button>
                             </div>
-                        </form>
-                        <div id="form-message" class="mt-3 text-center" style="display: none;"></div>
+                        </form> <div id="form-message" class="mt-3 text-center" style="display: none;"></div>
                     </div>
                 </div>
             </div>
         </section>
-        </main>
-
-   <div id="chatbot-lottie-btn" class="floating-btn chatbot-btn" role="button" tabindex="0" aria-label="Abrir Asistente de Chat Legal" data-bs-toggle="tooltip" data-bs-placement="left" title="Asistente Legal">
-    <lottie-player
-        id="lottie-icon"
-        src="Assent/Lottie/lawyer-assistant.json"
-        background="transparent"
-        speed="1.2"
-        loop
-        autoplay
-        style="width: 120px; height: 120px;"> </lottie-player>
-</div>
-
-<div id="chatbot-container" class="chatbot-hidden" role="dialog" aria-modal="true" aria-labelledby="chatbot-header-title">
-    <div id="chatbot-header">
-        <h3 id="chatbot-header-title">Asistente Legal Zurita</h3>
-        <button id="chatbot-close-btn" aria-label="Cerrar Chatbot">&times;</button>
-    </div>
-    <div id="chatbot-body" class="p-3 overflow-y-auto space-y-3">
-        <p class="text-center text-muted mt-5">¡Hola! Soy tu asistente virtual. ¿En qué área legal te puedo ayudar hoy?</p>
-    </div>
-    <div id="chat-buttons" class="p-3 grid grid-cols-1 gap-2 border-t"> </div>
-        <form id="chat-form" class="p-3 border-t flex">
-            <input type="text" id="chatbot-input" placeholder="Escribe tu consulta..." class="flex-grow p-2 border rounded-l-lg focus:outline-none">
-            <button type="submit" id="chatbot-send-btn" aria-label="Enviar Mensaje" class="p-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </form>
-    </div>
-
-    <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp" data-bs-toggle="tooltip" data-bs-placement="left">
+    </main> <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
         <i class="fab fa-whatsapp fa-2x"></i>
     </a>
+
     <footer class="footer" role="contentinfo">
         <div class="container text-center">
             <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
-            <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white" aria-label="Enviar email a Dr.Zuritalionel@gmail.com">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/5491131976852" class="text-white">11 3197-6852</a></p>
+            <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/5491131976852" class="text-white">11 3197-6852</a></p>
             <p class="mt-2 text-white-50 small">
-                <i class="fas fa-info-circle me-1" aria-hidden="true"></i> La información de este sitio es a modo ilustrativo y no constituye asesoramiento legal específico.
-                <a href="aviso-legal.html" class="text-white-50 ms-1" aria-label="Ver aviso legal completo">Ver Aviso Legal Completo</a>
+                <i class="fas fa-info-circle me-1" aria-hidden="true"></i> La información de este sitio es a modo ilustrativo.
+                <a href="aviso-legal.html" class="text-white-50 ms-1">Ver Aviso Legal Completo</a>
             </p>
         </div>
     </footer>
+
     <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -513,10 +483,7 @@
         });
     </script>
     
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="js/respuestas.js"></script>    
     <script src="js/frases.js"></script>     
-    <script src="js/chatbot.js"></script>
     <script src="js/main.js"></script>
-    </body>
+</body>
 </html>
