@@ -1,7 +1,7 @@
-b/* =========================================================================
- * ARCHIVO DE ESTILOS PRINCIPAL (css/estilos.css)
- * =========================================================================
- */
+/* =========================================================================
+ * ARCHIVO DE ESTILOS PRINCIPAL (css/estilos.css)
+ * =========================================================================
+ */
 
 /* ========================================================================= */
 /* VARIABLES DE COLOR */
@@ -14,158 +14,148 @@ b/* =========================================================================
     --color-texto-oscuro: #1a1a1a;   /* Para fondos muy claros si hubiera */
     --color-fondo-principal: #1e1e1e; /* Gris Carbón fondo general */
     --color-fondo-secundario: #2a2a2a; /* Gris un poco más claro para secciones/cards */
-
     /* Navbar */
     --color-navbar-fondo: #121212;   /* Negro profundo */
     --color-navbar-enlace: #d4af37;
     --color-navbar-hover: #ffffff;   
     --color-navbar-enlace-activo: var(--color-primario);
-
     /* Footer */
     --color-footer-fondo: #0a0a0a; 
     --color-footer-texto: #d4af37;
-
     /* Redes sociales (ajustadas para no romper la estética) */
     --color-telegram: #17a2b8;
     --color-whatsapp: #28a745;
     --color-email: var(--color-secundario);
-    
-    /* Variables de Chatbot (aunque se usan en chatbot.css, se definen aquí) */
-    --color-chatbot-fondo-header: #004d40;
-    --color-chatbot-input-send: #004d40;
-    --color-chatbot-user-bubble: #dcf8c6;
-    --color-chatbot-bot-bubble: #e0e0e0;
-    --color-chatbot-fondo-body: #f5f5f5;
+    /* Variables de Chatbot (aunque se usan en chatbot.css, se definen aquí) */
+    --color-chatbot-fondo-header: #004d40;
+    --color-chatbot-input-send: #004d40;
+    --color-chatbot-user-bubble: #dcf8c6;
+    --color-chatbot-bot-bubble: #e0e0e0;
+    --color-chatbot-fondo-body: #f5f5f5;
 }
-
 /* ========================================================================= */
 /* ESTILOS GENERALES */
 /* ========================================================================= */
 
 html {
-    scroll-padding-top: 80px; /* Ajuste para navbar fija */
+    scroll-padding-top: 80px; /* Ajuste para navbar fija */
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    color: var(--color-texto-claro); /* Texto ahora es claro */
-    background-color: var(--color-fondo-principal); /* Fondo gris oscuro */
-    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+    background-color: var(--color-fondo-claro);
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", serif;
-    font-weight: 600;
-    color: var(--color-primario); /* Títulos en Dorado */
-}
-
-/* Ajuste para que las secciones no queden blancas */
-#valores, #areas, #sobre-nosotros, #contacto {
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-claro);
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: var(--color-texto-oscuro);
 }
 
 a {
-    color: var(--color-primario);
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: var(--color-primario);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--color-navbar-hover);
-    text-decoration: none; /* Quitamos underline en hover para un look más limpio */
+    color: var(--color-navbar-hover);
+    text-decoration: none; /* Quitamos underline en hover para un look más limpio */
 }
 
 /* Contenido principal para evitar superposición con navbar fija */
 main {
-    padding-top: 0; 
+    padding-top: 0; 
 }
 
 /* Botones */
 .btn-primary {
-    background-color: var(--color-primario);
-    border-color: var(--color-primario);
-    color: #fff;
-    font-weight: bold;
-    border-radius: 0.3rem; /* Añadir border-radius */
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0.3rem; /* Añadir border-radius */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-navbar-hover);
-    border-color: var(--color-navbar-hover);
-    transform: translateY(-2px);
+    background-color: var(--color-navbar-hover);
+    border-color: var(--color-navbar-hover);
+    transform: translateY(-2px);
 }
 
 .btn-secondary {
-    background-color: var(--color-secundario);
-    border-color: var(--color-secundario);
-    color: #fff;
-    font-weight: bold;
-    border-radius: 0.3rem;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
-    transform: translateY(-2px);
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: translateY(-2px);
 }
 
 .btn-outline-primary {
-    color: var(--color-primario);
-    border-color: var(--color-primario);
-    border-radius: 0.3rem;
-    transition: all 0.3s ease;
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+    border-radius: 0.3rem;
+    transition: all 0.3s ease;
 }
 
 .btn-outline-primary:hover {
-    background-color: var(--color-primario);
-    color: white;
+    background-color: var(--color-primario);
+    color: white;
 }
 
 /* Botones de ícono para redes sociales en Contacto */
 .btn-icon-only {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    padding: 0;
-    transition: all 0.3s ease;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: all 0.3s ease;
 }
 
 .btn-outline-dark {
-    color: var(--color-email);
-    border-color: var(--color-email);
+    color: var(--color-email);
+    border-color: var(--color-email);
 }
 .btn-outline-dark:hover {
-    background-color: var(--color-email);
-    border-color: var(--color-email);
-    color: white;
+    background-color: var(--color-email);
+    border-color: var(--color-email);
+    color: white;
 }
 
 .btn-outline-success { /* Usado para WhatsApp en Contacto */
-    color: var(--color-whatsapp);
-    border-color: var(--color-whatsapp);
+    color: var(--color-whatsapp);
+    border-color: var(--color-whatsapp);
 }
 .btn-outline-success:hover {
-    background-color: var(--color-whatsapp);
-    border-color: var(--color-whatsapp);
-    color: white;
+    background-color: var(--color-whatsapp);
+    border-color: var(--color-whatsapp);
+    color: white;
 }
 
 .btn-info { /* Usado para Telegram en Contacto */
-    background-color: var(--color-telegram);
-    border-color: var(--color-telegram);
-    color: white;
+    background-color: var(--color-telegram);
+    border-color: var(--color-telegram);
+    color: white;
 }
 .btn-info:hover {
-    background-color: #117a8b; /* un poco más oscuro */
-    border-color: #117a8b;
-    color: white;
+    background-color: #117a8b; /* un poco más oscuro */
+    border-color: #117a8b;
+    color: white;
 }
 
 
@@ -174,65 +164,65 @@ main {
 /* ========================================================================= */
 
 .custom-navbar {
-    background-color: var(--color-navbar-fondo);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1050; 
+    background-color: var(--color-navbar-fondo);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1050; 
 }
 
 .nav-brand {
-    font-weight: bold;
-    color: var(--color-texto-oscuro) !important;
-    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-texto-oscuro) !important;
+    font-size: 1.5rem;
 }
 
 .nav-link {
-    font-weight: 500;
-    color: var(--color-navbar-enlace) !important;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    font-weight: 500;
+    color: var(--color-navbar-enlace) !important;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: var(--color-navbar-hover) !important;
+    color: var(--color-navbar-hover) !important;
 }
 
 .nav-item .nav-link.active {
-    color: var(--color-navbar-enlace-activo) !important;
-    font-weight: 700;
-    position: relative;
+    color: var(--color-navbar-enlace-activo) !important;
+    font-weight: 700;
+    position: relative;
 }
 
 .nav-item .nav-link.active::after {
-    content: '';
-    position: absolute;
-    left: 25%;
-    bottom: 5px;
-    width: 50%;
-    height: 2px;
-    background-color: var(--color-navbar-enlace-activo);
-    transition: width 0.3s ease;
+    content: '';
+    position: absolute;
+    left: 25%;
+    bottom: 5px;
+    width: 50%;
+    height: 2px;
+    background-color: var(--color-navbar-enlace-activo);
+    transition: width 0.3s ease;
 }
 
 .dropdown-menu {
-    border: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: var(--color-navbar-fondo);
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-navbar-fondo);
 }
 
 .dropdown-item {
-    color: var(--color-navbar-enlace);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    color: var(--color-navbar-enlace);
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dropdown-item:hover {
-    background-color: var(--color-fondo-claro);
-    color: var(--color-navbar-hover);
+    background-color: var(--color-fondo-claro);
+    color: var(--color-navbar-hover);
 }
 
 .custom-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852, 58, 64, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852, 58, 64, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 .custom-navbar .navbar-toggler {
-    border-color: rgba(52, 58, 64, 0.1);
+    border-color: rgba(52, 58, 64, 0.1);
 }
 
 /* ========================================================================= */
@@ -240,39 +230,39 @@ main {
 /* ========================================================================= */
 
 .hero {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding-top: 72px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden; 
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding-top: 72px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
 }
 
 .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)); /* Ligeramente más oscuro */
-    z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)); /* Ligeramente más oscuro */
+    z-index: -1;
 }
 
 .hero h1 {
-    font-weight: 700;
-    font-size: 3.5rem; 
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-    margin-bottom: 0.5em;
+    font-weight: 700;
+    font-size: 3.5rem; 
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 0.5em;
 }
 
 .hero p.lead {
-    font-size: 1.6rem;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    margin-bottom: 1.5em;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5em;
 }
 
 /* Fondos específicos para áreas (Deben coincidir con las imágenes usadas en el HTML) */
@@ -287,58 +277,57 @@ main {
 /* SECCIÓN SOBRE NOSOTROS (Mejoras visuales) */
 /* ========================================================================= */
 #sobre-nosotros {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 #sobre-nosotros h2 {
-    color: var(--color-primario);
+    color: var(--color-primario);
 }
 
 #sobre-nosotros .lead {
-    font-size: 1.15rem;
-    color: var(--color-texto-oscuro);
+    font-size: 1.15rem;
+    color: var(--color-texto-oscuro);
 }
 
 #sobre-nosotros ul li i {
-    color: var(--color-primario);
+    color: var(--color-primario);
 }
 
 /* ========================================================================= */
 /* SECCIÓN VALORES (Con imágenes para cada valor) */
 /* ========================================================================= */
 #valores {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: var(--color-fondo-claro);
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-fondo-claro);
 }
 
 #valores h2 {
-    color: var(--color-texto-oscuro);
-    margin-bottom: 3rem;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 3rem;
 }
 
 #valores .card {
-    border: none;
-    border-radius: 0.75rem; 
-    background-color: #2a2a2a; /* Cambio a gris oscuro */
-    box-shadow: 0 0 15px rgba(0,0,0,0.4); /* Sombra más pesada para fondo oscuro */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 0.75rem; /* Asegurar bordes redondeados */
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #valores .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
 #valores .card-body h3 {
-    color: var(--color-primario);
-    margin-top: 1rem;
-    margin-bottom: 0.8rem;
+    color: var(--color-primario);
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 #valores .card-body p {
-    color: var(--color-secundario);
+    color: var(--color-secundario);
 }
 
 
@@ -346,55 +335,54 @@ main {
 /* SECCIÓN ÁREAS DE PRÁCTICA (Cards) */
 /* ========================================================================= */
 #areas {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 #areas .card {
-    background-color: #2a2a2a; /* Fondo gris oscuro */
-    border: 1px solid #3d3d3d; /* Borde sutil, no negro total */
-    border-radius: .75rem; 
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.3); 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; 
+    border: 1px solid rgba(0,0,0,.125); 
+    border-radius: .75rem; 
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; 
 }
 
 #areas .card:hover {
-    transform: translateY(-8px); 
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.15); 
+    transform: translateY(-8px); 
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15); 
 }
 
 #areas .card-body {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
 
 #areas .card-body i {
-    color: var(--color-primario);
-    font-size: 3.5rem; 
-    margin-bottom: 1.5rem;
-    transition: color 0.3s ease;
+    color: var(--color-primario);
+    font-size: 3.5rem; 
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
 }
 
 #areas .card:hover .card-body i {
-    color: var(--color-navbar-hover); 
+    color: var(--color-navbar-hover); 
 }
 
 #areas .card-body h4 {
-    font-size: 1.8rem; 
-    margin-bottom: 1rem;
-    color: var(--color-texto-oscuro);
+    font-size: 1.8rem; 
+    margin-bottom: 1rem;
+    color: var(--color-texto-oscuro);
 }
 
 #areas .card-body p {
-    font-size: 1.05rem;
-    color: var(--color-secundario);
-    margin-bottom: 1.5rem;
-    flex-grow: 1; 
+    font-size: 1.05rem;
+    color: var(--color-secundario);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; 
 }
 
 
@@ -402,27 +390,25 @@ main {
 /* SECCIÓN CONTACTO (Formulario y Links) */
 /* ========================================================================= */
 #contacto {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 #contacto h2 {
-    color: var(--color-texto-oscuro);
-    margin-bottom: 3rem;
+    color: var(--color-texto-oscuro);
+    margin-bottom: 3rem;
 }
 
 #contacto .form-control {
-    background-color: #2a2a2a;
-    color: white;
-    border: 1px solid #444;
-    border-radius: 0.5rem;
-    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ced4da;
 }
 
 #contacto .form-control:focus {
-    border-color: var(--color-primario);
-    /* Usando un valor explícito de rgba basado en --color-primario (#f4623a) */
-    box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
+    border-color: var(--color-primario);
+    /* Usando un valor explícito de rgba basado en --color-primario (#f4623a) */
+    box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
 }
 
 
@@ -431,26 +417,26 @@ main {
 /* ========================================================================= */
 
 .footer {
-    background-color: var(--color-footer-fondo);
-    color: var(--color-footer-texto);
-    text-align: center;
-    padding: 2.5rem 0;
-    font-size: 0.9rem;
+    background-color: var(--color-footer-fondo);
+    color: var(--color-footer-texto);
+    text-align: center;
+    padding: 2.5rem 0;
+    font-size: 0.9rem;
 }
 
 .footer a {
-    color: var(--color-footer-texto);
-    text-decoration: none;
+    color: var(--color-footer-texto);
+    text-decoration: none;
 }
 
 .footer a:hover {
-    color: var(--color-primario);
-    text-decoration: underline;
+    color: var(--color-primario);
+    text-decoration: underline;
 }
 
 .footer p.small {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* ========================================================================= */
@@ -459,59 +445,59 @@ main {
 
 /* Botón flotante del Chatbot Lottie */
 #chatbot-lottie-btn { /* Usando el ID armonizado */
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 80px !important;
-    height: 80px !important;
-    min-width: 80px !important; /* Añadido para mayor seguridad */
-    min-height: 80px !important; /* Añadido para mayor seguridad */
-    background: transparent !important;
-    cursor: pointer;
-    z-index: 1050; 
-    border-radius: 0%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
-    transition: transform 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important; /* Añadido para mayor seguridad */
+    min-height: 80px !important; /* Añadido para mayor seguridad */
+    background: transparent !important;
+    cursor: pointer;
+    z-index: 1050; 
+    border-radius: 0%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #chatbot-lottie-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* Botón flotante de WhatsApp */
 #whatsapp-float-btn { /* Usando el ID armonizado */
-    position: fixed;
-    bottom: 20px;
-    right: 100px; 
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-whatsapp);
-    color: white;
-    border-radius: 50%;
-    text-decoration: none;
-    font-size: 28px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 100px; 
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 #whatsapp-float-btn:hover {
-    transform: scale(1.1);
-    background-color: #1aae3b; /* Un verde ligeramente diferente para hover */
-    color: white; 
+    transform: scale(1.1);
+    background-color: #1aae3b; /* Un verde ligeramente diferente para hover */
+    color: white; 
 }
 
 /* Clase que JS usará para ocultar el botón de WhatsApp cuando el chatbot esté abierto */
-#whatsapp-float-btn.hidden { 
-    opacity: 0;
-    pointer-events: none; /* Deshabilita clics */
-    transform: scale(0.8);
+#whatsapp-float-btn.hidden { 
+    opacity: 0;
+    pointer-events: none; /* Deshabilita clics */
+    transform: scale(0.8);
 }
 
 
@@ -520,162 +506,70 @@ main {
 /* ========================================================================= */
 
 @media (min-width: 992px) {
-    .hero h1 { font-size: 4.5rem; }
-    .hero p.lead { font-size: 1.8rem; }
-    .nav-link { padding-left: 1rem; padding-right: 1rem; }
+    .hero h1 { font-size: 4.5rem; }
+    .hero p.lead { font-size: 1.8rem; }
+    .nav-link { padding-left: 1rem; padding-right: 1rem; }
 }
 
 @media (max-width: 991.98px) {
-    html { scroll-padding-top: 60px; }
-    main { padding-top: 0; }
-    .hero { padding-top: 60px; }
-    .hero h1 { font-size: 2.8rem; }
-    .hero p.lead { font-size: 1.3rem; }
-    .nav-brand { font-size: 1.3rem; }
-    .dropdown-menu {
-        position: static !important;
-        transform: none !important;
-        float: none !important;
-        width: 100%;
-    }
+    html { scroll-padding-top: 60px; }
+    main { padding-top: 0; }
+    .hero { padding-top: 60px; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero p.lead { font-size: 1.3rem; }
+    .nav-brand { font-size: 1.3rem; }
+    .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        float: none !important;
+        width: 100%;
+    }
 }
 
 @media (max-width: 767.98px) {
-    .hero h1 { font-size: 2.2rem; }
-    .hero p.lead { font-size: 1.1rem; }
-    #sobre-nosotros .col-md-6, #contacto .col-md-6 {
-        text-align: center;
-    }
-    #sobre-nosotros img, #contacto img {
-        margin-bottom: 2rem;
-    }
-    
-    /* Ajustes móviles para botones flotantes */
-    #whatsapp-float-btn {
-        right: 80px; 
-        width: 55px;
-        height: 55px;
-        font-size: 25px;
-    }
-    #chatbot-lottie-btn {
-        right: 15px; 
-        width: 65px;
-        height: 65px;
-    }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p.lead { font-size: 1.1rem; }
+    #sobre-nosotros .col-md-6, #contacto .col-md-6 {
+        text-align: center;
+    }
+    #sobre-nosotros img, #contacto img {
+        margin-bottom: 2rem;
+    }
+    
+    /* Ajustes móviles para botones flotantes */
+    #whatsapp-float-btn {
+        right: 80px; 
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+    #chatbot-lottie-btn {
+        right: 15px; 
+        width: 65px;
+        height: 65px;
+    }
 }
 
 @media (max-width: 575.98px) {
-    .hero h1 { font-size: 1.8rem; }
-    .hero p.lead { font-size: 1rem; }
-    .hero .btn {
-        width: 90%; 
-        margin-bottom: 10px;
-    }
-    
-    /* Ajustes móviles más pequeños para botones flotantes */
-    #whatsapp-float-btn {
-        right: 70px;
-        bottom: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 22px;
-    }
-    #chatbot-lottie-btn {
-        right: 10px;
-        bottom: 15px;
-        width: 60px;
-        height: 60px;
-    }
-}
-/* ========================================================================= 
-   FORZADO DE TEMA OSCURO (GRIS CARBÓN Y ORO)
-   ========================================================================= */
-
-/* 1. Fondo General y Secciones */
-body, main, section, .bg-light, .bg-white {
-    background-color: var(--color-fondo-principal) !important;
-    color: var(--color-texto-claro) !important;
-}
-
-/* 2. Reparación del Navbar */
-.navbar, .custom-navbar, .bg-body-tertiary, header {
-    background-color: var(--color-navbar-fondo) !important;
-    border-bottom: 1px solid var(--color-primario) !important;
-}
-.navbar-brand, .nav-link {
-    color: var(--color-primario) !important;
-}
-.nav-link:hover {
-    color: var(--color-navbar-hover) !important;
-}
-
-/* 3. Títulos, Iconos y Textos de contraste */
-h1, h2, h3, h4, h5, h6, .text-dark, .text-body {
-    color: var(--color-primario) !important;
-}
-p, li, .lead, .text-muted {
-    color: var(--color-texto-claro) !important;
-}
-i.fas, i.fab, i.far {
-    color: var(--color-primario);
-}
-
-/* 4. Tarjetas (Cards) - Áreas de Práctica y Valores */
-.card {
-    background-color: var(--color-fondo-secundario) !important;
-    border: 1px solid #3d3d3d !important;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
-}
-.card-body {
-    background-color: transparent !important;
-}
-
-/* 5. Formulario de Contacto */
-.form-control, .form-select, textarea {
-    background-color: var(--color-fondo-secundario) !important;
-    border: 1px solid #444 !important;
-    color: var(--color-texto-claro) !important;
-}
-.form-control::placeholder, textarea::placeholder {
-    color: var(--color-secundario) !important;
-}
-.form-control:focus {
-    border-color: var(--color-primario) !important;
-    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
-}
-
-/* 6. Botones Principales */
-.btn-primary {
-    background-color: var(--color-primario) !important;
-    border-color: var(--color-primario) !important;
-    color: #000000 !important; /* Texto negro sobre oro para legibilidad */
-    font-weight: bold !important;
-}
-.btn-primary:hover {
-    background-color: #b8952e !important;
-    border-color: #b8952e !important;
-    color: #000000 !important;
-}
-
-/* 7. Footer */
-.footer, footer {
-    background-color: var(--color-footer-fondo) !important;
-    border-top: 1px solid var(--color-primario) !important;
-}
-.footer p, .footer a {
-    color: var(--color-secundario) !important;
-}
-.footer a:hover {
-    color: var(--color-primario) !important;
-}
-
-/* 8. Botones Flotantes (WhatsApp y Chatbot) */
-#whatsapp-float-btn {
-    background-color: var(--color-whatsapp) !important;
-    color: white !important;
-    border: 2px solid #1e1e1e; /* Para separarlo del fondo */
-}
-#chatbot-lottie-btn {
-    background-color: transparent !important;
-    border: none !important;
+    .hero h1 { font-size: 1.8rem; }
+    .hero p.lead { font-size: 1rem; }
+    .hero .btn {
+        width: 90%; 
+        margin-bottom: 10px;
+    }
+    
+    /* Ajustes móviles más pequeños para botones flotantes */
+    #whatsapp-float-btn {
+        right: 70px;
+        bottom: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    #chatbot-lottie-btn {
+        right: 10px;
+        bottom: 15px;
+        width: 60px;
+        height: 60px;
+    }
 }
