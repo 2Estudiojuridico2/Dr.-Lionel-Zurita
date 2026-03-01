@@ -29,7 +29,7 @@ b/* =========================================================================
     --color-telegram: #17a2b8;
     --color-whatsapp: #28a745;
     --color-email: var(--color-secundario);
-}
+    
     /* Variables de Chatbot (aunque se usan en chatbot.css, se definen aquí) */
     --color-chatbot-fondo-header: #004d40;
     --color-chatbot-input-send: #004d40;
@@ -586,4 +586,96 @@ main {
         width: 60px;
         height: 60px;
     }
+}
+/* ========================================================================= 
+   FORZADO DE TEMA OSCURO (GRIS CARBÓN Y ORO)
+   ========================================================================= */
+
+/* 1. Fondo General y Secciones */
+body, main, section, .bg-light, .bg-white {
+    background-color: var(--color-fondo-principal) !important;
+    color: var(--color-texto-claro) !important;
+}
+
+/* 2. Reparación del Navbar */
+.navbar, .custom-navbar, .bg-body-tertiary, header {
+    background-color: var(--color-navbar-fondo) !important;
+    border-bottom: 1px solid var(--color-primario) !important;
+}
+.navbar-brand, .nav-link {
+    color: var(--color-primario) !important;
+}
+.nav-link:hover {
+    color: var(--color-navbar-hover) !important;
+}
+
+/* 3. Títulos, Iconos y Textos de contraste */
+h1, h2, h3, h4, h5, h6, .text-dark, .text-body {
+    color: var(--color-primario) !important;
+}
+p, li, .lead, .text-muted {
+    color: var(--color-texto-claro) !important;
+}
+i.fas, i.fab, i.far {
+    color: var(--color-primario);
+}
+
+/* 4. Tarjetas (Cards) - Áreas de Práctica y Valores */
+.card {
+    background-color: var(--color-fondo-secundario) !important;
+    border: 1px solid #3d3d3d !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3) !important;
+}
+.card-body {
+    background-color: transparent !important;
+}
+
+/* 5. Formulario de Contacto */
+.form-control, .form-select, textarea {
+    background-color: var(--color-fondo-secundario) !important;
+    border: 1px solid #444 !important;
+    color: var(--color-texto-claro) !important;
+}
+.form-control::placeholder, textarea::placeholder {
+    color: var(--color-secundario) !important;
+}
+.form-control:focus {
+    border-color: var(--color-primario) !important;
+    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25) !important;
+}
+
+/* 6. Botones Principales */
+.btn-primary {
+    background-color: var(--color-primario) !important;
+    border-color: var(--color-primario) !important;
+    color: #000000 !important; /* Texto negro sobre oro para legibilidad */
+    font-weight: bold !important;
+}
+.btn-primary:hover {
+    background-color: #b8952e !important;
+    border-color: #b8952e !important;
+    color: #000000 !important;
+}
+
+/* 7. Footer */
+.footer, footer {
+    background-color: var(--color-footer-fondo) !important;
+    border-top: 1px solid var(--color-primario) !important;
+}
+.footer p, .footer a {
+    color: var(--color-secundario) !important;
+}
+.footer a:hover {
+    color: var(--color-primario) !important;
+}
+
+/* 8. Botones Flotantes (WhatsApp y Chatbot) */
+#whatsapp-float-btn {
+    background-color: var(--color-whatsapp) !important;
+    color: white !important;
+    border: 2px solid #1e1e1e; /* Para separarlo del fondo */
+}
+#chatbot-lottie-btn {
+    background-color: transparent !important;
+    border: none !important;
 }
