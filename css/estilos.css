@@ -1,4 +1,4 @@
-/* =========================================================================
+b/* =========================================================================
  * ARCHIVO DE ESTILOS PRINCIPAL (css/estilos.css)
  * =========================================================================
  */
@@ -320,8 +320,9 @@ main {
 
 #valores .card {
     border: none;
-    border-radius: 0.75rem; /* Asegurar bordes redondeados */
-    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+    border-radius: 0.75rem; 
+    background-color: #2a2a2a; /* Cambio a gris oscuro */
+    box-shadow: 0 0 15px rgba(0,0,0,0.4); /* Sombra más pesada para fondo oscuro */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -350,9 +351,10 @@ main {
 }
 
 #areas .card {
-    border: 1px solid rgba(0,0,0,.125); 
+    background-color: #2a2a2a; /* Fondo gris oscuro */
+    border: 1px solid #3d3d3d; /* Borde sutil, no negro total */
     border-radius: .75rem; 
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08); 
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.3); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden; 
 }
@@ -410,9 +412,11 @@ main {
 }
 
 #contacto .form-control {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
     border-radius: 0.5rem;
     padding: 0.75rem 1rem;
-    border: 1px solid #ced4da;
 }
 
 #contacto .form-control:focus {
