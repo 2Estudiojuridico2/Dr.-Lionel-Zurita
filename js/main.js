@@ -46,3 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+let mybutton = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+// Para que al hacer clic suba suavemente
+mybutton.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
