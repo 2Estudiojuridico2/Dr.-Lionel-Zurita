@@ -47,16 +47,15 @@ html {
 
 body {
     font-family: "Roboto", sans-serif;
-    color: var(--color-texto-oscuro);
-    line-height: 1.6;
-    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-claro); /* Texto ahora es claro */
+    background-color: var(--color-fondo-principal); /* Fondo gris oscuro */
     margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "Playfair Display", serif;
     font-weight: 600;
-    color: var(--color-texto-oscuro);
+    color: var(--color-primario); /* Títulos en Dorado */
 }
 
 a {
