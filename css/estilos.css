@@ -591,3 +591,28 @@ main {
     color: #333333 !important;            /* Letras gris oscuro */
     border-color: #333333 !important;
 }
+/* FONDO MAESTRO: RESPALDO Y SEGURIDAD */
+.fondo-seguridad {
+    /* Crea un degradado que va desde un azul muy profundo a un gris oscuro */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background-attachment: fixed; /* El fondo se queda quieto mientras haces scroll, dando solidez */
+    color: #F8F9FA; /* Texto claro para que contraste */
+    position: relative;
+}
+
+/* Efecto de textura sutil (Opcional: da sensación de papel moneda o documento oficial) */
+.fondo-seguridad::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    opacity: 0.03; /* Apenas perceptible, pero da textura de "fibra" o material resistente */
+    pointer-events: none;
+}
+.contenedor-seguro {
+    background: rgba(255, 255, 255, 0.05); /* Fondo casi transparente */
+    backdrop-filter: blur(10px); /* Desenfoque elegante */
+    border: 1px solid rgba(197, 160, 89, 0.2); /* Borde dorado muy suave */
+    border-radius: 15px;
+    padding: 20px;
+}
