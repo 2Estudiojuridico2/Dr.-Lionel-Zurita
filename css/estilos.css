@@ -7,25 +7,28 @@
 /* VARIABLES DE COLOR */
 /* ========================================================================= */
 :root {
-    --color-primario: #f4623a;
-    --color-secundario: #6c757d;
-    --color-texto-oscuro: #343a40;
-    --color-fondo-claro: #f8f9fa;
+    /* Paleta de Oro y Gris Carbón */
+    --color-primario: #d4af37;       /* Dorado Metálico */
+    --color-secundario: #a6a6a6;     /* Gris Plata */
+    --color-texto-claro: #f0f0f0;    /* Casi blanco para lectura */
+    --color-texto-oscuro: #1a1a1a;   /* Para fondos muy claros si hubiera */
+    --color-fondo-principal: #1e1e1e; /* Gris Carbón fondo general */
+    --color-fondo-secundario: #2a2a2a; /* Gris un poco más claro para secciones/cards */
 
     /* Navbar */
-    --color-navbar-fondo: #ffffff; /* Blanco para navbar para contraste */
-    --color-navbar-enlace: #495057;
-    --color-navbar-hover: #c94c2e; /* Rojo más oscuro para hover */
-    --color-navbar-enlace-activo: var(--color-primario); /* Color primario para activo */
+    --color-navbar-fondo: #121212;   /* Negro profundo */
+    --color-navbar-enlace: #d4af37;
+    --color-navbar-hover: #ffffff;   
+    --color-navbar-enlace-activo: var(--color-primario);
 
     /* Footer */
-    --color-footer-fondo: #212529; /* Gris muy oscuro */
-    --color-footer-texto: #f8f9fa;
+    --color-footer-fondo: #0a0a0a; 
+    --color-footer-texto: #d4af37;
 
-    /* Botones de Redes y Chatbot */
+    /* Redes sociales (ajustadas para no romper la estética) */
     --color-telegram: #17a2b8;
     --color-whatsapp: #28a745;
-    --color-email: #6c757d; /* Gris para email */
+    --color-email: var(--color-secundario);
     /* Variables de Chatbot (aunque se usan en chatbot.css, se definen aquí) */
     --color-chatbot-fondo-header: #004d40;
     --color-chatbot-input-send: #004d40;
