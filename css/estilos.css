@@ -8,27 +8,28 @@
 /* ========================================================================= */
 :root {
     /* Paleta de Oro y Gris Carbón */
-    color-primario: #d4af37;       /* Dorado Metálico */
-    color-secundario: #a6a6a6;     /* Gris Plata */
-    color-texto-claro: #f0f0f0;    /* Casi blanco para lectura */
-    color-texto-oscuro: #1a1a1a;   /* Para fondos muy claros si hubiera */
-    color-fondo-principal: #1e1e1e; /* Gris Carbón fondo general */
-    color-fondo-secundario: #2a2a2a; /* Gris un poco más claro para secciones/cards */
+    --color-primario: #d4af37;       /* Dorado Metálico */
+    --color-secundario: #a6a6a6;     /* Gris Plata */
+    --color-texto-claro: #f0f0f0;    /* Casi blanco para lectura */
+    --color-texto-oscuro: #1a1a1a;   /* Para fondos muy claros si hubiera */
+    --color-fondo-principal: #1e1e1e; /* Gris Carbón fondo general */
+    --color-fondo-secundario: #2a2a2a; /* Gris un poco más claro para secciones/cards */
 
     /* Navbar */
-    color-navbar-fondo: #121212;   /* Negro profundo */
-    color-navbar-enlace: #d4af37;
-    color-navbar-hover: #ffffff;   
-    color-navbar-enlace-activo: var(--color-primario);
+    --color-navbar-fondo: #121212;   /* Negro profundo */
+    --color-navbar-enlace: #d4af37;
+    --color-navbar-hover: #ffffff;   
+    --color-navbar-enlace-activo: var(--color-primario);
 
     /* Footer */
-    color-footer-fondo: #0a0a0a; 
-    color-footer-texto: #d4af37;
+    --color-footer-fondo: #0a0a0a; 
+    --color-footer-texto: #d4af37;
 
     /* Redes sociales (ajustadas para no romper la estética) */
-    color-telegram: #17a2b8;
-    color-whatsapp: #28a745;
-    color-email: var(--color-secundario);
+    --color-telegram: #17a2b8;
+    --color-whatsapp: #28a745;
+    --color-email: var(--color-secundario);
+}
     /* Variables de Chatbot (aunque se usan en chatbot.css, se definen aquí) */
     --color-chatbot-fondo-header: #004d40;
     --color-chatbot-input-send: #004d40;
