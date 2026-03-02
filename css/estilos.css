@@ -577,3 +577,17 @@ main {
         height: 60px;
     }
 }
+/* BOTÓN PERSONALIZADO: FONDO GRIS OSCURO, LETRAS DORADAS */
+.btn-custom-hero {
+    background-color: #333333 !important; /* Gris oscuro */
+    color: #C5A059 !important;            /* Dorado de tu variable --gold */
+    border: 2px solid #C5A059 !important; /* Borde dorado para resaltar */
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-custom-hero:hover {
+    background-color: #C5A059 !important; /* Al pasar el mouse se invierte: fondo dorado */
+    color: #333333 !important;            /* Letras gris oscuro */
+    border-color: #333333 !important;
+}
