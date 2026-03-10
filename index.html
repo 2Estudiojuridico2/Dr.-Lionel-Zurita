@@ -432,14 +432,24 @@
                 </div>
             </div>
         </section>
-    </main> <a href="https://wa.me/5491131976852" id="whatsapp-float-btn" class="floating-btn whatsapp-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
-        <i class="fab fa-whatsapp fa-2x"></i>
-    </a>
+    </main> <a href="https://wa.me/541131976852?text=Hola%20Dr.%20Lionel,%20le%20escribo%20desde%20su%20web%20para%20realizarle%20una%20consulta." 
+   id="whatsapp-float-btn" 
+   class="floating-btn whatsapp-float-btn" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   aria-label="Chatear por WhatsApp"
+   onclick="gtag('event', 'conversion', { 'send_to': 'AW-17555284710/xbZyCOG1gJobEObFgbNB', 'value': 1.0, 'currency': 'ARS' });">
+    <i class="fab fa-whatsapp fa-2x"></i>
+</a>
 
     <footer class="footer" role="contentinfo">
         <div class="container text-center">
             <p>&copy; 2025 Estudio Jurídico Dr. Lionel Zurita | Todos los derechos reservados</p>
-            <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/5491131976852" class="text-white">11 3197-6852</a></p>
+            <p>Contacto: <a href="mailto:Dr.Zuritalionel@gmail.com" class="text-white">Dr.Zuritalionel@gmail.com</a> | WhatsApp: <a href="https://wa.me/541131976852" 
+       class="text-white" 
+       onclick="gtag('event', 'conversion', { 'send_to': 'AW-17555284710/xbZyCOG1gJobEObFgbNB', 'value': 1.0, 'currency': 'ARS' });">
+       11 3197-6852
+    </a></p>
             <p class="mt-2 text-white-50 small">
                 <i class="fas fa-info-circle me-1" aria-hidden="true"></i> La información de este sitio es a modo ilustrativo.
                 <a href="aviso-legal.html" class="text-white-50 ms-1">Ver Aviso Legal Completo</a>
@@ -447,20 +457,25 @@
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
+   <button class="scroll-top" id="scrollTopBtn" aria-label="Ir arriba">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-    </script>
-    
+    <script>AOS.init({ duration: 1000, once: true });</script>
     <script src="js/frases.js"></script>     
     <script src="js/main.js"></script>
+
+    <script>
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    new bootstrap.Collapse(navbarCollapse).hide();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
