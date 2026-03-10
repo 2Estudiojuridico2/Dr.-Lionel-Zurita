@@ -1,151 +1,272 @@
 /* =========================================================================
- * ARCHIVO DE ESTILOS PRINCIPAL (css/estilos.css) - VERSIÓN UNIFICADA Y CORREGIDA
- * ========================================================================= */
+ * ARCHIVO DE ESTILOS PRINCIPAL (css/estilos.css)
+ * =========================================================================
+ */
 
+/* ========================================================================= */
+/* VARIABLES DE COLOR */
+/* ========================================================================= */
 :root {
-    /* Paleta Original Reforzada para Contraste */
-    --color-primario: #f4623a;
-    --color-secundario: #6c757d;
-    --color-texto-oscuro: #1a1a1a; /* Más oscuro para legibilidad */
-    --color-fondo-claro: #ffffff;
+    --color-primario: #f4623a;
+    --color-secundario: #6c757d;
+    --color-texto-oscuro: #343a40;
+    --color-fondo-claro: #f8f9fa;
 
-    /* Navbar */
-    --color-navbar-fondo: #ffffff;
-    --color-navbar-enlace: #495057;
-    --color-navbar-hover: #c94c2e;
-    --color-navbar-enlace-activo: var(--color-primario);
+    /* Navbar */
+    --color-navbar-fondo: #ffffff; /* Blanco para navbar para contraste */
+    --color-navbar-enlace: #495057;
+    --color-navbar-hover: #c94c2e; /* Rojo más oscuro para hover */
+    --color-navbar-enlace-activo: var(--color-primario); /* Color primario para activo */
 
-    /* Footer */
-    --color-footer-fondo: #212529;
-    --color-footer-texto: #f8f9fa;
+    /* Footer */
+    --color-footer-fondo: #212529; /* Gris muy oscuro */
+    --color-footer-texto: #f8f9fa;
 
-    /* Redes */
-    --color-telegram: #17a2b8;
-    --color-whatsapp: #28a745;
-    --color-email: #6c757d;
-    
-    /* Dorado de marca */
-    --gold: #C5A059;
-    --dark-grey: #333333;
+    /* Botones de Redes y Chatbot */
+    --color-telegram: #17a2b8;
+    --color-whatsapp: #28a745;
+    --color-email: #6c757d; /* Gris para email */
+    /* Variables de Chatbot (aunque se usan en chatbot.css, se definen aquí) */
+    --color-chatbot-fondo-header: #004d40;
+    --color-chatbot-input-send: #004d40;
+    --color-chatbot-user-bubble: #dcf8c6;
+    --color-chatbot-bot-bubble: #e0e0e0;
+    --color-chatbot-fondo-body: #f5f5f5;
 }
 
-/* =========================================================================
-   ESTILOS GENERALES
-   ========================================================================= */
+/* ========================================================================= */
+/* ESTILOS GENERALES */
+/* ========================================================================= */
 
 html {
-    scroll-padding-top: 80px;
-    overflow-x: hidden;
+    scroll-padding-top: 80px; /* Ajuste para navbar fija */
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    color: var(--color-texto-oscuro);
-    line-height: 1.6;
-    background-color: var(--color-fondo-claro);
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
+    font-family: "Roboto", sans-serif;
+    color: var(--color-texto-oscuro);
+    line-height: 1.6;
+    background-color: var(--color-fondo-claro);
+    margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-    color: var(--color-texto-oscuro);
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: var(--color-texto-oscuro);
 }
 
 a {
-    color: var(--color-primario);
-    transition: color 0.3s ease;
+    color: var(--color-primario);
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-/* =========================================================================
-   BOTONES Y COMPONENTES (Se mantienen todos tus estilos)
-   ========================================================================= */
+a:hover {
+    color: var(--color-navbar-hover);
+    text-decoration: none; /* Quitamos underline en hover para un look más limpio */
+}
 
+/* Contenido principal para evitar superposición con navbar fija */
+main {
+    padding-top: 0; 
+}
+
+/* Botones */
 .btn-primary {
-    background-color: var(--color-primario);
-    border-color: var(--color-primario);
-    color: #fff;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0.3rem; /* Añadir border-radius */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-navbar-hover);
-    transform: translateY(-2px);
+    background-color: var(--color-navbar-hover);
+    border-color: var(--color-navbar-hover);
+    transform: translateY(-2px);
 }
 
-.btn-custom-hero {
-    background-color: var(--dark-grey) !important;
-    color: var(--gold) !important;
-    border: 2px solid var(--gold) !important;
-    font-weight: bold;
-    transition: 0.3s ease;
+.btn-secondary {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-custom-hero:hover {
-    background-color: var(--gold) !important;
-    color: var(--dark-grey) !important;
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    transform: translateY(-2px);
 }
 
-/* =========================================================================
-   NAVBAR (Con sombra mejorada para celulares)
-   ========================================================================= */
+.btn-outline-primary {
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+    border-radius: 0.3rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+/* Botones de ícono para redes sociales en Contacto */
+.btn-icon-only {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark {
+    color: var(--color-email);
+    border-color: var(--color-email);
+}
+.btn-outline-dark:hover {
+    background-color: var(--color-email);
+    border-color: var(--color-email);
+    color: white;
+}
+
+.btn-outline-success { /* Usado para WhatsApp en Contacto */
+    color: var(--color-whatsapp);
+    border-color: var(--color-whatsapp);
+}
+.btn-outline-success:hover {
+    background-color: var(--color-whatsapp);
+    border-color: var(--color-whatsapp);
+    color: white;
+}
+
+.btn-info { /* Usado para Telegram en Contacto */
+    background-color: var(--color-telegram);
+    border-color: var(--color-telegram);
+    color: white;
+}
+.btn-info:hover {
+    background-color: #117a8b; /* un poco más oscuro */
+    border-color: #117a8b;
+    color: white;
+}
+
+
+/* ========================================================================= */
+/* NAVBAR */
+/* ========================================================================= */
 
 .custom-navbar {
-    background-color: var(--color-navbar-fondo);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1050;
+    background-color: var(--color-navbar-fondo);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1050; 
 }
 
 .nav-brand {
-    font-weight: bold;
-    color: var(--color-texto-oscuro) !important;
-    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-texto-oscuro) !important;
+    font-size: 1.5rem;
 }
 
 .nav-link {
-    font-weight: 500;
-    color: var(--color-navbar-enlace) !important;
+    font-weight: 500;
+    color: var(--color-navbar-enlace) !important;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.nav-link:hover, .nav-item .nav-link.active {
-    color: var(--color-primario) !important;
+.nav-link:hover {
+    color: var(--color-navbar-hover) !important;
 }
 
-/* =========================================================================
-   HERO SECTION (Mantenemos todas tus imágenes)
-   ========================================================================= */
+.nav-item .nav-link.active {
+    color: var(--color-navbar-enlace-activo) !important;
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-item .nav-link.active::after {
+    content: '';
+    position: absolute;
+    left: 25%;
+    bottom: 5px;
+    width: 50%;
+    height: 2px;
+    background-color: var(--color-navbar-enlace-activo);
+    transition: width 0.3s ease;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-navbar-fondo);
+}
+
+.dropdown-item {
+    color: var(--color-navbar-enlace);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-navbar-hover);
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2852, 58, 64, 0.7%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.custom-navbar .navbar-toggler {
+    border-color: rgba(52, 58, 64, 0.1);
+}
+
+/* ========================================================================= */
+/* HERO SECTION */
+/* ========================================================================= */
 
 .hero {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding-top: 72px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding-top: 72px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden; 
 }
 
 .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7));
-    z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)); /* Ligeramente más oscuro */
+    z-index: -1;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    font-weight: 700;
+    font-size: 3.5rem; 
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    margin-bottom: 0.5em;
 }
 
-/* Fondos específicos - No se eliminó ninguno */
+.hero p.lead {
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.5em;
+}
+
+/* Fondos específicos para áreas (Deben coincidir con las imágenes usadas en el HTML) */
 .hero-oficina { background-image: url('../images/oficina.jpg'); }
 .hero-familia { background-image: url('../images/familia.jpg'); }
 .hero-laboral { background-image: url('../images/laboral.png'); }
@@ -153,136 +274,351 @@ a {
 .hero-transito { background-image: url('../images/transito.jpg'); }
 .hero-contratos { background-image: url('../images/contrato.jpg'); }
 
-/* =========================================================================
-   CARDS Y SECCIONES (Áreas, Valores, Sobre Nosotros)
-   ========================================================================= */
+/* ========================================================================= */
+/* SECCIÓN SOBRE NOSOTROS (Mejoras visuales) */
+/* ========================================================================= */
+#sobre-nosotros {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
 
-#areas .card, #valores .card {
-    border: 1px solid rgba(0,0,0,.1);
-    border-radius: .75rem;
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08);
-    transition: transform 0.3s ease;
+#sobre-nosotros h2 {
+    color: var(--color-primario);
+}
+
+#sobre-nosotros .lead {
+    font-size: 1.15rem;
+    color: var(--color-texto-oscuro);
+}
+
+#sobre-nosotros ul li i {
+    color: var(--color-primario);
+}
+
+/* ========================================================================= */
+/* SECCIÓN VALORES (Con imágenes para cada valor) */
+/* ========================================================================= */
+#valores {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-fondo-claro);
+}
+
+#valores h2 {
+    color: var(--color-texto-oscuro);
+    margin-bottom: 3rem;
+}
+
+#valores .card {
+    border: none;
+    border-radius: 0.75rem; /* Asegurar bordes redondeados */
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#valores .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+#valores .card-body h3 {
+    color: var(--color-primario);
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+#valores .card-body p {
+    color: var(--color-secundario);
+}
+
+
+/* ========================================================================= */
+/* SECCIÓN ÁREAS DE PRÁCTICA (Cards) */
+/* ========================================================================= */
+#areas {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+#areas .card {
+    border: 1px solid rgba(0,0,0,.125); 
+    border-radius: .75rem; 
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.08); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; 
 }
 
 #areas .card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px); 
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.15); 
+}
+
+#areas .card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
 }
 
 #areas .card-body i {
-    color: var(--color-primario);
-    font-size: 3.5rem;
+    color: var(--color-primario);
+    font-size: 3.5rem; 
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
 }
 
-/* =========================================================================
-   FONDO DE SEGURIDAD (Tu efecto especial)
-   ========================================================================= */
-
-.fondo-seguridad {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-    background-attachment: fixed;
-    color: #F8F9FA;
-    position: relative;
+#areas .card:hover .card-body i {
+    color: var(--color-navbar-hover); 
 }
 
-.fondo-seguridad::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-    opacity: 0.03;
-    pointer-events: none;
+#areas .card-body h4 {
+    font-size: 1.8rem; 
+    margin-bottom: 1rem;
+    color: var(--color-texto-oscuro);
 }
 
-/* =========================================================================
-   BOTONES FLOTANTES
-   ========================================================================= */
-
-#whatsapp-float-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    z-index: 1000;
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-whatsapp);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+#areas .card-body p {
+    font-size: 1.05rem;
+    color: var(--color-secundario);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; 
 }
 
-/* =========================================================================
-   MEDIA QUERIES - CORRECCIÓN CELULAR (La clave de tu pedido)
-   ========================================================================= */
+
+/* ========================================================================= */
+/* SECCIÓN CONTACTO (Formulario y Links) */
+/* ========================================================================= */
+#contacto {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+#contacto h2 {
+    color: var(--color-texto-oscuro);
+    margin-bottom: 3rem;
+}
+
+#contacto .form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ced4da;
+}
+
+#contacto .form-control:focus {
+    border-color: var(--color-primario);
+    /* Usando un valor explícito de rgba basado en --color-primario (#f4623a) */
+    box-shadow: 0 0 0 0.25rem rgba(244, 98, 58, 0.25);
+}
+
+
+/* ========================================================================= */
+/* FOOTER */
+/* ========================================================================= */
+
+.footer {
+    background-color: var(--color-footer-fondo);
+    color: var(--color-footer-texto);
+    text-align: center;
+    padding: 2.5rem 0;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--color-footer-texto);
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: var(--color-primario);
+    text-decoration: underline;
+}
+
+.footer p.small {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ========================================================================= */
+/* LOTTIE CHATBOT TOGGLER & WHATSAPP FLOAT - ARMONIZADO */
+/* ========================================================================= */
+
+/* Botón flotante del Chatbot Lottie */
+#chatbot-lottie-btn { /* Usando el ID armonizado */
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important; /* Añadido para mayor seguridad */
+    min-height: 80px !important; /* Añadido para mayor seguridad */
+    background: transparent !important;
+    cursor: pointer;
+    z-index: 1050; 
+    border-radius: 0%;
+    background-color: transparent !important; /* Asegura que el fondo sea transparente */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chatbot-lottie-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Botón flotante de WhatsApp */
+#whatsapp-float-btn { /* Usando el ID armonizado */
+    position: fixed;
+    bottom: 20px;
+    right: 100px; 
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 28px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#whatsapp-float-btn:hover {
+    transform: scale(1.1);
+    background-color: #1aae3b; /* Un verde ligeramente diferente para hover */
+    color: white; 
+}
+
+/* Clase que JS usará para ocultar el botón de WhatsApp cuando el chatbot esté abierto */
+#whatsapp-float-btn.hidden { 
+    opacity: 0;
+    pointer-events: none; /* Deshabilita clics */
+    transform: scale(0.8);
+}
+
+
+/* ========================================================================= */
+/* MEDIA QUERIES */
+/* ========================================================================= */
+
+@media (min-width: 992px) {
+    .hero h1 { font-size: 4.5rem; }
+    .hero p.lead { font-size: 1.8rem; }
+    .nav-link { padding-left: 1rem; padding-right: 1rem; }
+}
+
+@media (max-width: 991.98px) {
+    html { scroll-padding-top: 60px; }
+    main { padding-top: 0; }
+    .hero { padding-top: 60px; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero p.lead { font-size: 1.3rem; }
+    .nav-brand { font-size: 1.3rem; }
+    .dropdown-menu {
+        position: static !important;
+        transform: none !important;
+        float: none !important;
+        width: 100%;
+    }
+}
 
 @media (max-width: 767.98px) {
-    /* 1. RESTAURAMOS LA LUZ: Texto blanco/claro para tu fondo oscuro de seguridad */
-    body.fondo-seguridad, 
-    body.fondo-seguridad p, 
-    body.fondo-seguridad li, 
-    body.fondo-seguridad .lead {
-        color: #f8f9fa !important; /* Blanco perlado para máxima lectura */
-        font-size: 1.1rem !important;
-    }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p.lead { font-size: 1.1rem; }
+    #sobre-nosotros .col-md-6, #contacto .col-md-6 {
+        text-align: center;
+    }
+    #sobre-nosotros img, #contacto img {
+        margin-bottom: 2rem;
+    }
 
-    /* 2. LAS TARJETAS: Si el fondo es blanco (como en Áreas), el texto DEBE ser oscuro */
-    .card .card-body p, 
-    .card .card-body h4,
-    .bg-light p, 
-    .bg-light h2, 
-    .bg-light h3 {
-        color: #1a1a1a !important; 
-    }
-
-    /* 3. TÍTULO PRINCIPAL (Hero) */
-    .hero h1 { 
-        font-size: 2.2rem; 
-        color: #ffffff !important;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.9); 
-    }
-
-    /* 4. REPARACIÓN DEL MENÚ MÓVIL (Para que no parezca una lista suelta) */
-    .navbar-collapse {
-        background-color: #ffffff;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        margin-top: 10px;
-    }
-    .navbar-nav .nav-link {
-        color: #333333 !important; /* Enlaces oscuros sobre el menú blanco */
-        border-bottom: 1px solid #f0f0f0;
-        padding: 12px 0;
-    }
-
-    /* 5. BOTÓN FLOTANTE WHATSAPP */
-    #whatsapp-float-btn {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: var(--color-whatsapp);
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        z-index: 9999;
-    }
+    /* Ajustes móviles para botones flotantes */
+    #whatsapp-float-btn {
+        right: 80px; 
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+    #chatbot-lottie-btn {
+        right: 15px; 
+        width: 65px;
+        height: 65px;
+    }
 }
-/* =========================================================================
-   SOLUCIÓN A LINKS ROTOS EN MÓVILES (Z-INDEX)
-   ========================================================================= */
-a, .btn, .nav-link, .card {
+
+@media (max-width: 575.98px) {
+    .hero h1 { font-size: 1.8rem; }
+    .hero p.lead { font-size: 1rem; }
+    .hero .btn {
+        width: 90%; 
+        margin-bottom: 10px;
+    }
+
+    /* Ajustes móviles más pequeños para botones flotantes */
+    #whatsapp-float-btn {
+        right: 70px;
+        bottom: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    #chatbot-lottie-btn {
+        right: 10px;
+        bottom: 15px;
+        width: 60px;
+        height: 60px;
+    }
+}
+/* BOTÓN PERSONALIZADO: FONDO GRIS OSCURO, LETRAS DORADAS */
+.btn-custom-hero {
+    background-color: #333333 !important; /* Gris oscuro */
+    color: #C5A059 !important;            /* Dorado de tu variable --gold */
+    border: 2px solid #C5A059 !important; /* Borde dorado para resaltar */
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-custom-hero:hover {
+    background-color: #C5A059 !important; /* Al pasar el mouse se invierte: fondo dorado */
+    color: #333333 !important;            /* Letras gris oscuro */
+    border-color: #333333 !important;
+}
+/* FONDO MAESTRO: RESPALDO Y SEGURIDAD */
+.fondo-seguridad {
+    /* Crea un degradado que va desde un azul muy profundo a un gris oscuro */
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    background-attachment: fixed; /* El fondo se queda quieto mientras haces scroll, dando solidez */
+    color: #F8F9FA; /* Texto claro para que contraste */
+    position: relative;
+}
+
+/* Efecto de textura sutil (Opcional: da sensación de papel moneda o documento oficial) */
+.fondo-seguridad::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    opacity: 0.03; /* Apenas perceptible, pero da textura de "fibra" o material resistente */
+    pointer-events: none;
+}
+.contenedor-seguro {
+    background: rgba(255, 255, 255, 0.05); /* Fondo casi transparente */
+    backdrop-filter: blur(10px); /* Desenfoque elegante */
+    border: 1px solid rgba(197, 160, 89, 0.2); /* Borde dorado muy suave */
+    border-radius: 15px;
+    padding: 20px;
+}
+/* Parche de funcionalidad táctil */
+a, .btn, .nav-link, .card, #whatsapp-float-btn {
     position: relative;
-    z-index: 10;
+    z-index: 20 !important;
     pointer-events: auto !important;
 }
-
-.hero * { position: relative; z-index: 2; }
-.hero::before { z-index: 1; }
