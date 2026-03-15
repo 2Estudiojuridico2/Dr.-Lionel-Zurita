@@ -1,5 +1,3 @@
-// Archivo: js/main.js - Lógica de Interfaz y UI (Limpio y Funcional)
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- SCROLL SUAVE ---
@@ -24,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- BOTÓN SCROLL TOP (Resuelve los errores de tipo) ---
+    // --- BOTÓN SCROLL TOP ---
     const scrollTopBtn = document.createElement('button');
     scrollTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
     scrollTopBtn.classList.add('scroll-top-btn');
@@ -44,23 +42,4 @@ document.addEventListener('DOMContentLoaded', () => {
              scrollTopBtn.style.display = 'none';
         }
     });
-
 });
-let mybutton = document.getElementById("scrollTopBtn");
-
-window.onscroll = function() {
-    scrollFunction();
-};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
-}
-
-// Para que al hacer clic suba suavemente
-mybutton.onclick = function() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-};
