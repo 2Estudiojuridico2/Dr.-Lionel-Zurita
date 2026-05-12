@@ -126,3 +126,8 @@ footer a {
 footer a:hover {
     opacity: 0.8;
 }
+
+.navbar-scrolled {
+    background-color: var(--azul-primario) !important;
+    padding: 5px 0; /* Se hace más pequeña al scrollear */
+}
