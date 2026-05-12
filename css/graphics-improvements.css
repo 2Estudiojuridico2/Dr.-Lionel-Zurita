@@ -1,3 +1,135 @@
-.img-responsive { max-width: 100%; height: auto; }
+/* =========================================
+   SISTEMA DE TARJETAS 3D (FLIP CARDS)
+   ========================================= */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 380px;
+    perspective: 1500px;
+    margin-bottom: 20px;
+}
 
-.img-responsive--card { border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.flip-card-front {
+    background: linear-gradient(145deg, var(--azul-primario), var(--azul-secundario));
+    color: var(--dorado);
+    border: 1px solid rgba(194, 155, 64, 0.2);
+}
+
+.flip-card-front i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.flip-card-back {
+    background-color: #ffffff;
+    color: var(--azul-primario);
+    transform: rotateY(180deg);
+    border: 2px solid var(--dorado);
+}
+
+.flip-card-back h4 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   ELEMENTOS FLOTANTES Y UI
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    z-index: 2000;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    background-color: #128c7e;
+    color: white;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: var(--azul-primario);
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    display: none; /* Se activa vía JS */
+    z-index: 2000;
+    transition: all 0.3s;
+}
+
+.scroll-top:hover {
+    background-color: var(--dorado);
+    color: var(--azul-primario);
+}
+
+/* =========================================
+   AJUSTES RESPONSIVOS (MOBILE FIRST)
+   ========================================= */
+@media (max-width: 768px) {
+    .flip-card {
+        height: 320px;
+    }
+    
+    .hero-oficina h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-oficina p {
+        font-size: 1rem;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
