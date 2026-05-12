@@ -358,16 +358,21 @@
     <script src="js/main.js"></script>
 
     <script>
-        // Cierre automático del navbar en móviles al hacer clic en un link
-        document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if (navbarCollapse.classList.contains('show')) {
-                    new bootstrap.Collapse(navbarCollapse).hide();
-                }
-            });
-        });
+        // Cierre inteligente del navbar en móviles
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const target = e.currentTarget;
+        const isDropdown = target.classList.contains('dropdown-toggle');
+        const isInternalLink = target.getAttribute('href').startsWith('#');
 
+        if (!isDropdown && isInternalLink) {
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse.classList.contains('show')) {
+                new bootstrap.Collapse(navbarCollapse).hide();
+            }
+        }
+    });
+});
         // Trackeo limpio de conversión para Google Ads en enlaces de WhatsApp
         document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
             link.addEventListener('click', () => {
