@@ -1,45 +1,87 @@
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * ESTUDIO JURÍDICO DR. LIONEL ZURITA
+ * Main Interactive Logic - Professional Version
+ */
 
-    // --- SCROLL SUAVE ---
-    const smoothLinks = document.querySelectorAll('a[href^="#"]');
-    for (const link of smoothLinks) {
-        link.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+document.addEventListener('DOMContentLoaded', () => {
+    "use strict";
+
+    // --- 1. CONTROL DE NAVBAR AL HACER SCROLL ---
+    const navbar = document.querySelector('.custom-navbar');
+    const scrollBtn = document.getElementById('scrollTopBtn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled', 'shadow');
+        } else {
+            navbar.classList.remove('navbar-scrolled', 'shadow');
+        }
+
+        // Mostrar/Ocultar botón "Ir arriba"
+        if (window.scrollY > 500) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    });
+
+    // --- 2. FIX CRÍTICO: CIERRE DE MENÚ MÓVIL ---
+    // Este código soluciona el error de que el menú se cierra y no te deja navegar.
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const menuToggle = document.getElementById('navbarNav');
+    const bsCollapse = menuToggle ? new bootstrap.Collapse(menuToggle, { toggle: false }) : null;
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            const isDropdown = link.classList.contains('dropdown-toggle');
+
+            // Si es un link interno (empieza con #) y NO es un desplegable
+            if (href.startsWith('#') && !isDropdown) {
+                if (window.innerWidth < 992 && menuToggle.classList.contains('show')) {
+                    bsCollapse.hide();
+                }
             }
+            // Si es un link a otra página (como areas/familia.html), permitimos que el navegador navegue
+        });
+    });
+
+    // --- 3. SCROLL SUAVE (SMOOTH SCROLL) ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === "#") return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const offset = 80; // Espacio para que el navbar no tape el título
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = targetElement.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // --- 4. BOTÓN "IR ARRIBA" ---
+    if (scrollBtn) {
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 
-    // --- NAVBAR ACTIVA AL HACER SCROLL ---
-    const navbar = document.querySelector('.custom-navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-            navbar.classList.add('navbar-scrolled');
-        } else {
-            navbar.classList.remove('navbar-scrolled');
-        }
-    });
-
-    // --- BOTÓN SCROLL TOP ---
-    const scrollTopBtn = document.createElement('button');
-    scrollTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
-    scrollTopBtn.classList.add('scroll-top-btn');
-    document.body.appendChild(scrollTopBtn);
-
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    window.addEventListener('scroll', () => {
-        const chatButtonHeight = 80; 
-        
-        if (window.scrollY > 400) {
-             scrollTopBtn.style.bottom = `${20 + chatButtonHeight}px`;
-             scrollTopBtn.style.display = 'block';
-        } else {
-             scrollTopBtn.style.display = 'none';
-        }
+    // --- 5. INICIALIZACIÓN DE TOOLTIPS (Opcional para Bootstrap) ---
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 });
