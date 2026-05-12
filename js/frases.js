@@ -1,21 +1,37 @@
-/* =========================================================================
- * ARCHIVO: js/frases.js
- * Frases inspiradoras o legales para mostrar dinámicamente
- * ========================================================================= */
-
-const FRASES = [
-    "La justicia no consiste en ser neutral entre el bien y el mal, sino en descubrir dónde está el mal y oponerse a él. — Martin Luther King Jr.",
-    "El derecho se aprende estudiando, pero se ejerce pensando. — Eduardo J. Couture",
-    "Donde hay justicia no hay pobreza. — Sócrates",
-    "El abogado es la voz de quien no la tiene. — Lionel Zurita"
+/**
+ * Rotador de frases institucionales
+ */
+const frases = [
+    "Compromiso ético y soluciones legales efectivas.",
+    "Especialistas en Accidentología Vial y Daños.",
+    "Defendiendo sus derechos con integridad y firmeza.",
+    "Asesoramiento integral en Derecho de Familia y Laboral.",
+    "Su tranquilidad jurídica es nuestra prioridad."
 ];
 
-function mostrarFraseAleatoria() {
-    const fraseElemento = document.getElementById('frase-dinamica');
-    if (fraseElemento) {
-        const frase = FRASES[Math.floor(Math.random() * FRASES.length)];
-        fraseElemento.textContent = frase;
-    }
+let indiceFrase = 0;
+const elementoFrase = document.getElementById("frase-juridica");
+
+function cambiarFrase() {
+    if (!elementoFrase) return;
+
+    // Efecto de salida (fade out)
+    elementoFrase.style.opacity = 0;
+
+    setTimeout(() => {
+        // Cambiar el texto
+        elementoFrase.textContent = frases[indiceFrase];
+        // Efecto de entrada (fade in)
+        elementoFrase.style.opacity = 1;
+        
+        // Avanzar al siguiente índice
+        indiceFrase = (indiceFrase + 1) % frases.length;
+    }, 1000); // Tiempo que tarda en desaparecer antes de cambiar
 }
 
-document.addEventListener('DOMContentLoaded', mostrarFraseAleatoria);
+// Iniciar el ciclo de frases cada 4 segundos
+if (elementoFrase) {
+    elementoFrase.style.transition = "opacity 1s ease-in-out";
+    cambiarFrase(); // Mostrar la primera de inmediato
+    setInterval(cambiarFrase, 5000);
+}
