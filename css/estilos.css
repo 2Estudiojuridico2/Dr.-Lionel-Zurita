@@ -1,178 +1,128 @@
-/* =========================================================================
- * ARCHIVO DE ESTILOS PRINCIPAL - DR. LIONEL ZURITA (Restaurado y Corregido)
- * ========================================================================= */
-
+/* =========================================
+   VARIABLES Y CONFIGURACIÓN BASE
+   ========================================= */
 :root {
-    --color-primario: #f4623a;
-    --color-secundario: #6c757d;
-    --color-texto-oscuro: #343a40;
-    --color-fondo-claro: #f8f9fa;
-    --color-navbar-fondo: #ffffff;
-    --color-navbar-enlace: #495057;
-    --color-navbar-hover: #c94c2e;
-    --color-navbar-enlace-activo: var(--color-primario);
-    --color-footer-fondo: #212529;
-    --color-footer-texto: #f8f9fa;
-    --color-telegram: #17a2b8;
-    --color-whatsapp: #28a745;
-    --color-email: #6c757d;
-    --gold: #C5A059;
+    --azul-primario: #0d1b2a;
+    --azul-secundario: #1b263b;
+    --dorado: #c29b40;
+    --dorado-brillante: #e0c068;
+    --blanco-humo: #f8f9fa;
+    --fuente-titulos: 'Playfair Display', serif;
+    --fuente-cuerpo: 'Roboto', sans-serif;
 }
-
-/* --- REPARACIÓN DE CAPAS (Para que los links funcionen en móvil) --- */
-a, .btn, .nav-link, .card, #whatsapp-float-btn, #chatbot-lottie-btn {
-    position: relative;
-    z-index: 50 !important; /* Los subimos por encima de cualquier fondo */
-    pointer-events: auto !important; /* Forzamos que detecte el tacto */
-}
-
-html { scroll-padding-top: 80px; }
 
 body {
-    font-family: "Roboto", sans-serif;
-    color: var(--color-texto-oscuro);
+    font-family: var(--fuente-cuerpo);
+    color: #333;
     line-height: 1.6;
-    background-color: var(--color-fondo-claro);
-    margin: 0;
+    overflow-x: hidden;
+    background-color: #ffffff;
 }
 
-/* FONDO DE SEGURIDAD (Tu diseño original corregido) */
-.fondo-seguridad {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-    background-attachment: fixed;
-    color: #F8F9FA !important; /* Forzamos texto claro */
-    position: relative;
-    z-index: 1;
+/* =========================================
+   NAVEGACIÓN (FIX MÓVIL)
+   ========================================= */
+.custom-navbar {
+    background-color: rgba(13, 27, 42, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--dorado);
+    transition: all 0.3s ease;
+    z-index: 1050 !important; /* Asegura que esté sobre el contenido */
 }
 
-/* Reparación de la textura para que no tape los links */
-.fondo-seguridad::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: -1; /* MANDATORIO: Enviado al fondo */
+.nav-brand {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--dorado) !important;
+    letter-spacing: 1px;
 }
 
-/* Títulos y textos en fondo oscuro */
-.fondo-seguridad h1, .fondo-seguridad h2, .fondo-seguridad h3, .fondo-seguridad p {
-    color: #ffffff !important;
+.nav-link {
+    color: var(--blanco-humo) !important;
+    font-weight: 400;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s;
 }
 
-/* --- NAVBAR MÓVIL REPARADA --- */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background-color: #ffffff !important; /* Fondo sólido al abrir el menú */
-        padding: 1rem;
-        border-radius: 0 0 1rem 1rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    .nav-link {
-        color: #333333 !important; /* Letras oscuras en el menú blanco */
-        padding: 10px;
-    }
+.nav-link:hover, .nav-link.active {
+    color: var(--dorado) !important;
 }
 
-/* --- HERO SECTION --- */
-.hero {
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding-top: 72px; 
+.dropdown-menu {
+    background-color: var(--azul-primario);
+    border: 1px solid var(--dorado);
+}
+
+.dropdown-item {
+    color: var(--blanco-humo);
+}
+
+.dropdown-item:hover {
+    background-color: var(--dorado);
+    color: var(--azul-primario);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero-oficina {
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(rgba(13, 27, 42, 0.75), rgba(13, 27, 42, 0.75)), 
+                url('../images/fondo-estudio.jpg') no-repeat center center/cover;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden; 
+    justify-content: center;
 }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 0;
+.hero-oficina h1 {
+    font-family: var(--fuente-titulos);
+    color: var(--dorado);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
-.hero h1, .hero p {
-    position: relative;
-    z-index: 2;
+/* =========================================
+   COMPONENTES Y BOTONES
+   ========================================= */
+.btn-gold {
+    background-color: var(--dorado);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Tus imágenes del Hero */
-.hero-oficina { background-image: url('../images/oficina.jpg'); }
-.hero-familia { background-image: url('../images/familia.jpg'); }
-.hero-laboral { background-image: url('../images/laboral.png'); }
-.hero-sucesiones { background-image: url('../images/sucesiones.jpg'); }
-.hero-transito { background-image: url('../images/transito.jpg'); }
-
-/* BOTÓN DORADO (Tu preferido) */
-.btn-custom-hero {
-    background-color: #333333 !important;
-    color: #C5A059 !important;
-    border: 2px solid #C5A059 !important;
-    font-weight: bold;
-    z-index: 100;
+.btn-gold:hover {
+    background-color: var(--dorado-brillante);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    color: var(--azul-primario);
 }
 
-/* --- AJUSTES DE TARJETAS --- */
-#areas .card {
-    background: #ffffff;
-    border-radius: .75rem;
-    color: #333333; /* Texto oscuro dentro de tarjetas blancas */
-}
-
-/* Botones flotantes corregidos para pulgar móvil */
-@media (max-width: 767.98px) {
-    #whatsapp-float-btn {
-        right: 20px;
-        bottom: 20px;
-        width: 60px;
-        height: 60px;
-    }
-    #chatbot-lottie-btn {
-        right: 20px;
-        bottom: 90px;
-    }
-}
-/* PARCHE BOTÓN WHATSAPP */
-#whatsapp-float-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px; /* Corregido: antes estaba en 100px y por eso se veía corrido */
+.divider {
     width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    color: #ffffff !important;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    z-index: 9999 !important; /* Asegura que esté por encima de todo */
-    pointer-events: auto !important; /* Activa el clic en móviles */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    height: 3px;
+    background: var(--dorado);
+    margin: 20px auto;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    background-color: var(--azul-primario);
+    color: var(--blanco-humo);
+    border-top: 5px solid var(--dorado);
+    padding: 3rem 0 1.5rem 0;
+}
+
+footer a {
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: opacity 0.3s;
 }
 
-#whatsapp-float-btn:hover {
-    transform: scale(1.1);
-    color: #ffffff !important;
-}
-
-/* Ajuste específico para celulares */
-@media (max-width: 767.98px) {
-    #whatsapp-float-btn {
-        bottom: 20px;
-        right: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 28px;
-    }
+footer a:hover {
+    opacity: 0.8;
 }
